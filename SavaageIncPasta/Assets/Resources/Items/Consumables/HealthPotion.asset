@@ -10,10 +10,12 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 0}
   m_Name: HealthPotion
-  m_EditorClassIdentifier: Assembly-CSharp::ConsumableItem
-  Item: Health Potion
+  m_EditorClassIdentifier: Assembly-CSharp::ConsumableItemData
+  Name: Health Potion
   Description: 
-  PreviewSprite: {fileID: 0}
+  PreviewSprite: {fileID: 21300000, guid: 70c4aae62e3e7174e849092d17b725f3, type: 3}
   Rarity: 0
+  StackSize: 5
   ConsumableType: 0
-  EffectAmount: 0
+  EffectAmount: 25
+  Charges: 3
