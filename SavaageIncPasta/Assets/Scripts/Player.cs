@@ -8,6 +8,11 @@ public class Player : MonoBehaviour
     [SerializeField]
     private CharacterData _characterData;
 
+    public CharacterData GetCharacterData()
+    {
+        return _characterData;
+    }
+
 
 	// Use this for initialization
 	void Start ()
