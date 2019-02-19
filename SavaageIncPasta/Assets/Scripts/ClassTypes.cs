@@ -15,13 +15,4 @@ public class ClassTypes : MonoBehaviour
 
     public ClassType Class;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }
