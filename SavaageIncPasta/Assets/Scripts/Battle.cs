@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class Battle : MonoBehaviour
 {
-    private int _optionChosen { get; set; }
-    private List<Player> _characterList = new List<Player>(); // all players in battle
-    private List<Player> _characterTurnOrder = new List<Player>(); // all players sorted into turn order
+    private int _optionChosen = 0;
+    private int _optionChoosing = 0;
+    private List<Character> _characterList = new List<Character>(); // all players in battle
+    private List<Character> _characterTurnOrder = new List<Character>(); // all players sorted into turn order
     private int _currentCharacter = 0;
-    private int _targettedCharacter = 0;
+    private int _targettedCharacter = -1;
+    private int _targettingCharacter = 0;
 
 	// Use this for initialization
 	void Start ()
     {
+        Character player1 = new Character();
+        Character enemy1 = new Character();
+        _characterList.Add(player1);
+        _characterList.Add(enemy1);
         DecideTurnOrder();
         
 	}
@@ -20,10 +26,23 @@ public class Battle : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            _optionChoosing++;
+        }
+        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            _optionChoosing--;
+        }
+        else if (Input.GetKeyDown(KeyCode.Space))
+        {
+            _optionChosen = _optionChoosing;
+        }
+
 		switch (_optionChosen)
         {
             case 1:
-                Attack(_characterTurnOrder[_currentCharacter], _characterList[_targettedCharacter]);
+                Attack(_characterTurnOrder[_currentCharacter]);
                 break;
             case 2:
                 Defend(_characterTurnOrder[_currentCharacter]);
@@ -45,7 +64,7 @@ public class Battle : MonoBehaviour
     void DecideTurnOrder()
     {
         // Decides turn order
-        foreach (Player p in _characterList)
+        foreach (Character p in _characterList)
         {
             int rand = Random.Range(-2, 3);
             for (int i = 0; i < _characterList.Count; i++)
@@ -55,7 +74,7 @@ public class Battle : MonoBehaviour
                     _characterTurnOrder.Add(p);
                     break;
                 }
-                else if (p.GetCharacterData().Agility + rand < _characterTurnOrder[i].GetCharacterData().Agility + rand)
+                else if (p.GetCharacterData().Agility + rand < _characterTurnOrder[i].GetCharacterData().Agility + rand) //needs implementing in Character
                 {
                     _characterTurnOrder.Insert(i, p);
                 }
@@ -64,24 +83,43 @@ public class Battle : MonoBehaviour
         }
     }
 
-    void Attack(Player attacker, Player target)
+    void Attack(Character attacker)
     {
         _optionChosen = 0;
-        //do attack
+
+        while (_targettedCharacter == -1)
+        {
+            if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                _targettingCharacter++;
+            }
+            else if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                _targettingCharacter--;
+            }
+            else if (Input.GetKeyDown(KeyCode.Space))
+            {
+                _targettedCharacter = _targettingCharacter;
+            }
+        }
+
+        _characterList[_targettedCharacter].CurrentHealth -= 5;
+
         _currentCharacter++;
     }
 
-    void Defend(Player defender)
+    void Defend(Character defender)
     {
         _optionChosen = 0;
         //defend
         _currentCharacter++;
     }
 
-    void Move(Player mover)
+    void Move(Character mover)
     {
         _optionChosen = 0;
         //move
         _currentCharacter++;
     }
 }
+
