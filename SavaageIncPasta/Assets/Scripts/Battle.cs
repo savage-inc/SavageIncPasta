@@ -19,8 +19,9 @@ public class Battle : MonoBehaviour
         Character enemy1 = new Character();
         _characterList.Add(player1);
         _characterList.Add(enemy1);
+
+
         DecideTurnOrder();
-        
 	}
 	
 	// Update is called once per frame
@@ -63,6 +64,8 @@ public class Battle : MonoBehaviour
 
     void DecideTurnOrder()
     {
+        _characterTurnOrder.Clear();
+
         // Decides turn order
         foreach (Character p in _characterList)
         {
@@ -74,12 +77,11 @@ public class Battle : MonoBehaviour
                     _characterTurnOrder.Add(p);
                     break;
                 }
-                else if (p.GetCharacterData().Agility + rand < _characterTurnOrder[i].GetCharacterData().Agility + rand) //needs implementing in Character
+                else if (p.Dexterity + rand < _characterTurnOrder[i].Dexterity + rand)
                 {
                     _characterTurnOrder.Insert(i, p);
                 }
             }
-
         }
     }
 
@@ -105,6 +107,8 @@ public class Battle : MonoBehaviour
 
         _characterList[_targettedCharacter].CurrentHealth -= 5;
 
+        _targettingCharacter = 0;
+        _targettedCharacter = -1;
         _currentCharacter++;
     }
 

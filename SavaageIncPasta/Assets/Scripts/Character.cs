@@ -7,13 +7,13 @@ public class Character : MonoBehaviour
 {
     public ClassType Class;
     public int Level = 1;
-    public int MaxHealth;
-    public int CurrentHealth;
-    public int Strength;
-    public int Constitution;
-    public int Dexterity;
-    public int Intelligence;
-    public int Charisma;
+    public int MaxHealth { get; set; }
+    public int CurrentHealth { get; set; }
+    public int Strength { get; set; }
+    public int Constitution { get; set; }
+    public int Dexterity { get; set; }
+    public int Intelligence { get; set; }
+    public int Charisma { get; set; }
     public MagicType Magic;
 
     // Use this for initialization
