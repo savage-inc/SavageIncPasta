@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    public ClassType Class;
-    public int Level = 1;
+    public ClassType Class { get; set; }
+    public int Level { get; set; }
     public int MaxHealth { get; set; }
     public int CurrentHealth { get; set; }
     public int Strength { get; set; }
@@ -14,7 +14,8 @@ public class Character : MonoBehaviour
     public int Dexterity { get; set; }
     public int Intelligence { get; set; }
     public int Charisma { get; set; }
-    public MagicType Magic;
+    public MagicType Magic { get; set; }
+    public bool Player = true;
 
     // Use this for initialization
     void Start ()
@@ -36,6 +37,7 @@ public class Character : MonoBehaviour
         {
             case ClassType.WARRIOR:
                 {
+                    Level = 1;
                     Strength = Random.Range(4, 7);
                     Constitution = Random.Range(4, 7);
                     Dexterity = Random.Range(1, 4);
@@ -48,6 +50,7 @@ public class Character : MonoBehaviour
                 }
             case ClassType.RANGER:
                 {
+                    Level = 1;
                     Strength = Random.Range(1, 4);
                     Constitution = Random.Range(4, 7);
                     Dexterity = Random.Range(4, 7);
@@ -60,6 +63,7 @@ public class Character : MonoBehaviour
                 }
             case ClassType.WIZARD:
                 {
+                    Level = 1;
                     Strength = Random.Range(1, 4);
                     Constitution = Random.Range(1, 4);
                     Dexterity = Random.Range(1, 4);
@@ -72,6 +76,7 @@ public class Character : MonoBehaviour
                 }
             case ClassType.SHAMAN:
                 {
+                    Level = 1;
                     Strength = Random.Range(1, 4);
                     Constitution = Random.Range(1, 4);
                     Dexterity = Random.Range(1, 4);

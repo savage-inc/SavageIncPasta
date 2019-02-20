@@ -2,57 +2,87 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum TurnOption
+{
+    eNONE,
+    eATTACK,
+    eDEFEND,
+    eMOVE
+}
+
 public class Battle : MonoBehaviour
 {
-    private int _optionChosen = 0;
-    private int _optionChoosing = 0;
+    private TurnOption _optionChosen = TurnOption.eNONE;
+    private TurnOption _optionChoosing = TurnOption.eATTACK;
     private List<Character> _characterList = new List<Character>(); // all players in battle
     private List<Character> _characterTurnOrder = new List<Character>(); // all players sorted into turn order
     private int _currentCharacter = 0;
     private int _targettedCharacter = -1;
     private int _targettingCharacter = 0;
 
-	// Use this for initialization
-	void Start ()
-    {
-        Character player1 = new Character();
-        Character enemy1 = new Character();
-        _characterList.Add(player1);
-        _characterList.Add(enemy1);
+    public Character Player1;
+    public Character Enemy1;
 
+    // Use this for initialization
+    void Start ()
+    {
+        _characterList.Add(Player1);
+        _characterList.Add(Enemy1);
 
         DecideTurnOrder();
+
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (_currentCharacter >= _characterTurnOrder.Count)
         {
-            _optionChoosing++;
-        }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            _optionChoosing--;
-        }
-        else if (Input.GetKeyDown(KeyCode.Space))
-        {
-            _optionChosen = _optionChoosing;
+            _currentCharacter = 0;
         }
 
-		switch (_optionChosen)
+        if (_optionChosen == 0 && _characterTurnOrder[_currentCharacter].Player)
         {
-            case 1:
-                Attack(_characterTurnOrder[_currentCharacter]);
-                break;
-            case 2:
-                Defend(_characterTurnOrder[_currentCharacter]);
-                break;
-            case 3:
-                Move(_characterTurnOrder[_currentCharacter]);
-                break;
-            default:
-                break;
+            if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                if ((int)_optionChoosing < 3)
+                {
+                    _optionChoosing++;
+                }
+            }
+            else if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                if ((int)_optionChoosing > 1)
+                {
+                    _optionChoosing--;
+                }
+            }
+            else if (Input.GetKeyDown(KeyCode.Space))
+            {
+                _optionChosen = _optionChoosing;
+            }
+        }
+        else
+        {
+            _optionChosen = TurnOption.eATTACK;
+        }
+
+        if (_optionChosen > 0)
+        {
+            switch (_optionChosen)
+            {
+                case TurnOption.eATTACK:
+                    Attack(_characterTurnOrder[_currentCharacter]);
+                    break;
+                case TurnOption.eDEFEND:
+                    Defend(_characterTurnOrder[_currentCharacter]);
+                    break;
+                case TurnOption.eMOVE:
+                    Move(_characterTurnOrder[_currentCharacter]);
+                    break;
+                default:
+                    break;
+            }
         }
 
         if (_currentCharacter > _characterList.Count)
@@ -62,6 +92,7 @@ public class Battle : MonoBehaviour
         }
 	}
 
+
     void DecideTurnOrder()
     {
         _characterTurnOrder.Clear();
@@ -69,47 +100,72 @@ public class Battle : MonoBehaviour
         // Decides turn order
         foreach (Character p in _characterList)
         {
-            int rand = Random.Range(-2, 3);
-            for (int i = 0; i < _characterList.Count; i++)
+            //int rand = Random.Range(-2, 2);
+
+            if (_characterTurnOrder.Count == 0)
             {
-                if (_characterTurnOrder.Count == 0)
+                _characterTurnOrder.Add(p);
+            }
+            else
+            {
+                bool added = false;
+                for (int i = 0; i < _characterTurnOrder.Count; i++)
+                {
+                    if (p.Dexterity < _characterTurnOrder[i].Dexterity)
+                    {
+                        _characterTurnOrder.Insert(i, p);
+                        added = true;
+                    }
+                    
+                }
+                if (!added)
                 {
                     _characterTurnOrder.Add(p);
-                    break;
-                }
-                else if (p.Dexterity + rand < _characterTurnOrder[i].Dexterity + rand)
-                {
-                    _characterTurnOrder.Insert(i, p);
                 }
             }
+
         }
     }
 
     void Attack(Character attacker)
     {
-        _optionChosen = 0;
-
-        while (_targettedCharacter == -1)
+        if (attacker.Player)
         {
             if (Input.GetKeyDown(KeyCode.RightArrow))
             {
-                _targettingCharacter++;
+                if (_targettingCharacter < _characterTurnOrder.Count)
+                {
+                    _targettingCharacter++;
+                }
             }
             else if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
-                _targettingCharacter--;
+                if (_targettingCharacter > 1)
+                {
+                    _targettingCharacter--;
+                }
             }
-            else if (Input.GetKeyDown(KeyCode.Space))
+            else if (Input.GetKeyDown(KeyCode.Return))
             {
                 _targettedCharacter = _targettingCharacter;
             }
+
         }
+        else
+        {
+            _targettedCharacter = 0;
+        }
+        if (_targettedCharacter > -1)
+        {
+            _optionChosen = 0;
 
-        _characterList[_targettedCharacter].CurrentHealth -= 5;
+            _characterList[_targettedCharacter].CurrentHealth -= 5;
 
-        _targettingCharacter = 0;
-        _targettedCharacter = -1;
-        _currentCharacter++;
+            _targettingCharacter = 0;
+            _targettedCharacter = -1;
+            _currentCharacter++;
+        }
+        
     }
 
     void Defend(Character defender)
@@ -124,6 +180,11 @@ public class Battle : MonoBehaviour
         _optionChosen = 0;
         //move
         _currentCharacter++;
+    }
+
+    public TurnOption GetOptionChoosing()
+    {
+        return _optionChoosing;
     }
 }
 
