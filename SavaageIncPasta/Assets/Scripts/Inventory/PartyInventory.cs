@@ -6,6 +6,7 @@ public class PartyInventory : MonoBehaviour
 {
     public int InventorySize = 10;
     public Inventory Inventory;
+    public List<BaseItemData> StartingItems;
 
     private ItemDatabase _itemDatabase;
 
@@ -22,9 +23,9 @@ public class PartyInventory : MonoBehaviour
 
     void Start()
     {
-        Inventory.AddItem(_itemDatabase.GetItemInstance("Health Potion"));
-        Inventory.AddItem(_itemDatabase.GetItemInstance("Sword"));
-        Inventory.AddItem(_itemDatabase.GetItemInstance("Magical Sword"));
-
+        foreach (var item in StartingItems)
+        {
+            Inventory.AddItem(item);
+        }
     }
 }

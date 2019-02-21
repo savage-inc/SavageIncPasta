@@ -2,34 +2,39 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Analytics;
 
 [System.Serializable]
 public class InventoryItem
 {
     public BaseItemData Item;
     public int Amount;
-    public int ViewIndex;
 }
 
 public class Inventory
 {
     public Inventory(int capacity)
     {
-        _inventorySize = capacity;
-        _inventoryItems = new List<InventoryItem>(_inventorySize);
+        _inventoryCapacity = capacity;
+        _inventoryItems = new List<InventoryItem>(InventoryCapacity);
     }
 
-    public delegate void AddItemAction(BaseItemData item);
+    public delegate void AddItemAction(InventoryItem item);
     public event AddItemAction OnItemAdd;
 
-    public delegate void RemoveItemAction(BaseItemData item, int amount);
+    public delegate void RemoveItemAction(InventoryItem item);
     public event RemoveItemAction OnItemRemove;
 
-    public delegate void UpdateItemAction(BaseItemData item,int viewIndex, int amount);
+    public delegate void UpdateItemAction(InventoryItem item, int amount);
     public event UpdateItemAction OnItemUpdate;
 
-    private int _inventorySize = 10;
-    private List<InventoryItem> _inventoryItems;
+    private readonly int _inventoryCapacity = 10;
+    protected List<InventoryItem> _inventoryItems;
+
+    public int InventoryCapacity
+    {
+        get { return _inventoryCapacity; }
+    }
 
     //Add an already existing item to the inventory
     public void AddItem(BaseItemData item)
@@ -41,6 +46,11 @@ public class Inventory
             {
                 if (inventoryItem.Amount < item.StackSize)
                 {
+                    //TODO: update item
+                    if(OnItemUpdate != null)
+                    {
+                        OnItemUpdate(inventoryItem, 1);
+                    }
                     //Item already exists so increment amount and return
                     inventoryItem.Amount++;
                     return;
@@ -48,18 +58,16 @@ public class Inventory
             }   
         }
 
-
         InventoryItem newInventoryItem = new InventoryItem();
         newInventoryItem.Item = item;
         newInventoryItem.Amount = 1;
-        newInventoryItem.ViewIndex = _inventoryItems.Count;
 
         _inventoryItems.Add(newInventoryItem);
 
         //call add event
         if (OnItemAdd != null)
         {
-            OnItemAdd(item);
+            OnItemAdd(newInventoryItem);
         }
     }
 
@@ -72,36 +80,28 @@ public class Inventory
         {
             if (inventoryItem.Item.Name == itemName)
             {
-                if (inventoryItem.Amount > 1)
-                {
-                    //Item already exists so increment amount and return
-                    inventoryItem.Amount--;
-                    return;
-                }
-                else
-                {
-                    itemToRemove = inventoryItem;
-                    break;
-                }
+                itemToRemove = inventoryItem;
+                break;
             }
         }
 
-        //Remove tagged item
         if (itemToRemove != null)
         {
-            _inventoryItems.Remove(itemToRemove);
+            RemoveItem(itemToRemove);
         }
     }
 
     public void RemoveItem(InventoryItem item)
     {
+        //if there is only one item then remove it
         if (item.Amount <= 1)
         {
-            _inventoryItems.Remove(item);
             if (OnItemRemove != null)
             {
-                OnItemRemove(item.Item, 0);
+                OnItemRemove(item);
             }
+
+            _inventoryItems.Remove(item);
         }
         else
         {
@@ -112,16 +112,22 @@ public class Inventory
                 {
                     if (invItem.Amount > 1)
                     {
+                        //TODO UPDATE item
+                        if (OnItemUpdate != null)
+                        {
+                            OnItemUpdate(invItem, -1);
+                        }
                         //Item already exists so increment amount and return
                         invItem.Amount--;
-                        if (OnItemRemove != null)
-                        {
-                            OnItemRemove(item.Item, 1);
-                        }
                         return;
                     }
                 }
             }
         }
+    }
+
+    public List<InventoryItem> GetItems()
+    {
+        return _inventoryItems;
     }
 }
