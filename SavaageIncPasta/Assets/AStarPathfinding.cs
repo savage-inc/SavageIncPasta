@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AStarPathfinding : MonoBehaviour
 {
-    GridMap grid;
+    private GridMap grid;
     public Transform ai, target;
 
     private void Awake()
@@ -30,6 +30,7 @@ public class AStarPathfinding : MonoBehaviour
         while (openList.Count > 0)
         {
             Node currentNode = openList[0];
+
             for (int i = 1; i < openList.Count; i++)
             {
                 if (openList[i].TotalCost < currentNode.TotalCost ||
@@ -73,7 +74,7 @@ public class AStarPathfinding : MonoBehaviour
         return;
     }
 
-    void RetracePath(Node startNode, Node endNode)
+    private void RetracePath(Node startNode, Node endNode)
     {
         List<Node> path = new List<Node>();
         Node currentNode = endNode;
@@ -88,7 +89,7 @@ public class AStarPathfinding : MonoBehaviour
         grid.Path = path;
     }
 
-    int GetDistance(Node firstNode, Node secondNode)
+    private int GetDistance(Node firstNode, Node secondNode)
     {
         int distanceX = Mathf.Abs(firstNode.PosX - secondNode.PosX);
         int distanceY = Mathf.Abs(firstNode.PosY - secondNode.PosY);

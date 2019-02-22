@@ -33,7 +33,7 @@ public class GridMap : MonoBehaviour
         CreateGrid();
     }
 
-    void CreateGrid()
+    private void CreateGrid()
     {
         grid = new Node[_gridSizeX, _gridSizeY];
         Vector3 bottomLeft = transform.position - (Vector3.right * _worldSize.x / 2) - (Vector3.up * _worldSize.y / 2);
@@ -85,7 +85,22 @@ public class GridMap : MonoBehaviour
 
         int x = Mathf.RoundToInt((_gridSizeX - 1) * percentX);
         int y = Mathf.RoundToInt((_gridSizeY - 1) * percentY);
+
         return grid[x, y];
+    }
+
+    public Vector3 FindNodeInWorld(Node node)
+    {
+        float percentX = (node.PosX / _gridSizeX) + 1/2;
+        float percentY = (node.PosY / _gridSizeY) + 1/2;
+
+        percentX = Mathf.Clamp01(percentX);
+        percentY = Mathf.Clamp01(percentY);
+
+        int x = Mathf.RoundToInt(percentX * _worldSize.x);
+        int y = Mathf.RoundToInt(percentY * _worldSize.y);
+
+        return new Vector3(x, y, 1);
     }
 
     private void OnDrawGizmos()
@@ -94,18 +109,19 @@ public class GridMap : MonoBehaviour
 
         if (grid != null)
         {
-            foreach (Node n in grid)
+            foreach (Node node in grid)
             {
-                Gizmos.color = (n.Walkable) ? Color.white : Color.red;
+                Gizmos.color = (node.Walkable) ? Color.white : Color.red;
 
                 if (_path != null)
                 {
-                    if (_path.Contains(n))
+                    if (_path.Contains(node))
                     {
                         Gizmos.color = Color.black;
                     }
                 }
-                Gizmos.DrawCube(n.Position, Vector3.one * (_nodeSize - 0.1f));
+
+                Gizmos.DrawCube(node.Position, Vector3.one * (_nodeSize - 0.1f));
             }
         }
     }
