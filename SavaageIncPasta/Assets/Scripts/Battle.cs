@@ -109,7 +109,8 @@ public class Battle : MonoBehaviour
             else
             {
                 bool added = false;
-                for (int i = 0; i < _characterTurnOrder.Count; i++)
+                int count = _characterTurnOrder.Count;
+                for (int i = 0; i < count; i++)
                 {
                     if (p.Dexterity < _characterTurnOrder[i].Dexterity)
                     {
@@ -129,25 +130,33 @@ public class Battle : MonoBehaviour
 
     void Attack(Character attacker)
     {
+
         if (attacker.Player)
         {
+        _characterList[_targettingCharacter].gameObject.GetComponent<SpriteRenderer>().color = Color.magenta; 
             if (Input.GetKeyDown(KeyCode.RightArrow))
             {
-                if (_targettingCharacter < _characterTurnOrder.Count)
+                if (_targettingCharacter < _characterTurnOrder.Count - 1)
                 {
+                    _characterList[_targettingCharacter].gameObject.GetComponent<SpriteRenderer>().color = Color.white;
                     _targettingCharacter++;
+                    _characterList[_targettingCharacter].gameObject.GetComponent<SpriteRenderer>().color = Color.magenta;
                 }
             }
             else if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
-                if (_targettingCharacter > 1)
+                if (_targettingCharacter > 0)
                 {
+                    _characterList[_targettingCharacter].gameObject.GetComponent<SpriteRenderer>().color = Color.white;
                     _targettingCharacter--;
+                    _characterList[_targettingCharacter].gameObject.GetComponent<SpriteRenderer>().color = Color.magenta;
                 }
             }
             else if (Input.GetKeyDown(KeyCode.Return))
             {
                 _targettedCharacter = _targettingCharacter;
+                _characterList[_targettingCharacter].gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+
             }
 
         }

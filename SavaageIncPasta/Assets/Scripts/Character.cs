@@ -17,17 +17,10 @@ public class Character : MonoBehaviour
     public MagicType Magic { get; set; }
     public bool Player = true;
 
-    // Use this for initialization
-    void Start ()
+    private void Awake()
     {
-        GenerateStats();		
-	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-		
-	}
+        GenerateStats();
+    }
 
     void GenerateStats()
     {
