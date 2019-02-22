@@ -2,24 +2,24 @@
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed;
+    public float Speed;
 
-    private Rigidbody2D rb;
-    private Vector2 moveVelocity;
+    private Rigidbody2D _rb;
+    private Vector2 _moveVelocity;
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        _rb = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
     {
         Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        moveVelocity = moveInput.normalized * speed;
+        _moveVelocity = moveInput.normalized * Speed;
     }
 
     private void FixedUpdate()
     {
-        rb.MovePosition(rb.position + moveVelocity * Time.fixedDeltaTime);
+        _rb.MovePosition(_rb.position + _moveVelocity * Time.fixedDeltaTime);
     }
 }
