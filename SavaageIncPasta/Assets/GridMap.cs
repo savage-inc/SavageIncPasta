@@ -89,20 +89,6 @@ public class GridMap : MonoBehaviour
         return grid[x, y];
     }
 
-    public Vector3 FindNodeInWorld(Node node)
-    {
-        float percentX = (node.PosX / _gridSizeX) + 1/2;
-        float percentY = (node.PosY / _gridSizeY) + 1/2;
-
-        percentX = Mathf.Clamp01(percentX);
-        percentY = Mathf.Clamp01(percentY);
-
-        int x = Mathf.RoundToInt(percentX * _worldSize.x);
-        int y = Mathf.RoundToInt(percentY * _worldSize.y);
-
-        return new Vector3(x, y, 1);
-    }
-
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireCube(transform.position, new Vector3(_worldSize.x, _worldSize.y, 1));
