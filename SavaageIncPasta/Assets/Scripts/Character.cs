@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    public ClassType Class { get; set; }
+    public ClassType Class { get; private set; }
     public int Level { get; set; }
     public int MaxHealth { get; set; }
     public int CurrentHealth { get; set; }
@@ -16,6 +16,7 @@ public class Character : MonoBehaviour
     public int Charisma { get; set; }
     public MagicType Magic { get; set; }
     public bool Player = true;
+    public bool Alive { get; set; }
 
     private void Awake()
     {
@@ -25,7 +26,7 @@ public class Character : MonoBehaviour
     void GenerateStats()
     {
         Class = (ClassType)Random.Range(0, 3);
-
+        Alive = true;
         switch(Class)
         {
             case ClassType.WARRIOR:
@@ -80,6 +81,21 @@ public class Character : MonoBehaviour
                     Magic = (MagicType)Random.Range(1, 3);
                     break;
                 }
+        }
+    }
+
+    public void ChangeHealth(int health)
+    {
+        CurrentHealth += health;
+
+        if(CurrentHealth <= 0)
+        {
+            CurrentHealth = 0;
+            Alive = false;
+        }
+        else if (CurrentHealth > MaxHealth)
+        {
+            CurrentHealth = MaxHealth;
         }
     }
 }
