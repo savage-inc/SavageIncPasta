@@ -8,6 +8,14 @@ public class PatrolPoints : MonoBehaviour {
     private float _moveSpeed = 2.5f;
     private Vector3 _destination;
 
+    public Vector3 Destination
+    {
+        get
+        {
+            return _destination;
+        }
+    }
+
     // Use this for initialization
     void Start () {
         _targets[0] = GameObject.Find("Checkpoint");
