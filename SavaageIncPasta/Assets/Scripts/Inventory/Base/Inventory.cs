@@ -11,6 +11,7 @@ public class InventoryItem
     public int Amount;
 }
 
+[System.Serializable]
 public class Inventory
 {
     public Inventory(int capacity)

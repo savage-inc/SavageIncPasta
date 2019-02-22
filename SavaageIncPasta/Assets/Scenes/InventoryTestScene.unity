@@ -323,6 +323,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 411ba9d58a9b25249a900c4238ec92ed, type: 2}
   - {fileID: 11400000, guid: 411ba9d58a9b25249a900c4238ec92ed, type: 2}
   - {fileID: 11400000, guid: 94a7f6daf7976ca40a537eb385d84160, type: 2}
+  - {fileID: 11400000, guid: e9a55a02276030f4d8a11e7b60a09c5e, type: 2}
+  - {fileID: 11400000, guid: 996aed0f030869b4ebec7c096789ef98, type: 2}
 --- !u!4 &939825386
 Transform:
   m_ObjectHideFlags: 0
@@ -362,7 +364,7 @@ MonoBehaviour:
 RectTransform:
   m_PrefabParentObject: {fileID: 224039112303016452, guid: 791859ae3087e404dbc15dc6e7abd00e,
     type: 2}
-  m_PrefabInternal: {fileID: 1454302603}
+  m_PrefabInternal: {fileID: 1216825260}
 --- !u!1 &1180169780
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,18 +427,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1454302603
+--- !u!1001 &1216825260
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 914910146}
     m_Modifications:
-    - target: {fileID: 114128629178680852, guid: 791859ae3087e404dbc15dc6e7abd00e,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 224039112303016452, guid: 791859ae3087e404dbc15dc6e7abd00e,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -591,16 +588,6 @@ Prefab:
         type: 2}
       propertyPath: m_SizeDelta.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114128629178680852, guid: 791859ae3087e404dbc15dc6e7abd00e,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114128629178680852, guid: 791859ae3087e404dbc15dc6e7abd00e,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 791859ae3087e404dbc15dc6e7abd00e, type: 2}

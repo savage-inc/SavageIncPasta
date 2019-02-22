@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Name: Helmet
   m_EditorClassIdentifier: 
   _name: Helmet
-  _description: 
+  _description: A very basic tin helmet
+  _baseMoneyCost: 0
   _previewSprite: {fileID: 0}
   _rarity: 0
   _stackSize: 1

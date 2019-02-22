@@ -11,11 +11,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b024fff49a542bd478313988631b1a04, type: 3}
   m_Name: MagicalSword
   m_EditorClassIdentifier: 
-  _name: Magical Sword
-  _description: 
+  _name: Magical Pasta Sword
+  _description: Just a magic pasta sword, no big deal.
   _baseMoneyCost: 50
-  _previewSprite: {fileID: 0}
-  _rarity: 0
+  _previewSprite: {fileID: 21300000, guid: 0e6a76340090caf48b5cd27d6a51dd88, type: 3}
+  _rarity: 3
   _stackSize: 1
   _weaponType: 0
   statType: 0

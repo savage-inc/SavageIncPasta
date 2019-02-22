@@ -37,7 +37,7 @@ public class PartyInventoryUI : MonoBehaviour
         itemPanel.transform.SetParent(InventoryContent.transform);
 
         itemPanel.transform.GetChild(0).GetComponent<Image>().sprite = item.Item.PreviewSprite;
-        itemPanel.transform.GetChild(0).GetChild(0).GetComponent<Text>().text = "x" + item.Amount; //TODO get inventory amount
+        itemPanel.transform.GetChild(0).GetChild(0).GetComponent<Text>().text = "x" + item.Amount;
         itemPanel.transform.GetChild(0).GetChild(1).GetComponent<Text>().text = item.Item.Name;
 
         var itemButton = itemPanel.GetComponent<ItemButton>();
@@ -87,7 +87,7 @@ public class PartyInventoryUI : MonoBehaviour
             if(itemButton.Item == inventoryItem)
             {
                 //get item panel
-                child.transform.GetChild(0).GetChild(0).GetComponent<Text>().text = "x" + (itemButton.Item.Amount + amount); //TODO get inventory amount
+                child.transform.GetChild(0).GetChild(0).GetComponent<Text>().text = "x" + (itemButton.Item.Amount + amount);
             }
         }
     }

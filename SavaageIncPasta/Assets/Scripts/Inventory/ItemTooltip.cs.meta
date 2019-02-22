@@ -1,10 +1,9 @@
 fileFormatVersion: 2
-guid: 3a1d6398a23650d4cbc5aee99f5349de
+guid: 0512334c119bc92458406dfdbdb0fd74
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - ItemToolTipPrefab: {instanceID: 0}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

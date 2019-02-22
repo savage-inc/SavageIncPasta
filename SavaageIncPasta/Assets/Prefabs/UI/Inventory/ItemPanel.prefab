@@ -253,7 +253,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a1d6398a23650d4cbc5aee99f5349de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemData: {fileID: 0}
+  Item:
+    Item: {fileID: 0}
+    Amount: 0
+  ItemToolTipPrefab: {fileID: 1268185678497814, guid: c810b23a1244df547906d5ac4d71cbc0,
+    type: 2}
 --- !u!222 &222194719348663902
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -312,8 +316,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 90.39, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 143.66, y: 0}
+  m_SizeDelta: {x: 266.53, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224616171608197690
 RectTransform:
