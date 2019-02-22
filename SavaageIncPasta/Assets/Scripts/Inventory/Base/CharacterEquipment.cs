@@ -51,13 +51,18 @@ public class CharacterEquipment : Inventory
         //check if a weapon is already in the equipment 
         foreach (var inventoryItem in _inventoryItems)
         {
-            if (inventoryItem.Item.ItemType == ItemType.eWEAPON || inventoryItem.Item.ItemType == ItemType.eMAGICWEAPON)
+            if ((inventoryItem.Item.ItemType == ItemType.eWEAPON || inventoryItem.Item.ItemType == ItemType.eMAGICWEAPON))
             {
-                //Weapon already equipped, add it back to the party inventory
-                partyInventory.AddItem(inventoryItem.Item);
-                //remove weapon from equipment
-                itemToRemove = inventoryItem.Item;
-                break;
+                WeaponItemData inventoryWeaponItem = (WeaponItemData)inventoryItem.Item;
+                if ((inventoryWeaponItem.IsMainHand == weaponItem.IsMainHand))
+                {
+
+                    //Weapon already equipped, add it back to the party inventory
+                    partyInventory.AddItem(inventoryItem.Item);
+                    //remove weapon from equipment
+                    itemToRemove = inventoryItem.Item;
+                    break;
+                }
             }
         }
 

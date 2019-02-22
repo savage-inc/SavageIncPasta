@@ -324,6 +324,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 411ba9d58a9b25249a900c4238ec92ed, type: 2}
   - {fileID: 11400000, guid: 94a7f6daf7976ca40a537eb385d84160, type: 2}
   - {fileID: 11400000, guid: e9a55a02276030f4d8a11e7b60a09c5e, type: 2}
+  - {fileID: 11400000, guid: 51440e8fcf1ec2144ac4906872e9a73f, type: 2}
   - {fileID: 11400000, guid: 996aed0f030869b4ebec7c096789ef98, type: 2}
 --- !u!4 &939825386
 Transform:
@@ -588,6 +589,26 @@ Prefab:
         type: 2}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224239153465134152, guid: 791859ae3087e404dbc15dc6e7abd00e,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 95.668
+      objectReference: {fileID: 0}
+    - target: {fileID: 224239153465134152, guid: 791859ae3087e404dbc15dc6e7abd00e,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 224498131143025598, guid: 791859ae3087e404dbc15dc6e7abd00e,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 95.668
+      objectReference: {fileID: 0}
+    - target: {fileID: 224498131143025598, guid: 791859ae3087e404dbc15dc6e7abd00e,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 791859ae3087e404dbc15dc6e7abd00e, type: 2}
