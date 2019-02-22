@@ -31,7 +31,7 @@ public class ItemButton : MonoBehaviour
 
     public void TransferItem(Inventory to)
     {
-        if(Inventory == null || to == null || Item.Item == null)
+        if(Inventory == null || to == null || Item == null || Item.Item == null)
             return;
 
         to.AddItem(Item.Item);
@@ -42,7 +42,7 @@ public class ItemButton : MonoBehaviour
 
     public void EquipItem(CharacterEquipment to)
     {
-        if (Inventory == null || to == null || Item.Item == null)
+        if (Inventory == null || to == null || Item == null || Item.Item == null)
             return;
 
         switch (Item.Item.ItemType)
@@ -65,7 +65,7 @@ public class ItemButton : MonoBehaviour
 
     public void ConsumeItem()
     {
-        if (Inventory == null || Item.Item == null)
+        if (Inventory == null || Item == null || Item.Item == null)
             return;
 
         Inventory.RemoveItem(Item);
@@ -75,7 +75,7 @@ public class ItemButton : MonoBehaviour
 
     public void RemoveItem()
     {
-        if (Inventory == null || Item.Item == null)
+        if (Inventory == null || Item == null || Item.Item == null)
             return;
 
         Inventory.RemoveItem(Item);
