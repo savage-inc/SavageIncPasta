@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:SavaageIncPasta/Assets/Sprites/TileSets.meta
 guid: b8161b2ba36428b449a5f87a5b3f75f9
+=======
+guid: 13ec42023be25a7498cf920a8d526a7c
+>>>>>>> 7dcaccf027815f546b6b2790e60a0e72cf2678e9:SavaageIncPasta/Assets/Prefabs.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
