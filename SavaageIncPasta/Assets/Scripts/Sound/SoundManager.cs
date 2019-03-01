@@ -98,11 +98,7 @@ public class SoundManager : MonoBehaviour
 
     private void Start()
     {
-		//PlayAmbience();
-		//PlayBackgroundMusic(BackgroundTracks[0]);
-		//PlayLongAmbience(LongAmbienceTracks[0]);
-		print("leaves rustling");
-		PlaySFX(SfxClips[1], GetComponent<AudioSource>());
+		
 	}
 	private void Update()
 	{
