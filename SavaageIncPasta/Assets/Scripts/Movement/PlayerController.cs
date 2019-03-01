@@ -1,15 +1,19 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
 {
-    public float Speed;
+    public float Speed = 15.0f;
 
     private Rigidbody2D _rb;
     private Vector2 _moveVelocity;
 
-    private void Start()
+    private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
+        _rb.freezeRotation = true;
+        _rb.gravityScale = 0.0f;
+
     }
 
     private void Update()
