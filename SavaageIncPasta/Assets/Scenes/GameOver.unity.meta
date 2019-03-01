@@ -1,6 +1,10 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:SavaageIncPasta/Assets/Prefabs.meta
 guid: ac919212a6dc70a4a917ab2e1e1d7cdd
 folderAsset: yes
+=======
+guid: d4301351d2549ed4c9c08cb333b993d6
+>>>>>>> Matthew:SavaageIncPasta/Assets/Scenes/GameOver.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
