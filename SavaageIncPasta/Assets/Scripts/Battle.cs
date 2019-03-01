@@ -17,11 +17,10 @@ public class Battle : MonoBehaviour
     private TurnOption _optionChoosing = TurnOption.eATTACK;
     private List<Character> _characterList = new List<Character>(); // all players in battle
     private List<Character> _characterTurnOrder = new List<Character>(); // all players sorted into turn order
-    private int _currentCharacter = 0;
-    private int _targettedCharacter = -1;
-    private int _targettingCharacter = 4;
-    private int deadEnemies = 0;
-    private int deadPlayers = 0;
+    private int _currentCharacterIndex = 0;
+    private int _targettedCharacterIndex = -1;
+    private int _targettingCharacterIndex = 4;
+
 
     public Character Player1;
     public Character Player2;
@@ -32,8 +31,11 @@ public class Battle : MonoBehaviour
     public Character Enemy3;
     public Character Enemy4;
 
+    private int _deadEnemies = 0;
+    private int _deadPlayers = 0;
+
     // Use this for initialization
-    void Start ()
+    void Start()
     {
         _characterList.Add(Player1);
         _characterList.Add(Player2);
@@ -47,34 +49,26 @@ public class Battle : MonoBehaviour
 
         DecideTurnOrder();
 
-	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-        
-        while(!_characterTurnOrder[_currentCharacter].Alive)
-        {
-            if(deadPlayers >= 4)
-            {
-                // Player lose
-                SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
-            }
-            else if(deadEnemies >= 4)
-            {
-                // Player wins
-                SceneManager.LoadScene("GameWin", LoadSceneMode.Single);
-            }
+    }
 
-            _currentCharacter++;
-            if (_currentCharacter >= _characterTurnOrder.Count)
+    // Update is called once per frame
+    void Update()
+    {
+
+
+
+        while (!_characterTurnOrder[_currentCharacterIndex].Alive)
+        {
+
+            _currentCharacterIndex++;
+            if (_currentCharacterIndex >= _characterTurnOrder.Count)
             {
-                _currentCharacter = 0;
+                _currentCharacterIndex = 0;
             }
 
         }
 
-        if (_optionChosen == 0 && _characterTurnOrder[_currentCharacter].Player)
+        if (_optionChosen == 0 && _characterTurnOrder[_currentCharacterIndex].Player)
         {
             if (Input.GetKeyDown(KeyCode.RightArrow))
             {
@@ -105,25 +99,36 @@ public class Battle : MonoBehaviour
             switch (_optionChosen)
             {
                 case TurnOption.eATTACK:
-                    Attack(_characterTurnOrder[_currentCharacter]);
+                    Attack(_characterTurnOrder[_currentCharacterIndex]);
                     break;
                 case TurnOption.eDEFEND:
-                    Defend(_characterTurnOrder[_currentCharacter]);
+                    Defend(_characterTurnOrder[_currentCharacterIndex]);
                     break;
                 case TurnOption.eMOVE:
-                    Move(_characterTurnOrder[_currentCharacter]);
+                    Move(_characterTurnOrder[_currentCharacterIndex]);
                     break;
                 default:
                     break;
             }
         }
 
-        if (_currentCharacter >= _characterList.Count)
+        if (_currentCharacterIndex >= _characterList.Count)
         {
             DecideTurnOrder();
-            _currentCharacter = 0;
+            _currentCharacterIndex = 0;
         }
-	}
+
+        if (_deadPlayers >= 4)
+        {
+            // Player lose
+            SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
+        }
+        else if (_deadEnemies >= 4)
+        {
+            // Player wins
+            SceneManager.LoadScene("GameWin", LoadSceneMode.Single);
+        }
+    }
 
 
     void DecideTurnOrder()
@@ -151,7 +156,7 @@ public class Battle : MonoBehaviour
                         added = true;
                         break;
                     }
-                    
+
                 }
                 if (!added)
                 {
@@ -167,103 +172,111 @@ public class Battle : MonoBehaviour
 
         if (attacker.Player)
         {
-            _characterList[_targettingCharacter].gameObject.GetComponent<SpriteRenderer>().color = Color.magenta; 
+            _characterList[_targettingCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.magenta;
             if (Input.GetKeyDown(KeyCode.RightArrow))
             {
-                if (_targettingCharacter < _characterTurnOrder.Count - 1)
+                if (_targettingCharacterIndex < _characterTurnOrder.Count - 1)
                 {
-                    _characterList[_targettingCharacter].gameObject.GetComponent<SpriteRenderer>().color = Color.white;
-                    _targettingCharacter++;
-                    while(!_characterList[_targettingCharacter].Alive)
+                    _characterList[_targettingCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+                    _targettingCharacterIndex++;
+                    while (!_characterList[_targettingCharacterIndex].Alive)
                     {
-                        
-                        _targettingCharacter++;
-                        if(_targettingCharacter > _characterList.Count - 1)
+
+                        _targettingCharacterIndex++;
+                        if (_targettingCharacterIndex > _characterList.Count - 1)
                         {
-                            _targettingCharacter = 4;
+                            _targettingCharacterIndex = 4;
                         }
                     }
-                    _characterList[_targettingCharacter].gameObject.GetComponent<SpriteRenderer>().color = Color.magenta;
+                    _characterList[_targettingCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.magenta;
                 }
             }
             else if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
-                if (_targettingCharacter > 0)
+                if (_targettingCharacterIndex > 0)
                 {
-                    _characterList[_targettingCharacter].gameObject.GetComponent<SpriteRenderer>().color = Color.white;
-                    _targettingCharacter--;
+                    _characterList[_targettingCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+                    _targettingCharacterIndex--;
 
-                    while (!_characterList[_targettingCharacter].Alive)
+                    while (!_characterList[_targettingCharacterIndex].Alive)
                     {
 
-                        _targettingCharacter--;
-                        if (_targettingCharacter > _characterList.Count - 1)
+                        _targettingCharacterIndex--;
+                        if (_targettingCharacterIndex < 0)
                         {
-                            _targettingCharacter = 7;
+                            _targettingCharacterIndex = 7;
                         }
                     }
-                    _characterList[_targettingCharacter].gameObject.GetComponent<SpriteRenderer>().color = Color.magenta;
+                    _characterList[_targettingCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.magenta;
                 }
             }
             else if (Input.GetKeyDown(KeyCode.Return))
             {
-                _targettedCharacter = _targettingCharacter;
-                _characterList[_targettingCharacter].gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+                _targettedCharacterIndex = _targettingCharacterIndex;
+                _characterList[_targettingCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.white;
 
             }
 
         }
         else
         {
-            _targettedCharacter = Random.Range(0, 3);
+            _targettedCharacterIndex = Random.Range(0, 3);
 
-            while (!_characterList[_targettingCharacter].Alive)
+            while (!_characterList[_targettedCharacterIndex].Alive)
             {
-
-                _targettingCharacter++;
-                if (_targettingCharacter > _characterList.Count - 5)
+                _targettedCharacterIndex++;
+                if (_targettedCharacterIndex > _characterList.Count - 5)
                 {
-                    _targettingCharacter = 0;
+                    _targettedCharacterIndex = 0;
                 }
             }
         }
-        if (_targettedCharacter > -1)
+        if (_targettedCharacterIndex > -1)
         {
             _optionChosen = 0;
 
-            _characterList[_targettedCharacter].ChangeHealth(-5);
+            _characterList[_targettedCharacterIndex].ChangeHealth(-5);
 
-            if (!_characterList[_targettedCharacter].Alive)
+            if (!_characterList[_targettedCharacterIndex].Alive)
             {
-                if (_characterList[_targettedCharacter].Player)
+                if (_characterList[_targettedCharacterIndex].Player)
                 {
-                    deadPlayers++;
+                    _deadPlayers++;
                 }
                 else
                 {
-                    deadEnemies++;
+                    _deadEnemies++;
                 }
             }
 
-            _targettingCharacter = 4;
-            _targettedCharacter = -1;
-            _currentCharacter++;
+            _targettingCharacterIndex = 4;
+
+            while (!_characterList[_targettingCharacterIndex].Alive)
+            {
+                _targettingCharacterIndex++;
+                if(_targettingCharacterIndex > _characterList.Count - 1)
+                {
+                    _targettingCharacterIndex = 0;
+                }
+            }
+            _targettedCharacterIndex = -1;
+            _currentCharacterIndex++;
         }
-        
+
     }
 
     void Defend(Character defender)
     {
         _optionChosen = 0;
         //defend
-        _currentCharacter++;
+        _currentCharacterIndex++;
     }
 
     void Move(Character mover)
     {
         _optionChosen = 0;
         //move
-        _currentCharacter++;
+        _currentCharacterIndex++;
     }
 
     public TurnOption GetOptionChoosing()

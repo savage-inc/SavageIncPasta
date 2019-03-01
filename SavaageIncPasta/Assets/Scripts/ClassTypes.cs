@@ -4,10 +4,10 @@ using UnityEngine;
 
 public enum ClassType
 {
-    WARRIOR,
-    RANGER,
-    WIZARD,
-    SHAMAN
+    eWARRIOR,
+    eRANGER,
+    eWIZARD,
+    eSHAMAN
 }
 
 public class ClassTypes : MonoBehaviour

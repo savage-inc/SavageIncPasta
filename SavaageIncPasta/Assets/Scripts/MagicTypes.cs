@@ -4,10 +4,10 @@ using UnityEngine;
 
 public enum MagicType
 {
-    NONE,
-    TOMATO, //Red
-    CHEESE, //White
-    PESTO   //Green
+    eNONE,
+    eTOMATO, //Red
+    eCHEESE, //White
+    ePESTO   //Green
 }
 
 public class MagicTypes : MonoBehaviour

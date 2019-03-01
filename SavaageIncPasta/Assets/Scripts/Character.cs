@@ -15,6 +15,7 @@ public class Character : MonoBehaviour
     public int Intelligence { get; set; }
     public int Charisma { get; set; }
     public MagicType Magic { get; set; }
+
     public bool Player = true;
     public bool Alive { get; set; }
 
@@ -23,13 +24,13 @@ public class Character : MonoBehaviour
         GenerateStats();
     }
 
-    void GenerateStats()
+    private void GenerateStats()
     {
         Class = (ClassType)Random.Range(0, 3);
         Alive = true;
         switch(Class)
         {
-            case ClassType.WARRIOR:
+            case ClassType.eWARRIOR:
                 {
                     Level = 1;
                     Strength = Random.Range(4, 7);
@@ -39,10 +40,10 @@ public class Character : MonoBehaviour
                     Charisma = Random.Range(1, 8);
                     MaxHealth = 4 * Constitution + 6 * Level;
                     CurrentHealth = MaxHealth;
-                    Magic = MagicType.NONE;
+                    Magic = MagicType.eNONE;
                     break;
                 }
-            case ClassType.RANGER:
+            case ClassType.eRANGER:
                 {
                     Level = 1;
                     Strength = Random.Range(1, 4);
@@ -52,10 +53,10 @@ public class Character : MonoBehaviour
                     Charisma = Random.Range(1, 8);
                     MaxHealth = 4 * Constitution + 6 * Level;
                     CurrentHealth = MaxHealth;
-                    Magic = MagicType.NONE;
+                    Magic = MagicType.eNONE;
                     break;
                 }
-            case ClassType.WIZARD:
+            case ClassType.eWIZARD:
                 {
                     Level = 1;
                     Strength = Random.Range(1, 4);
@@ -68,7 +69,7 @@ public class Character : MonoBehaviour
                     Magic = (MagicType)Random.Range(1, 3);
                     break;
                 }
-            case ClassType.SHAMAN:
+            case ClassType.eSHAMAN:
                 {
                     Level = 1;
                     Strength = Random.Range(1, 4);
