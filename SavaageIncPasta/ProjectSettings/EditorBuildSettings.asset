@@ -6,19 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-<<<<<<< HEAD
-    path: Assets/Main.unity
-    guid: adb76c2c5e439e84f8e96cee2ec6d4b7
-  - enabled: 1
-    path: Assets/Combat.unity
-    guid: 13d1a9dc6953f1c4a8e7f424862a17ad
-=======
     path: Assets/Scenes/Battle.unity
     guid: 4fed778d608d8384bba52d84f951a0f0
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
-    guid: d4301351d2549ed4c9c08cb333b993d6
+    guid: d818d1a89e7f53c4e84cc16c384f38a9
   - enabled: 1
     path: Assets/Scenes/GameWin.unity
-    guid: 0596d206db751ea4c8daab7996ebc11b
->>>>>>> Matthew
+    guid: 3e47bafbf5bc6b840ad99a61bbb3e156

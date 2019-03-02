@@ -271,6 +271,10 @@
     <Compile Include="Assets\3rdParty\TextMeshPro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
     <Compile Include="Assets\3rdParty\TextMeshPro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\3rdParty\TextMeshPro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
+    <Compile Include="Assets\Scripts\Battle.cs" />
+    <Compile Include="Assets\Scripts\Character.cs" />
+    <Compile Include="Assets\Scripts\CharacterHealth.cs" />
+    <Compile Include="Assets\Scripts\ClassTypes.cs" />
     <Compile Include="Assets\Scripts\Inventory\Base\CharacterEquipment.cs" />
     <Compile Include="Assets\Scripts\Inventory\Base\Inventory.cs" />
     <Compile Include="Assets\Scripts\Inventory\CharacterInventory.cs" />
@@ -287,7 +291,11 @@
     <Compile Include="Assets\Scripts\Inventory\Shop.cs" />
     <Compile Include="Assets\Scripts\Inventory\ShopInventoryUI.cs" />
     <Compile Include="Assets\Scripts\Inventory\ShopItemButton.cs" />
+    <Compile Include="Assets\Scripts\MagicTypes.cs" />
     <Compile Include="Assets\Scripts\Movement\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Option.cs" />
+    <Compile Include="Assets\Scripts\Sound\PlaySound.cs" />
+    <Compile Include="Assets\Scripts\Sound\SoundManager.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
     <Compile Include="Assets\Scripts\UI\UI Menu.cs" />
     <Compile Include="Assets\Scripts\UI\UIManager.cs" />
