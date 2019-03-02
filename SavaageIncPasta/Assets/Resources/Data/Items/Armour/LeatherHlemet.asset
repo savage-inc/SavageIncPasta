@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fc60b6c96792304c9e21ff4e2275c27, type: 3}
+  m_Name: LeatherHlemet
+  m_EditorClassIdentifier: 
+  _name: Leather Helmet
+  _description: 
+  _baseMoneyValue: 5
+  _previewSprite: {fileID: 0}
+  _rarity: 0
+  _stackSize: 1
+  _armourSlotType: 0
+  _armourType: 0
+  _value: 0
+  _magicalType: 0

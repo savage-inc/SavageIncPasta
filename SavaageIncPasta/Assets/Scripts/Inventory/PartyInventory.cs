@@ -6,9 +6,17 @@ public class PartyInventory : MonoBehaviour
 {
     public int InventorySize = 10;
     public Inventory Inventory;
+    [SerializeField]
+    private int _gold;
     public List<BaseItemData> StartingItems;
 
     private ItemDatabase _itemDatabase;
+
+    public int Gold
+    {
+        get { return _gold; }
+        set { _gold = value; }
+    }
 
     void Awake()
     {

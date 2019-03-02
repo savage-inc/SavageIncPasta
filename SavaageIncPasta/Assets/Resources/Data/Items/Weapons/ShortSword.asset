@@ -9,18 +9,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dea6c5ab61d83bf4bacaea5f43d0265e, type: 3}
-  m_Name: Sword
+  m_Name: ShortSword
   m_EditorClassIdentifier: 
-  _name: Pasta Sword
+  _name: Short Sword
   _description: 
-  _baseMoneyCost: 25
+  _baseMoneyValue: 20
   _previewSprite: {fileID: 21300000, guid: cfd10b5fdaa317f46bd43f0622c85346, type: 3}
   _rarity: 0
   _stackSize: 1
   _weaponType: 0
-  statType: 0
-  _minDamage: 0
-  _maxDamage: 0
+  statType: 1
+  _baseDamage: 6
+  _varianceDamage: 2
+  _minDamage: 4
+  _maxDamage: 8
   _missFire: 0
-  _isMelee: 0
+  _isMelee: 1
   _isMainHand: 1
+  _magicalType: 0
+  _magicalModifier: 0

@@ -5,10 +5,12 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ItemButton : MonoBehaviour
+public class ShopItemButton : MonoBehaviour
 {
     public InventoryItem Item;
-    public Inventory Inventory;
+    public Shop Shop;
+
+
     public GameObject ItemToolTipPrefab;
     private GameObject _itemToolTipInstance;
 
@@ -29,56 +31,26 @@ public class ItemButton : MonoBehaviour
         button.gameObject.GetComponent<EventTrigger>().triggers.Add(exitEvent);
     }
 
-    public void TransferItem(Inventory to)
+    //Sell the item to a shop
+    public void SellItem()
     {
-        if(Inventory == null || to == null || Item == null || Item.Item == null)
+        if (Shop == null || Shop == null || Item == null || Item.Item == null)
             return;
 
-        to.AddItem(Item.Item);
-        Inventory.RemoveItem(Item.Item.Name);
+        //Shop buys the item
+        Shop.BuyItem(Item.Item);
 
         Destroy(_itemToolTipInstance);
     }
 
-    public void EquipItem(CharacterEquipment to)
+    //Buy the item from a shop
+    public void BuyItem()
     {
-        if (Inventory == null || to == null || Item == null || Item.Item == null)
+        if (Shop == null || Shop == null || Item == null || Item.Item == null)
             return;
 
-        switch (Item.Item.ItemType)
-        {
-            case ItemType.eCONSUMABLE:
-                break;
-            case ItemType.eARMOUR:
-                to.EquipArmour((ArmourItemData)Item.Item, Inventory);
-                break;
-            case ItemType.eWEAPON:
-                to.EquipWeapon((WeaponItemData)Item.Item, Inventory);
-                break;
-            case ItemType.eMAGICWEAPON:
-                to.EquipWeapon((WeaponItemData)Item.Item, Inventory);
-                break;
-        }
-
-        Destroy(_itemToolTipInstance);
-    }
-
-    public void ConsumeItem()
-    {
-        if (Inventory == null || Item == null || Item.Item == null)
-            return;
-
-        Inventory.RemoveItem(Item);
-
-        Destroy(_itemToolTipInstance);
-    }
-
-    public void RemoveItem()
-    {
-        if (Inventory == null || Item == null || Item.Item == null)
-            return;
-
-        Inventory.RemoveItem(Item);
+        //shop sells the item to the part
+        Shop.SellItem(Item.Item);
 
         Destroy(_itemToolTipInstance);
     }
@@ -93,7 +65,7 @@ public class ItemButton : MonoBehaviour
         _itemToolTipInstance.gameObject.SetActive(true);
 
         RectTransform rectTransform = gameObject.GetComponent<RectTransform>();
-        float width = rectTransform.rect.width/2;
+        float width = rectTransform.rect.width / 2;
         _itemToolTipInstance.transform.SetParent(FindObjectOfType<Canvas>().transform);
         _itemToolTipInstance.transform.position = new Vector3(gameObject.transform.position.x - width, gameObject.transform.position.y, 0);
 
@@ -107,5 +79,10 @@ public class ItemButton : MonoBehaviour
 
         Destroy(_itemToolTipInstance);
 
+    }
+
+    void OnDisable()
+    {
+        Destroy(_itemToolTipInstance);
     }
 }

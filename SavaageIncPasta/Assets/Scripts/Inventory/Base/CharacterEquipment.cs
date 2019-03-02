@@ -22,7 +22,7 @@ public class CharacterEquipment : Inventory
             if (inventoryItem.Item.ItemType == ItemType.eARMOUR)
             {
                 ArmourItemData inventoryArmour = (ArmourItemData) inventoryItem.Item;
-                if (inventoryArmour.ArmourType == armourItem.ArmourType)
+                if (inventoryArmour.ArmourSlotType == armourItem.ArmourSlotType)
                 {
                     //armour item already equipped, add it back to the party inventory
                     partyInventory.AddItem(inventoryItem.Item);
@@ -51,7 +51,7 @@ public class CharacterEquipment : Inventory
         //check if a weapon is already in the equipment 
         foreach (var inventoryItem in _inventoryItems)
         {
-            if ((inventoryItem.Item.ItemType == ItemType.eWEAPON || inventoryItem.Item.ItemType == ItemType.eMAGICWEAPON))
+            if (inventoryItem.Item.ItemType == ItemType.eWEAPON)
             {
                 WeaponItemData inventoryWeaponItem = (WeaponItemData)inventoryItem.Item;
                 if ((inventoryWeaponItem.IsMainHand == weaponItem.IsMainHand))
@@ -79,7 +79,7 @@ public class CharacterEquipment : Inventory
     {
         foreach (var inventoryItem in _inventoryItems)
         {
-            if (inventoryItem.Item.ItemType == ItemType.eWEAPON || inventoryItem.Item.ItemType == ItemType.eMAGICWEAPON)
+            if (inventoryItem.Item.ItemType == ItemType.eWEAPON)
             {
                 return (WeaponItemData)inventoryItem.Item;
             }
@@ -88,14 +88,14 @@ public class CharacterEquipment : Inventory
         return null;
     }
 
-    public ArmourItemData GetEquipedArmour(ArmourItemData.Type armourType)
+    public ArmourItemData GetEquipedArmour(ArmourItemData.SlotType armourSlotType)
     {
         foreach (var inventoryItem in _inventoryItems)
         {
             if (inventoryItem.Item.ItemType == ItemType.eARMOUR)
             {
                 ArmourItemData inventoryArmour = (ArmourItemData)inventoryItem.Item;
-                if (inventoryArmour.ArmourType == armourType)
+                if (inventoryArmour.ArmourSlotType == armourSlotType)
                 {
                     return (ArmourItemData) inventoryItem.Item;
                 }

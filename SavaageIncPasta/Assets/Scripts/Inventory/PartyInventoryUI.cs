@@ -1,11 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PartyInventoryUI : MonoBehaviour
 {
-    //Party Inventory UI 
+    //Party PartyInventory UI 
     public GameObject ItemPanelObject;
     public RectTransform InventoryContent;
     public Text ItemCountText;
@@ -24,12 +25,28 @@ public class PartyInventoryUI : MonoBehaviour
 
         _characterInventory = FindObjectOfType<CharacterInventory>().CurrentCharacterEquipment;
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    void OnDisable()
     {
-		
-	}
+        //Clear all inventory items
+        foreach (Transform child in InventoryContent.transform)
+        {
+            Destroy(child.gameObject);
+        }
+    }
+
+    void OnEnable()
+    {
+        SyncInventory();
+    }
+
+    void SyncInventory()
+    {
+        foreach (var item in _inventory.GetItems())
+        {
+            AddUIItem(item);
+        }
+    }
 
     void AddUIItem(InventoryItem item)
     {
@@ -39,8 +56,8 @@ public class PartyInventoryUI : MonoBehaviour
         itemPanel.transform.GetChild(0).GetComponent<Image>().sprite = item.Item.PreviewSprite;
         itemPanel.transform.GetChild(0).GetChild(0).GetComponent<Text>().text = "x" + item.Amount;
         itemPanel.transform.GetChild(0).GetChild(1).GetComponent<Text>().text = item.Item.Name;
-
-        var itemButton = itemPanel.GetComponent<ItemButton>();
+        
+        var itemButton = itemPanel.GetComponent<InventoryItemButton>();
         itemButton.Inventory = _inventory;
         itemButton.Item = item;
 
@@ -56,9 +73,6 @@ public class PartyInventoryUI : MonoBehaviour
             case ItemType.eWEAPON:
                 itemPanel.GetComponent<Button>().onClick.AddListener(() => itemButton.EquipItem(_characterInventory));
                 break;
-            case ItemType.eMAGICWEAPON:
-                itemPanel.GetComponent<Button>().onClick.AddListener(() => itemButton.EquipItem(_characterInventory));
-                break;
         }
 
         ItemCountText.text = _inventory.GetItems().Count + "/" + _inventory.InventoryCapacity;
@@ -68,8 +82,8 @@ public class PartyInventoryUI : MonoBehaviour
     {
         foreach (Transform child in InventoryContent)
         {
-            ItemButton itemButton = child.GetComponent<ItemButton>();
-            if (item == itemButton.Item)
+            InventoryItemButton inventoryItemButton = child.GetComponent<InventoryItemButton>();
+            if (item == inventoryItemButton.Item)
             {
                 Destroy(child.gameObject);
             }
@@ -83,11 +97,11 @@ public class PartyInventoryUI : MonoBehaviour
         foreach (Transform child in InventoryContent.transform)
         {
             //get child with the item
-            ItemButton itemButton = child.GetComponent<ItemButton>();
-            if(itemButton.Item == inventoryItem)
+            InventoryItemButton inventoryItemButton = child.GetComponent<InventoryItemButton>();
+            if(inventoryItemButton.Item == inventoryItem)
             {
                 //get item panel
-                child.transform.GetChild(0).GetChild(0).GetComponent<Text>().text = "x" + (itemButton.Item.Amount + amount);
+                child.transform.GetChild(0).GetChild(0).GetComponent<Text>().text = "x" + (inventoryItemButton.Item.Amount + amount);
             }
         }
     }
