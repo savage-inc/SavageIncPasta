@@ -7,7 +7,6 @@ public enum ItemType
     eCONSUMABLE,
     eARMOUR,
     eWEAPON,
-    eMAGICWEAPON
 }
 
 public enum ItemRarity
@@ -30,7 +29,7 @@ public abstract class BaseItemData : ScriptableObject
     private string _description;
 
     [SerializeField]
-    private float _baseMoneyCost;
+    private int _baseMoneyValue;
 
     [SerializeField]
     public Sprite _previewSprite;
@@ -71,9 +70,9 @@ public abstract class BaseItemData : ScriptableObject
         get { return _stackSize; }
     }
 
-    public float BaseMoneyCost
+    public int BaseMoneyValue
     {
-        get { return _baseMoneyCost; }
+        get { return _baseMoneyValue; }
     }
 
     protected ItemType _itemType;

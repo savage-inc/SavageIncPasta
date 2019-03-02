@@ -6,11 +6,26 @@ using UnityEngine;
 [System.Serializable]
 public class ArmourItemData : BaseItemData
 {
-    public enum Type
+    public enum MagicType
+    {
+        eNONE,
+        eRED,
+        eWHITE,
+        eGREEN
+    }
+
+    public enum SlotType
     {
         eHEAD,
         eCHEST,
         eLEGS,
+    }
+
+    public enum Type
+    {
+        eLIGHT,
+        eMEDIUM,
+        eHEAVY,
     }
 
     public ArmourItemData()
@@ -19,18 +34,31 @@ public class ArmourItemData : BaseItemData
     }
 
     [SerializeField]
-    private Type _armourType;
-
+    private SlotType _armourSlotType;
     [SerializeField]
-    private float _modifier;
+    private Type _armourType;
+    [SerializeField]
+    private float _value;
+    [SerializeField]
+    private MagicType _magicalType;
+
+    public SlotType ArmourSlotType
+    {
+        get { return _armourSlotType; }
+    }
 
     public Type ArmourType
     {
         get { return _armourType; }
     }
 
-    public float Modifier
+    public float Value
     {
-        get { return _modifier; }
+        get { return _value; }
+    }
+
+    public MagicType MagicalType
+    {
+        get { return _magicalType; }
     }
 }

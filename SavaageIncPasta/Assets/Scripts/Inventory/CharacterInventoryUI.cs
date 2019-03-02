@@ -22,6 +22,7 @@ public class CharacterInventoryUI : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
+        //TODO get a specfi 
         _currentCharacterEquipment = FindObjectOfType<CharacterInventory>().CurrentCharacterEquipment;
         _currentCharacterEquipment.OnItemAdd += AddUIItem;
         _currentCharacterEquipment.OnItemRemove += RemoveItemUI;
@@ -30,58 +31,83 @@ public class CharacterInventoryUI : MonoBehaviour
         _partyInventory = FindObjectOfType<PartyInventory>().Inventory;
 
         //On button Click
-        HeadButton.onClick.AddListener(() => HeadButton.GetComponent<ItemButton>().TransferItem(_partyInventory));
-        BodyButton.onClick.AddListener(() => BodyButton.GetComponent<ItemButton>().TransferItem(_partyInventory));
-        LegsButton.onClick.AddListener(() => LegsButton.GetComponent<ItemButton>().TransferItem(_partyInventory));
-        MainHandButton.onClick.AddListener(() => MainHandButton.GetComponent<ItemButton>().TransferItem(_partyInventory));
-        OffHandButton.onClick.AddListener(() => OffHandButton.GetComponent<ItemButton>().TransferItem(_partyInventory));
+        HeadButton.onClick.AddListener(() => HeadButton.GetComponent<InventoryItemButton>().TransferItem(_partyInventory));
+        BodyButton.onClick.AddListener(() => BodyButton.GetComponent<InventoryItemButton>().TransferItem(_partyInventory));
+        LegsButton.onClick.AddListener(() => LegsButton.GetComponent<InventoryItemButton>().TransferItem(_partyInventory));
+        MainHandButton.onClick.AddListener(() => MainHandButton.GetComponent<InventoryItemButton>().TransferItem(_partyInventory));
+        OffHandButton.onClick.AddListener(() => OffHandButton.GetComponent<InventoryItemButton>().TransferItem(_partyInventory));
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    void OnDisable()
+    {
+        HeadButton.image.sprite = DefaultPreviewSprite;
+        HeadButton.GetComponent<InventoryItemButton>().Item = null;
+        BodyButton.image.sprite = DefaultPreviewSprite;
+        BodyButton.GetComponent<InventoryItemButton>().Item = null;
+        LegsButton.image.sprite = DefaultPreviewSprite;
+        LegsButton.GetComponent<InventoryItemButton>().Item = null;
+        MainHandButton.image.sprite = DefaultPreviewSprite;
+        MainHandButton.GetComponent<InventoryItemButton>().Item = null;
+        OffHandButton.image.sprite = DefaultPreviewSprite;
+        OffHandButton.GetComponent<InventoryItemButton>().Item = null;
+    }
+
+    void OnEnable()
+    {
+        SyncEquipment();
+    }
+
+    void SyncEquipment()
+    {
+        if(_currentCharacterEquipment == null)
+            return;
+        
+        foreach (var item in _currentCharacterEquipment.GetItems())
+        {
+            AddUIItem(item);
+        }
+    }
 
     void AddUIItem(InventoryItem item)
     {
         if (item.Item.ItemType == ItemType.eARMOUR)
         {
             ArmourItemData armourItem = (ArmourItemData) item.Item;
-            switch (armourItem.ArmourType)
+            switch (armourItem.ArmourSlotType)
             {
-                case ArmourItemData.Type.eHEAD:
+                case ArmourItemData.SlotType.eHEAD:
                     HeadButton.image.sprite = armourItem.PreviewSprite;
-                    HeadButton.GetComponent<ItemButton>().Item = item;
-                    HeadButton.GetComponent<ItemButton>().Inventory = _currentCharacterEquipment;
+                    HeadButton.GetComponent<InventoryItemButton>().Item = item;
+                    HeadButton.GetComponent<InventoryItemButton>().Inventory = _currentCharacterEquipment;
                     break;
-                case ArmourItemData.Type.eCHEST:
+                case ArmourItemData.SlotType.eCHEST:
                     BodyButton.image.sprite = armourItem.PreviewSprite;
-                    BodyButton.GetComponent<ItemButton>().Item = item;
-                    BodyButton.GetComponent<ItemButton>().Inventory = _currentCharacterEquipment;
+                    BodyButton.GetComponent<InventoryItemButton>().Item = item;
+                    BodyButton.GetComponent<InventoryItemButton>().Inventory = _currentCharacterEquipment;
                     break;
-                case ArmourItemData.Type.eLEGS:
+                case ArmourItemData.SlotType.eLEGS:
                     LegsButton.image.sprite = armourItem.PreviewSprite;
-                    LegsButton.GetComponent<ItemButton>().Item = item;
-                    LegsButton.GetComponent<ItemButton>().Inventory = _currentCharacterEquipment;
+                    LegsButton.GetComponent<InventoryItemButton>().Item = item;
+                    LegsButton.GetComponent<InventoryItemButton>().Inventory = _currentCharacterEquipment;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
         }
-        else if (item.Item.ItemType == ItemType.eWEAPON || item.Item.ItemType == ItemType.eMAGICWEAPON)
+        else if (item.Item.ItemType == ItemType.eWEAPON)
         {
             WeaponItemData weaponItem = (WeaponItemData) item.Item;
             if (weaponItem.IsMainHand)
             {
                 MainHandButton.image.sprite = weaponItem.PreviewSprite;
-                MainHandButton.GetComponent<ItemButton>().Item = item;
-                MainHandButton.GetComponent<ItemButton>().Inventory = _currentCharacterEquipment;
+                MainHandButton.GetComponent<InventoryItemButton>().Item = item;
+                MainHandButton.GetComponent<InventoryItemButton>().Inventory = _currentCharacterEquipment;
             }
             else
             {
                 OffHandButton.image.sprite = weaponItem.PreviewSprite;
-                OffHandButton.GetComponent<ItemButton>().Item = item;
-                OffHandButton.GetComponent<ItemButton>().Inventory = _currentCharacterEquipment;
+                OffHandButton.GetComponent<InventoryItemButton>().Item = item;
+                OffHandButton.GetComponent<InventoryItemButton>().Inventory = _currentCharacterEquipment;
             }
         }
     }
@@ -94,36 +120,36 @@ public class CharacterInventoryUI : MonoBehaviour
         if (item.Item.ItemType == ItemType.eARMOUR)
         {
             ArmourItemData armourItem = (ArmourItemData)item.Item;
-            switch (armourItem.ArmourType)
+            switch (armourItem.ArmourSlotType)
             {
-                case ArmourItemData.Type.eHEAD:
+                case ArmourItemData.SlotType.eHEAD:
                     HeadButton.image.sprite = DefaultPreviewSprite;
-                    HeadButton.GetComponent<ItemButton>().Item = null;
+                    HeadButton.GetComponent<InventoryItemButton>().Item = null;
                     break;
-                case ArmourItemData.Type.eCHEST:
+                case ArmourItemData.SlotType.eCHEST:
                     BodyButton.image.sprite = DefaultPreviewSprite;
-                    BodyButton.GetComponent<ItemButton>().Item = null;
+                    BodyButton.GetComponent<InventoryItemButton>().Item = null;
                     break;
-                case ArmourItemData.Type.eLEGS:
+                case ArmourItemData.SlotType.eLEGS:
                     LegsButton.image.sprite = DefaultPreviewSprite;
-                    LegsButton.GetComponent<ItemButton>().Item = null;
+                    LegsButton.GetComponent<InventoryItemButton>().Item = null;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
         }
-        else if (item.Item.ItemType == ItemType.eWEAPON || item.Item.ItemType == ItemType.eMAGICWEAPON)
+        else if (item.Item.ItemType == ItemType.eWEAPON)
         {
             WeaponItemData weaponItem = (WeaponItemData)item.Item;
             if (weaponItem.IsMainHand)
             {
                 MainHandButton.image.sprite = DefaultPreviewSprite;
-                MainHandButton.GetComponent<ItemButton>().Item = null;
+                MainHandButton.GetComponent<InventoryItemButton>().Item = null;
             }
             else
             {
                 OffHandButton.image.sprite = DefaultPreviewSprite;
-                OffHandButton.GetComponent<ItemButton>().Item = null;
+                OffHandButton.GetComponent<InventoryItemButton>().Item = null;
             }
         }
     }

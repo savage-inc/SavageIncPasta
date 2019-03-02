@@ -14,10 +14,11 @@ public class InventoryItem
 [System.Serializable]
 public class Inventory
 {
-    public Inventory(int capacity)
+    public Inventory(int capacity, bool unlimtedStackSize = false)
     {
         _inventoryCapacity = capacity;
         _inventoryItems = new List<InventoryItem>(InventoryCapacity);
+        UnlimitedStackSize = unlimtedStackSize;
     }
 
     public delegate void AddItemAction(InventoryItem item);
@@ -32,6 +33,8 @@ public class Inventory
     private readonly int _inventoryCapacity = 10;
     protected List<InventoryItem> _inventoryItems;
 
+    public readonly bool UnlimitedStackSize;
+
     public int InventoryCapacity
     {
         get { return _inventoryCapacity; }
@@ -45,9 +48,8 @@ public class Inventory
         {
             if (inventoryItem.Item.Name == item.Name)
             {
-                if (inventoryItem.Amount < item.StackSize)
+                if (inventoryItem.Amount < item.StackSize || UnlimitedStackSize)
                 {
-                    //TODO: update item
                     if(OnItemUpdate != null)
                     {
                         OnItemUpdate(inventoryItem, 1);
