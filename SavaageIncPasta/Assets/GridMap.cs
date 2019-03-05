@@ -4,22 +4,18 @@ using UnityEngine;
 
 public class GridMap : MonoBehaviour
 {
-    public LayerMask Obstacle;
-    private readonly Vector2 _worldSize = new Vector2(17, 10);
-    private readonly float _nodeSize = 1.0f;
-    Node[,] grid;
-    private List<Node> _path;
+    public bool DebugView = false;
 
-    public List<Node> Path
+    public LayerMask Obstacle;
+    [SerializeField]private Vector2 _worldSize = new Vector2();
+    private readonly float _nodeSize = 1.0f;
+    private Node[,] _grid;
+
+    public Node[,] Grid
     {
         get
         {
-            return _path;
-        }
-
-        set
-        {
-            _path = value;
+            return _grid;
         }
     }
 
@@ -35,7 +31,7 @@ public class GridMap : MonoBehaviour
 
     private void CreateGrid()
     {
-        grid = new Node[_gridSizeX, _gridSizeY];
+        _grid = new Node[_gridSizeX, _gridSizeY];
         Vector3 bottomLeft = transform.position - (Vector3.right * _worldSize.x / 2) - (Vector3.up * _worldSize.y / 2);
 
         for (int x = 0; x < _gridSizeX; x++)
@@ -44,7 +40,7 @@ public class GridMap : MonoBehaviour
             {
                 Vector3 worldPoint = bottomLeft + Vector3.right * (x * _nodeSize + (_nodeSize / 2)) + Vector3.up * (y * _nodeSize + (_nodeSize / 2));
                 bool walkable = !(Physics2D.CircleCast(worldPoint, (_nodeSize / 2), Vector3.up, (_nodeSize / 2), Obstacle));
-                grid[x, y] = new Node(walkable, worldPoint, x, y);
+                _grid[x, y] = new Node(walkable, worldPoint, x, y);
             }
         }
     }
@@ -67,7 +63,7 @@ public class GridMap : MonoBehaviour
 
                 if (neighboursX >= 0 && neighboursX < _gridSizeX && neighboursY >= 0 && neighboursY < _gridSizeY)
                 {
-                    neighbourNodes.Add(grid[neighboursX, neighboursY]);
+                    neighbourNodes.Add(_grid[neighboursX, neighboursY]);
                 }
             }
         }
@@ -77,8 +73,8 @@ public class GridMap : MonoBehaviour
 
     public Node FindNodeInGrid(Vector3 worldPosition)
     {
-        float percentX = (worldPosition.x + _worldSize.x / 2) / _worldSize.x;
-        float percentY = (worldPosition.y + _worldSize.y / 2) / _worldSize.y;
+        float percentX = (worldPosition.x / _worldSize.x) + 0.5f;
+        float percentY = (worldPosition.y / _worldSize.y) + 0.5f;
 
         percentX = Mathf.Clamp01(percentX);
         percentY = Mathf.Clamp01(percentY);
@@ -86,29 +82,40 @@ public class GridMap : MonoBehaviour
         int x = Mathf.RoundToInt((_gridSizeX - 1) * percentX);
         int y = Mathf.RoundToInt((_gridSizeY - 1) * percentY);
 
-        return grid[x, y];
+        return _grid[x, y];
     }
+
+    //public Vector3 FindNodeInWorld(Node node)
+    //{
+    //    float percentX = node.PosX / (_gridSizeX - 1.0f);
+    //    float percentY = node.PosY / (_gridSizeY - 1.0f);
+
+    //    percentX = Mathf.Clamp01(percentX);
+    //    percentY = Mathf.Clamp01(percentY);
+
+    //    float x = _worldSize.x * (percentX - 0.5f);
+    //    float y = _worldSize.y * (percentY - 0.5f);
+
+    //    return new Vector3(x, y, 0);
+    //}
 
     private void OnDrawGizmos()
     {
+        if (!DebugView)
+        {
+            return;
+        }
+
         Gizmos.DrawWireCube(transform.position, new Vector3(_worldSize.x, _worldSize.y, 1));
 
-        if (grid != null)
+        if (_grid != null)
         {
-            foreach (Node node in grid)
+            foreach (Node node in _grid)
             {
                 Gizmos.color = (node.Walkable) ? Color.white : Color.red;
-
-                if (_path != null)
-                {
-                    if (_path.Contains(node))
-                    {
-                        Gizmos.color = Color.black;
-                    }
-                }
-
                 Gizmos.DrawCube(node.Position, Vector3.one * (_nodeSize - 0.1f));
             }
         }
     }
 }
+

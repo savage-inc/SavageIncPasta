@@ -4,23 +4,17 @@ using UnityEngine;
 
 public class AStarPathfinding : MonoBehaviour
 {
-    private GridMap grid;
-    public Transform ai, target;
+    private GridMap _grid;
 
     private void Awake()
     {
-        grid = GetComponent<GridMap>();
+        _grid = GetComponent<GridMap>();
     }
 
-    private void Update()
+    public List<Node> FindPath(Vector3 startPos, Vector3 destination)
     {
-        FindPath(ai.position, target.position);
-    }
-
-    public void FindPath(Vector3 startPos, Vector3 destination)
-    {
-        Node startNode = grid.FindNodeInGrid(startPos);
-        Node destinationNode = grid.FindNodeInGrid(destination);
+        Node startNode = _grid.FindNodeInGrid(startPos);
+        Node destinationNode = _grid.FindNodeInGrid(destination);
 
         List<Node> openList = new List<Node>();
         List<Node> closedList = new List<Node>();
@@ -45,11 +39,10 @@ public class AStarPathfinding : MonoBehaviour
 
             if (currentNode == destinationNode)
             {
-                RetracePath(startNode, destinationNode);
-                return;
+                return RetracePath(startNode, destinationNode);
             }
 
-            foreach (Node neighbour in grid.GetNeighbourNodes(currentNode))
+            foreach (Node neighbour in _grid.GetNeighbourNodes(currentNode))
             {
                 if (closedList.Contains(neighbour) || !neighbour.Walkable)
                 {
@@ -71,10 +64,10 @@ public class AStarPathfinding : MonoBehaviour
             }
         }
 
-        return;
+        return null;
     }
 
-    private void RetracePath(Node startNode, Node endNode)
+    private List<Node> RetracePath(Node startNode, Node endNode)
     {
         List<Node> path = new List<Node>();
         Node currentNode = endNode;
@@ -86,7 +79,7 @@ public class AStarPathfinding : MonoBehaviour
         }
 
         path.Reverse();
-        grid.Path = path;
+        return path;
     }
 
     private int GetDistance(Node firstNode, Node secondNode)
@@ -96,10 +89,9 @@ public class AStarPathfinding : MonoBehaviour
 
         if (distanceX > distanceY)
         {
-            return (14 * distanceY) + (10 * (distanceX - distanceY));
-            //4y + 10x
+            return (4 * distanceY) + (10 * distanceX);
         }
 
-        return (14 * distanceX) + (10 * (distanceY - distanceX));
+        return (4 * distanceX) + (10 * distanceY);
     }
 }
