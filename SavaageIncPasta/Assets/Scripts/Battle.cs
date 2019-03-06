@@ -54,9 +54,6 @@ public class Battle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
-
         while (!_characterTurnOrder[_currentCharacterIndex].Alive)
         {
 
