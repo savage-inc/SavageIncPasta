@@ -13,14 +13,14 @@ public class ItemDatabase : MonoBehaviour
         LoadItemsFromResources();
     }
 
-    public BaseItemData GetItemInstance(string name)
+    public BaseItemData GetItemInstance(string itemName)
     {
-        if (!_items.ContainsKey(name))
+        if (!_items.ContainsKey(itemName))
         {
-            Debug.LogError("Can't add item: " + name + " to inventory as it doesn't exist in the item database");
+            Debug.LogError("Can't add item: " + itemName + " to inventory as it doesn't exist in the item database");
         }
 
-        var itemData = _items[name];
+        var itemData = _items[itemName];
 
         return itemData;
     }

@@ -280,6 +280,8 @@
     <Compile Include="Assets\Scripts\Character.cs" />
     <Compile Include="Assets\Scripts\CharacterHealth.cs" />
     <Compile Include="Assets\Scripts\ClassTypes.cs" />
+    <Compile Include="Assets\Scripts\Data\PersistantData.cs" />
+    <Compile Include="Assets\Scripts\DontDestroy.cs" />
     <Compile Include="Assets\Scripts\Inventory\Base\CharacterEquipment.cs" />
     <Compile Include="Assets\Scripts\Inventory\Base\Inventory.cs" />
     <Compile Include="Assets\Scripts\Inventory\CharacterInventory.cs" />
@@ -304,7 +306,11 @@
     <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
     <Compile Include="Assets\Scripts\UI\UI Menu.cs" />
     <Compile Include="Assets\Scripts\UI\UIManager.cs" />
+    <Compile Include="Assets\Scripts\World\CameraFollow.cs" />
+    <Compile Include="Assets\Scripts\World\SceneDoor.cs" />
     <Compile Include="Assets\Scripts\World\WorldInteraction.cs" />
+    <Compile Include="Assets\Scripts\World\WorldManager.cs" />
+    <Compile Include="Assets\Scripts\World\WorldManagerEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\3rdParty\TextMeshPro\Examples &amp; Extras\Fonts\Anton OFL.txt" />

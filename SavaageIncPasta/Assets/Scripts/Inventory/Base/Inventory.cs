@@ -40,6 +40,15 @@ public class Inventory
         get { return _inventoryCapacity; }
     }
 
+    public void AddItem(string itemName, ItemDatabase database)
+    {
+        var item = database.GetItemInstance(itemName);
+        if (item != null)
+        {
+            AddItem(item);
+        }
+    }
+
     //Add an already existing item to the inventory
     public void AddItem(BaseItemData item)
     {
@@ -132,5 +141,42 @@ public class Inventory
     public List<InventoryItem> GetItems()
     {
         return _inventoryItems;
+    }
+
+    public List<string> SaveToList()
+    {
+        List<string> items = new List<string>();
+        foreach (var inventoryItem in _inventoryItems)
+        {
+            for (int i = 0; i < inventoryItem.Amount; i++)
+            {
+                items.Add(inventoryItem.Item.Name);
+            }
+        }
+
+        return items;
+    }
+
+    public void LoadFromList(List<string> items, ItemDatabase database)
+    {
+        _inventoryItems = new List<InventoryItem>();
+        foreach (var item in items)
+        {
+            AddItem(item, database);
+        }
+    }
+
+    public void Clear()
+    {
+        if (_inventoryItems != null)
+        {
+            foreach (var inventoryItem in _inventoryItems)
+            {
+                for (int i = 0; i < inventoryItem.Amount; i++)
+                {
+                    RemoveItem(inventoryItem);
+                }
+            }
+        }
     }
 }

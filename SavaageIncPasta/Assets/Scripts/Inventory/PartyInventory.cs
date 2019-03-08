@@ -31,9 +31,12 @@ public class PartyInventory : MonoBehaviour
 
     void Start()
     {
-        foreach (var item in StartingItems)
+        if (!PersistantData.HasInventory())
         {
-            Inventory.AddItem(item);
+            foreach (var item in StartingItems)
+            {
+                Inventory.AddItem(item);
+            }
         }
     }
 }
