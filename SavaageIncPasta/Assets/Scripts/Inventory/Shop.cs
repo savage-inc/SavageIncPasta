@@ -9,6 +9,7 @@ public struct ShopItem
     public int Stock;
 }
 
+[RequireComponent(typeof(GameObjectGUID))]
 public class Shop : MonoBehaviour
 {
     public List<ShopItem> ShopStartItems;
@@ -33,9 +34,9 @@ public class Shop : MonoBehaviour
         _partyInventory = FindObjectOfType<PartyInventory>();
     }
 
-    void Update()
+    void OnTriggerStay2D(Collider2D other)
     {
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetButtonDown("A") || Input.GetKeyDown(KeyCode.E))
         {
             if (!ShopUI.gameObject.activeInHierarchy)
             {
@@ -48,6 +49,11 @@ public class Shop : MonoBehaviour
         }
     }
 
+    void OnTriggerExit2D(Collider2D other)
+    {
+        CloseShop();
+    }
+
     public void ShowShop()
     {
         ShopUI.Shop = this;
@@ -56,8 +62,8 @@ public class Shop : MonoBehaviour
 
     public void CloseShop()
     {
-        ShopUI.Shop = null;
         ShopUI.gameObject.SetActive(false);
+        ShopUI.Shop = null;
     }
 
     //Sell an item to the player

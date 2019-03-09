@@ -170,13 +170,7 @@ public class Inventory
     {
         if (_inventoryItems != null)
         {
-            foreach (var inventoryItem in _inventoryItems)
-            {
-                for (int i = 0; i < inventoryItem.Amount; i++)
-                {
-                    RemoveItem(inventoryItem);
-                }
-            }
+            _inventoryItems.Clear();
         }
     }
 }

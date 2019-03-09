@@ -280,6 +280,8 @@
     <Compile Include="Assets\Scripts\Character.cs" />
     <Compile Include="Assets\Scripts\CharacterHealth.cs" />
     <Compile Include="Assets\Scripts\ClassTypes.cs" />
+    <Compile Include="Assets\Scripts\Data\GameObjectGUID.cs" />
+    <Compile Include="Assets\Scripts\Data\GameObjectGUIDEditor.cs" />
     <Compile Include="Assets\Scripts\Data\PersistantData.cs" />
     <Compile Include="Assets\Scripts\DontDestroy.cs" />
     <Compile Include="Assets\Scripts\Inventory\Base\CharacterEquipment.cs" />

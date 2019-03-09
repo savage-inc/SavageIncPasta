@@ -20,6 +20,10 @@ public class WorldManager : MonoBehaviour
         //find the party inventory 
         _partyInventory = FindObjectOfType<PartyInventory>();
 
+    }
+
+    void Start()
+    {
         LoadWorld();
         //check wether the player has a custom location to be loaded in the new scene
         if (PersistantData.HasPositionInScene())
@@ -30,26 +34,17 @@ public class WorldManager : MonoBehaviour
 
     public void SaveWorld()
     {
-        PersistantData.SaveSceneData(SceneManager.GetActiveScene().name, _playerObject.transform.position);
+        PersistantData.SaveSceneData(SceneManager.GetActiveScene().name, _playerObject.transform.position,FindObjectsOfType<Shop>());
         PersistantData.SavePartyData(_partyInventory);
     }
 
     public void LoadWorld()
     {
-        //Attempt to load Scene
-        PersistantData.LoadSceneData(SceneManager.GetActiveScene().name, _playerObject.transform);
-        //load party
         var itemDatabase = FindObjectOfType<ItemDatabase>();
+
+        //Attempt to load Scene
+        PersistantData.LoadSceneData(SceneManager.GetActiveScene().name, _playerObject.transform, FindObjectsOfType<Shop>(), itemDatabase);
+        //load party
         PersistantData.LoadPartyData(_partyInventory,itemDatabase);
     }
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

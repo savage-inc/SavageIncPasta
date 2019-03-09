@@ -22,10 +22,24 @@ public class PersistantData
     }
 
     [System.Serializable]
+    private struct ShopData
+    {
+        public int ID;
+        public Dictionary<string,int> Items;
+    }
+
+    [System.Serializable]
     private struct SceneData
     {
         public string SceneName;
         public PlayerData PlayerData;
+        //Shops
+        public List<ShopData> ShopData;
+
+        public SceneData(List<ShopData> shopData = null) : this()
+        {
+            ShopData = new List<ShopData>();
+        }
     }
 
     public static void SetPlayerPositionInNextScene(Vector2 pos)
@@ -58,9 +72,9 @@ public class PersistantData
         return File.Exists(dataPath);
     }
 
-    public static void SaveSceneData(string SceneName, Vector2 PlayerPos)
+    public static void SaveSceneData(string SceneName, Vector2 PlayerPos, Shop[] shops)
     {
-        SceneData sceneData;
+        SceneData sceneData = new SceneData();
         sceneData.SceneName = SceneName;
 
         PlayerData playerData;
@@ -68,10 +82,27 @@ public class PersistantData
         playerData.Y = PlayerPos.y;
 
         sceneData.PlayerData = playerData;
+
+        //Shops
+        sceneData.ShopData = new List<ShopData>();
+        foreach (var shop in shops)
+        {
+            ShopData shopData;
+            shopData.ID = shop.gameObject.GetComponent<GameObjectGUID>().GameObjectID;
+            shopData.Items = new Dictionary<string, int>();
+            foreach (var item in shop.Inventory.GetItems())
+            {
+                shopData.Items.Add(item.Item.Name,item.Amount);
+            }
+            //Add shop to scenedata
+            sceneData.ShopData.Add(shopData);
+        }
+
+
         SaveBytesToFile(SceneName + ".data", SerializeToBytes(sceneData));
     }
 
-    public static void LoadSceneData(string SceneName ,Transform playerTransform)
+    public static void LoadSceneData(string SceneName ,Transform playerTransform, Shop[] shops, ItemDatabase database)
     {
         var data = ReadBytesFromFile(SceneName + ".data");
         if (data != null)
@@ -81,6 +112,31 @@ public class PersistantData
             if (sceneData.SceneName.Length > 0)
             {
                 playerTransform.position = new Vector2(sceneData.PlayerData.X, sceneData.PlayerData.Y);
+            }
+
+            //Shops
+            foreach (var shop in shops)
+            {
+                if (sceneData.ShopData == null || sceneData.ShopData.Count <= 0)
+                {
+                    break;
+                }
+
+                foreach (var shopData in sceneData.ShopData)
+                {
+                    if (shop.gameObject.GetComponent<GameObjectGUID>().GameObjectID == shopData.ID) //Same shop
+                    {
+                        shop.Inventory.Clear();
+                        //add all items to the shop
+                        foreach (var item in shopData.Items)
+                        {
+                            for (int i = 0; i < item.Value; i++)
+                            {
+                                shop.Inventory.AddItem(item.Key,database);
+                            }
+                        }
+                    }
+                }
             }
         }
     }

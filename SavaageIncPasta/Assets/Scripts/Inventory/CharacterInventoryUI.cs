@@ -24,8 +24,7 @@ public class CharacterInventoryUI : MonoBehaviour
     {
         //TODO get a specfi 
         _currentCharacterEquipment = FindObjectOfType<CharacterInventory>().CurrentCharacterEquipment;
-        _currentCharacterEquipment.OnItemAdd += AddUIItem;
-        _currentCharacterEquipment.OnItemRemove += RemoveItemUI;
+        
 
         //get party inventory
         _partyInventory = FindObjectOfType<PartyInventory>().Inventory;
@@ -40,6 +39,12 @@ public class CharacterInventoryUI : MonoBehaviour
 
     void OnDisable()
     {
+        if (_currentCharacterEquipment != null)
+        {
+            _currentCharacterEquipment.OnItemAdd -= AddUIItem;
+            _currentCharacterEquipment.OnItemRemove -= RemoveItemUI;
+        }
+
         HeadButton.image.sprite = DefaultPreviewSprite;
         HeadButton.GetComponent<InventoryItemButton>().Item = null;
         BodyButton.image.sprite = DefaultPreviewSprite;
@@ -54,14 +59,18 @@ public class CharacterInventoryUI : MonoBehaviour
 
     void OnEnable()
     {
+        if (_currentCharacterEquipment == null)
+        {
+            return;
+        }
+
+        _currentCharacterEquipment.OnItemAdd += AddUIItem;
+        _currentCharacterEquipment.OnItemRemove += RemoveItemUI;
         SyncEquipment();
     }
 
     void SyncEquipment()
-    {
-        if(_currentCharacterEquipment == null)
-            return;
-        
+    {        
         foreach (var item in _currentCharacterEquipment.GetItems())
         {
             AddUIItem(item);
