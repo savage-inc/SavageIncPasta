@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/World/TownScene.unity
+- path: Assets/Scenes/World/ShopScene.unity
   isLoaded: 1
   isActive: 1
