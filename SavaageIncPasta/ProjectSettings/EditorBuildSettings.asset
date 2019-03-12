@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/World/TownScene.unity
     guid: cda2a270eeba44d4c95bb1bcf4588d21
   - enabled: 1
+    path: Assets/Scenes/World/ShopScene.unity
+    guid: 42337a948e301a544bdf60eb950ab20c
+  - enabled: 1
     path: Assets/Scenes/Battle.unity
     guid: 4fed778d608d8384bba52d84f951a0f0
   - enabled: 1

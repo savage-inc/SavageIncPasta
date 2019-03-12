@@ -12,12 +12,14 @@ public struct ShopItem
 [RequireComponent(typeof(GameObjectGUID))]
 public class Shop : MonoBehaviour
 {
+    public ShopInventoryUI ShopUI;
     public List<ShopItem> ShopStartItems;
     public float PriceModfier = 1.0f;
+    //How long should the shop restock since last visit (In minutes)
+    public float RestockTime = 1.0f;
     public Inventory Inventory { get; private set; }
     private PartyInventory _partyInventory;
-    public ShopInventoryUI ShopUI;
-
+    private float _lastVisit;
 
     // Use this for initialization
     void Awake ()
@@ -56,6 +58,15 @@ public class Shop : MonoBehaviour
 
     public void ShowShop()
     {
+        //check to restock
+        if (_lastVisit + (RestockTime * 60.0f )<= Time.realtimeSinceStartup)
+        {
+            //restock
+            Debug.Log("Restocking shop");
+            Restock();
+            _lastVisit = 0.0f;
+        }
+
         ShopUI.Shop = this;
         ShopUI.gameObject.SetActive(true);
     }
@@ -64,6 +75,22 @@ public class Shop : MonoBehaviour
     {
         ShopUI.gameObject.SetActive(false);
         ShopUI.Shop = null;
+        if (_lastVisit == 0.0f)
+        {
+            _lastVisit = Time.realtimeSinceStartup;
+        }
+    }
+
+    void Restock()
+    {
+        Inventory.Clear();
+        foreach (var shopItem in ShopStartItems)
+        {
+            for (int i = 0; i < shopItem.Stock; i++)
+            {
+                Inventory.AddItem(shopItem.Item);
+            }
+        }
     }
 
     //Sell an item to the player

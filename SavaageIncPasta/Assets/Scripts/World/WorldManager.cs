@@ -32,6 +32,18 @@ public class WorldManager : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F5))
+        {
+            SaveWorld();
+        }
+        else if (Input.GetKeyDown(KeyCode.F6))
+        {
+            LoadWorld();
+        }
+    }
+
     public void SaveWorld()
     {
         PersistantData.SaveSceneData(SceneManager.GetActiveScene().name, _playerObject.transform.position,FindObjectsOfType<Shop>());
