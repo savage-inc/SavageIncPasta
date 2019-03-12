@@ -3,18 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public enum TurnOption
-{
-    eNONE,
-    eATTACK,
-    eDEFEND,
-    eMOVE
-}
-
 public class Battle : MonoBehaviour
 {
-    private TurnOption _optionChosen = TurnOption.eNONE;
-    private TurnOption _optionChoosing = TurnOption.eATTACK;
     private List<Character> _characterList = new List<Character>(); // all players in battle
     private List<Character> _characterTurnOrder = new List<Character>(); // all players sorted into turn order
     private int _currentCharacterIndex = 0;
@@ -65,48 +55,9 @@ public class Battle : MonoBehaviour
 
         }
 
-        if (_optionChosen == 0 && _characterTurnOrder[_currentCharacterIndex].Player)
+        if(!_characterTurnOrder[_currentCharacterIndex].Player)
         {
-            if (Input.GetKeyDown(KeyCode.RightArrow))
-            {
-                if ((int)_optionChoosing < 3)
-                {
-                    _optionChoosing++;
-                }
-            }
-            else if (Input.GetKeyDown(KeyCode.LeftArrow))
-            {
-                if ((int)_optionChoosing > 1)
-                {
-                    _optionChoosing--;
-                }
-            }
-            else if (Input.GetKeyDown(KeyCode.Space))
-            {
-                _optionChosen = _optionChoosing;
-            }
-        }
-        else
-        {
-            _optionChosen = TurnOption.eATTACK;
-        }
-
-        if (_optionChosen > 0)
-        {
-            switch (_optionChosen)
-            {
-                case TurnOption.eATTACK:
-                    Attack(_characterTurnOrder[_currentCharacterIndex]);
-                    break;
-                case TurnOption.eDEFEND:
-                    Defend(_characterTurnOrder[_currentCharacterIndex]);
-                    break;
-                case TurnOption.eMOVE:
-                    Move(_characterTurnOrder[_currentCharacterIndex]);
-                    break;
-                default:
-                    break;
-            }
+            EnemyAttack();
         }
 
         if (_currentCharacterIndex >= _characterList.Count)
@@ -164,121 +115,117 @@ public class Battle : MonoBehaviour
         }
     }
 
-    void Attack(Character attacker)
+    public void PlayerAttack()
+    {
+        _characterList[_targettingCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.magenta;
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            if (_targettingCharacterIndex < _characterTurnOrder.Count - 1)
+            {
+                _characterList[_targettingCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+                _targettingCharacterIndex++;
+                while (!_characterList[_targettingCharacterIndex].Alive)
+                {
+
+                    _targettingCharacterIndex++;
+                    if (_targettingCharacterIndex > _characterList.Count - 1)
+                    {
+                        _targettingCharacterIndex = 4;
+                    }
+                }
+                _characterList[_targettingCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.magenta;
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            if (_targettingCharacterIndex > 0)
+            {
+                _characterList[_targettingCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+                _targettingCharacterIndex--;
+
+                while (!_characterList[_targettingCharacterIndex].Alive)
+                {
+
+                    _targettingCharacterIndex--;
+                    if (_targettingCharacterIndex < 0)
+                    {
+                        _targettingCharacterIndex = 7;
+                    }
+                }
+                _characterList[_targettingCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.magenta;
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.Return))
+        {
+            _targettedCharacterIndex = _targettingCharacterIndex;
+            _characterList[_targettingCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        }
+
+        if (_targettedCharacterIndex > -1)
+        {
+            DealDamage();
+        }
+    }
+
+    void EnemyAttack()
     {
 
-        if (attacker.Player)
+        _targettedCharacterIndex = Random.Range(0, 3);
+
+        while (!_characterList[_targettedCharacterIndex].Alive)
         {
-            _characterList[_targettingCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.magenta;
-            if (Input.GetKeyDown(KeyCode.RightArrow))
+            _targettedCharacterIndex++;
+            if (_targettedCharacterIndex > _characterList.Count - 5)
             {
-                if (_targettingCharacterIndex < _characterTurnOrder.Count - 1)
-                {
-                    _characterList[_targettingCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.white;
-                    _targettingCharacterIndex++;
-                    while (!_characterList[_targettingCharacterIndex].Alive)
-                    {
-
-                        _targettingCharacterIndex++;
-                        if (_targettingCharacterIndex > _characterList.Count - 1)
-                        {
-                            _targettingCharacterIndex = 4;
-                        }
-                    }
-                    _characterList[_targettingCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.magenta;
-                }
-            }
-            else if (Input.GetKeyDown(KeyCode.LeftArrow))
-            {
-                if (_targettingCharacterIndex > 0)
-                {
-                    _characterList[_targettingCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.white;
-                    _targettingCharacterIndex--;
-
-                    while (!_characterList[_targettingCharacterIndex].Alive)
-                    {
-
-                        _targettingCharacterIndex--;
-                        if (_targettingCharacterIndex < 0)
-                        {
-                            _targettingCharacterIndex = 7;
-                        }
-                    }
-                    _characterList[_targettingCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.magenta;
-                }
-            }
-            else if (Input.GetKeyDown(KeyCode.Return))
-            {
-                _targettedCharacterIndex = _targettingCharacterIndex;
-                _characterList[_targettingCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.white;
-
-            }
-
-        }
-        else
-        {
-            _targettedCharacterIndex = Random.Range(0, 3);
-
-            while (!_characterList[_targettedCharacterIndex].Alive)
-            {
-                _targettedCharacterIndex++;
-                if (_targettedCharacterIndex > _characterList.Count - 5)
-                {
-                    _targettedCharacterIndex = 0;
-                }
+                _targettedCharacterIndex = 0;
             }
         }
         if (_targettedCharacterIndex > -1)
         {
-            _optionChosen = 0;
+            DealDamage();
+        }
+    }
 
-            _characterList[_targettedCharacterIndex].ChangeHealth(-5);
+    void DealDamage()
+    {
+        _characterList[_targettedCharacterIndex].ChangeHealth(-5);
 
-            if (!_characterList[_targettedCharacterIndex].Alive)
+        if (!_characterList[_targettedCharacterIndex].Alive)
+        {
+            if (_characterList[_targettedCharacterIndex].Player)
             {
-                if (_characterList[_targettedCharacterIndex].Player)
-                {
-                    _deadPlayers++;
-                }
-                else
-                {
-                    _deadEnemies++;
-                }
+                _deadPlayers++;
             }
-
-            _targettingCharacterIndex = 4;
-
-            while (!_characterList[_targettingCharacterIndex].Alive)
+            else
             {
-                _targettingCharacterIndex++;
-                if(_targettingCharacterIndex > _characterList.Count - 1)
-                {
-                    _targettingCharacterIndex = 0;
-                }
+                _deadEnemies++;
             }
-            _targettedCharacterIndex = -1;
-            _currentCharacterIndex++;
         }
 
+        _targettingCharacterIndex = 4;
+
+        while (!_characterList[_targettingCharacterIndex].Alive)
+        {
+            _targettingCharacterIndex++;
+            if (_targettingCharacterIndex > _characterList.Count - 1)
+            {
+                _targettingCharacterIndex = 0;
+            }
+        }
+        _targettedCharacterIndex = -1;
+        _currentCharacterIndex++;
     }
 
     void Defend(Character defender)
     {
-        _optionChosen = 0;
         //defend
         _currentCharacterIndex++;
     }
 
     void Move(Character mover)
     {
-        _optionChosen = 0;
         //move
         _currentCharacterIndex++;
-    }
-
-    public TurnOption GetOptionChoosing()
-    {
-        return _optionChoosing;
     }
 }
 

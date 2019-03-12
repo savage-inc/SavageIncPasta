@@ -280,6 +280,7 @@
     <Compile Include="Assets\Scripts\Character.cs" />
     <Compile Include="Assets\Scripts\CharacterHealth.cs" />
     <Compile Include="Assets\Scripts\ClassTypes.cs" />
+    <Compile Include="Assets\Scripts\CombatUI.cs" />
     <Compile Include="Assets\Scripts\Inventory\Base\CharacterEquipment.cs" />
     <Compile Include="Assets\Scripts\Inventory\Base\Inventory.cs" />
     <Compile Include="Assets\Scripts\Inventory\CharacterInventory.cs" />
@@ -298,7 +299,6 @@
     <Compile Include="Assets\Scripts\Inventory\ShopItemButton.cs" />
     <Compile Include="Assets\Scripts\MagicTypes.cs" />
     <Compile Include="Assets\Scripts\Movement\PlayerController.cs" />
-    <Compile Include="Assets\Scripts\Option.cs" />
     <Compile Include="Assets\Scripts\Sound\PlaySound.cs" />
     <Compile Include="Assets\Scripts\Sound\SoundManager.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
