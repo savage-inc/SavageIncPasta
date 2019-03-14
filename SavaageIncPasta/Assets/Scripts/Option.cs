@@ -17,7 +17,7 @@ public class Option : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        OptionText.text = BattleObj.GetOptionChoosing().ToString();
+        //OptionText.text = BattleObj.GetOptionChoosing().ToString();
 
 	}
 }

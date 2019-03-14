@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Scenes/World/ShopScene.unity
+=======
+- path: Assets/Scenes/TestMovement.unity
+>>>>>>> CharacterManager
   isLoaded: 1
   isActive: 1
