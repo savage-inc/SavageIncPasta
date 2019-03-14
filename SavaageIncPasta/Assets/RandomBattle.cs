@@ -22,7 +22,6 @@ public class RandomBattle : MonoBehaviour
     private readonly float _range = 2.5f;
     private int _totalWeights = 0;
 
-    //public List<string> Enemies = new List<string>();
     public List<Enemies> Enemies = new List<Enemies>();
 
     // Use this for initialization
@@ -54,6 +53,8 @@ public class RandomBattle : MonoBehaviour
             _battleTriggerCounter = _randChance.Next(MinStepsBeforeBattle, MaxStepsBeforeBattle + 1);
             _stepCounter = 0;
 
+            //Randomise number between 0 and total weights
+            //See which enemy the randomised number points to by adding their weights
             int randomEnemy = _randChance.Next(_totalWeights+1);
             int weight = 0;
             foreach (Enemies enemy in Enemies)
