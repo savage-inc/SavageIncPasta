@@ -20,7 +20,7 @@ public class RandomBattle : MonoBehaviour
     private Rigidbody2D _rb;
     private Vector2 _oldPos;
     private readonly float _range = 2.5f;
-    private int totalWeights = 0;
+    private int _totalWeights = 0;
 
     //public List<string> Enemies = new List<string>();
     public List<Enemies> Enemies = new List<Enemies>();
@@ -34,7 +34,7 @@ public class RandomBattle : MonoBehaviour
 
         foreach (Enemies enemies in Enemies)
         {
-            totalWeights += enemies.weight;
+            _totalWeights += enemies.weight;
         }
     }
 
@@ -54,14 +54,14 @@ public class RandomBattle : MonoBehaviour
             _battleTriggerCounter = _randChance.Next(MinStepsBeforeBattle, MaxStepsBeforeBattle + 1);
             _stepCounter = 0;
 
-            int randomEnemy = _randChance.Next(totalWeights+1);
+            int randomEnemy = _randChance.Next(_totalWeights+1);
             int weight = 0;
             foreach (Enemies enemy in Enemies)
             {
                 weight += enemy.weight;
                 if (weight >= randomEnemy)
                 {
-                    Debug.Log(enemy.name + " " + (float)enemy.weight / (float)totalWeights+1);
+                    Debug.Log(enemy.name + " probability: " + (float)enemy.weight / (float)_totalWeights+1);
                     break;
                 }
             }
