@@ -6,14 +6,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Data", menuName = "Items/WeaponItem", order = 1)]
 public class WeaponItemData : BaseItemData
 {
-    public enum MagicType
-    {
-        eNONE,
-        eRED,
-        eWHITE,
-        eGREEN
-    }
-
     public enum Type
     {
         eSWORD,
