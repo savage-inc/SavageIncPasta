@@ -2,6 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public struct Enemies
+{
+    public string name;
+    public int weight;
+}
+
 public class RandomBattle : MonoBehaviour
 {
     public int MinStepsBeforeBattle;
@@ -13,8 +20,10 @@ public class RandomBattle : MonoBehaviour
     private Rigidbody2D _rb;
     private Vector2 _oldPos;
     private readonly float _range = 2.5f;
+    private int totalWeights = 0;
 
-    public List<string> Enemies = new List<string>();
+    //public List<string> Enemies = new List<string>();
+    public List<Enemies> Enemies = new List<Enemies>();
 
     // Use this for initialization
     void Start()
@@ -22,6 +31,11 @@ public class RandomBattle : MonoBehaviour
         _rb = GameObject.Find("Player").GetComponent<Rigidbody2D>();
         _battleTriggerCounter = _randChance.Next(MinStepsBeforeBattle, MaxStepsBeforeBattle + 1);
         _oldPos = _rb.position;
+
+        foreach (Enemies enemies in Enemies)
+        {
+            totalWeights += enemies.weight;
+        }
     }
 
     // Update is called once per frame
@@ -34,14 +48,23 @@ public class RandomBattle : MonoBehaviour
             _oldPos = _rb.position;
             _stepCounter++;
         }
-
+        
         if (_stepCounter >= _battleTriggerCounter)
         {
             _battleTriggerCounter = _randChance.Next(MinStepsBeforeBattle, MaxStepsBeforeBattle + 1);
             _stepCounter = 0;
 
-            int randomEnemy = _randChance.Next(Enemies.Count);
-            Debug.Log(Enemies[randomEnemy]);
+            int randomEnemy = _randChance.Next(totalWeights+1);
+            int weight = 0;
+            foreach (Enemies enemy in Enemies)
+            {
+                weight += enemy.weight;
+                if (weight >= randomEnemy)
+                {
+                    Debug.Log(enemy.name + " " + (float)enemy.weight / (float)totalWeights+1);
+                    break;
+                }
+            }
         }
     }
 
