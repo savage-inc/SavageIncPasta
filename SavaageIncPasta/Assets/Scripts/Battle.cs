@@ -3,8 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+public enum TurnOption
+{
+    eNONE,
+    eATTACK,
+    eDEFEND,
+    eMOVE
+}
+
 public class Battle : MonoBehaviour
 {
+    private TurnOption _optionChosen = TurnOption.eNONE;
     private List<Character> _characterList = new List<Character>(); // all players in battle
     private List<Character> _characterTurnOrder = new List<Character>(); // all players sorted into turn order
     private int _currentCharacterIndex = 0;
@@ -38,6 +47,7 @@ public class Battle : MonoBehaviour
         _characterList.Add(Enemy4);
 
         DecideTurnOrder();
+        PlaceInColumns();
 
     }
 
@@ -60,6 +70,26 @@ public class Battle : MonoBehaviour
             EnemyAttack();
         }
 
+        if (_optionChosen > 0)
+        {
+            switch (_optionChosen)
+            {
+                case TurnOption.eATTACK:
+                    PlayerAttack();
+                    break;
+                case TurnOption.eDEFEND:
+                    Defend(_characterTurnOrder[_currentCharacterIndex]);
+                    break;
+                case TurnOption.eMOVE:
+                    Move(_characterTurnOrder[_currentCharacterIndex]);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        _characterList[_currentCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.magenta;
+
         if (_currentCharacterIndex >= _characterList.Count)
         {
             DecideTurnOrder();
@@ -78,6 +108,42 @@ public class Battle : MonoBehaviour
         }
     }
 
+    void PlaceInColumns()
+    {
+        foreach (Character p in _characterList)
+        {
+            if (p.Player)
+            {
+                switch (p.CurrCol)
+                {
+                    case (1):
+                        p.gameObject.GetComponent<Transform>().position = new Vector3(-7f, p.gameObject.GetComponent<Transform>().position.y, p.gameObject.GetComponent<Transform>().position.z);
+                        break;
+                    case (2):
+                        p.gameObject.GetComponent<Transform>().position = new Vector3(-4.5f, p.gameObject.GetComponent<Transform>().position.y, p.gameObject.GetComponent<Transform>().position.z);
+                        break;
+                    case (3):
+                        p.gameObject.GetComponent<Transform>().position = new Vector3(-2f, p.gameObject.GetComponent<Transform>().position.y, p.gameObject.GetComponent<Transform>().position.z);
+                        break;
+                }
+            }
+            else
+            {
+                switch (p.CurrCol)
+                {
+                    case (1):
+                        p.gameObject.GetComponent<Transform>().position = new Vector3(2f, p.gameObject.GetComponent<Transform>().position.y, p.gameObject.GetComponent<Transform>().position.z);
+                        break;
+                    case (2):
+                        p.gameObject.GetComponent<Transform>().position = new Vector3(4.5f, p.gameObject.GetComponent<Transform>().position.y, p.gameObject.GetComponent<Transform>().position.z);
+                        break;
+                    case (3):
+                        p.gameObject.GetComponent<Transform>().position = new Vector3(7f, p.gameObject.GetComponent<Transform>().position.y, p.gameObject.GetComponent<Transform>().position.z);
+                        break;
+                }
+            }
+        }
+    }
 
     void DecideTurnOrder()
     {
@@ -115,7 +181,7 @@ public class Battle : MonoBehaviour
         }
     }
 
-    public void PlayerAttack()
+    void PlayerAttack()
     {
         _characterList[_targettingCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.magenta;
         if (Input.GetKeyDown(KeyCode.RightArrow))
@@ -212,8 +278,7 @@ public class Battle : MonoBehaviour
                 _targettingCharacterIndex = 0;
             }
         }
-        _targettedCharacterIndex = -1;
-        _currentCharacterIndex++;
+        EndTurn();
     }
 
     void Defend(Character defender)
@@ -224,8 +289,33 @@ public class Battle : MonoBehaviour
 
     void Move(Character mover)
     {
-        //move
+        if (Input.GetKeyDown(KeyCode.RightArrow) && mover.CurrCol < 3)
+        {
+            mover.CurrCol++;
+        }
+        else if (Input.GetKeyDown(KeyCode.LeftArrow) && mover.CurrCol > 1)
+        {
+            mover.CurrCol--;
+        }
+        else if (Input.GetKeyDown(KeyCode.Return))
+        {
+            EndTurn();
+        }
+
+        PlaceInColumns();
+    }
+
+    void EndTurn()
+    {
+        _characterList[_currentCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        _optionChosen = TurnOption.eNONE;
+        _targettedCharacterIndex = -1;
         _currentCharacterIndex++;
+    }
+
+    public void SetTurnOption(int turnOption)
+    {
+        _optionChosen = (TurnOption)turnOption;
     }
 }
 

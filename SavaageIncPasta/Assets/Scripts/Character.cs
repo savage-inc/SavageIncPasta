@@ -18,6 +18,7 @@ public class Character : MonoBehaviour
 
     public bool Player = true;
     public bool Alive { get; set; }
+    public int CurrCol = 1;
 
     private void Awake()
     {
