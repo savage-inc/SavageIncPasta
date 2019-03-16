@@ -1,9 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using UnityEngine;
 
+[System.Serializable]
 public class CharacterEquipment : Inventory
 {
+    protected CharacterEquipment(SerializationInfo info, StreamingContext context) : base(info, context)
+    {
+    }
 
     public CharacterEquipment() : base(5)
     {

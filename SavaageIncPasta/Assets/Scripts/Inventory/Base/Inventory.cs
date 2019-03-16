@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using UnityEngine;
 using UnityEngine.Analytics;
 
@@ -12,14 +13,43 @@ public class InventoryItem
 }
 
 [System.Serializable]
-public class Inventory
+public class Inventory : ISerializable
 {
+    protected Inventory(SerializationInfo info, StreamingContext context)
+    {
+        _inventoryCapacity = info.GetInt32("capacity");
+        _inventoryItems = new List<InventoryItem>();
+        int itemCount = info.GetInt32("itemCount");
+        for (int i = 0; i < itemCount; i++)
+        {
+            int amount = info.GetInt32("itemAmount" + i);
+            BaseItemData item = ItemDatabase.GetItemInstance(info.GetString("itemName" + i));
+
+            InventoryItem inventoryItem = new InventoryItem();
+            inventoryItem.Item = item;
+            inventoryItem.Amount = amount;
+            _inventoryItems.Add(inventoryItem);
+        }
+    }
+
+    public void GetObjectData(SerializationInfo info, StreamingContext context)
+    {
+        info.AddValue("capacity", _inventoryCapacity);
+        info.AddValue("itemCount", _inventoryItems.Count);
+        for (int i = 0; i < _inventoryItems.Count; i++)
+        {
+            info.AddValue("itemAmount" + i, _inventoryItems[i].Amount);
+            info.AddValue("itemName" + i, _inventoryItems[i].Item.Name);
+        }
+    }
+
     public Inventory(int capacity, bool unlimtedStackSize = false)
     {
         _inventoryCapacity = capacity;
         _inventoryItems = new List<InventoryItem>(InventoryCapacity);
         UnlimitedStackSize = unlimtedStackSize;
     }
+
 
     public delegate void AddItemAction(InventoryItem item);
     public event AddItemAction OnItemAdd;
@@ -40,9 +70,9 @@ public class Inventory
         get { return _inventoryCapacity; }
     }
 
-    public void AddItem(string itemName, ItemDatabase database)
+    public void AddItem(string itemName)
     {
-        var item = database.GetItemInstance(itemName);
+        var item = ItemDatabase.GetItemInstance(itemName);
         if (item != null)
         {
             AddItem(item);
@@ -70,6 +100,7 @@ public class Inventory
             }   
         }
 
+        //TODO change inventory to store a string as the item instead of the item itself
         InventoryItem newInventoryItem = new InventoryItem();
         newInventoryItem.Item = item;
         newInventoryItem.Amount = 1;
@@ -141,29 +172,6 @@ public class Inventory
     public List<InventoryItem> GetItems()
     {
         return _inventoryItems;
-    }
-
-    public List<string> SaveToList()
-    {
-        List<string> items = new List<string>();
-        foreach (var inventoryItem in _inventoryItems)
-        {
-            for (int i = 0; i < inventoryItem.Amount; i++)
-            {
-                items.Add(inventoryItem.Item.Name);
-            }
-        }
-
-        return items;
-    }
-
-    public void LoadFromList(List<string> items, ItemDatabase database)
-    {
-        _inventoryItems = new List<InventoryItem>();
-        foreach (var item in items)
-        {
-            AddItem(item, database);
-        }
     }
 
     public void Clear()

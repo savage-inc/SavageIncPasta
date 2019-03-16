@@ -20,7 +20,7 @@ public class PartyInventoryUI : MonoBehaviour
         var partyInventory = FindObjectOfType<PartyInventory>();
         _inventory = partyInventory.Inventory;
 
-        _characterInventory = FindObjectOfType<CharacterInventory>().CurrentCharacterEquipment;
+        _characterInventory = FindObjectOfType<PlayerManager>().Characters[0].Equipment;
     }
 
     void OnDisable()

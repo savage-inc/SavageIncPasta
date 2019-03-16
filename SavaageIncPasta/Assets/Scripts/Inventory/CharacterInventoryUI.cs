@@ -16,14 +16,21 @@ public class CharacterInventoryUI : MonoBehaviour
 
     public Sprite DefaultPreviewSprite;
 
+    private PlayerManager _playerManager;
     private CharacterEquipment _currentCharacterEquipment;
     private Inventory _partyInventory;
 
     // Use this for initialization
     void Start ()
     {
-        //TODO get a specfi 
-        _currentCharacterEquipment = FindObjectOfType<CharacterInventory>().CurrentCharacterEquipment;
+        //TODO get a specfic character
+        _playerManager = FindObjectOfType<PlayerManager>();
+        if(_playerManager == null)
+        {
+            Debug.LogWarning("Character Inventory couldn't find Player manager");
+            return;
+        }
+        _currentCharacterEquipment = _playerManager.Characters[0].Equipment;
         
 
         //get party inventory
@@ -35,6 +42,11 @@ public class CharacterInventoryUI : MonoBehaviour
         LegsButton.onClick.AddListener(() => LegsButton.GetComponent<InventoryItemButton>().TransferItem(_partyInventory));
         MainHandButton.onClick.AddListener(() => MainHandButton.GetComponent<InventoryItemButton>().TransferItem(_partyInventory));
         OffHandButton.onClick.AddListener(() => OffHandButton.GetComponent<InventoryItemButton>().TransferItem(_partyInventory));
+
+        _playerManager.Characters[0].Equipment.OnItemAdd += AddUIItem;
+        _playerManager.Characters[0].Equipment.OnItemRemove += RemoveItemUI;
+
+        SyncEquipment();
     }
 
     void OnDisable()

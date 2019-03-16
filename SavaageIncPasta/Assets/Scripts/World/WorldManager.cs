@@ -9,6 +9,8 @@ public class WorldManager : MonoBehaviour
     public Vector2 SpawnPos;
 
     private PartyInventory _partyInventory;
+    private PlayerManager _playerManager;
+
     private GameObject _playerObject;
 
     void Awake()
@@ -20,6 +22,7 @@ public class WorldManager : MonoBehaviour
         //find the party inventory 
         _partyInventory = FindObjectOfType<PartyInventory>();
 
+        _playerManager = FindObjectOfType<PlayerManager>();
     }
 
     void Start()
@@ -47,16 +50,15 @@ public class WorldManager : MonoBehaviour
     public void SaveWorld()
     {
         PersistantData.SaveSceneData(SceneManager.GetActiveScene().name, _playerObject.transform.position,FindObjectsOfType<Shop>());
-        PersistantData.SavePartyData(_partyInventory);
+        PersistantData.SavePartyData(_partyInventory, _playerManager);
     }
 
     public void LoadWorld()
     {
-        var itemDatabase = FindObjectOfType<ItemDatabase>();
 
         //Attempt to load Scene
-        PersistantData.LoadSceneData(SceneManager.GetActiveScene().name, _playerObject.transform, FindObjectsOfType<Shop>(), itemDatabase);
+        PersistantData.LoadSceneData(SceneManager.GetActiveScene().name, _playerObject.transform, FindObjectsOfType<Shop>());
         //load party
-        PersistantData.LoadPartyData(_partyInventory,itemDatabase);
+        PersistantData.LoadPartyData(_partyInventory,_playerManager);
     }
 }

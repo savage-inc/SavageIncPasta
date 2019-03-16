@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemDatabase : MonoBehaviour
 {
-    private Dictionary<string, BaseItemData> _items;
+    private static Dictionary<string, BaseItemData> _items;
 
 	// Use this for initialization
 	void Awake ()
@@ -13,7 +13,7 @@ public class ItemDatabase : MonoBehaviour
         LoadItemsFromResources();
     }
 
-    public BaseItemData GetItemInstance(string itemName)
+    public static BaseItemData GetItemInstance(string itemName)
     {
         if (!_items.ContainsKey(itemName))
         {

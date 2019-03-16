@@ -16,9 +16,15 @@ public class PersistantData
     [System.Serializable]
     private struct PartyData
     {
-        public List<string> PartyInventory;
+        public Inventory PartyInventory;
         public int Gold;
         //character data
+        public List<Character> PartyCharacterData;
+
+        public PartyData(List<Character> partyCharacterData = null) : this()
+        {
+            PartyCharacterData = new List<Character>();
+        }
     }
 
     [System.Serializable]
@@ -102,7 +108,7 @@ public class PersistantData
         SaveBytesToFile(SceneName + ".data", SerializeToBytes(sceneData));
     }
 
-    public static void LoadSceneData(string SceneName ,Transform playerTransform, Shop[] shops, ItemDatabase database)
+    public static void LoadSceneData(string SceneName ,Transform playerTransform, Shop[] shops)
     {
         var data = ReadBytesFromFile(SceneName + ".data");
         if (data != null)
@@ -132,7 +138,7 @@ public class PersistantData
                         {
                             for (int i = 0; i < item.Value; i++)
                             {
-                                shop.Inventory.AddItem(item.Key,database);
+                                shop.Inventory.AddItem(item.Key);
                             }
                         }
                     }
@@ -141,26 +147,32 @@ public class PersistantData
         }
     }
 
-    public static void SavePartyData(PartyInventory partyInventory)
+    public static void SavePartyData(PartyInventory partyInventory, PlayerManager playerManager)
     {
-        PartyData partyData;
-        partyData.PartyInventory = partyInventory.Inventory.SaveToList();
+        PartyData partyData = new PartyData();
+        partyData.PartyInventory = partyInventory.Inventory;
         partyData.Gold = partyInventory.Gold;
+
+        //Party characets
+        partyData.PartyCharacterData = playerManager.Characters;
+
+
         SaveBytesToFile("partyData.data", SerializeToBytes(partyData));
     }
 
-    public static void LoadPartyData(PartyInventory partyInventory, ItemDatabase database)
+    public static void LoadPartyData(PartyInventory partyInventory, PlayerManager playerManager)
     {
         var data = ReadBytesFromFile("partyData.data");
         if (data != null)
         {
             PartyData partyData = DeserializeToType<PartyData>(data);
 
-            if (partyData.PartyInventory.Count > 0 && partyData.Gold > 0)
+            if (partyData.PartyInventory != null && partyData.Gold > 0)
             {
-                partyInventory.Inventory.Clear();
-                partyInventory.Inventory.LoadFromList(partyData.PartyInventory, database);
+                partyInventory.Inventory = partyData.PartyInventory;
                 partyInventory.Gold = partyData.Gold;
+
+                playerManager.Characters = partyData.PartyCharacterData;
             }
         }
     }
