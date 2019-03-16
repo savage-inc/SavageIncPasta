@@ -289,6 +289,7 @@
     <Compile Include="Assets\Scripts\Inventory\ItemTooltip.cs" />
     <Compile Include="Assets\Scripts\Inventory\PartyInventory.cs" />
     <Compile Include="Assets\Scripts\Inventory\PartyInventoryUI.cs" />
+    <Compile Include="Assets\Scripts\Inventory\RandomItemGenerator.cs" />
     <Compile Include="Assets\Scripts\Inventory\ScriptableObjects\ArmourItemData.cs" />
     <Compile Include="Assets\Scripts\Inventory\ScriptableObjects\BaseItemData.cs" />
     <Compile Include="Assets\Scripts\Inventory\ScriptableObjects\ConsumableItemData.cs" />
