@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Name: LeatherChest
   m_EditorClassIdentifier: 
   _name: Leather Chest
+  _databaseName: LeatherChest
   _description: 
   _baseMoneyValue: 20
   _previewSprite: {fileID: 0}

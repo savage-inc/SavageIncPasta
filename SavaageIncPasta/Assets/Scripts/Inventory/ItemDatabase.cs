@@ -11,8 +11,10 @@ public class ItemDatabase : MonoBehaviour
     {
 		_items = new Dictionary<string, BaseItemData>();
         LoadItemsFromResources();
+        GenerateItems();
     }
 
+<<<<<<< HEAD
     public static BaseItemData GetItemInstance(string itemName)
     {
         if (!_items.ContainsKey(itemName))
@@ -21,6 +23,16 @@ public class ItemDatabase : MonoBehaviour
         }
 
         var itemData = _items[itemName];
+=======
+    public BaseItemData GetItemInstance(string databaseName)
+    {
+        if (!_items.ContainsKey(databaseName))
+        {
+            Debug.LogError("Can't add item: " + databaseName + " to inventory as it doesn't exist in the item database");
+        }
+
+        var itemData = _items[databaseName];
+>>>>>>> master
 
         return itemData;
     }
@@ -35,10 +47,25 @@ public class ItemDatabase : MonoBehaviour
         {
             if (item.Name.Length == 0)
             {
-                Debug.LogError("Item doesn't have a name and can't be added to item database");
+                Debug.LogError("Item doesn't have a databaseName and can't be added to item database");
             }
 
-            _items.Add(item.Name, item);
+            _items.Add(item.DatabaseName, item);
+        }
+    }
+
+    void GenerateItems()
+    {
+        for (int i = 0; i < 500; i++)
+        {
+            var weapon = RandomItemGenerator.RandomWeapon();
+            _items.Add(weapon.DatabaseName, weapon);
+        }
+
+        for (int i = 0; i < 250; i++)
+        {
+            var armour = RandomItemGenerator.RandomArmour();
+            _items.Add(armour.DatabaseName, armour);
         }
     }
 }
