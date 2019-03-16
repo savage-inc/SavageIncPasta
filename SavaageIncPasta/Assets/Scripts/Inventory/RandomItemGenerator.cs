@@ -139,12 +139,12 @@ public class RandomItemGenerator
         //random magic 30 change the item has magic
         if (Random.value <= .3f)
         {
-            weapon.MagicalType = (WeaponItemData.MagicType) Random.Range(1, 4);
+            weapon.MagicalType = (MagicType) Random.Range(1, 4);
             weapon.MagicalModifier = Random.Range(2, 5);
         }
         else
         {
-            weapon.MagicalType = WeaponItemData.MagicType.eNONE;
+            weapon.MagicalType = MagicType.eNONE;
         }
 
         //weapon.PreviewSprite =
@@ -170,11 +170,11 @@ public class RandomItemGenerator
         //random magic 30 change the item has magic
         if (Random.value <= .3f)
         {
-            armourItem.MagicalType = (ArmourItemData.MagicType)Random.Range(1, 4);
+            armourItem.MagicalType = (MagicType)Random.Range(1, 4);
         }
         else
         {
-            armourItem.MagicalType = ArmourItemData.MagicType.eNONE;
+            armourItem.MagicalType = MagicType.eNONE;
         }
 
         switch (armourItem.ArmourSlotType)
@@ -183,7 +183,7 @@ public class RandomItemGenerator
                 switch (armourItem.ArmourType)
                 {
                     case ArmourItemData.Type.eLIGHT: //light helmet
-                        if (armourItem.MagicalType != ArmourItemData.MagicType.eNONE)
+                        if (armourItem.MagicalType != MagicType.eNONE)
                         {
                             armourItem.Value = Random.Range(1, 5);
                         }
@@ -193,7 +193,7 @@ public class RandomItemGenerator
                         }
                         break;
                     case ArmourItemData.Type.eMEDIUM: // medium helmet
-                        if (armourItem.MagicalType != ArmourItemData.MagicType.eNONE)
+                        if (armourItem.MagicalType != MagicType.eNONE)
                         {
                             armourItem.Value = Random.Range(2, 6);
                         }
@@ -203,7 +203,7 @@ public class RandomItemGenerator
                         }
                         break;
                     case ArmourItemData.Type.eHEAVY: // heavy helmet
-                        if (armourItem.MagicalType != ArmourItemData.MagicType.eNONE)
+                        if (armourItem.MagicalType != MagicType.eNONE)
                         {
                             armourItem.Value = Random.Range(3, 7);
                         }
@@ -220,7 +220,7 @@ public class RandomItemGenerator
                 switch (armourItem.ArmourType)
                 {
                     case ArmourItemData.Type.eLIGHT: //light chest
-                        if (armourItem.MagicalType != ArmourItemData.MagicType.eNONE)
+                        if (armourItem.MagicalType != MagicType.eNONE)
                         {
                             armourItem.Value = Random.Range(2, 6);
                         }
@@ -230,7 +230,7 @@ public class RandomItemGenerator
                         }
                         break;
                     case ArmourItemData.Type.eMEDIUM: // medium chest
-                        if (armourItem.MagicalType != ArmourItemData.MagicType.eNONE)
+                        if (armourItem.MagicalType != MagicType.eNONE)
                         {
                             armourItem.Value = Random.Range(3, 7);
                         }
@@ -240,7 +240,7 @@ public class RandomItemGenerator
                         }
                         break;
                     case ArmourItemData.Type.eHEAVY: // heavy chest
-                        if (armourItem.MagicalType != ArmourItemData.MagicType.eNONE)
+                        if (armourItem.MagicalType != MagicType.eNONE)
                         {
                             armourItem.Value = Random.Range(4, 8);
                         }
@@ -257,7 +257,7 @@ public class RandomItemGenerator
                 switch (armourItem.ArmourType)
                 {
                     case ArmourItemData.Type.eLIGHT: //light helmet
-                        if (armourItem.MagicalType != ArmourItemData.MagicType.eNONE)
+                        if (armourItem.MagicalType != MagicType.eNONE)
                         {
                             armourItem.Value = Random.Range(1, 5);
                         }
@@ -267,7 +267,7 @@ public class RandomItemGenerator
                         }
                         break;
                     case ArmourItemData.Type.eMEDIUM: // medium helmet
-                        if (armourItem.MagicalType != ArmourItemData.MagicType.eNONE)
+                        if (armourItem.MagicalType != MagicType.eNONE)
                         {
                             armourItem.Value = Random.Range(2, 6);
                         }
@@ -277,7 +277,7 @@ public class RandomItemGenerator
                         }
                         break;
                     case ArmourItemData.Type.eHEAVY: // heavy helmet
-                        if (armourItem.MagicalType != ArmourItemData.MagicType.eNONE)
+                        if (armourItem.MagicalType != MagicType.eNONE)
                         {
                             armourItem.Value = Random.Range(3, 7);
                         }

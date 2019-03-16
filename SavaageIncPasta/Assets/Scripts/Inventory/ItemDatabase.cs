@@ -9,22 +9,16 @@ public class ItemDatabase : MonoBehaviour
 	// Use this for initialization
 	void Awake ()
     {
-		_items = new Dictionary<string, BaseItemData>();
-        LoadItemsFromResources();
-        GenerateItems();
+        if (_items == null)
+        {
+            _items = new Dictionary<string, BaseItemData>();
+            LoadItemsFromResources();
+            GenerateItems();
+        }
     }
 
-<<<<<<< HEAD
-    public static BaseItemData GetItemInstance(string itemName)
-    {
-        if (!_items.ContainsKey(itemName))
-        {
-            Debug.LogError("Can't add item: " + itemName + " to inventory as it doesn't exist in the item database");
-        }
 
-        var itemData = _items[itemName];
-=======
-    public BaseItemData GetItemInstance(string databaseName)
+    public static BaseItemData GetItemInstance(string databaseName)
     {
         if (!_items.ContainsKey(databaseName))
         {
@@ -32,8 +26,6 @@ public class ItemDatabase : MonoBehaviour
         }
 
         var itemData = _items[databaseName];
->>>>>>> master
-
         return itemData;
     }
 

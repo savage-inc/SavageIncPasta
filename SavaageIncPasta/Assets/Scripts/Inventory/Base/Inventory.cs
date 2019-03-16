@@ -39,7 +39,7 @@ public class Inventory : ISerializable
         for (int i = 0; i < _inventoryItems.Count; i++)
         {
             info.AddValue("itemAmount" + i, _inventoryItems[i].Amount);
-            info.AddValue("itemName" + i, _inventoryItems[i].Item.Name);
+            info.AddValue("itemName" + i, _inventoryItems[i].Item.DatabaseName);
         }
     }
 
