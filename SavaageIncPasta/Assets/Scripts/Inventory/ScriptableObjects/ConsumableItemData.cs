@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Data", menuName = "Items/ConsumableItem", order = 1)]
@@ -33,5 +34,19 @@ public class ConsumableItemData : BaseItemData
     public float EffectAmount
     {
         get { return _effectAmount; }
+    }
+
+    protected ConsumableItemData(SerializationInfo info, StreamingContext context) : base(info, context)
+    {
+        _consumableType = (Type)info.GetInt32("consumableType");
+        _effectAmount = info.GetInt32("value");
+    }
+
+    public override void GetObjectData(SerializationInfo info, StreamingContext context)
+    {
+        base.GetObjectData(info, context);
+        info.AddValue("consumableType", _consumableType);
+        info.AddValue("value", _effectAmount);
+
     }
 }

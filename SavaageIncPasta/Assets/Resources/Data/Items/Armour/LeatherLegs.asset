@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Name: LeatherLegs
   m_EditorClassIdentifier: 
   _name: Leather Legs
+  _databaseName: LeatherLegs
   _description: 
   _baseMoneyValue: 10
   _previewSprite: {fileID: 0}
