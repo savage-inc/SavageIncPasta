@@ -147,7 +147,7 @@ public class WeaponItemData : BaseItemData
         _minDamage = info.GetInt32("minDamage");
         _maxDamage = info.GetInt32("maxDamage");
         _varianceDamage = info.GetInt32("varianceDamage");
-        _missFire = info.GetSingle("missfire");
+        _missFire = info.GetSingle("missFire");
         _isMelee = info.GetBoolean("melee");
         _isMainHand = info.GetBoolean("mainhand");
         _magicalType = (MagicType) info.GetInt32("magicalType");

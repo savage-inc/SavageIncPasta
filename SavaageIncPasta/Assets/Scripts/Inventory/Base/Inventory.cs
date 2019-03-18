@@ -23,7 +23,7 @@ public class Inventory : ISerializable
         for (int i = 0; i < itemCount; i++)
         {
             int amount = info.GetInt32("itemAmount" + i);
-            BaseItemData item = ItemDatabase.GetItemInstance(info.GetString("itemName" + i));
+            BaseItemData item = ItemDatabase.Instance.GetItemInstance(info.GetString("itemDatabaseName" + i));
 
             InventoryItem inventoryItem = new InventoryItem();
             inventoryItem.Item = item;
@@ -39,7 +39,7 @@ public class Inventory : ISerializable
         for (int i = 0; i < _inventoryItems.Count; i++)
         {
             info.AddValue("itemAmount" + i, _inventoryItems[i].Amount);
-            info.AddValue("itemName" + i, _inventoryItems[i].Item.DatabaseName);
+            info.AddValue("itemDatabaseName" + i, _inventoryItems[i].Item.DatabaseName);
         }
     }
 
@@ -70,9 +70,9 @@ public class Inventory : ISerializable
         get { return _inventoryCapacity; }
     }
 
-    public void AddItem(string itemName)
+    public void AddItem(string itemDatabaseName)
     {
-        var item = ItemDatabase.GetItemInstance(itemName);
+        var item = ItemDatabase.Instance.GetItemInstance(itemDatabaseName);
         if (item != null)
         {
             AddItem(item);

@@ -20,10 +20,12 @@ public class PersistantData
         public int Gold;
         //character data
         public List<Character> PartyCharacterData;
+        public List<BaseItemData> ItemDatabase;
 
         public PartyData(List<Character> partyCharacterData = null) : this()
         {
             PartyCharacterData = new List<Character>();
+            ItemDatabase = new List<BaseItemData>();
         }
     }
 
@@ -98,7 +100,7 @@ public class PersistantData
             shopData.Items = new Dictionary<string, int>();
             foreach (var item in shop.Inventory.GetItems())
             {
-                shopData.Items.Add(item.Item.Name,item.Amount);
+                shopData.Items.Add(item.Item.DatabaseName,item.Amount);
             }
             //Add shop to scenedata
             sceneData.ShopData.Add(shopData);
@@ -155,7 +157,7 @@ public class PersistantData
 
         //Party characets
         partyData.PartyCharacterData = playerManager.Characters;
-
+        partyData.ItemDatabase = ItemDatabase.Instance.ToList();
 
         SaveBytesToFile("partyData.data", SerializeToBytes(partyData));
     }
@@ -173,6 +175,7 @@ public class PersistantData
                 partyInventory.Gold = partyData.Gold;
 
                 playerManager.Characters = partyData.PartyCharacterData;
+                ItemDatabase.Instance.FromList(partyData.ItemDatabase);
             }
         }
     }
