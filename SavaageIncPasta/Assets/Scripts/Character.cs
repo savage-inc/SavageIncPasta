@@ -6,6 +6,7 @@ using UnityEngine;
 [System.Serializable]
 public class Character
 {
+    public string name;
     public ClassType Class;
     public int Level;
     public int MaxHealth;

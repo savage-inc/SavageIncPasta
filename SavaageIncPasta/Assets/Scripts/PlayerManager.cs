@@ -8,12 +8,12 @@ public class PlayerManager : MonoBehaviour
     public List<Character> Characters;
     public int NumofCharacters;
 
-    void AddCharacter(Character c)
+    public void AddCharacter(Character c)
     {
         Characters.Add(c);
     }
 
-    void RemoveCharacter(Character c)
+    public void RemoveCharacter(Character c)
     {
         Characters.Remove(c);
     }

@@ -281,6 +281,7 @@
     <Compile Include="Assets\Scripts\CharacterHealth.cs" />
     <Compile Include="Assets\Scripts\ClanManager.cs" />
     <Compile Include="Assets\Scripts\ClassTypes.cs" />
+    <Compile Include="Assets\Scripts\EnemyManager.cs" />
     <Compile Include="Assets\Scripts\GenerateRandomCharacter.cs" />
     <Compile Include="Assets\Scripts\Inventory\Base\CharacterEquipment.cs" />
     <Compile Include="Assets\Scripts\Inventory\Base\Inventory.cs" />
