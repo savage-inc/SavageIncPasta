@@ -88,7 +88,7 @@ public class Battle : MonoBehaviour
             }
         }
 
-        _characterList[_currentCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.magenta;
+        _characterTurnOrder[_currentCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.magenta;
 
         if (_currentCharacterIndex >= _characterList.Count)
         {
