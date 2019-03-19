@@ -3,10 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public struct Enemies
+public class Enemy
 {
     public string name;
     public int weight;
+
+    public void CapWeight()
+    {
+        if (this.weight <= 0)
+            weight = 1;
+    }
 }
 
 public class RandomBattle : MonoBehaviour
@@ -22,7 +28,7 @@ public class RandomBattle : MonoBehaviour
     private readonly float _range = 2.5f;
     private int _totalWeights = 0;
 
-    public List<Enemies> Enemies = new List<Enemies>();
+    public List<Enemy> Enemies = new List<Enemy>();
 
     // Use this for initialization
     void Start()
@@ -31,9 +37,10 @@ public class RandomBattle : MonoBehaviour
         _battleTriggerCounter = _randChance.Next(MinStepsBeforeBattle, MaxStepsBeforeBattle + 1);
         _oldPos = _rb.position;
 
-        foreach (Enemies enemies in Enemies)
+        foreach (Enemy enemy in Enemies)
         {
-            _totalWeights += enemies.weight;
+            enemy.CapWeight();
+            _totalWeights += enemy.weight;
         }
     }
 
@@ -57,7 +64,7 @@ public class RandomBattle : MonoBehaviour
             //See which enemy the randomised number points to by adding their weights
             int randomEnemy = _randChance.Next(_totalWeights+1);
             int weight = 0;
-            foreach (Enemies enemy in Enemies)
+            foreach (Enemy enemy in Enemies)
             {
                 weight += enemy.weight;
                 if (weight >= randomEnemy)
