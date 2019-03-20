@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Data", menuName = "Items/ArmourItem", order = 1)]
@@ -29,7 +28,7 @@ public class ArmourItemData : BaseItemData
         eHEAVY,
     }
 
-    public ArmourItemData() : base()
+    public ArmourItemData()
     {
         base._itemType = ItemType.eARMOUR;
     }
@@ -46,42 +45,20 @@ public class ArmourItemData : BaseItemData
     public SlotType ArmourSlotType
     {
         get { return _armourSlotType; }
-        set { _armourSlotType = value; }
     }
 
     public Type ArmourType
     {
         get { return _armourType; }
-        set { _armourType = value; }
     }
 
     public float Value
     {
         get { return _value; }
-        set { _value = value; }
     }
 
     public MagicType MagicalType
     {
         get { return _magicalType; }
-        set { _magicalType = value; }
-    }
-
-    protected ArmourItemData(SerializationInfo info, StreamingContext context) : base(info,context)
-    {
-        _armourSlotType = (SlotType)info.GetInt32("slotType");
-        _armourType = (Type)info.GetInt32("armourType");
-        _value = info.GetInt32("value");
-        _magicalType = (MagicType)info.GetInt32("magicType");
-
-    }
-
-    public override void GetObjectData(SerializationInfo info, StreamingContext context)
-    {
-        base.GetObjectData(info, context);
-        info.AddValue("slotType", _armourSlotType);
-        info.AddValue("armourType", _armourType);
-        info.AddValue("value", _value);
-        info.AddValue("magicType", _magicalType);
     }
 }
