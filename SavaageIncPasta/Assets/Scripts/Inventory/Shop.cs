@@ -17,6 +17,11 @@ public class Shop : MonoBehaviour
     public float PriceModfier = 1.0f;
     //How long should the shop restock since last visit (In minutes)
     public float RestockTime = 1.0f;
+
+    public bool RandomWeapons = false;
+    public bool RandomArmour = false;
+    public int RandomItemCount = 0;
+
     public Inventory Inventory { get; private set; }
     private PartyInventory _partyInventory;
     private float _lastVisit;
@@ -29,6 +34,29 @@ public class Shop : MonoBehaviour
         {
             for (int i = 0; i < shopItem.Stock; i++)
             {
+                Inventory.AddItem(shopItem.Item);
+            }
+        }
+
+        //add random items
+        if (RandomArmour)
+        {
+            for (int i = 0; i < RandomItemCount; i++)
+            {
+                ShopItem shopItem;
+                shopItem.Item = ItemDatabase.Instance.Armour[Random.Range(0, ItemDatabase.Instance.Armour.Count)];
+                shopItem.Stock = 1;
+                Inventory.AddItem(shopItem.Item);
+            }
+        }
+
+        if (RandomWeapons)
+        {
+            for (int i = 0; i < RandomItemCount; i++)
+            {
+                ShopItem shopItem;
+                shopItem.Item = ItemDatabase.Instance.Weapons[Random.Range(0, ItemDatabase.Instance.Weapons.Count)];
+                shopItem.Stock = 1;
                 Inventory.AddItem(shopItem.Item);
             }
         }

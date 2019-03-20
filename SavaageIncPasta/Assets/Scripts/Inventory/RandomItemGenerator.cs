@@ -17,11 +17,11 @@ public class RandomItemGenerator
 
         //decide what type of weapon to generate
         float randonValue = Random.value;
-        if (randonValue <= .20f)
+        if (randonValue <= .10f)
         {
             weapon.WeaponType = WeaponItemData.Type.eGUN;
         }
-        else if (randonValue > .20f && randonValue <= 50.0f)
+        else if (randonValue > .10f && randonValue <= .30f)
         {
             weapon.WeaponType = WeaponItemData.Type.eRANGE;
         }
@@ -153,6 +153,8 @@ public class RandomItemGenerator
         //Random description
         weapon.Description = "TODO:: Add a random description";
 
+        weapon.BaseMoneyValue = Random.Range(5, 30);
+
         return weapon;
     }
 
@@ -161,6 +163,7 @@ public class RandomItemGenerator
         ArmourItemData armourItem = ScriptableObject.CreateInstance<ArmourItemData>();
 
         armourItem.DatabaseName = System.Guid.NewGuid().ToString();
+
 
         //decide what type of armour to generate
         armourItem.ArmourSlotType = (ArmourItemData.SlotType) Random.Range(0, 3);
@@ -293,6 +296,13 @@ public class RandomItemGenerator
             default:
                 throw new ArgumentOutOfRangeException();
         }
+
+        armourItem.Name = "Random Weapon #" + Random.Range(0, 1000);
+        //Random description
+        armourItem.Description = "TODO:: Add a random description";
+
+        armourItem.BaseMoneyValue = Random.Range(5, 30);
+
         return armourItem;
     }
 }

@@ -5,21 +5,28 @@ using UnityEngine;
 [System.Serializable]
 public class ItemDatabase : MonoBehaviour
 {
-    private static Dictionary<string, BaseItemData> _items;
-
     public static ItemDatabase Instance { get; private set; }
 
+    private Dictionary<string, BaseItemData> _items;
+    public List<WeaponItemData> Weapons { get; private set; }
+    public List<ArmourItemData> Armour { get; private set; }
+
+
     // Use this for initialization
-	void Awake ()
+    void Awake ()
     {
         DontDestroyOnLoad(this);
 
         if (Instance == null)
         {
+            Instance = this;
+
             _items = new Dictionary<string, BaseItemData>();
+            Weapons = new List<WeaponItemData>();
+            Armour = new List<ArmourItemData>();
+
             LoadItemsFromResources();
             GenerateItems();
-            Instance = this;
         }
         else
         {
@@ -62,12 +69,14 @@ public class ItemDatabase : MonoBehaviour
         {
             var weapon = RandomItemGenerator.RandomWeapon();
             _items.Add(weapon.DatabaseName, weapon);
+            Weapons.Add(weapon);
         }
 
         for (int i = 0; i < 250; i++)
         {
             var armour = RandomItemGenerator.RandomArmour();
             _items.Add(armour.DatabaseName, armour);
+            Armour.Add(armour);
         }
     }
 

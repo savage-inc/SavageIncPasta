@@ -169,11 +169,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShopUI: {fileID: 363847589}
-  ShopStartItems:
-  - Item: {fileID: 11400000, guid: 9bc669924fb82044f8edb569d34ed46a, type: 2}
-    Stock: 99
+  ShopStartItems: []
   PriceModfier: 1
   RestockTime: 1
+  RandomWeapons: 1
+  RandomArmour: 0
+  RandomItemCount: 10
 --- !u!114 &83147320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -415,6 +416,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 880429592}
+  - component: {fileID: 880429593}
   m_Layer: 0
   m_Name: ItemDatabase
   m_TagString: Untagged
@@ -435,6 +437,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &880429593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 880429591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38f5555e06472bf47b5e69f5dc1fecef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1093860234
 GameObject:
   m_ObjectHideFlags: 0
