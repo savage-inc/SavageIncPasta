@@ -228,6 +228,7 @@
       <HintPath>Assets/3rdParty/TextMeshPro/Plugins/Editor DLL/TextMeshPro-2017.3-Runtime.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Analytics">
+<<<<<<< HEAD
       <HintPath>C:/Users/t7051015/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.13/UnityEngine.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Purchasing">
@@ -235,6 +236,15 @@
     </Reference>
     <Reference Include="UnityEngine.StandardEvents">
       <HintPath>C:/Users/t7051015/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
+=======
+      <HintPath>C:/Users/t7094911/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.13/UnityEngine.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Purchasing">
+      <HintPath>C:/Users/t7094911/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.purchasing@0.0.19/UnityEngine.Purchasing.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.StandardEvents">
+      <HintPath>C:/Users/t7094911/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
+>>>>>>> ff52cd2cecd4272f7938e68c385757de75556c5b
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -279,8 +289,14 @@
     <Compile Include="Assets\Scripts\Battle.cs" />
     <Compile Include="Assets\Scripts\Character.cs" />
     <Compile Include="Assets\Scripts\CharacterHealth.cs" />
+    <Compile Include="Assets\Scripts\ClanManager.cs" />
     <Compile Include="Assets\Scripts\ClassTypes.cs" />
+<<<<<<< HEAD
     <Compile Include="Assets\Scripts\CombatUI.cs" />
+=======
+    <Compile Include="Assets\Scripts\EnemyManager.cs" />
+    <Compile Include="Assets\Scripts\GenerateRandomCharacter.cs" />
+>>>>>>> ff52cd2cecd4272f7938e68c385757de75556c5b
     <Compile Include="Assets\Scripts\Inventory\Base\CharacterEquipment.cs" />
     <Compile Include="Assets\Scripts\Inventory\Base\Inventory.cs" />
     <Compile Include="Assets\Scripts\Inventory\CharacterInventory.cs" />
@@ -299,6 +315,11 @@
     <Compile Include="Assets\Scripts\Inventory\ShopItemButton.cs" />
     <Compile Include="Assets\Scripts\MagicTypes.cs" />
     <Compile Include="Assets\Scripts\Movement\PlayerController.cs" />
+<<<<<<< HEAD
+=======
+    <Compile Include="Assets\Scripts\Option.cs" />
+    <Compile Include="Assets\Scripts\PlayerManager.cs" />
+>>>>>>> ff52cd2cecd4272f7938e68c385757de75556c5b
     <Compile Include="Assets\Scripts\Sound\PlaySound.cs" />
     <Compile Include="Assets\Scripts\Sound\SoundManager.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
