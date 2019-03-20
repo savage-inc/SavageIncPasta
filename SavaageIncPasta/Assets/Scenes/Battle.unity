@@ -146,7 +146,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4.726418, y: 2.7936084}
+  m_AnchoredPosition: {x: 2.1, y: 2.71}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &30306852
@@ -160,8 +160,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 094ae2790432cb14492a0f156879a720, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterHealthText: {fileID: 30306853}
-  character: {fileID: 481552405}
+  CharacterHealthText: {fileID: 0}
+  character:
+    name: 
+    Class: 0
+    Level: 0
+    MaxHealth: 0
+    CurrentHealth: 0
+    Strength: 0
+    Constitution: 0
+    Dexterity: 0
+    Intelligence: 0
+    Charisma: 0
+    Magic: 0
+    Player: 1
+    Alive: 0
+    CurrCol: 1
 --- !u!114 &30306853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,7 +208,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 'Health: 20'
 --- !u!222 &30306854
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -321,7 +335,6 @@ GameObject:
   m_Component:
   - component: {fileID: 72626054}
   - component: {fileID: 72626053}
-  - component: {fileID: 72626055}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Untagged
@@ -386,19 +399,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &72626055
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 72626052}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 691df95ab74f7674db05d5904eeaa0f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Player: 1
-  CurrCol: 1
 --- !u!1 &110827212
 GameObject:
   m_ObjectHideFlags: 0
@@ -408,7 +408,6 @@ GameObject:
   m_Component:
   - component: {fileID: 110827215}
   - component: {fileID: 110827214}
-  - component: {fileID: 110827213}
   m_Layer: 0
   m_Name: Enemy3
   m_TagString: Untagged
@@ -416,19 +415,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &110827213
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 110827212}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 691df95ab74f7674db05d5904eeaa0f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Player: 0
-  CurrCol: 1
 --- !u!212 &110827214
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -480,7 +466,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 110827212}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: 0.375, z: -0.007195135}
+  m_LocalPosition: {x: 2, y: 0.375, z: -0.007195135}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -495,7 +481,6 @@ GameObject:
   m_Component:
   - component: {fileID: 120704462}
   - component: {fileID: 120704461}
-  - component: {fileID: 120704460}
   m_Layer: 0
   m_Name: Player3
   m_TagString: Untagged
@@ -503,19 +488,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &120704460
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 120704459}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 691df95ab74f7674db05d5904eeaa0f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Player: 1
-  CurrCol: 1
 --- !u!212 &120704461
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1153,14 +1125,66 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b157afa6dc1b2f04db9b350548af8c64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player1: {fileID: 72626055}
-  Player2: {fileID: 1505924760}
-  Player3: {fileID: 120704460}
-  Player4: {fileID: 1332402905}
-  Enemy1: {fileID: 1128762636}
-  Enemy2: {fileID: 481552405}
-  Enemy3: {fileID: 110827213}
-  Enemy4: {fileID: 750556660}
+  Enemy1:
+    name: 
+    Class: 0
+    Level: 0
+    MaxHealth: 0
+    CurrentHealth: 0
+    Strength: 0
+    Constitution: 0
+    Dexterity: 0
+    Intelligence: 0
+    Charisma: 0
+    Magic: 0
+    Player: 1
+    Alive: 0
+    CurrCol: 1
+  Enemy2:
+    name: 
+    Class: 0
+    Level: 0
+    MaxHealth: 0
+    CurrentHealth: 0
+    Strength: 0
+    Constitution: 0
+    Dexterity: 0
+    Intelligence: 0
+    Charisma: 0
+    Magic: 0
+    Player: 1
+    Alive: 0
+    CurrCol: 1
+  Enemy3:
+    name: 
+    Class: 0
+    Level: 0
+    MaxHealth: 0
+    CurrentHealth: 0
+    Strength: 0
+    Constitution: 0
+    Dexterity: 0
+    Intelligence: 0
+    Charisma: 0
+    Magic: 0
+    Player: 1
+    Alive: 0
+    CurrCol: 1
+  Enemy4:
+    name: 
+    Class: 0
+    Level: 0
+    MaxHealth: 0
+    CurrentHealth: 0
+    Strength: 0
+    Constitution: 0
+    Dexterity: 0
+    Intelligence: 0
+    Charisma: 0
+    Magic: 0
+    Player: 1
+    Alive: 0
+    CurrCol: 1
 --- !u!4 &281493661
 Transform:
   m_ObjectHideFlags: 0
@@ -1241,7 +1265,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Ability
 --- !u!222 &295693672
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1519,7 +1543,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Inv. Slot
 --- !u!222 &392179991
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1780,7 +1804,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4.8347106, y: 1.0067745}
+  m_AnchoredPosition: {x: -1.87, y: 1.09}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &420508745
@@ -1794,8 +1818,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 094ae2790432cb14492a0f156879a720, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterHealthText: {fileID: 420508746}
-  character: {fileID: 120704460}
+  CharacterHealthText: {fileID: 0}
+  character:
+    name: 
+    Class: 0
+    Level: 0
+    MaxHealth: 0
+    CurrentHealth: 0
+    Strength: 0
+    Constitution: 0
+    Dexterity: 0
+    Intelligence: 0
+    Charisma: 0
+    Magic: 0
+    Player: 1
+    Alive: 0
+    CurrCol: 1
 --- !u!114 &420508746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1828,7 +1866,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 'Health: 23'
 --- !u!222 &420508747
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1844,7 +1882,6 @@ GameObject:
   m_Component:
   - component: {fileID: 481552407}
   - component: {fileID: 481552406}
-  - component: {fileID: 481552405}
   m_Layer: 0
   m_Name: Enemy2
   m_TagString: Untagged
@@ -1852,19 +1889,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &481552405
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 481552404}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 691df95ab74f7674db05d5904eeaa0f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Player: 0
-  CurrCol: 1
 --- !u!212 &481552406
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1916,7 +1940,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 481552404}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5, y: 2.125, z: -0.007195135}
+  m_LocalPosition: {x: 2, y: 2.125, z: -0.007195135}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2246,7 +2270,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Inv. Slot
 --- !u!222 &581413427
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2401,7 +2425,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Ability
 --- !u!222 &697924244
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2475,7 +2499,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Inv. Slot
 --- !u!222 &699275259
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2855,7 +2879,6 @@ GameObject:
   m_Component:
   - component: {fileID: 750556662}
   - component: {fileID: 750556661}
-  - component: {fileID: 750556660}
   m_Layer: 0
   m_Name: Enemy4
   m_TagString: Untagged
@@ -2863,19 +2886,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &750556660
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 750556659}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 691df95ab74f7674db05d5904eeaa0f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Player: 0
-  CurrCol: 1
 --- !u!212 &750556661
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2927,7 +2937,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 750556659}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: -1.25, z: -0.007195135}
+  m_LocalPosition: {x: 7, y: -1.25, z: -0.007195135}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2966,7 +2976,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4.8347106, y: -0.62331957}
+  m_AnchoredPosition: {x: -4.12, y: -0.51}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &781222837
@@ -2980,8 +2990,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 094ae2790432cb14492a0f156879a720, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterHealthText: {fileID: 781222838}
-  character: {fileID: 1332402905}
+  CharacterHealthText: {fileID: 0}
+  character:
+    name: 
+    Class: 0
+    Level: 0
+    MaxHealth: 0
+    CurrentHealth: 0
+    Strength: 0
+    Constitution: 0
+    Dexterity: 0
+    Intelligence: 0
+    Charisma: 0
+    Magic: 0
+    Player: 1
+    Alive: 0
+    CurrCol: 1
 --- !u!114 &781222838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3014,7 +3038,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 'Health: 17'
 --- !u!222 &781222839
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3088,7 +3112,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Inv. Slot
 --- !u!222 &796758126
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3395,7 +3419,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Inv. Slot
 --- !u!222 &885631227
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3435,7 +3459,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4.726418, y: 4.4080286}
+  m_AnchoredPosition: {x: 4.54, y: 4.32}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &909279947
@@ -3449,8 +3473,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 094ae2790432cb14492a0f156879a720, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterHealthText: {fileID: 909279948}
-  character: {fileID: 1128762636}
+  CharacterHealthText: {fileID: 0}
+  character:
+    name: 
+    Class: 0
+    Level: 0
+    MaxHealth: 0
+    CurrentHealth: 0
+    Strength: 0
+    Constitution: 0
+    Dexterity: 0
+    Intelligence: 0
+    Charisma: 0
+    Magic: 0
+    Player: 1
+    Alive: 0
+    CurrCol: 1
 --- !u!114 &909279948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3483,7 +3521,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 'Health: 19'
 --- !u!222 &909279949
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3779,7 +3817,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Inv. Slot
 --- !u!222 &938937752
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3853,7 +3891,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Ability
 --- !u!222 &953513744
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4038,7 +4076,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Inv. Slot
 --- !u!222 &961374996
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4112,7 +4150,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Inv. Slot
 --- !u!222 &990824118
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4282,7 +4320,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Inv. Slot
 --- !u!222 &1053665158
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4409,7 +4447,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1128762635}
   - component: {fileID: 1128762634}
-  - component: {fileID: 1128762636}
   m_Layer: 0
   m_Name: Enemy1
   m_TagString: Untagged
@@ -4468,25 +4505,12 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1128762633}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: 3.75, z: -0.007195135}
+  m_LocalPosition: {x: 4.5, y: 3.75, z: -0.007195135}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1128762636
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1128762633}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 691df95ab74f7674db05d5904eeaa0f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Player: 0
-  CurrCol: 1
 --- !u!1 &1137009819
 GameObject:
   m_ObjectHideFlags: 0
@@ -4775,7 +4799,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Inv. Slot
 --- !u!222 &1152227523
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4849,7 +4873,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Ability
 --- !u!222 &1167563607
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5127,7 +5151,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Ability
 --- !u!222 &1264173733
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5414,7 +5438,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Inv. Slot
 --- !u!222 &1287671508
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5454,7 +5478,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4.8347106, y: 4.4080286}
+  m_AnchoredPosition: {x: -6.61, y: 4.36}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1318749679
@@ -5468,8 +5492,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 094ae2790432cb14492a0f156879a720, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterHealthText: {fileID: 1318749680}
-  character: {fileID: 72626055}
+  CharacterHealthText: {fileID: 0}
+  character:
+    name: 
+    Class: 0
+    Level: 0
+    MaxHealth: 0
+    CurrentHealth: 0
+    Strength: 0
+    Constitution: 0
+    Dexterity: 0
+    Intelligence: 0
+    Charisma: 0
+    Magic: 0
+    Player: 1
+    Alive: 0
+    CurrCol: 1
 --- !u!114 &1318749680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5502,7 +5540,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 'Health: 12'
 --- !u!222 &1318749681
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5518,7 +5556,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1332402907}
   - component: {fileID: 1332402906}
-  - component: {fileID: 1332402905}
   m_Layer: 0
   m_Name: Player4
   m_TagString: Untagged
@@ -5526,19 +5563,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1332402905
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1332402904}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 691df95ab74f7674db05d5904eeaa0f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Player: 1
-  CurrCol: 1
 --- !u!212 &1332402906
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5590,7 +5614,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1332402904}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5, y: -1.25, z: -0.00390625}
+  m_LocalPosition: {x: -4.5, y: -1.25, z: -0.00390625}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5936,7 +5960,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4.726418, y: 1.0067745}
+  m_AnchoredPosition: {x: 2.1, y: 1.07}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1381147272
@@ -5950,8 +5974,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 094ae2790432cb14492a0f156879a720, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterHealthText: {fileID: 1381147273}
-  character: {fileID: 110827213}
+  CharacterHealthText: {fileID: 0}
+  character:
+    name: 
+    Class: 0
+    Level: 0
+    MaxHealth: 0
+    CurrentHealth: 0
+    Strength: 0
+    Constitution: 0
+    Dexterity: 0
+    Intelligence: 0
+    Charisma: 0
+    Magic: 0
+    Player: 1
+    Alive: 0
+    CurrCol: 1
 --- !u!114 &1381147273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5984,7 +6022,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 'Health: 13'
 --- !u!222 &1381147274
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6024,7 +6062,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4.726418, y: -0.62331957}
+  m_AnchoredPosition: {x: 6.83, y: -0.49}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1432116581
@@ -6038,8 +6076,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 094ae2790432cb14492a0f156879a720, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterHealthText: {fileID: 1432116582}
-  character: {fileID: 750556660}
+  CharacterHealthText: {fileID: 0}
+  character:
+    name: 
+    Class: 0
+    Level: 0
+    MaxHealth: 0
+    CurrentHealth: 0
+    Strength: 0
+    Constitution: 0
+    Dexterity: 0
+    Intelligence: 0
+    Charisma: 0
+    Magic: 0
+    Player: 1
+    Alive: 0
+    CurrCol: 1
 --- !u!114 &1432116582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6072,7 +6124,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 'Health: 8'
 --- !u!222 &1432116583
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6101,7 +6153,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1456047485}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.4302554, y: -8.838588, z: -5737.6636}
+  m_LocalPosition: {x: 5, y: 8, z: -5737.6636}
   m_LocalScale: {x: 63.599995, y: 63.599995, z: 63.599995}
   m_Children:
   - {fileID: 2125648453}
@@ -6177,7 +6229,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Ability
 --- !u!222 &1477473976
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6193,7 +6245,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1505924762}
   - component: {fileID: 1505924761}
-  - component: {fileID: 1505924760}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Untagged
@@ -6201,19 +6252,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1505924760
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1505924759}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 691df95ab74f7674db05d5904eeaa0f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Player: 1
-  CurrCol: 1
 --- !u!212 &1505924761
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6415,7 +6453,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4.8347106, y: 2.7936084}
+  m_AnchoredPosition: {x: -4.13, y: 2.73}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1578214259
@@ -6429,8 +6467,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 094ae2790432cb14492a0f156879a720, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterHealthText: {fileID: 1578214260}
-  character: {fileID: 1505924760}
+  CharacterHealthText: {fileID: 0}
+  character:
+    name: 
+    Class: 0
+    Level: 0
+    MaxHealth: 0
+    CurrentHealth: 0
+    Strength: 0
+    Constitution: 0
+    Dexterity: 0
+    Intelligence: 0
+    Charisma: 0
+    Magic: 0
+    Player: 1
+    Alive: 0
+    CurrCol: 1
 --- !u!114 &1578214260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6463,7 +6515,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 'Health: 25'
 --- !u!222 &1578214261
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6537,7 +6589,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Inv. Slot
 --- !u!222 &1634847292
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7020,7 +7072,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Inv. Slot
 --- !u!222 &1777028700
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7094,7 +7146,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Inv. Slot
 --- !u!222 &1782246436
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7390,7 +7442,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Ability
 --- !u!222 &1831867277
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7682,7 +7734,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Ability
 --- !u!222 &1901743345
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7756,7 +7808,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Inv. Slot
 --- !u!222 &1934340649
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7904,7 +7956,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Inv. Slot
 --- !u!222 &1940035194
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8089,7 +8141,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Ability
 --- !u!222 &2030202078
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8163,7 +8215,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Ability
 --- !u!222 &2050759752
 CanvasRenderer:
   m_ObjectHideFlags: 0

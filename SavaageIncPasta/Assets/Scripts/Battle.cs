@@ -20,11 +20,6 @@ public class Battle : MonoBehaviour
     private int _targettedCharacterIndex = -1;
     private int _targettingCharacterIndex = 4;
 
-
-    public Character Player1;
-    public Character Player2;
-    public Character Player3;
-    public Character Player4;
     public Character Enemy1;
     public Character Enemy2;
     public Character Enemy3;
@@ -36,10 +31,7 @@ public class Battle : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        _characterList.Add(Player1);
-        _characterList.Add(Player2);
-        _characterList.Add(Player3);
-        _characterList.Add(Player4);
+        _characterList = FindObjectOfType<PlayerManager>().Characters;
 
         _characterList.Add(Enemy1);
         _characterList.Add(Enemy2);
@@ -88,7 +80,7 @@ public class Battle : MonoBehaviour
             }
         }
 
-        _characterTurnOrder[_currentCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.magenta;
+        //_characterTurnOrder[_currentCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.magenta;
 
         if (_currentCharacterIndex >= _characterList.Count)
         {
@@ -110,39 +102,41 @@ public class Battle : MonoBehaviour
 
     void PlaceInColumns()
     {
-        foreach (Character p in _characterList)
-        {
-            if (p.Player)
-            {
-                switch (p.CurrCol)
-                {
-                    case (1):
-                        p.gameObject.GetComponent<Transform>().position = new Vector3(-7f, p.gameObject.GetComponent<Transform>().position.y, p.gameObject.GetComponent<Transform>().position.z);
-                        break;
-                    case (2):
-                        p.gameObject.GetComponent<Transform>().position = new Vector3(-4.5f, p.gameObject.GetComponent<Transform>().position.y, p.gameObject.GetComponent<Transform>().position.z);
-                        break;
-                    case (3):
-                        p.gameObject.GetComponent<Transform>().position = new Vector3(-2f, p.gameObject.GetComponent<Transform>().position.y, p.gameObject.GetComponent<Transform>().position.z);
-                        break;
-                }
-            }
-            else
-            {
-                switch (p.CurrCol)
-                {
-                    case (1):
-                        p.gameObject.GetComponent<Transform>().position = new Vector3(2f, p.gameObject.GetComponent<Transform>().position.y, p.gameObject.GetComponent<Transform>().position.z);
-                        break;
-                    case (2):
-                        p.gameObject.GetComponent<Transform>().position = new Vector3(4.5f, p.gameObject.GetComponent<Transform>().position.y, p.gameObject.GetComponent<Transform>().position.z);
-                        break;
-                    case (3):
-                        p.gameObject.GetComponent<Transform>().position = new Vector3(7f, p.gameObject.GetComponent<Transform>().position.y, p.gameObject.GetComponent<Transform>().position.z);
-                        break;
-                }
-            }
-        }
+        //previous code before merge
+
+        //foreach (Character p in _characterList)
+        //{
+        //    if (p.Player)
+        //    {
+        //        switch (p.CurrCol)
+        //        {
+        //            case (1):
+        //                p.gameObject.GetComponent<Transform>().position = new Vector3(-7f, p.gameObject.GetComponent<Transform>().position.y, p.gameObject.GetComponent<Transform>().position.z);
+        //                break;
+        //            case (2):
+        //                p.gameObject.GetComponent<Transform>().position = new Vector3(-4.5f, p.gameObject.GetComponent<Transform>().position.y, p.gameObject.GetComponent<Transform>().position.z);
+        //                break;
+        //            case (3):
+        //                p.gameObject.GetComponent<Transform>().position = new Vector3(-2f, p.gameObject.GetComponent<Transform>().position.y, p.gameObject.GetComponent<Transform>().position.z);
+        //                break;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        switch (p.CurrCol)
+        //        {
+        //            case (1):
+        //                p.gameObject.GetComponent<Transform>().position = new Vector3(2f, p.gameObject.GetComponent<Transform>().position.y, p.gameObject.GetComponent<Transform>().position.z);
+        //                break;
+        //            case (2):
+        //                p.gameObject.GetComponent<Transform>().position = new Vector3(4.5f, p.gameObject.GetComponent<Transform>().position.y, p.gameObject.GetComponent<Transform>().position.z);
+        //                break;
+        //            case (3):
+        //                p.gameObject.GetComponent<Transform>().position = new Vector3(7f, p.gameObject.GetComponent<Transform>().position.y, p.gameObject.GetComponent<Transform>().position.z);
+        //                break;
+        //        }
+        //    }
+        //}
     }
 
     void DecideTurnOrder()
@@ -183,12 +177,14 @@ public class Battle : MonoBehaviour
 
     void PlayerAttack()
     {
-        _characterList[_targettingCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.magenta;
+        //previous code from merge commented. colour change needs to be adjusted for sprites
+
+        //_characterList[_targettingCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.magenta;
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             if (_targettingCharacterIndex < _characterTurnOrder.Count - 1)
             {
-                _characterList[_targettingCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+                //_characterList[_targettingCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.white;
                 _targettingCharacterIndex++;
                 while (!_characterList[_targettingCharacterIndex].Alive)
                 {
@@ -199,14 +195,14 @@ public class Battle : MonoBehaviour
                         _targettingCharacterIndex = 4;
                     }
                 }
-                _characterList[_targettingCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.magenta;
+                //_characterList[_targettingCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.magenta;
             }
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             if (_targettingCharacterIndex > 0)
             {
-                _characterList[_targettingCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+                //_characterList[_targettingCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.white;
                 _targettingCharacterIndex--;
 
                 while (!_characterList[_targettingCharacterIndex].Alive)
@@ -218,13 +214,13 @@ public class Battle : MonoBehaviour
                         _targettingCharacterIndex = 7;
                     }
                 }
-                _characterList[_targettingCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.magenta;
+                //_characterList[_targettingCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.magenta;
             }
         }
         else if (Input.GetKeyDown(KeyCode.Return))
         {
             _targettedCharacterIndex = _targettingCharacterIndex;
-            _characterList[_targettingCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+            //_characterList[_targettingCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.white;
         }
 
         if (_targettedCharacterIndex > -1)
@@ -307,7 +303,7 @@ public class Battle : MonoBehaviour
 
     void EndTurn()
     {
-        _characterList[_currentCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        //_characterList[_currentCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.white;
         _optionChosen = TurnOption.eNONE;
         _targettedCharacterIndex = -1;
         _currentCharacterIndex++;

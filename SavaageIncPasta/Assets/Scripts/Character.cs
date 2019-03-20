@@ -20,6 +20,7 @@ public class Character
     public bool Player = true;
     public bool Alive;
     public CharacterEquipment Equipment;
+    public int CurrCol = 1;
 
     public void ChangeHealth(int health)
     {
