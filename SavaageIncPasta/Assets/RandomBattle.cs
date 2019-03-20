@@ -50,13 +50,14 @@ public class RandomBattle : MonoBehaviour
             enemy.CapWeight();
             _totalWeights += enemy.Weight;
         }
+
+        CapValuesForMinAndMaxSteps();
     }
 
     // Update is called once per frame
     void Update()
     {
-        CapValuesForMinAndMaxSteps();
-
+        //If player takes a step in the battle area then increase step counter
         if ((_oldPos.sqrMagnitude <= _rb.position.sqrMagnitude - _range || _oldPos.sqrMagnitude >= _rb.position.sqrMagnitude + _range) && _isColliding)
         {
             _oldPos = _rb.position;
