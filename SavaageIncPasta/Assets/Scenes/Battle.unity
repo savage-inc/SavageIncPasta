@@ -123,7 +123,6 @@ GameObject:
   - component: {fileID: 30306851}
   - component: {fileID: 30306854}
   - component: {fileID: 30306853}
-  - component: {fileID: 30306852}
   m_Layer: 5
   m_Name: Enemy2HealthText
   m_TagString: Untagged
@@ -149,33 +148,6 @@ RectTransform:
   m_AnchoredPosition: {x: 2.1, y: 2.71}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &30306852
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 30306850}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 094ae2790432cb14492a0f156879a720, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CharacterHealthText: {fileID: 0}
-  character:
-    name: 
-    Class: 0
-    Level: 0
-    MaxHealth: 0
-    CurrentHealth: 0
-    Strength: 0
-    Constitution: 0
-    Dexterity: 0
-    Intelligence: 0
-    Charisma: 0
-    Magic: 0
-    Player: 1
-    Alive: 0
-    CurrCol: 1
 --- !u!114 &30306853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -335,6 +307,7 @@ GameObject:
   m_Component:
   - component: {fileID: 72626054}
   - component: {fileID: 72626053}
+  - component: {fileID: 72626055}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Untagged
@@ -394,11 +367,40 @@ Transform:
   m_GameObject: {fileID: 72626052}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7, y: 3.79, z: -0.00390625}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &72626055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 72626052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94e9bdee968f3c64287e31e98a13e652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Character:
+    Name: 
+    SpritePreviewName: 
+    Class: 0
+    Level: 0
+    MaxHealth: 0
+    CurrentHealth: 0
+    Strength: 0
+    Constitution: 0
+    Dexterity: 0
+    Intelligence: 0
+    Charisma: 0
+    Magic: 0
+    Player: 1
+    Alive: 0
+    CurrCol: 1
+  HealthText: {fileID: 1318749680}
+  PreviewSprite: {fileID: 21300004, guid: fc8215d47fe442244943fd177e74305e, type: 3}
 --- !u!1 &110827212
 GameObject:
   m_ObjectHideFlags: 0
@@ -408,6 +410,7 @@ GameObject:
   m_Component:
   - component: {fileID: 110827215}
   - component: {fileID: 110827214}
+  - component: {fileID: 110827213}
   m_Layer: 0
   m_Name: Enemy3
   m_TagString: Untagged
@@ -415,6 +418,35 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &110827213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 110827212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94e9bdee968f3c64287e31e98a13e652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Character:
+    Name: 
+    SpritePreviewName: 
+    Class: 0
+    Level: 0
+    MaxHealth: 0
+    CurrentHealth: 0
+    Strength: 0
+    Constitution: 0
+    Dexterity: 0
+    Intelligence: 0
+    Charisma: 0
+    Magic: 0
+    Player: 1
+    Alive: 0
+    CurrCol: 1
+  HealthText: {fileID: 1381147273}
+  PreviewSprite: {fileID: 21300004, guid: fc8215d47fe442244943fd177e74305e, type: 3}
 --- !u!212 &110827214
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -467,7 +499,7 @@ Transform:
   m_GameObject: {fileID: 110827212}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2, y: 0.375, z: -0.007195135}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
@@ -481,6 +513,7 @@ GameObject:
   m_Component:
   - component: {fileID: 120704462}
   - component: {fileID: 120704461}
+  - component: {fileID: 120704460}
   m_Layer: 0
   m_Name: Player3
   m_TagString: Untagged
@@ -488,6 +521,35 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &120704460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 120704459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94e9bdee968f3c64287e31e98a13e652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Character:
+    Name: 
+    SpritePreviewName: 
+    Class: 0
+    Level: 0
+    MaxHealth: 0
+    CurrentHealth: 0
+    Strength: 0
+    Constitution: 0
+    Dexterity: 0
+    Intelligence: 0
+    Charisma: 0
+    Magic: 0
+    Player: 1
+    Alive: 0
+    CurrCol: 1
+  HealthText: {fileID: 420508746}
+  PreviewSprite: {fileID: 21300000, guid: fc8215d47fe442244943fd177e74305e, type: 3}
 --- !u!212 &120704461
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -540,7 +602,7 @@ Transform:
   m_GameObject: {fileID: 120704459}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2, y: 0.43, z: -0.00390625}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -1107,6 +1169,8 @@ GameObject:
   m_Component:
   - component: {fileID: 281493661}
   - component: {fileID: 281493660}
+  - component: {fileID: 281493662}
+  - component: {fileID: 281493663}
   m_Layer: 0
   m_Name: Battle
   m_TagString: Untagged
@@ -1125,66 +1189,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b157afa6dc1b2f04db9b350548af8c64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemy1:
-    name: 
-    Class: 0
-    Level: 0
-    MaxHealth: 0
-    CurrentHealth: 0
-    Strength: 0
-    Constitution: 0
-    Dexterity: 0
-    Intelligence: 0
-    Charisma: 0
-    Magic: 0
-    Player: 1
-    Alive: 0
-    CurrCol: 1
-  Enemy2:
-    name: 
-    Class: 0
-    Level: 0
-    MaxHealth: 0
-    CurrentHealth: 0
-    Strength: 0
-    Constitution: 0
-    Dexterity: 0
-    Intelligence: 0
-    Charisma: 0
-    Magic: 0
-    Player: 1
-    Alive: 0
-    CurrCol: 1
-  Enemy3:
-    name: 
-    Class: 0
-    Level: 0
-    MaxHealth: 0
-    CurrentHealth: 0
-    Strength: 0
-    Constitution: 0
-    Dexterity: 0
-    Intelligence: 0
-    Charisma: 0
-    Magic: 0
-    Player: 1
-    Alive: 0
-    CurrCol: 1
-  Enemy4:
-    name: 
-    Class: 0
-    Level: 0
-    MaxHealth: 0
-    CurrentHealth: 0
-    Strength: 0
-    Constitution: 0
-    Dexterity: 0
-    Intelligence: 0
-    Charisma: 0
-    Magic: 0
-    Player: 1
-    Alive: 0
-    CurrCol: 1
+  Player1: {fileID: 72626055}
+  Player2: {fileID: 1505924760}
+  Player3: {fileID: 120704460}
+  Player4: {fileID: 1332402905}
+  Enemy1: {fileID: 1128762636}
+  Enemy2: {fileID: 481552405}
+  Enemy3: {fileID: 110827213}
+  Enemy4: {fileID: 750556660}
 --- !u!4 &281493661
 Transform:
   m_ObjectHideFlags: 0
@@ -1198,6 +1210,92 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &281493662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 281493659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 258a5a778a971554b9895996b4fd6324, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Characters: []
+  NumofCharacters: 4
+--- !u!114 &281493663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 281493659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b6a76375b9955747a274b82eef85057, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyGroups:
+  - Enemies:
+    - Name: 
+      SpritePreviewName: 
+      Class: 0
+      Level: 1
+      MaxHealth: 25
+      CurrentHealth: 25
+      Strength: 6
+      Constitution: 3
+      Dexterity: 4
+      Intelligence: 1
+      Charisma: 2
+      Magic: 0
+      Player: 0
+      Alive: 1
+      CurrCol: 1
+    - Name: 
+      SpritePreviewName: 
+      Class: 2
+      Level: 1
+      MaxHealth: 13
+      CurrentHealth: 13
+      Strength: 3
+      Constitution: 7
+      Dexterity: 5
+      Intelligence: 6
+      Charisma: 5
+      Magic: 2
+      Player: 0
+      Alive: 1
+      CurrCol: 2
+    - Name: 
+      SpritePreviewName: 
+      Class: 3
+      Level: 1
+      MaxHealth: 26
+      CurrentHealth: 26
+      Strength: 6
+      Constitution: 3
+      Dexterity: 8
+      Intelligence: 6
+      Charisma: 1
+      Magic: 3
+      Player: 0
+      Alive: 1
+      CurrCol: 3
+    - Name: 
+      SpritePreviewName: 
+      Class: 1
+      Level: 1
+      MaxHealth: 35
+      CurrentHealth: 35
+      Strength: 1
+      Constitution: 6
+      Dexterity: 8
+      Intelligence: 4
+      Charisma: 6
+      Magic: 0
+      Player: 0
+      Alive: 1
+      CurrCol: 2
 --- !u!1 &295693669
 GameObject:
   m_ObjectHideFlags: 0
@@ -1781,7 +1879,6 @@ GameObject:
   - component: {fileID: 420508744}
   - component: {fileID: 420508747}
   - component: {fileID: 420508746}
-  - component: {fileID: 420508745}
   m_Layer: 5
   m_Name: Player3HealthText
   m_TagString: Untagged
@@ -1807,33 +1904,6 @@ RectTransform:
   m_AnchoredPosition: {x: -1.87, y: 1.09}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &420508745
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 420508743}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 094ae2790432cb14492a0f156879a720, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CharacterHealthText: {fileID: 0}
-  character:
-    name: 
-    Class: 0
-    Level: 0
-    MaxHealth: 0
-    CurrentHealth: 0
-    Strength: 0
-    Constitution: 0
-    Dexterity: 0
-    Intelligence: 0
-    Charisma: 0
-    Magic: 0
-    Player: 1
-    Alive: 0
-    CurrCol: 1
 --- !u!114 &420508746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1882,6 +1952,7 @@ GameObject:
   m_Component:
   - component: {fileID: 481552407}
   - component: {fileID: 481552406}
+  - component: {fileID: 481552405}
   m_Layer: 0
   m_Name: Enemy2
   m_TagString: Untagged
@@ -1889,6 +1960,35 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &481552405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 481552404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94e9bdee968f3c64287e31e98a13e652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Character:
+    Name: 
+    SpritePreviewName: 
+    Class: 0
+    Level: 0
+    MaxHealth: 0
+    CurrentHealth: 0
+    Strength: 0
+    Constitution: 0
+    Dexterity: 0
+    Intelligence: 0
+    Charisma: 0
+    Magic: 0
+    Player: 1
+    Alive: 0
+    CurrCol: 1
+  HealthText: {fileID: 30306853}
+  PreviewSprite: {fileID: 21300002, guid: fc8215d47fe442244943fd177e74305e, type: 3}
 --- !u!212 &481552406
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1941,7 +2041,7 @@ Transform:
   m_GameObject: {fileID: 481552404}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 2, y: 2.125, z: -0.007195135}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
@@ -2879,6 +2979,7 @@ GameObject:
   m_Component:
   - component: {fileID: 750556662}
   - component: {fileID: 750556661}
+  - component: {fileID: 750556660}
   m_Layer: 0
   m_Name: Enemy4
   m_TagString: Untagged
@@ -2886,6 +2987,35 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &750556660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 750556659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94e9bdee968f3c64287e31e98a13e652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Character:
+    Name: 
+    SpritePreviewName: 
+    Class: 0
+    Level: 0
+    MaxHealth: 0
+    CurrentHealth: 0
+    Strength: 0
+    Constitution: 0
+    Dexterity: 0
+    Intelligence: 0
+    Charisma: 0
+    Magic: 0
+    Player: 1
+    Alive: 0
+    CurrCol: 1
+  HealthText: {fileID: 1432116582}
+  PreviewSprite: {fileID: 21300000, guid: fc8215d47fe442244943fd177e74305e, type: 3}
 --- !u!212 &750556661
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2938,7 +3068,7 @@ Transform:
   m_GameObject: {fileID: 750556659}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7, y: -1.25, z: -0.007195135}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
@@ -2953,7 +3083,6 @@ GameObject:
   - component: {fileID: 781222836}
   - component: {fileID: 781222839}
   - component: {fileID: 781222838}
-  - component: {fileID: 781222837}
   m_Layer: 5
   m_Name: Player4HealthText
   m_TagString: Untagged
@@ -2979,33 +3108,6 @@ RectTransform:
   m_AnchoredPosition: {x: -4.12, y: -0.51}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &781222837
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 781222835}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 094ae2790432cb14492a0f156879a720, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CharacterHealthText: {fileID: 0}
-  character:
-    name: 
-    Class: 0
-    Level: 0
-    MaxHealth: 0
-    CurrentHealth: 0
-    Strength: 0
-    Constitution: 0
-    Dexterity: 0
-    Intelligence: 0
-    Charisma: 0
-    Magic: 0
-    Player: 1
-    Alive: 0
-    CurrCol: 1
 --- !u!114 &781222838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3436,7 +3538,6 @@ GameObject:
   - component: {fileID: 909279946}
   - component: {fileID: 909279949}
   - component: {fileID: 909279948}
-  - component: {fileID: 909279947}
   m_Layer: 5
   m_Name: Enemy1HealthText
   m_TagString: Untagged
@@ -3462,33 +3563,6 @@ RectTransform:
   m_AnchoredPosition: {x: 4.54, y: 4.32}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &909279947
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 909279945}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 094ae2790432cb14492a0f156879a720, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CharacterHealthText: {fileID: 0}
-  character:
-    name: 
-    Class: 0
-    Level: 0
-    MaxHealth: 0
-    CurrentHealth: 0
-    Strength: 0
-    Constitution: 0
-    Dexterity: 0
-    Intelligence: 0
-    Charisma: 0
-    Magic: 0
-    Player: 1
-    Alive: 0
-    CurrCol: 1
 --- !u!114 &909279948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4447,6 +4521,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1128762635}
   - component: {fileID: 1128762634}
+  - component: {fileID: 1128762636}
   m_Layer: 0
   m_Name: Enemy1
   m_TagString: Untagged
@@ -4506,11 +4581,40 @@ Transform:
   m_GameObject: {fileID: 1128762633}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.5, y: 3.75, z: -0.007195135}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1128762636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1128762633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94e9bdee968f3c64287e31e98a13e652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Character:
+    Name: 
+    SpritePreviewName: 
+    Class: 0
+    Level: 0
+    MaxHealth: 0
+    CurrentHealth: 0
+    Strength: 0
+    Constitution: 0
+    Dexterity: 0
+    Intelligence: 0
+    Charisma: 0
+    Magic: 0
+    Player: 1
+    Alive: 0
+    CurrCol: 1
+  HealthText: {fileID: 909279948}
+  PreviewSprite: {fileID: 21300000, guid: fc8215d47fe442244943fd177e74305e, type: 3}
 --- !u!1 &1137009819
 GameObject:
   m_ObjectHideFlags: 0
@@ -5455,7 +5559,6 @@ GameObject:
   - component: {fileID: 1318749678}
   - component: {fileID: 1318749681}
   - component: {fileID: 1318749680}
-  - component: {fileID: 1318749679}
   m_Layer: 5
   m_Name: Player1HealthText
   m_TagString: Untagged
@@ -5481,33 +5584,6 @@ RectTransform:
   m_AnchoredPosition: {x: -6.61, y: 4.36}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1318749679
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1318749677}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 094ae2790432cb14492a0f156879a720, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CharacterHealthText: {fileID: 0}
-  character:
-    name: 
-    Class: 0
-    Level: 0
-    MaxHealth: 0
-    CurrentHealth: 0
-    Strength: 0
-    Constitution: 0
-    Dexterity: 0
-    Intelligence: 0
-    Charisma: 0
-    Magic: 0
-    Player: 1
-    Alive: 0
-    CurrCol: 1
 --- !u!114 &1318749680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5556,6 +5632,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1332402907}
   - component: {fileID: 1332402906}
+  - component: {fileID: 1332402905}
   m_Layer: 0
   m_Name: Player4
   m_TagString: Untagged
@@ -5563,6 +5640,35 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1332402905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1332402904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94e9bdee968f3c64287e31e98a13e652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Character:
+    Name: 
+    SpritePreviewName: 
+    Class: 0
+    Level: 0
+    MaxHealth: 0
+    CurrentHealth: 0
+    Strength: 0
+    Constitution: 0
+    Dexterity: 0
+    Intelligence: 0
+    Charisma: 0
+    Magic: 0
+    Player: 1
+    Alive: 0
+    CurrCol: 1
+  HealthText: {fileID: 781222838}
+  PreviewSprite: {fileID: 21300004, guid: fc8215d47fe442244943fd177e74305e, type: 3}
 --- !u!212 &1332402906
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5615,7 +5721,7 @@ Transform:
   m_GameObject: {fileID: 1332402904}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.5, y: -1.25, z: -0.00390625}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -5937,7 +6043,6 @@ GameObject:
   - component: {fileID: 1381147271}
   - component: {fileID: 1381147274}
   - component: {fileID: 1381147273}
-  - component: {fileID: 1381147272}
   m_Layer: 5
   m_Name: Enemy3HealthText
   m_TagString: Untagged
@@ -5963,33 +6068,6 @@ RectTransform:
   m_AnchoredPosition: {x: 2.1, y: 1.07}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1381147272
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1381147270}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 094ae2790432cb14492a0f156879a720, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CharacterHealthText: {fileID: 0}
-  character:
-    name: 
-    Class: 0
-    Level: 0
-    MaxHealth: 0
-    CurrentHealth: 0
-    Strength: 0
-    Constitution: 0
-    Dexterity: 0
-    Intelligence: 0
-    Charisma: 0
-    Magic: 0
-    Player: 1
-    Alive: 0
-    CurrCol: 1
 --- !u!114 &1381147273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6039,7 +6117,6 @@ GameObject:
   - component: {fileID: 1432116580}
   - component: {fileID: 1432116583}
   - component: {fileID: 1432116582}
-  - component: {fileID: 1432116581}
   m_Layer: 5
   m_Name: Enemy4HealthText
   m_TagString: Untagged
@@ -6065,33 +6142,6 @@ RectTransform:
   m_AnchoredPosition: {x: 6.83, y: -0.49}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1432116581
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1432116579}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 094ae2790432cb14492a0f156879a720, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CharacterHealthText: {fileID: 0}
-  character:
-    name: 
-    Class: 0
-    Level: 0
-    MaxHealth: 0
-    CurrentHealth: 0
-    Strength: 0
-    Constitution: 0
-    Dexterity: 0
-    Intelligence: 0
-    Charisma: 0
-    Magic: 0
-    Player: 1
-    Alive: 0
-    CurrCol: 1
 --- !u!114 &1432116582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6245,6 +6295,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1505924762}
   - component: {fileID: 1505924761}
+  - component: {fileID: 1505924760}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Untagged
@@ -6252,6 +6303,35 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1505924760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1505924759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94e9bdee968f3c64287e31e98a13e652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Character:
+    Name: 
+    SpritePreviewName: 
+    Class: 0
+    Level: 0
+    MaxHealth: 0
+    CurrentHealth: 0
+    Strength: 0
+    Constitution: 0
+    Dexterity: 0
+    Intelligence: 0
+    Charisma: 0
+    Magic: 0
+    Player: 1
+    Alive: 0
+    CurrCol: 1
+  HealthText: {fileID: 1578214260}
+  PreviewSprite: {fileID: 21300002, guid: fc8215d47fe442244943fd177e74305e, type: 3}
 --- !u!212 &1505924761
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6304,7 +6384,7 @@ Transform:
   m_GameObject: {fileID: 1505924759}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.5, y: 2.07, z: -0.00390625}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -6430,7 +6510,6 @@ GameObject:
   - component: {fileID: 1578214258}
   - component: {fileID: 1578214261}
   - component: {fileID: 1578214260}
-  - component: {fileID: 1578214259}
   m_Layer: 5
   m_Name: Player2HealthText
   m_TagString: Untagged
@@ -6456,33 +6535,6 @@ RectTransform:
   m_AnchoredPosition: {x: -4.13, y: 2.73}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1578214259
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1578214257}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 094ae2790432cb14492a0f156879a720, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CharacterHealthText: {fileID: 0}
-  character:
-    name: 
-    Class: 0
-    Level: 0
-    MaxHealth: 0
-    CurrentHealth: 0
-    Strength: 0
-    Constitution: 0
-    Dexterity: 0
-    Intelligence: 0
-    Charisma: 0
-    Magic: 0
-    Player: 1
-    Alive: 0
-    CurrCol: 1
 --- !u!114 &1578214260
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -14,16 +14,23 @@ public enum TurnOption
 public class Battle : MonoBehaviour
 {
     private TurnOption _optionChosen = TurnOption.eNONE;
-    private List<Character> _characterList = new List<Character>(); // all players in battle
-    private List<Character> _characterTurnOrder = new List<Character>(); // all players sorted into turn order
+    private List<Character> _characterList = new List<Character>();
+    private List<Character> _enemyList = new List<Character>();
+    private List<BattleCharacter> _battleCharacterList = new List<BattleCharacter>(); // all players in battle
+    private List<BattleCharacter> _characterTurnOrder = new List<BattleCharacter>(); // all players sorted into turn order
     private int _currentCharacterIndex = 0;
     private int _targettedCharacterIndex = -1;
     private int _targettingCharacterIndex = 4;
 
-    public Character Enemy1;
-    public Character Enemy2;
-    public Character Enemy3;
-    public Character Enemy4;
+    public BattleCharacter Player1;
+    public BattleCharacter Player2;
+    public BattleCharacter Player3;
+    public BattleCharacter Player4;
+
+    public BattleCharacter Enemy1;
+    public BattleCharacter Enemy2;
+    public BattleCharacter Enemy3;
+    public BattleCharacter Enemy4;
 
     private int _deadEnemies = 0;
     private int _deadPlayers = 0;
@@ -33,10 +40,26 @@ public class Battle : MonoBehaviour
     {
         _characterList = FindObjectOfType<PlayerManager>().Characters;
 
-        _characterList.Add(Enemy1);
-        _characterList.Add(Enemy2);
-        _characterList.Add(Enemy3);
-        _characterList.Add(Enemy4);
+        Player1.Character = _characterList[0];
+        Player2.Character = _characterList[1];
+        Player3.Character = _characterList[2];
+        Player4.Character = _characterList[3];
+
+        _enemyList = FindObjectOfType<EnemyManager>().EnemyGroups[0].Enemies;
+
+        Enemy1.Character = _enemyList[0];
+        Enemy2.Character = _enemyList[1];
+        Enemy3.Character = _enemyList[2];
+        Enemy4.Character = _enemyList[3];
+
+        _battleCharacterList.Add(Player1);
+        _battleCharacterList.Add(Player2);
+        _battleCharacterList.Add(Player3);
+        _battleCharacterList.Add(Player4);
+        _battleCharacterList.Add(Enemy1);
+        _battleCharacterList.Add(Enemy2);
+        _battleCharacterList.Add(Enemy3);
+        _battleCharacterList.Add(Enemy4);
 
         DecideTurnOrder();
         PlaceInColumns();
@@ -46,18 +69,24 @@ public class Battle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        while (!_characterTurnOrder[_currentCharacterIndex].Alive)
+        if (_currentCharacterIndex >= _battleCharacterList.Count)
         {
+            DecideTurnOrder();
+            _currentCharacterIndex = 0;
+        }
 
+        while (!_characterTurnOrder[_currentCharacterIndex].Character.Alive)
+        {
             _currentCharacterIndex++;
             if (_currentCharacterIndex >= _characterTurnOrder.Count)
             {
                 _currentCharacterIndex = 0;
             }
-
         }
 
-        if(!_characterTurnOrder[_currentCharacterIndex].Player)
+        _characterTurnOrder[_currentCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.magenta;
+
+        if (!_characterTurnOrder[_currentCharacterIndex].Character.Player)
         {
             EnemyAttack();
         }
@@ -80,14 +109,6 @@ public class Battle : MonoBehaviour
             }
         }
 
-        //_characterTurnOrder[_currentCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.magenta;
-
-        if (_currentCharacterIndex >= _characterList.Count)
-        {
-            DecideTurnOrder();
-            _currentCharacterIndex = 0;
-        }
-
         if (_deadPlayers >= 4)
         {
             // Player lose
@@ -102,41 +123,39 @@ public class Battle : MonoBehaviour
 
     void PlaceInColumns()
     {
-        //previous code before merge
-
-        //foreach (Character p in _characterList)
-        //{
-        //    if (p.Player)
-        //    {
-        //        switch (p.CurrCol)
-        //        {
-        //            case (1):
-        //                p.gameObject.GetComponent<Transform>().position = new Vector3(-7f, p.gameObject.GetComponent<Transform>().position.y, p.gameObject.GetComponent<Transform>().position.z);
-        //                break;
-        //            case (2):
-        //                p.gameObject.GetComponent<Transform>().position = new Vector3(-4.5f, p.gameObject.GetComponent<Transform>().position.y, p.gameObject.GetComponent<Transform>().position.z);
-        //                break;
-        //            case (3):
-        //                p.gameObject.GetComponent<Transform>().position = new Vector3(-2f, p.gameObject.GetComponent<Transform>().position.y, p.gameObject.GetComponent<Transform>().position.z);
-        //                break;
-        //        }
-        //    }
-        //    else
-        //    {
-        //        switch (p.CurrCol)
-        //        {
-        //            case (1):
-        //                p.gameObject.GetComponent<Transform>().position = new Vector3(2f, p.gameObject.GetComponent<Transform>().position.y, p.gameObject.GetComponent<Transform>().position.z);
-        //                break;
-        //            case (2):
-        //                p.gameObject.GetComponent<Transform>().position = new Vector3(4.5f, p.gameObject.GetComponent<Transform>().position.y, p.gameObject.GetComponent<Transform>().position.z);
-        //                break;
-        //            case (3):
-        //                p.gameObject.GetComponent<Transform>().position = new Vector3(7f, p.gameObject.GetComponent<Transform>().position.y, p.gameObject.GetComponent<Transform>().position.z);
-        //                break;
-        //        }
-        //    }
-        //}
+        foreach (BattleCharacter p in _battleCharacterList)
+        {
+            if (p.Character.Player)
+            {
+                switch (p.Character.CurrCol)
+                {
+                    case (1):
+                        p.gameObject.GetComponent<Transform>().position = new Vector3(-7f, p.gameObject.GetComponent<Transform>().position.y, p.gameObject.GetComponent<Transform>().position.z);
+                        break;
+                    case (2):
+                        p.gameObject.GetComponent<Transform>().position = new Vector3(-4.5f, p.gameObject.GetComponent<Transform>().position.y, p.gameObject.GetComponent<Transform>().position.z);
+                        break;
+                    case (3):
+                        p.gameObject.GetComponent<Transform>().position = new Vector3(-2f, p.gameObject.GetComponent<Transform>().position.y, p.gameObject.GetComponent<Transform>().position.z);
+                        break;
+                }
+            }
+            else
+            {
+                switch (p.Character.CurrCol)
+                {
+                    case (1):
+                        p.gameObject.GetComponent<Transform>().position = new Vector3(2f, p.gameObject.GetComponent<Transform>().position.y, p.gameObject.GetComponent<Transform>().position.z);
+                        break;
+                    case (2):
+                        p.gameObject.GetComponent<Transform>().position = new Vector3(4.5f, p.gameObject.GetComponent<Transform>().position.y, p.gameObject.GetComponent<Transform>().position.z);
+                        break;
+                    case (3):
+                        p.gameObject.GetComponent<Transform>().position = new Vector3(7f, p.gameObject.GetComponent<Transform>().position.y, p.gameObject.GetComponent<Transform>().position.z);
+                        break;
+                }
+            }
+        }
     }
 
     void DecideTurnOrder()
@@ -144,7 +163,7 @@ public class Battle : MonoBehaviour
         _characterTurnOrder.Clear();
 
         // Decides turn order
-        foreach (Character p in _characterList)
+        foreach (BattleCharacter p in _battleCharacterList)
         {
             //int rand = Random.Range(-2, 2);
 
@@ -158,7 +177,7 @@ public class Battle : MonoBehaviour
                 int count = _characterTurnOrder.Count;
                 for (int i = 0; i < count; i++)
                 {
-                    if (p.Dexterity < _characterTurnOrder[i].Dexterity)
+                    if (p.Character.Dexterity < _characterTurnOrder[i].Character.Dexterity)
                     {
                         _characterTurnOrder.Insert(i, p);
                         added = true;
@@ -177,35 +196,34 @@ public class Battle : MonoBehaviour
 
     void PlayerAttack()
     {
-        //previous code from merge commented. colour change needs to be adjusted for sprites
 
-        //_characterList[_targettingCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.magenta;
+        _battleCharacterList[_targettingCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.magenta;
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             if (_targettingCharacterIndex < _characterTurnOrder.Count - 1)
             {
-                //_characterList[_targettingCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+                _battleCharacterList[_targettingCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.white;
                 _targettingCharacterIndex++;
-                while (!_characterList[_targettingCharacterIndex].Alive)
+                while (!_battleCharacterList[_targettingCharacterIndex].Character.Alive)
                 {
 
                     _targettingCharacterIndex++;
-                    if (_targettingCharacterIndex > _characterList.Count - 1)
+                    if (_targettingCharacterIndex > _battleCharacterList.Count - 1)
                     {
                         _targettingCharacterIndex = 4;
                     }
                 }
-                //_characterList[_targettingCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.magenta;
+                _battleCharacterList[_targettingCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.magenta;
             }
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             if (_targettingCharacterIndex > 0)
             {
-                //_characterList[_targettingCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+                _battleCharacterList[_targettingCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.white;
                 _targettingCharacterIndex--;
 
-                while (!_characterList[_targettingCharacterIndex].Alive)
+                while (!_battleCharacterList[_targettingCharacterIndex].Character.Alive)
                 {
 
                     _targettingCharacterIndex--;
@@ -214,13 +232,13 @@ public class Battle : MonoBehaviour
                         _targettingCharacterIndex = 7;
                     }
                 }
-                //_characterList[_targettingCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.magenta;
+                _battleCharacterList[_targettingCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.magenta;
             }
         }
         else if (Input.GetKeyDown(KeyCode.Return))
         {
             _targettedCharacterIndex = _targettingCharacterIndex;
-            //_characterList[_targettingCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+            _battleCharacterList[_targettingCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.white;
         }
 
         if (_targettedCharacterIndex > -1)
@@ -234,10 +252,10 @@ public class Battle : MonoBehaviour
 
         _targettedCharacterIndex = Random.Range(0, 3);
 
-        while (!_characterList[_targettedCharacterIndex].Alive)
+        while (!_battleCharacterList[_targettedCharacterIndex].Character.Alive)
         {
             _targettedCharacterIndex++;
-            if (_targettedCharacterIndex > _characterList.Count - 5)
+            if (_targettedCharacterIndex > _battleCharacterList.Count - 5)
             {
                 _targettedCharacterIndex = 0;
             }
@@ -250,11 +268,11 @@ public class Battle : MonoBehaviour
 
     void DealDamage()
     {
-        _characterList[_targettedCharacterIndex].ChangeHealth(-5);
+        _battleCharacterList[_targettedCharacterIndex].Character.ChangeHealth(-5);
 
-        if (!_characterList[_targettedCharacterIndex].Alive)
+        if (!_battleCharacterList[_targettedCharacterIndex].Character.Alive)
         {
-            if (_characterList[_targettedCharacterIndex].Player)
+            if (_battleCharacterList[_targettedCharacterIndex].Character.Player)
             {
                 _deadPlayers++;
             }
@@ -266,10 +284,10 @@ public class Battle : MonoBehaviour
 
         _targettingCharacterIndex = 4;
 
-        while (!_characterList[_targettingCharacterIndex].Alive)
+        while (!_battleCharacterList[_targettingCharacterIndex].Character.Alive)
         {
             _targettingCharacterIndex++;
-            if (_targettingCharacterIndex > _characterList.Count - 1)
+            if (_targettingCharacterIndex > _battleCharacterList.Count - 1)
             {
                 _targettingCharacterIndex = 0;
             }
@@ -277,21 +295,21 @@ public class Battle : MonoBehaviour
         EndTurn();
     }
 
-    void Defend(Character defender)
+    void Defend(BattleCharacter defender)
     {
         //defend
         _currentCharacterIndex++;
     }
 
-    void Move(Character mover)
+    void Move(BattleCharacter mover)
     {
-        if (Input.GetKeyDown(KeyCode.RightArrow) && mover.CurrCol < 3)
+        if (Input.GetKeyDown(KeyCode.RightArrow) && mover.Character.CurrCol < 3)
         {
-            mover.CurrCol++;
+            mover.Character.CurrCol++;
         }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow) && mover.CurrCol > 1)
+        else if (Input.GetKeyDown(KeyCode.LeftArrow) && mover.Character.CurrCol > 1)
         {
-            mover.CurrCol--;
+            mover.Character.CurrCol--;
         }
         else if (Input.GetKeyDown(KeyCode.Return))
         {
@@ -303,7 +321,7 @@ public class Battle : MonoBehaviour
 
     void EndTurn()
     {
-        //_characterList[_currentCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        _characterTurnOrder[_currentCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.white;
         _optionChosen = TurnOption.eNONE;
         _targettedCharacterIndex = -1;
         _currentCharacterIndex++;
