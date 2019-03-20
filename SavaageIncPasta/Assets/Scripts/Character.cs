@@ -6,7 +6,10 @@ using UnityEngine;
 [System.Serializable]
 public class Character
 {
-    public string name;
+    public System.Guid ID;
+    public string Name;
+    public string SpritePreviewName;
+
     public ClassType Class;
     public int Level;
     public int MaxHealth;
@@ -21,6 +24,11 @@ public class Character
     public bool Alive;
     public CharacterEquipment Equipment;
     public int CurrCol = 1;
+
+    public Character()
+    {
+        Equipment = new CharacterEquipment();
+    }
 
     public void ChangeHealth(int health)
     {
