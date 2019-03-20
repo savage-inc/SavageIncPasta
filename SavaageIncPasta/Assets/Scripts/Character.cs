@@ -17,6 +17,7 @@ public class Character
     public int Intelligence;
     public int Charisma;
     public MagicType Magic;
+    public int Comfort;
     public bool Player = true;
     public bool Alive;
     public CharacterEquipment Equipment;
