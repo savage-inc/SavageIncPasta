@@ -1,8 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
 - path: Assets/Scenes/Battle.unity
-=======
-- path: Assets/CombatEncountersTestScene.unity
->>>>>>> bc59a9fc68eeead2c8da0aa0e99d2121c5ad280b
   isLoaded: 1
   isActive: 1

@@ -25,6 +25,9 @@ public class Character
     public CharacterEquipment Equipment;
     public int CurrCol = 1;
 
+    public int Experience = 0;
+    public int Comfort;
+
     public Character()
     {
         Equipment = new CharacterEquipment();

@@ -225,10 +225,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MinStepsBeforeBattle: 5
   MaxStepsBeforeBattle: 50
-  Enemies:
-  - Wolf
-  - Ogre
-  - Boiling Water
+  ListOfEnemyTeams:
+  - NameOfTeam: 
+    Weight: 0
+    TeamMembers:
+    - NameOfEnemy: 
+    - NameOfEnemy: 
+  - NameOfTeam: 
+    Weight: 0
+    TeamMembers: []
+  - NameOfTeam: 
+    Weight: 0
+    TeamMembers: []
 --- !u!212 &1549475734
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -263,7 +271,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300004, guid: 75a6dcd3755af6748a9220f12442e012, type: 3}
+  m_Sprite: {fileID: 21300002, guid: 67c14c036f8395a4c9edfa6965ea59de, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
