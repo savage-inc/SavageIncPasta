@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class ClanControl : MonoBehaviour {
 
+    public CharacterComparison CharacterCompare;
+
     private List<SelectCharacter> clanMember;
     private ClanManager _clanManager;
 
@@ -42,7 +44,11 @@ public class ClanControl : MonoBehaviour {
             newButton.SetActive(true);
 
             ClanButton characterButton = newButton.AddComponent<ClanButton>();
-            characterButton.Character = newCharacter;
+            characterButton.Character = newCharacter; // Add new character
+            characterButton.CharacterCompare = CharacterCompare; // Add character compare
+
+            // Add set to compare mode to newbutton when on click
+            newButton.GetComponent<Button>().onClick.AddListener(characterButton.SetToCompareMode);
 
             newButton.transform.SetParent(transform.GetChild(0).transform.GetChild(0), false);
         }
