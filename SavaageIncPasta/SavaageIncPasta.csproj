@@ -228,6 +228,7 @@
       <HintPath>Assets/3rdParty/TextMeshPro/Plugins/Editor DLL/TextMeshPro-2017.3-Runtime.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Analytics">
+<<<<<<< HEAD
       <HintPath>C:/Users/t7051015/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.13/UnityEngine.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Purchasing">
@@ -235,6 +236,15 @@
     </Reference>
     <Reference Include="UnityEngine.StandardEvents">
       <HintPath>C:/Users/t7051015/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
+=======
+      <HintPath>C:/Users/s6061420/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.13/UnityEngine.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Purchasing">
+      <HintPath>C:/Users/s6061420/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.purchasing@0.0.19/UnityEngine.Purchasing.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.StandardEvents">
+      <HintPath>C:/Users/s6061420/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
+>>>>>>> bc59a9fc68eeead2c8da0aa0e99d2121c5ad280b
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -271,6 +281,7 @@
     <Compile Include="Assets\3rdParty\TextMeshPro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
     <Compile Include="Assets\3rdParty\TextMeshPro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\3rdParty\TextMeshPro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
+    <Compile Include="Assets\RandomBattle.cs" />
     <Compile Include="Assets\Scripts\AI\AIController.cs" />
     <Compile Include="Assets\Scripts\AI\AStarPathfinding.cs" />
     <Compile Include="Assets\Scripts\AI\FindPathToTarget.cs" />
