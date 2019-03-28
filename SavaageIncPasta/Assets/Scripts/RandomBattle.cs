@@ -2,19 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//Class just holding string for name - to be replaced with Enemy class when created
-[System.Serializable]
-public class Enemy
-{
-    public string NameOfEnemy;
-}
-
 [System.Serializable]
 public class ListOfEnemies
 {
     public string NameOfTeam;
     public int Weight;
-    public List<Enemy> TeamMembers;
 
     public void CapWeight()
     {
@@ -79,6 +71,10 @@ public class RandomBattle : MonoBehaviour
                 if (weight >= randomEnemy)
                 {
                     Debug.Log(enemy.NameOfTeam + " probability: " + (float)enemy.Weight / (float)_totalWeights + 1);
+                    //Add enemies to player prefs to be loaded in during the battle scene
+                    PlayerPrefs.SetString("EnemyTeam", enemy.NameOfTeam);
+
+                    PlayerPrefs.Save();
                     break;
                 }
             }

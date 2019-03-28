@@ -44,7 +44,7 @@ public class Battle : MonoBehaviour
         Player3.Character = _characterList[2];
         Player4.Character = _characterList[3];
 
-        _enemyList = FindObjectOfType<EnemyManager>().EnemyGroups[0].Enemies;
+        _enemyList = FindObjectOfType<EnemyManager>().CreateTeamInstance();
 
         Enemy1.Character = _enemyList[0];
         Enemy2.Character = _enemyList[1];

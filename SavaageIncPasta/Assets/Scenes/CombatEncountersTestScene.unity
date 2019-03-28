@@ -226,17 +226,8 @@ MonoBehaviour:
   MinStepsBeforeBattle: 5
   MaxStepsBeforeBattle: 50
   ListOfEnemyTeams:
-  - NameOfTeam: 
+  - NameOfTeam: Wolf
     Weight: 0
-    TeamMembers:
-    - NameOfEnemy: 
-    - NameOfEnemy: 
-  - NameOfTeam: 
-    Weight: 0
-    TeamMembers: []
-  - NameOfTeam: 
-    Weight: 0
-    TeamMembers: []
 --- !u!212 &1549475734
 SpriteRenderer:
   m_ObjectHideFlags: 0

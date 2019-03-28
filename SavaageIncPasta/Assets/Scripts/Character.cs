@@ -31,6 +31,7 @@ public class Character
     public Character()
     {
         Equipment = new CharacterEquipment();
+        CurrentHealth = MaxHealth;
     }
 
     public void ChangeHealth(int health)
