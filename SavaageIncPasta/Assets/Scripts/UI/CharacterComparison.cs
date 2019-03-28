@@ -20,7 +20,7 @@ public class CharacterComparison : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
-        Name.text = character.name;
+        Name.text = "name: " + character.name;
         Level.text = character.Level.ToString();
         Health.text = character.CurrentHealth.ToString();
         Comfort.text = character.Comfort.ToString();

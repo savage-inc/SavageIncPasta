@@ -6,8 +6,9 @@ using UnityEngine.UI;
 
 public class CharacterButton : MonoBehaviour
 {
-    public Button SwitchButton, CloseButton;
-
+    public Button SwapButton, CompareButton, CloseButton;
+    public CharacterComparison CharacterCompare;
+    public CharacterComparison CharacterSwap;
     public Character Character;
     public int CharacterIndex = 0;
 
@@ -17,17 +18,32 @@ public class CharacterButton : MonoBehaviour
         Character = FindObjectOfType<PlayerManager>().Characters[CharacterIndex];
     }
 
+    private void Update()
+    {
+        Character = FindObjectOfType<PlayerManager>().Characters[CharacterIndex];
+    }
+
     public void ShowButtons()
     {
-        if (!SwitchButton.gameObject.activeInHierarchy)
+        if (!SwapButton.gameObject.activeInHierarchy)
         {
-            SwitchButton.gameObject.SetActive(true);
+            SwapButton.gameObject.SetActive(true);
+            CompareButton.gameObject.SetActive(true);
             CloseButton.gameObject.SetActive(true);
         }
         else
         {
-            SwitchButton.gameObject.SetActive(false);
+            SwapButton.gameObject.SetActive(false);
+            CompareButton.gameObject.SetActive(false);
             CloseButton.gameObject.SetActive(false);
         }
     }
+
+    public void SetToCompareMode()
+    {
+        // Compares party stats
+        CharacterCompare.character = Character;    }
+
+
+
 }
