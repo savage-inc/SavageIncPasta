@@ -37,7 +37,8 @@ public class EnemyManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Failed to create team instance as there is no enemy team saved in player prefs.");
+            Debug.LogWarning("Failed to create team instance as there is no enemy team saved in player prefs, load first team instead");
+            enemies = CreateEnemyInstances(EnemyGroups[0].Enemies);
         }
 
         return enemies;
@@ -52,6 +53,7 @@ public class EnemyManager : MonoBehaviour
         {
             var data = PersistantData.ReadBytesFromFile(path, filename);
             enemy = PersistantData.DeserializeToType<Character>(data);
+            enemy.Alive = true;
             return enemy;
         }
         Debug.LogError("Failed to load enemy from file with the name of " + filename);

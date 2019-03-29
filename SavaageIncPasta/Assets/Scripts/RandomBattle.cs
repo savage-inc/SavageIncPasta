@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class ListOfEnemies
@@ -33,7 +34,7 @@ public class RandomBattle : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        _rb = GameObject.Find("Player").GetComponent<Rigidbody2D>();
+        _rb = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
         _battleTriggerCounter = _randNumGenerator.Next(MinStepsBeforeBattle, MaxStepsBeforeBattle + 1);
         _oldPos = _rb.position;
 
@@ -73,11 +74,14 @@ public class RandomBattle : MonoBehaviour
                     Debug.Log(enemy.NameOfTeam + " probability: " + (float)enemy.Weight / (float)_totalWeights + 1);
                     //Add enemies to player prefs to be loaded in during the battle scene
                     PlayerPrefs.SetString("EnemyTeam", enemy.NameOfTeam);
-
+                    PlayerPrefs.SetInt("SceneOrigin", SceneManager.GetActiveScene().buildIndex);
+                    PlayerPrefs.SetFloat("SceneOriginX", _rb.position.x);
+                    PlayerPrefs.SetFloat("SceneOriginY", _rb.position.y);
                     PlayerPrefs.Save();
                     break;
                 }
             }
+            SceneManager.LoadScene("Battle", LoadSceneMode.Single);
         }
     }
 

@@ -21,8 +21,10 @@ public class Character
     public int Charisma;
     public MagicType Magic;
     public bool Player = true;
-    public bool Alive;
+    public bool Alive = true;
     public CharacterEquipment Equipment;
+    public int BaseAttack = 5;
+    public int BaseArmour = 0;
     public int CurrCol = 1;
 
     public int Experience = 0;

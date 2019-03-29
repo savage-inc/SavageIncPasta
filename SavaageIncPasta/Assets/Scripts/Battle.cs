@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public enum TurnOption
 {
@@ -17,6 +18,7 @@ public class Battle : MonoBehaviour
     private List<Character> _characterList = new List<Character>();
     private List<Character> _enemyList = new List<Character>();
     private List<BattleCharacter> _battleCharacterList = new List<BattleCharacter>(); // all players in battle
+    private List<int> _characterTurnOrder = new List<int>();
     private int _currentCharacterIndex = 0;
     private int _targettedCharacterIndex = -1;
     private int _targettingCharacterIndex = 4;
@@ -108,15 +110,17 @@ public class Battle : MonoBehaviour
             }
         }
 
-        if (_deadPlayers >= 4)
+        if (_deadPlayers >= _characterList.Count)
         {
             // Player lose
             SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
         }
-        else if (_deadEnemies >= 4)
+        else if (_deadEnemies >= _enemyList.Count)
         {
             // Player wins
-            SceneManager.LoadScene("GameWin", LoadSceneMode.Single);
+            Vector2 newPos = new Vector2(PlayerPrefs.GetFloat("SceneOriginX"), PlayerPrefs.GetFloat("SceneOriginY"));
+            PersistantData.SetPlayerPositionInNextScene(newPos);
+            SceneManager.LoadScene(PlayerPrefs.GetInt("SceneOrigin"), LoadSceneMode.Single);
         }
     }
 
@@ -161,7 +165,38 @@ public class Battle : MonoBehaviour
 
     void DecideTurnOrder()
     {
-        QuickSort(0, _battleCharacterList.Count - 1);
+        _characterTurnOrder.Clear();
+
+        // Decides turn order
+        for (int i = 0; i < _battleCharacterList.Count; i++)
+        {
+            //int rand = Random.Range(-2, 2);
+
+            if (_characterTurnOrder.Count == 0)
+            {
+                _characterTurnOrder.Add(i);
+            }
+            else
+            {
+                bool added = false;
+                int count = _characterTurnOrder.Count;
+                for (int j = 0; j < count; j++)
+                {
+                    if (_battleCharacterList[i].Character.Dexterity < _battleCharacterList[_characterTurnOrder[j]].Character.Dexterity)
+                    {
+                        _characterTurnOrder.Insert(j, i);
+                        added = true;
+                        break;
+                    }
+
+                }
+                if (!added)
+                {
+                    _characterTurnOrder.Add(i);
+                }
+            }
+
+        }
     }
 
     void QuickSort(int low, int high)
@@ -200,54 +235,24 @@ public class Battle : MonoBehaviour
 
     void PlayerAttack()
     {
-
-        _battleCharacterList[_targettingCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.magenta;
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            if (_targettingCharacterIndex < _battleCharacterList.Count - 1)
-            {
-                _battleCharacterList[_targettingCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.white;
-                _targettingCharacterIndex++;
-                while (!_battleCharacterList[_targettingCharacterIndex].Character.Alive)
-                {
-
-                    _targettingCharacterIndex++;
-                    if (_targettingCharacterIndex > _battleCharacterList.Count - 1)
-                    {
-                        _targettingCharacterIndex = 4;
-                    }
-                }
-                _battleCharacterList[_targettingCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.magenta;
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            if (_targettingCharacterIndex > 0)
-            {
-                _battleCharacterList[_targettingCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.white;
-                _targettingCharacterIndex--;
-
-                while (!_battleCharacterList[_targettingCharacterIndex].Character.Alive)
-                {
-
-                    _targettingCharacterIndex--;
-                    if (_targettingCharacterIndex < 0)
-                    {
-                        _targettingCharacterIndex = 7;
-                    }
-                }
-                _battleCharacterList[_targettingCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.magenta;
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.Return))
-        {
-            _targettedCharacterIndex = _targettingCharacterIndex;
-            _battleCharacterList[_targettingCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.white;
-        }
-
         if (_targettedCharacterIndex > -1)
         {
             DealDamage();
+        }
+    }
+
+    public void SetTargettedCharacter(int characterIndex)
+    {
+        _targettedCharacterIndex = characterIndex;
+        SwitchInteractableCharacterButtons();
+    }
+
+    public void SwitchInteractableCharacterButtons()
+    {
+        for(int i = 0; i < _battleCharacterList.Count; i++)
+        {
+            _battleCharacterList[i].gameObject.GetComponent<Button>().interactable = !_battleCharacterList[i].gameObject.GetComponent<Button>().interactable;
+
         }
     }
 
@@ -272,7 +277,57 @@ public class Battle : MonoBehaviour
 
     void DealDamage()
     {
-        _battleCharacterList[_targettedCharacterIndex].Character.ChangeHealth(-5);
+        float chanceToHit = 0.5f;
+        Character attacker = _battleCharacterList[_currentCharacterIndex].Character;
+        Character defender = _battleCharacterList[_targettedCharacterIndex].Character;
+        int damage = 0;
+        int classModifier = 0;
+        switch (attacker.Class)
+        {
+            case ClassType.eWARRIOR:
+                classModifier = attacker.Strength;
+                break;
+            case ClassType.eRANGER:
+                classModifier = attacker.Dexterity;
+                break;
+            case ClassType.eSHAMAN:
+            case ClassType.eWIZARD:
+                classModifier = attacker.Intelligence;
+                break;
+            case ClassType.eENEMY:
+                classModifier = attacker.Strength;
+                break;
+        }
+        var weapon = attacker.Equipment.GetEquipedWeapon();
+        float magic = 0;
+
+        if (weapon != null)
+        {
+            magic = weapon.MagicalModifier;
+        }
+
+        chanceToHit = (50.0f + classModifier * 10.0f - defender.BaseArmour * 2.0f + magic) / 100.0f;
+        chanceToHit = Mathf.Clamp(chanceToHit, 0.05f, 0.95f);
+
+        if (Random.value < chanceToHit)
+        {
+            if (weapon == null)
+            {
+                damage = attacker.BaseAttack;
+            }
+            else
+            {
+                
+                damage = (int)weapon.BaseDamage + Random.Range(-(int)weapon.VarianceDamage + classModifier / 2, (int)weapon.VarianceDamage + classModifier);
+            }
+
+            _battleCharacterList[_targettedCharacterIndex].Character.ChangeHealth(-damage);
+        }
+        else
+        {
+            //miss stuff
+        }
+       
 
         if (!_battleCharacterList[_targettedCharacterIndex].Character.Alive)
         {
