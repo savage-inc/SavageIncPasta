@@ -7,6 +7,9 @@ public class UIManager : MonoBehaviour
     public GameObject OffCanvas;
     public GameObject OnCanvas;
     public GameObject FirstObject;
+
+    public static bool GameIsPaused = false;
+
     public void Switch()
     {
         OffCanvas.SetActive(true);
@@ -16,13 +19,13 @@ public class UIManager : MonoBehaviour
 
     public GameObject Inventory;
     public GameObject Menu;
-    public GameObject Pause;
+    public GameObject pauseMenuUI;
 
     public void Close()
     {
         Inventory.SetActive(false);
         Menu.SetActive(false);
-        Pause.SetActive(false);
+        pauseMenuUI.SetActive(false);
     }
     public void OpenInventory()
     {
@@ -38,13 +41,14 @@ public class UIManager : MonoBehaviour
     }
     public void OpenPause()
     {
-        Pause.SetActive(true);
+        pauseMenuUI.SetActive(true);
         Inventory.SetActive(false);
         Menu.SetActive(false);
     }
-    private void Update()
+    
+    void Update()
     {
-        if (Input.GetButtonDown("Y"))
+        if (Input.GetButtonDown("Fire3")) // X button
         {
             if (Inventory.activeInHierarchy)
             {
@@ -56,19 +60,44 @@ public class UIManager : MonoBehaviour
             }
         }
 
-        if (Input.GetButtonDown("Start"))
+        if (Input.GetButtonDown("Pause")) // start button
         {
-            if(Pause.activeInHierarchy)
+            if(GameIsPaused)
             {
-                Close();
+                Resume();
             }
             else
             {
-                OpenPause();
+                Pause();
             }
         }
     }
 
+    	
+    public void Resume()
+    {
+        pauseMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+        GameIsPaused = false;
+    }
+    void Pause()
+    {
+        pauseMenuUI.SetActive(true);
+        Time.timeScale = 0f;
+        GameIsPaused = true;
+    }
+
+    public void LoadMenu()
+    {
+        // link Menu here
+        Debug.Log("Loading menu...");
+    }
+
+    public void QuitGame()
+    {
+        Debug.Log("Quitting game...");
+        Application.Quit();
+    }
 }
 
 //    public GameObject InventoryGameObject;
