@@ -402,7 +402,6 @@ MonoBehaviour:
     Experience: 0
     Comfort: 0
   HealthText: {fileID: 1318749680}
-  PreviewSprite: {fileID: 21300004, guid: fc8215d47fe442244943fd177e74305e, type: 3}
 --- !u!1 &110827212
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,7 +449,6 @@ MonoBehaviour:
     Experience: 0
     Comfort: 0
   HealthText: {fileID: 1381147273}
-  PreviewSprite: {fileID: 21300004, guid: fc8215d47fe442244943fd177e74305e, type: 3}
 --- !u!212 &110827214
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -555,7 +553,6 @@ MonoBehaviour:
     Experience: 0
     Comfort: 0
   HealthText: {fileID: 420508746}
-  PreviewSprite: {fileID: 21300000, guid: fc8215d47fe442244943fd177e74305e, type: 3}
 --- !u!212 &120704461
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1941,7 +1938,6 @@ MonoBehaviour:
     Experience: 0
     Comfort: 0
   HealthText: {fileID: 30306853}
-  PreviewSprite: {fileID: 21300002, guid: fc8215d47fe442244943fd177e74305e, type: 3}
 --- !u!212 &481552406
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2970,7 +2966,6 @@ MonoBehaviour:
     Experience: 0
     Comfort: 0
   HealthText: {fileID: 1432116582}
-  PreviewSprite: {fileID: 21300000, guid: fc8215d47fe442244943fd177e74305e, type: 3}
 --- !u!212 &750556661
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4275,7 +4270,7 @@ RectTransform:
   - {fileID: 1456047486}
   - {fileID: 1741105823}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4571,7 +4566,6 @@ MonoBehaviour:
     Experience: 0
     Comfort: 0
   HealthText: {fileID: 909279948}
-  PreviewSprite: {fileID: 21300000, guid: fc8215d47fe442244943fd177e74305e, type: 3}
 --- !u!1 &1137009819
 GameObject:
   m_ObjectHideFlags: 0
@@ -5627,7 +5621,6 @@ MonoBehaviour:
     Experience: 0
     Comfort: 0
   HealthText: {fileID: 781222838}
-  PreviewSprite: {fileID: 21300004, guid: fc8215d47fe442244943fd177e74305e, type: 3}
 --- !u!212 &1332402906
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6066,6 +6059,48 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1381147270}
+--- !u!1001 &1424154305
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4278469953047040, guid: b42aa9d4a497fd246b0163d4c48151d5, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278469953047040, guid: b42aa9d4a497fd246b0163d4c48151d5, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278469953047040, guid: b42aa9d4a497fd246b0163d4c48151d5, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278469953047040, guid: b42aa9d4a497fd246b0163d4c48151d5, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278469953047040, guid: b42aa9d4a497fd246b0163d4c48151d5, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278469953047040, guid: b42aa9d4a497fd246b0163d4c48151d5, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278469953047040, guid: b42aa9d4a497fd246b0163d4c48151d5, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278469953047040, guid: b42aa9d4a497fd246b0163d4c48151d5, type: 2}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: b42aa9d4a497fd246b0163d4c48151d5, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1432116579
 GameObject:
   m_ObjectHideFlags: 0
@@ -6292,7 +6327,6 @@ MonoBehaviour:
     Experience: 0
     Comfort: 0
   HealthText: {fileID: 1578214260}
-  PreviewSprite: {fileID: 21300002, guid: fc8215d47fe442244943fd177e74305e, type: 3}
 --- !u!212 &1505924761
 SpriteRenderer:
   m_ObjectHideFlags: 0
