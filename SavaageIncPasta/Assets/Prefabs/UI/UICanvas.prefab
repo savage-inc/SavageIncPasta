@@ -1670,7 +1670,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Sell
+  m_Text: Sell(RB)
 --- !u!114 &114300069244065244
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2576,7 +2576,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Buy
+  m_Text: Buy(LB)
 --- !u!114 &114722229270620318
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3125,6 +3125,7 @@ MonoBehaviour:
   PartyInventoryObject: {fileID: 1535851057204428}
   PartyInventoryContent: {fileID: 224864279471568676}
   PartyGoldText: {fileID: 114379424092850436}
+  firstItem: {fileID: 0}
 --- !u!114 &114965843330868878
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3636,7 +3637,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.000015258789, y: -0.000076293945}
   m_SizeDelta: {x: 0, y: 1104.1}
   m_Pivot: {x: 0, y: 1}
 --- !u!224 &224054847075404478
@@ -3924,7 +3925,7 @@ RectTransform:
   m_Father: {fileID: 224869900345070444}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.09156287}
+  m_AnchorMin: {x: 0, y: 0.659696}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
