@@ -66,7 +66,7 @@ public class UIManager : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetButtonDown("Fire3")) // X button
+        if (Input.GetButtonDown("A")) // X button
         {
             if (Inventory.activeInHierarchy)
             {
@@ -78,7 +78,7 @@ public class UIManager : MonoBehaviour
             }
         }
 
-        if (Input.GetButtonDown("Pause")) // start button
+        if (Input.GetButtonDown("Start")) // start button
         {
             if(GameIsPaused)
             {

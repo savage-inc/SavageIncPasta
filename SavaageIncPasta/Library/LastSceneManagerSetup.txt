@@ -1,12 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
-<<<<<<< HEAD
-- path: Assets/Scenes/NPC_Interaction.unity
-=======
 - path: Assets/Scenes/TestMovement.unity
->>>>>>> WorldDesign
-=======
-- path: Assets/Scenes/World/WorldScene.unity
->>>>>>> WorldScene
   isLoaded: 1
   isActive: 1
