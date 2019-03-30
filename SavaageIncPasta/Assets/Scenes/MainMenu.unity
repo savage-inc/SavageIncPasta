@@ -122,6 +122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 10301261}
   - component: {fileID: 10301262}
+  - component: {fileID: 10301263}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -161,6 +162,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 012329a7828c3f14c90ea438580a2b3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MainSceneName: Battle
+--- !u!114 &10301263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 10301260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1297475563, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 1
+  m_ChildControlHeight: 0
 --- !u!1 &37449503
 GameObject:
   m_ObjectHideFlags: 0
@@ -618,7 +642,6 @@ GameObject:
   - component: {fileID: 388628688}
   - component: {fileID: 388628687}
   - component: {fileID: 388628686}
-  - component: {fileID: 388628689}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -684,30 +707,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 10301260}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1176793176}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 388628689}
-        m_MethodName: Switch
+      - m_Target: {fileID: 1693376562}
+        m_MethodName: Toggle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -752,23 +753,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 388628684}
---- !u!114 &388628689
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 388628684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f347112b7c96ba438977f997b98b453, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OffCanvas: {fileID: 10301260}
-  OnCanvas: {fileID: 1176793176}
-  FirstObject: {fileID: 388628684}
-  Inventory: {fileID: 0}
-  Menu: {fileID: 0}
-  pauseMenuUI: {fileID: 0}
 --- !u!1 &420828551
 GameObject:
   m_ObjectHideFlags: 0
@@ -956,10 +940,10 @@ RectTransform:
   m_Father: {fileID: 10301261}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 140}
-  m_SizeDelta: {x: 288.9, y: 133.1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 133.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &440291667
 MonoBehaviour:
@@ -1581,12 +1565,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f347112b7c96ba438977f997b98b453, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OffCanvas: {fileID: 0}
-  OnCanvas: {fileID: 0}
-  FirstObject: {fileID: 0}
   Inventory: {fileID: 0}
-  Menu: {fileID: 10301260}
   pauseMenuUI: {fileID: 0}
+  FirstObject: {fileID: 440291665}
 --- !u!1 &1107112653
 GameObject:
   m_ObjectHideFlags: 0
@@ -1617,8 +1598,8 @@ RectTransform:
   m_Father: {fileID: 1227272170}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1758,10 +1739,10 @@ RectTransform:
   m_Father: {fileID: 10301261}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -136}
-  m_SizeDelta: {x: 256.2, y: 110.1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 110.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1389242906
 MonoBehaviour:
@@ -2098,7 +2079,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2168,10 +2149,10 @@ RectTransform:
   m_Father: {fileID: 10301261}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 446.6, y: 118.8}
+  m_SizeDelta: {x: 0, y: 118.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1693376559
 MonoBehaviour:
@@ -2213,7 +2194,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1693376562}
-        m_MethodName: Switch
+        m_MethodName: Toggle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2266,15 +2247,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1693376557}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f347112b7c96ba438977f997b98b453, type: 3}
+  m_Script: {fileID: 11500000, guid: 8f12fbd2230ba234da805a4b3e4f93f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OffCanvas: {fileID: 1176793176}
-  OnCanvas: {fileID: 10301260}
-  FirstObject: {fileID: 1693376557}
-  Inventory: {fileID: 0}
-  Menu: {fileID: 0}
-  pauseMenuUI: {fileID: 0}
+  PanelA: {fileID: 10301260}
+  FirstSelectedA: {fileID: 1693376557}
+  PanelB: {fileID: 1176793176}
+  FirstSelectedB: {fileID: 1992596058}
 --- !u!1 &1992596058
 GameObject:
   m_ObjectHideFlags: 0
@@ -2354,7 +2333,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

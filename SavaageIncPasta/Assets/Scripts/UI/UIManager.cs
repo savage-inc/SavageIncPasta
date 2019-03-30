@@ -2,48 +2,66 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 public class UIManager : MonoBehaviour
 {
-    public GameObject OffCanvas;
-    public GameObject OnCanvas;
+    public GameObject Inventory;
+    public GameObject pauseMenuUI;
     public GameObject FirstObject;
 
     public static bool GameIsPaused = false;
 
-    public void Switch()
+    void Awake()
     {
-        OffCanvas.SetActive(true);
-        OnCanvas.SetActive(false);
-        GameObject.Find("EventSystem").GetComponent<EventSystem>().SetSelectedGameObject(FirstObject, null);
+        if (FirstObject != null)
+        {
+            EventSystem eventSystem = FindObjectOfType<EventSystem>();
+            eventSystem.SetSelectedGameObject(null);
+            eventSystem.SetSelectedGameObject(FirstObject);
+            Button button = FirstObject.GetComponent<Button>();
+            if (button != null)
+            {
+                button.OnSelect(null);
+            }
+        }
     }
-
-    public GameObject Inventory;
-    public GameObject Menu;
-    public GameObject pauseMenuUI;
 
     public void Close()
     {
-        Inventory.SetActive(false);
-        Menu.SetActive(false);
-        pauseMenuUI.SetActive(false);
+        if (Inventory != null)
+        {
+            Inventory.SetActive(false);
+        }
+
+        if (pauseMenuUI)
+        {
+            pauseMenuUI.SetActive(false);
+        }
     }
     public void OpenInventory()
     {
         if (Inventory != null)
+        {
             Inventory.SetActive(true);
-        if (Menu != null)
-            Menu.SetActive(false);
+            if (pauseMenuUI != null)
+            {
+                pauseMenuUI.SetActive(true);
+            }
+        }
     }
-    public void OpenMenu()
-    {
-        Inventory.SetActive(false);
-        Menu.SetActive(true);
-    }
+
     public void OpenPause()
     {
-        pauseMenuUI.SetActive(true);
-        Inventory.SetActive(false);
-        Menu.SetActive(false);
+        if (pauseMenuUI != null)
+        {
+            pauseMenuUI.SetActive(true);
+            if (Inventory != null)
+            {
+                Inventory.SetActive(false);
+            }
+        }
     }
     
     void Update()
@@ -91,6 +109,7 @@ public class UIManager : MonoBehaviour
     {
         // link Menu here
         Debug.Log("Loading menu...");
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void QuitGame()
@@ -99,27 +118,3 @@ public class UIManager : MonoBehaviour
         Application.Quit();
     }
 }
-
-//    public GameObject InventoryGameObject;
-//    // Use this for initialization
-//    void Start()
-//    {
-
-//    }
-
-//    // Update is called once per frame
-//    void Update()
-//    {
-//        if (Input.GetKeyDown(KeyCode.I))
-//        {
-//            if (InventoryGameObject.activeInHierarchy)
-//            {
-//                InventoryGameObject.SetActive(false);
-//            }
-//            else
-//            {
-//                InventoryGameObject.SetActive(true);
-//            }
-//        }
-//    }
-//}
