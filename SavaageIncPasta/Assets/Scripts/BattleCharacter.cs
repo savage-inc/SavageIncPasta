@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-[RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(Image))]
 public class BattleCharacter : MonoBehaviour {
 
     public Character Character;
@@ -13,7 +13,7 @@ public class BattleCharacter : MonoBehaviour {
 
     private void Awake()
     {
-        GetComponent<SpriteRenderer>().sprite = PreviewSprite;
+        GetComponent<Image>().sprite = PreviewSprite;
     }
     // Use this for initialization
     void Start () {

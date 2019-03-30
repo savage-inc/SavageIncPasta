@@ -85,7 +85,7 @@ public class Battle : MonoBehaviour
             }
         }
 
-        _battleCharacterList[_currentCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.magenta;
+        _battleCharacterList[_currentCharacterIndex].gameObject.GetComponent<Image>().color = Color.magenta;
 
         if (!_battleCharacterList[_currentCharacterIndex].Character.Player)
         {
@@ -381,7 +381,7 @@ public class Battle : MonoBehaviour
 
     void EndTurn()
     {
-        _battleCharacterList[_currentCharacterIndex].gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        _battleCharacterList[_currentCharacterIndex].gameObject.GetComponent<Image>().color = Color.white;
         _optionChosen = TurnOption.eNONE;
         _targettedCharacterIndex = -1;
         _currentCharacterIndex++;
