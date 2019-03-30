@@ -277,6 +277,7 @@
     <Compile Include="Assets\Scripts\AI\GridMap.cs" />
     <Compile Include="Assets\Scripts\AI\Node.cs" />
     <Compile Include="Assets\Scripts\Battle.cs" />
+    <Compile Include="Assets\Scripts\BattleCharacter.cs" />
     <Compile Include="Assets\Scripts\Character.cs" />
     <Compile Include="Assets\Scripts\CharacterHealth.cs" />
     <Compile Include="Assets\Scripts\ClanManager.cs" />
@@ -285,6 +286,8 @@
     <Compile Include="Assets\Scripts\Data\GameObjectGUIDEditor.cs" />
     <Compile Include="Assets\Scripts\Data\PersistantData.cs" />
     <Compile Include="Assets\Scripts\DontDestroy.cs" />
+    <Compile Include="Assets\Scripts\EnemyCreator.cs" />
+    <Compile Include="Assets\Scripts\EnemyManager.cs" />
     <Compile Include="Assets\Scripts\GenerateRandomCharacter.cs" />
     <Compile Include="Assets\Scripts\InputManager.cs" />
     <Compile Include="Assets\Scripts\Inventory\Base\CharacterEquipment.cs" />
@@ -306,8 +309,8 @@
     <Compile Include="Assets\Scripts\Inventory\ShopItemButton.cs" />
     <Compile Include="Assets\Scripts\MagicTypes.cs" />
     <Compile Include="Assets\Scripts\Movement\PlayerController.cs" />
-    <Compile Include="Assets\Scripts\Option.cs" />
     <Compile Include="Assets\Scripts\PlayerManager.cs" />
+    <Compile Include="Assets\Scripts\RandomBattle.cs" />
     <Compile Include="Assets\Scripts\Sound\PlaySound.cs" />
     <Compile Include="Assets\Scripts\Sound\SoundManager.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu.cs" />

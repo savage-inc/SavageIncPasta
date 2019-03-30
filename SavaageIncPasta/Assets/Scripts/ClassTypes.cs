@@ -7,7 +7,8 @@ public enum ClassType
     eWARRIOR,
     eRANGER,
     eWIZARD,
-    eSHAMAN
+    eSHAMAN,
+    eENEMY
 }
 
 public class ClassTypes : MonoBehaviour

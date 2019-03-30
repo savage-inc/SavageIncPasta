@@ -107,12 +107,12 @@ public class PersistantData
         }
 
 
-        SaveBytesToFile(SceneName + ".data", SerializeToBytes(sceneData));
+        SaveBytesToFile(Application.persistentDataPath + "/save/", SceneName + ".data", SerializeToBytes(sceneData));
     }
 
     public static void LoadSceneData(string SceneName ,Transform playerTransform, Shop[] shops)
     {
-        var data = ReadBytesFromFile(SceneName + ".data");
+        var data = ReadBytesFromFile(Application.persistentDataPath + "/save/", SceneName + ".data");
         if (data != null)
         {
             SceneData sceneData = DeserializeToType<SceneData>(data);
@@ -159,12 +159,12 @@ public class PersistantData
         partyData.PartyCharacterData = playerManager.Characters;
         partyData.ItemDatabase = ItemDatabase.Instance.ToList();
 
-        SaveBytesToFile("partyData.data", SerializeToBytes(partyData));
+        SaveBytesToFile(Application.persistentDataPath + "/save/","partyData.data", SerializeToBytes(partyData));
     }
 
     public static void LoadPartyData(PartyInventory partyInventory, PlayerManager playerManager)
     {
-        var data = ReadBytesFromFile("partyData.data");
+        var data = ReadBytesFromFile(Application.persistentDataPath + "/save/", "partyData.data");
         if (data != null)
         {
             PartyData partyData = DeserializeToType<PartyData>(data);
@@ -189,7 +189,7 @@ public class PersistantData
         }
     }
 
-    private static T DeserializeToType<T>(Byte[] data)
+    public static T DeserializeToType<T>(Byte[] data)
     {
         var stream = new MemoryStream(data);
         var formatter = new BinaryFormatter();
@@ -197,7 +197,7 @@ public class PersistantData
         return (T) formatter.Deserialize(stream);
     }
 
-    private static Byte[] SerializeToBytes<T>(T data)
+    public static Byte[] SerializeToBytes<T>(T data)
     {
         var stream = new MemoryStream();
         var formatter = new BinaryFormatter();
@@ -207,21 +207,21 @@ public class PersistantData
         return stream.ToArray();
     }
 
-    private static void SaveBytesToFile(string filename ,Byte[] data)
+    public static void SaveBytesToFile(string path, string filename ,Byte[] data)
     {
-        if (!Directory.Exists(Application.persistentDataPath + "/save"))
+        if (!Directory.Exists(path))
         {
-            Directory.CreateDirectory(Application.persistentDataPath + "/save");
+            Directory.CreateDirectory(path);
         }
 
-        string dataPath = Application.persistentDataPath + "/save/" + filename;
+        string dataPath = path + filename;
         File.WriteAllBytes(dataPath, data);
         Debug.Log("Saved File " + dataPath);
     }
 
-    private static Byte[] ReadBytesFromFile(string filename)
+    public static Byte[] ReadBytesFromFile(string path, string filename)
     {
-        string dataPath = Application.persistentDataPath + "/save/" + filename;
+        string dataPath = path + filename;
         if (File.Exists(dataPath))
         {
             return File.ReadAllBytes(dataPath);
