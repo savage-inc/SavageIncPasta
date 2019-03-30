@@ -13,12 +13,10 @@ public class BattleCharacter : MonoBehaviour {
 
     private void Awake()
     {
-        GetComponent<Image>().sprite = PreviewSprite;
     }
     // Use this for initialization
     void Start () {
-        GetComponent<SpriteRenderer>().sprite = FindObjectOfType<SpriteManager>().GetSprite(Character.SpritePreviewName);
-
+        GetComponent<Image>().sprite = FindObjectOfType<SpriteManager>().GetSprite(Character.SpritePreviewName);
     }
 
     // Update is called once per frame
