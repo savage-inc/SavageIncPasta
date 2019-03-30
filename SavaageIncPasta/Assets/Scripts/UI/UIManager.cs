@@ -103,6 +103,7 @@ public class UIManager : MonoBehaviour
     {
         // link Menu here
         Debug.Log("Loading menu...");
+        Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
     }
 
