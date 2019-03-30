@@ -1,8 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
-- path: Assets/Scenes/TestMovement.unity
-=======
-- path: Assets/Scenes/MainMenu.unity
->>>>>>> Combat
+- path: Assets/Scenes/World/WorldScene.unity
   isLoaded: 1
   isActive: 1
