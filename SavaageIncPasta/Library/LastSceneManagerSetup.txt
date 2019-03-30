@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Scenes/World/WorldScene.unity
+=======
+- path: Assets/Scenes/Battle.unity
+>>>>>>> Combat
   isLoaded: 1
   isActive: 1

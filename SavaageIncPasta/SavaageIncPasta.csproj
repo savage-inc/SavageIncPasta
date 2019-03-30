@@ -313,6 +313,7 @@
     <Compile Include="Assets\Scripts\RandomBattle.cs" />
     <Compile Include="Assets\Scripts\Sound\PlaySound.cs" />
     <Compile Include="Assets\Scripts\Sound\SoundManager.cs" />
+    <Compile Include="Assets\Scripts\SpriteManager.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
     <Compile Include="Assets\Scripts\UI\SwapPanels.cs" />
     <Compile Include="Assets\Scripts\UI\UI Menu.cs" />

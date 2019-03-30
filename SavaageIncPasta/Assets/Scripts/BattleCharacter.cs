@@ -9,19 +9,18 @@ public class BattleCharacter : MonoBehaviour {
 
     public Character Character;
     public Text HealthText;
-    public Sprite PreviewSprite;
+
 
     private void Awake()
     {
-        GetComponent<Image>().sprite = PreviewSprite;
     }
     // Use this for initialization
     void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        GetComponent<Image>().sprite = FindObjectOfType<SpriteManager>().GetSprite(Character.SpritePreviewName);
+    }
+
+    // Update is called once per frame
+    void Update () {
         HealthText.text = "Health: " + Character.CurrentHealth;
 	}
 }
