@@ -2,17 +2,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class ItemDatabase : MonoBehaviour
 {
-    private Dictionary<string, BaseItemData> _items;
+    public static ItemDatabase Instance { get; private set; }
 
-	// Use this for initialization
-	void Awake ()
+    private Dictionary<string, BaseItemData> _items;
+    public List<WeaponItemData> Weapons { get; private set; }
+    public List<ArmourItemData> Armour { get; private set; }
+
+
+    // Use this for initialization
+    void Awake ()
     {
-		_items = new Dictionary<string, BaseItemData>();
-        LoadItemsFromResources();
-        GenerateItems();
+        DontDestroyOnLoad(this);
+
+        if (Instance == null)
+        {
+            Instance = this;
+
+            _items = new Dictionary<string, BaseItemData>();
+            Weapons = new List<WeaponItemData>();
+            Armour = new List<ArmourItemData>();
+
+            LoadItemsFromResources();
+            GenerateItems();
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
+
 
     public BaseItemData GetItemInstance(string databaseName)
     {
@@ -22,7 +43,6 @@ public class ItemDatabase : MonoBehaviour
         }
 
         var itemData = _items[databaseName];
-
         return itemData;
     }
 
@@ -49,12 +69,36 @@ public class ItemDatabase : MonoBehaviour
         {
             var weapon = RandomItemGenerator.RandomWeapon();
             _items.Add(weapon.DatabaseName, weapon);
+            Weapons.Add(weapon);
         }
 
         for (int i = 0; i < 250; i++)
         {
             var armour = RandomItemGenerator.RandomArmour();
             _items.Add(armour.DatabaseName, armour);
+            Armour.Add(armour);
+        }
+    }
+
+    public List<BaseItemData> ToList()
+    {
+        List<BaseItemData> items = new List<BaseItemData>();
+
+        foreach (var item in _items)
+        {
+            items.Add(item.Value);
+        }
+
+        return items;
+    }
+
+    public void FromList(List<BaseItemData> items)
+    {
+        _items.Clear();
+
+        foreach (var item in items)
+        {
+            _items.Add(item.DatabaseName,item);
         }
     }
 }

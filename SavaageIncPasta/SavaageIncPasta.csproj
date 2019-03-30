@@ -279,8 +279,17 @@
     <Compile Include="Assets\Scripts\Battle.cs" />
     <Compile Include="Assets\Scripts\Character.cs" />
     <Compile Include="Assets\Scripts\CharacterHealth.cs" />
+    <Compile Include="Assets\Scripts\ClanManager.cs" />
     <Compile Include="Assets\Scripts\ClassTypes.cs" />
+<<<<<<< HEAD
     <Compile Include="Assets\Scripts\InputManager.cs" />
+=======
+    <Compile Include="Assets\Scripts\Data\GameObjectGUID.cs" />
+    <Compile Include="Assets\Scripts\Data\GameObjectGUIDEditor.cs" />
+    <Compile Include="Assets\Scripts\Data\PersistantData.cs" />
+    <Compile Include="Assets\Scripts\DontDestroy.cs" />
+    <Compile Include="Assets\Scripts\GenerateRandomCharacter.cs" />
+>>>>>>> WorldScene
     <Compile Include="Assets\Scripts\Inventory\Base\CharacterEquipment.cs" />
     <Compile Include="Assets\Scripts\Inventory\Base\Inventory.cs" />
     <Compile Include="Assets\Scripts\Inventory\CharacterInventory.cs" />
@@ -301,13 +310,18 @@
     <Compile Include="Assets\Scripts\MagicTypes.cs" />
     <Compile Include="Assets\Scripts\Movement\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Option.cs" />
+    <Compile Include="Assets\Scripts\PlayerManager.cs" />
     <Compile Include="Assets\Scripts\Sound\PlaySound.cs" />
     <Compile Include="Assets\Scripts\Sound\SoundManager.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
     <Compile Include="Assets\Scripts\UI\SwapPanels.cs" />
     <Compile Include="Assets\Scripts\UI\UI Menu.cs" />
     <Compile Include="Assets\Scripts\UI\UIManager.cs" />
+    <Compile Include="Assets\Scripts\World\CameraFollow.cs" />
+    <Compile Include="Assets\Scripts\World\SceneDoor.cs" />
     <Compile Include="Assets\Scripts\World\WorldInteraction.cs" />
+    <Compile Include="Assets\Scripts\World\WorldManager.cs" />
+    <Compile Include="Assets\Scripts\World\WorldManagerEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\3rdParty\TextMeshPro\Examples &amp; Extras\Fonts\Anton OFL.txt" />

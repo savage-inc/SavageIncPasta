@@ -20,6 +20,24 @@ public class ShopInventoryUI : MonoBehaviour
     void Awake ()
     {
         _partyInventory = FindObjectOfType<PartyInventory>();
+    }
+
+    void OnDisable()
+    {
+        _partyInventory.Inventory.OnItemAdd -= AddPartyUIItem;
+        _partyInventory.Inventory.OnItemRemove -= RemovePartyItemUI;
+        _partyInventory.Inventory.OnItemUpdate -= UpdatePartyItemUI;
+
+        Shop.Inventory.OnItemAdd -= AddShopUIItem;
+        Shop.Inventory.OnItemRemove -= RemoveShoptemUI;
+        Shop.Inventory.OnItemUpdate -= UpdateShopItemUI;
+
+        ClearShop();
+        ClearParty();
+    }
+
+    void OnEnable()
+    {
         _partyInventory.Inventory.OnItemAdd += AddPartyUIItem;
         _partyInventory.Inventory.OnItemRemove += RemovePartyItemUI;
         _partyInventory.Inventory.OnItemUpdate += UpdatePartyItemUI;
@@ -27,16 +45,7 @@ public class ShopInventoryUI : MonoBehaviour
         Shop.Inventory.OnItemAdd += AddShopUIItem;
         Shop.Inventory.OnItemRemove += RemoveShoptemUI;
         Shop.Inventory.OnItemUpdate += UpdateShopItemUI;
-    }
 
-    void OnDisable()
-    {
-        ClearShop();
-        ClearParty();
-    }
-
-    void OnEnable()
-    {
         SyncShop();
         ShowShop();
     }

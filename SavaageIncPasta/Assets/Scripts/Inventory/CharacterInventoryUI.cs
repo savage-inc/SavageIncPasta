@@ -16,16 +16,22 @@ public class CharacterInventoryUI : MonoBehaviour
 
     public Sprite DefaultPreviewSprite;
 
+    private PlayerManager _playerManager;
     private CharacterEquipment _currentCharacterEquipment;
     private Inventory _partyInventory;
 
     // Use this for initialization
     void Start ()
     {
-        //TODO get a specfi 
-        _currentCharacterEquipment = FindObjectOfType<CharacterInventory>().CurrentCharacterEquipment;
-        _currentCharacterEquipment.OnItemAdd += AddUIItem;
-        _currentCharacterEquipment.OnItemRemove += RemoveItemUI;
+        //TODO get a specfic character
+        _playerManager = FindObjectOfType<PlayerManager>();
+        if(_playerManager == null)
+        {
+            Debug.LogWarning("Character Inventory couldn't find Player manager");
+            return;
+        }
+        _currentCharacterEquipment = _playerManager.Characters[0].Equipment;
+        
 
         //get party inventory
         _partyInventory = FindObjectOfType<PartyInventory>().Inventory;
@@ -36,10 +42,21 @@ public class CharacterInventoryUI : MonoBehaviour
         LegsButton.onClick.AddListener(() => LegsButton.GetComponent<InventoryItemButton>().TransferItem(_partyInventory));
         MainHandButton.onClick.AddListener(() => MainHandButton.GetComponent<InventoryItemButton>().TransferItem(_partyInventory));
         OffHandButton.onClick.AddListener(() => OffHandButton.GetComponent<InventoryItemButton>().TransferItem(_partyInventory));
+
+        _playerManager.Characters[0].Equipment.OnItemAdd += AddUIItem;
+        _playerManager.Characters[0].Equipment.OnItemRemove += RemoveItemUI;
+
+        SyncEquipment();
     }
 
     void OnDisable()
     {
+        if (_currentCharacterEquipment != null)
+        {
+            _currentCharacterEquipment.OnItemAdd -= AddUIItem;
+            _currentCharacterEquipment.OnItemRemove -= RemoveItemUI;
+        }
+
         HeadButton.image.sprite = DefaultPreviewSprite;
         HeadButton.GetComponent<InventoryItemButton>().Item = null;
         BodyButton.image.sprite = DefaultPreviewSprite;
@@ -54,14 +71,18 @@ public class CharacterInventoryUI : MonoBehaviour
 
     void OnEnable()
     {
+        if (_currentCharacterEquipment == null)
+        {
+            return;
+        }
+
+        _currentCharacterEquipment.OnItemAdd += AddUIItem;
+        _currentCharacterEquipment.OnItemRemove += RemoveItemUI;
         SyncEquipment();
     }
 
     void SyncEquipment()
-    {
-        if(_currentCharacterEquipment == null)
-            return;
-        
+    {        
         foreach (var item in _currentCharacterEquipment.GetItems())
         {
             AddUIItem(item);

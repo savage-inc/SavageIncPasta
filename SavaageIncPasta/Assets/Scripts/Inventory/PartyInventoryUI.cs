@@ -19,15 +19,15 @@ public class PartyInventoryUI : MonoBehaviour
     {
         var partyInventory = FindObjectOfType<PartyInventory>();
         _inventory = partyInventory.Inventory;
-        _inventory.OnItemAdd += AddUIItem;
-        _inventory.OnItemRemove += RemoveItemUI;
-        _inventory.OnItemUpdate += UpdateItemUI;
 
-        _characterInventory = FindObjectOfType<CharacterInventory>().CurrentCharacterEquipment;
+        _characterInventory = FindObjectOfType<PlayerManager>().Characters[0].Equipment;
     }
 
     void OnDisable()
     {
+        _inventory.OnItemAdd -= AddUIItem;
+        _inventory.OnItemRemove -= RemoveItemUI;
+        _inventory.OnItemUpdate -= UpdateItemUI;
         //Clear all inventory items
         foreach (Transform child in InventoryContent.transform)
         {
@@ -38,6 +38,9 @@ public class PartyInventoryUI : MonoBehaviour
     void OnEnable()
     {
         SyncInventory();
+        _inventory.OnItemAdd += AddUIItem;
+        _inventory.OnItemRemove += RemoveItemUI;
+        _inventory.OnItemUpdate += UpdateItemUI;
     }
 
     void SyncInventory()
