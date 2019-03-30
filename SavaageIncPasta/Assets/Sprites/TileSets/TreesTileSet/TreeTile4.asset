@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: TreeTile4
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300018, guid: 75a6dcd3755af6748a9220f12442e012, type: 3}
+  m_Sprite: {fileID: 21300006, guid: 86d34ca71d6b86047992c261deee8ba0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1

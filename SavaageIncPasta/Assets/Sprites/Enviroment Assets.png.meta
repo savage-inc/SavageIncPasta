@@ -1,0 +1,257 @@
+fileFormatVersion: 2
+guid: 86d34ca71d6b86047992c261deee8ba0
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Tree_L_Green
+    21300002: Tree_L_Cherry
+    21300004: Tree_L_Apple
+    21300006: Tree_S_Green
+    21300008: Tree_S_Cherry
+    21300010: Tree_S_Apple
+    21300012: Tree_L_Barren
+    21300014: Tree_S_Barren
+    21300016: Tree_Stump
+  externalObjects: {}
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Tree_L_Green
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -12.961674, y: -31.957596}
+        - {x: -12.756065, y: -5.0229797}
+        - {x: 13.304737, y: -4.991562}
+        - {x: 12.984917, y: -32}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tree_L_Cherry
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -13.009827, y: -32}
+        - {x: -12.905708, y: -5.0247955}
+        - {x: 12.686752, y: -4.9647827}
+        - {x: 12.953476, y: -32}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tree_L_Apple
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -12.951889, y: -32}
+        - {x: -13.008972, y: -5.0229645}
+        - {x: 13.019669, y: -5.0800476}
+        - {x: 13.019669, y: -32}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tree_S_Green
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -8.9832535, y: -31.972298}
+        - {x: -8.923254, y: -12.058403}
+        - {x: 8.966652, y: -11.978409}
+        - {x: 8.985569, y: -32}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tree_S_Cherry
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -8.998657, y: -31.988007}
+        - {x: -8.90757, y: -12.027847}
+        - {x: 8.834694, y: -11.92115}
+        - {x: 9.003334, y: -32}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tree_S_Apple
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -9.090286, y: -31.928017}
+        - {x: -9.172226, y: -12.098534}
+        - {x: 9.018448, y: -12.016594}
+        - {x: 9.018448, y: -32}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tree_L_Barren
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -12.985102, y: -32}
+        - {x: -13.045101, y: -7.920309}
+        - {x: 13.055359, y: -7.9558773}
+        - {x: 13.035675, y: -32}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tree_S_Barren
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -8.989159, y: -32}
+        - {x: -8.839073, y: -14.76363}
+        - {x: 9.020065, y: -14.76363}
+        - {x: 8.990044, y: -32}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tree_Stump
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -8.94632, y: -32}
+        - {x: -8.94632, y: -22.063086}
+        - {x: 8.9823, y: -22.063084}
+        - {x: 8.9823, y: -32}
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
