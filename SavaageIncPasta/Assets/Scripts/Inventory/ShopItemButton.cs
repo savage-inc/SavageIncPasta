@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ShopItemButton : MonoBehaviour
+public class ShopItemButton : MonoBehaviour, ISelectHandler, IDeselectHandler
 {
     public InventoryItem Item;
     public Shop Shop;
@@ -81,8 +81,35 @@ public class ShopItemButton : MonoBehaviour
 
     }
 
+
+
     void OnDisable()
     {
+        Destroy(_itemToolTipInstance);
+    }
+
+    public void OnSelect(BaseEventData eventData)
+    {
+        if (Item == null || Item.Item == null)
+            return;
+
+        //instantiate tool tip
+        _itemToolTipInstance = Instantiate(ItemToolTipPrefab);
+        _itemToolTipInstance.gameObject.SetActive(true);
+
+        RectTransform rectTransform = gameObject.GetComponent<RectTransform>();
+        float width = rectTransform.rect.width / 2;
+        _itemToolTipInstance.transform.SetParent(FindObjectOfType<Canvas>().transform);
+        _itemToolTipInstance.transform.position = new Vector3(gameObject.transform.position.x - width, gameObject.transform.position.y, 0);
+
+        _itemToolTipInstance.GetComponent<ItemTooltip>().Item = Item.Item;
+    }
+
+    public void OnDeselect(BaseEventData eventData)
+    {
+        if (Item == null || Item.Item == null)
+            return;
+
         Destroy(_itemToolTipInstance);
     }
 }

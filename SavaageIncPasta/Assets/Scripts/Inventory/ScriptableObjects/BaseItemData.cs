@@ -99,6 +99,7 @@ public abstract class BaseItemData : ScriptableObject, ISerializable
         _description = info.GetString("description");
         _baseMoneyValue = info.GetInt32("money");
         //TODO sprite deserialization
+        _previewSprite = Resources.Load<Sprite>("Sprites/Items/" + info.GetString("spriteName"));
         _rarity = (ItemRarity)info.GetInt32("rarity");
         _stackSize = info.GetInt32("stackSize");
         _itemType = (ItemType) info.GetInt32("itemType");
@@ -114,7 +115,15 @@ public abstract class BaseItemData : ScriptableObject, ISerializable
         info.AddValue("databaseName", _databaseName);
         info.AddValue("description", _description);
         info.AddValue("money", _baseMoneyValue);
-        info.AddValue("spriteName", _previewSprite.name);
+        if (_previewSprite != null)
+        {
+            info.AddValue("spriteName", _previewSprite.name);
+        }
+        else
+        {
+            info.AddValue("spriteName", "");
+        }
+
         info.AddValue("rarity", _rarity);
         info.AddValue("stackSize", _stackSize);
         info.AddValue("itemType", _itemType);

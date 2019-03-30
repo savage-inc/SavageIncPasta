@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 [System.Serializable]
 public struct ShopItem
@@ -9,14 +10,22 @@ public struct ShopItem
     public int Stock;
 }
 
+[RequireComponent(typeof(GameObjectGUID))]
 public class Shop : MonoBehaviour
 {
+    public ShopInventoryUI ShopUI;
     public List<ShopItem> ShopStartItems;
     public float PriceModfier = 1.0f;
+    //How long should the shop restock since last visit (In minutes)
+    public float RestockTime = 1.0f;
+
+    public bool RandomWeapons = false;
+    public bool RandomArmour = false;
+    public int RandomItemCount = 0;
+
     public Inventory Inventory { get; private set; }
     private PartyInventory _partyInventory;
-    public ShopInventoryUI ShopUI;
-
+    private float _lastVisit;
 
     // Use this for initialization
     void Awake ()
@@ -30,12 +39,35 @@ public class Shop : MonoBehaviour
             }
         }
 
+        //add random items
+        if (RandomArmour)
+        {
+            for (int i = 0; i < RandomItemCount; i++)
+            {
+                ShopItem shopItem;
+                shopItem.Item = ItemDatabase.Instance.Armour[Random.Range(0, ItemDatabase.Instance.Armour.Count)];
+                shopItem.Stock = 1;
+                Inventory.AddItem(shopItem.Item);
+            }
+        }
+
+        if (RandomWeapons)
+        {
+            for (int i = 0; i < RandomItemCount; i++)
+            {
+                ShopItem shopItem;
+                shopItem.Item = ItemDatabase.Instance.Weapons[Random.Range(0, ItemDatabase.Instance.Weapons.Count)];
+                shopItem.Stock = 1;
+                Inventory.AddItem(shopItem.Item);
+            }
+        }
+
         _partyInventory = FindObjectOfType<PartyInventory>();
     }
 
-    void Update()
+    void OnTriggerStay2D(Collider2D other)
     {
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetButtonDown("A") || Input.GetKeyDown(KeyCode.E))
         {
             if (!ShopUI.gameObject.activeInHierarchy)
             {
@@ -48,16 +80,46 @@ public class Shop : MonoBehaviour
         }
     }
 
+    void OnTriggerExit2D(Collider2D other)
+    {
+        CloseShop();
+    }
+
     public void ShowShop()
     {
+        //check to restock
+        if (_lastVisit + (RestockTime * 60.0f )<= Time.realtimeSinceStartup)
+        {
+            //restock
+            Debug.Log("Restocking shop");
+            Restock();
+            _lastVisit = 0.0f;
+        }
+
         ShopUI.Shop = this;
         ShopUI.gameObject.SetActive(true);
     }
 
     public void CloseShop()
     {
-        ShopUI.Shop = null;
         ShopUI.gameObject.SetActive(false);
+        ShopUI.Shop = null;
+        if (_lastVisit == 0.0f)
+        {
+            _lastVisit = Time.realtimeSinceStartup;
+        }
+    }
+
+    void Restock()
+    {
+        Inventory.Clear();
+        foreach (var shopItem in ShopStartItems)
+        {
+            for (int i = 0; i < shopItem.Stock; i++)
+            {
+                Inventory.AddItem(shopItem.Item);
+            }
+        }
     }
 
     //Sell an item to the player

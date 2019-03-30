@@ -7,14 +7,6 @@ using UnityEngine;
 [System.Serializable]
 public class ArmourItemData : BaseItemData
 {
-    public enum MagicType
-    {
-        eNONE,
-        eRED,
-        eWHITE,
-        eGREEN
-    }
-
     public enum SlotType
     {
         eHEAD,
