@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class InventoryItemButton : MonoBehaviour
+public class InventoryItemButton : MonoBehaviour, ISelectHandler, IDeselectHandler
 {
     public InventoryItem Item;
     public Inventory Inventory;
@@ -109,6 +109,23 @@ public class InventoryItemButton : MonoBehaviour
         _itemToolTipInstance.GetComponent<ItemTooltip>().Item = Item.Item;
     }
 
+    public void OnSelect(BaseEventData eventData)
+    {
+        if (Item == null || Item.Item == null)
+            return;
+
+        //instantiate tool tip
+        _itemToolTipInstance = Instantiate(ItemToolTipPrefab);
+        _itemToolTipInstance.gameObject.SetActive(true);
+
+        RectTransform rectTransform = gameObject.GetComponent<RectTransform>();
+        float width = rectTransform.rect.width / 2;
+        _itemToolTipInstance.transform.SetParent(FindObjectOfType<Canvas>().transform);
+        _itemToolTipInstance.transform.position = new Vector3(gameObject.transform.position.x - width, gameObject.transform.position.y, 0);
+
+        _itemToolTipInstance.GetComponent<ItemTooltip>().Item = Item.Item;
+    }
+
     public void OnHoverExit()
     {
         if (Item == null || Item.Item == null)
@@ -116,6 +133,14 @@ public class InventoryItemButton : MonoBehaviour
 
         Destroy(_itemToolTipInstance);
 
+    }
+
+    public void OnDeselect(BaseEventData eventData)
+    {
+        if (Item == null || Item.Item == null)
+            return;
+
+        Destroy(_itemToolTipInstance);
     }
 
     void OnDisable()

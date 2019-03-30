@@ -10,21 +10,17 @@ public class UIManager : MonoBehaviour
     public GameObject Inventory;
     public GameObject pauseMenuUI;
     public GameObject FirstObject;
-
     public static bool GameIsPaused = false;
+
+    private EventSystem _eventSystem;
 
     void Awake()
     {
+        _eventSystem = FindObjectOfType<EventSystem>();
+
         if (FirstObject != null)
         {
-            EventSystem eventSystem = FindObjectOfType<EventSystem>();
-            eventSystem.SetSelectedGameObject(null);
-            eventSystem.SetSelectedGameObject(FirstObject);
-            Button button = FirstObject.GetComponent<Button>();
-            if (button != null)
-            {
-                button.OnSelect(null);
-            }
+            _eventSystem.SetSelectedGameObject(FirstObject);
         }
     }
 
@@ -39,34 +35,29 @@ public class UIManager : MonoBehaviour
         {
             pauseMenuUI.SetActive(false);
         }
+        Time.timeScale = 1f;
     }
     public void OpenInventory()
     {
         if (Inventory != null)
         {
             Inventory.SetActive(true);
+            //set first selected to first item
+            var firstItem = Inventory.transform.GetChild(1).GetComponent<PartyInventoryUI>().InventoryContent.transform.GetChild(0).gameObject;
+            _eventSystem.SetSelectedGameObject(firstItem);
+
+
             if (pauseMenuUI != null)
             {
-                pauseMenuUI.SetActive(true);
+                pauseMenuUI.SetActive(false);
             }
+            Time.timeScale = 0f;
         }
     }
 
-    public void OpenPause()
-    {
-        if (pauseMenuUI != null)
-        {
-            pauseMenuUI.SetActive(true);
-            if (Inventory != null)
-            {
-                Inventory.SetActive(false);
-            }
-        }
-    }
-    
     void Update()
     {
-        if (Input.GetButtonDown("A")) // X button
+        if (Input.GetButtonDown("Y")) // X button
         {
             if (Inventory.activeInHierarchy)
             {
@@ -100,7 +91,10 @@ public class UIManager : MonoBehaviour
     }
     void Pause()
     {
+        _eventSystem.SetSelectedGameObject(pauseMenuUI.transform.GetChild(1).gameObject);
+
         pauseMenuUI.SetActive(true);
+
         Time.timeScale = 0f;
         GameIsPaused = true;
     }

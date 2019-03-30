@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 012329a7828c3f14c90ea438580a2b3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MainSceneName: Battle
+  MainSceneName: TownScene
 --- !u!114 &10301263
 MonoBehaviour:
   m_ObjectHideFlags: 0
