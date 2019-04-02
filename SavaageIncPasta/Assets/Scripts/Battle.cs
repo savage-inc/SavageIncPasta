@@ -9,8 +9,11 @@ public enum TurnOption
     eNONE,
     eATTACK,
     eDEFEND,
-    eMOVE
+    eMOVE,
+    eACTION
 }
+
+
 
 public class Battle : MonoBehaviour
 {
@@ -105,6 +108,9 @@ public class Battle : MonoBehaviour
                 case TurnOption.eMOVE:
                     Move(_battleCharacterList[_currentCharacterIndex]);
                     break;
+                case TurnOption.eACTION:
+                    SwitchAction(_battleCharacterList[_currentCharacterIndex]);
+                    break;
                 default:
                     break;
             }
@@ -122,6 +128,23 @@ public class Battle : MonoBehaviour
             PersistantData.SetPlayerPositionInNextScene(newPos);
             SceneManager.LoadScene(PlayerPrefs.GetInt("SceneOrigin"), LoadSceneMode.Single);
         }
+    }
+
+    void SwitchAction(BattleCharacter currentCharacter)
+    {
+        if (currentCharacter.CurrentAction == ActionChoice.ePrimary && currentCharacter.SecondaryAction == false)
+        {
+            currentCharacter.CurrentAction = ActionChoice.eSecondary;
+        }
+        else if (currentCharacter.CurrentAction == ActionChoice.eSecondary && currentCharacter.PrimaryAction == false)
+        {
+            currentCharacter.CurrentAction = ActionChoice.ePrimary;
+        }
+        else
+        {
+            Debug.Log("somehow not a correct action choice.");
+        }
+        _optionChosen = TurnOption.eNONE;
     }
 
     void PlaceInColumns()
@@ -170,7 +193,8 @@ public class Battle : MonoBehaviour
         // Decides turn order
         for (int i = 0; i < _battleCharacterList.Count; i++)
         {
-            //int rand = Random.Range(-2, 2);
+            int rand = Random.Range(-2, 2);
+            _battleCharacterList[i].Initiative = _battleCharacterList[i].Character.Dexterity + rand;
 
             if (_characterTurnOrder.Count == 0)
             {
@@ -182,7 +206,7 @@ public class Battle : MonoBehaviour
                 int count = _characterTurnOrder.Count;
                 for (int j = 0; j < count; j++)
                 {
-                    if (_battleCharacterList[i].Character.Dexterity < _battleCharacterList[_characterTurnOrder[j]].Character.Dexterity)
+                    if (_battleCharacterList[i].Initiative < _battleCharacterList[_characterTurnOrder[j]].Initiative)
                     {
                         _characterTurnOrder.Insert(j, i);
                         added = true;
@@ -199,39 +223,6 @@ public class Battle : MonoBehaviour
         }
     }
 
-    void QuickSort(int low, int high)
-    {
-        if (low < high)
-        {
-            int pi = Partition(low, high);
-
-            QuickSort(low, pi - 1);
-            QuickSort(pi + 1, high);
-        }
-    }
-
-    int Partition(int low, int high)
-    {
-        BattleCharacter pivot = _battleCharacterList[high];
-
-        int i = low - 1;
-
-        for (int j = low; j <= high - 1; j++)
-        {
-            if (_battleCharacterList[j].Character.Dexterity <= pivot.Character.Dexterity)
-            {
-                i++;
-                BattleCharacter temp = _battleCharacterList[i];
-                _battleCharacterList[i] = _battleCharacterList[j];
-                _battleCharacterList[j] = temp;
-            }
-        }
-
-        BattleCharacter temp1 = _battleCharacterList[i + 1];
-        _battleCharacterList[i + 1] = _battleCharacterList[high];
-        _battleCharacterList[high] = temp1;
-        return i + 1;
-    }
 
     void PlayerAttack()
     {
@@ -249,9 +240,12 @@ public class Battle : MonoBehaviour
 
     public void SwitchInteractableCharacterButtons()
     {
-        for(int i = 0; i < _battleCharacterList.Count; i++)
+        for (int i = 0; i < _battleCharacterList.Count; i++)
         {
-            _battleCharacterList[i].gameObject.GetComponent<Button>().interactable = !_battleCharacterList[i].gameObject.GetComponent<Button>().interactable;
+            if (_battleCharacterList[i].Character.Alive)
+            {
+                _battleCharacterList[i].gameObject.GetComponent<Button>().interactable = !_battleCharacterList[i].gameObject.GetComponent<Button>().interactable;
+            }
 
         }
     }
@@ -317,7 +311,7 @@ public class Battle : MonoBehaviour
             }
             else
             {
-                
+
                 damage = (int)weapon.BaseDamage + Random.Range(-(int)weapon.VarianceDamage + classModifier / 2, (int)weapon.VarianceDamage + classModifier);
             }
 
@@ -327,7 +321,7 @@ public class Battle : MonoBehaviour
         {
             //miss stuff
         }
-       
+
 
         if (!_battleCharacterList[_targettedCharacterIndex].Character.Alive)
         {
@@ -381,10 +375,26 @@ public class Battle : MonoBehaviour
 
     void EndTurn()
     {
-        _battleCharacterList[_currentCharacterIndex].gameObject.GetComponent<Image>().color = Color.white;
+        BattleCharacter currentCharacter = _battleCharacterList[_currentCharacterIndex];
+        
+        if(currentCharacter.CurrentAction == ActionChoice.ePrimary)
+        {
+            currentCharacter.PrimaryAction = true;
+            currentCharacter.CurrentAction = ActionChoice.eSecondary;
+        }
+        else if(currentCharacter.CurrentAction == ActionChoice.eSecondary)
+        {
+            currentCharacter.SecondaryAction = true;
+            currentCharacter.CurrentAction = ActionChoice.ePrimary;
+        }
+        if (currentCharacter.PrimaryAction == true && currentCharacter.SecondaryAction == true)
+        {
+            currentCharacter.gameObject.GetComponent<Image>().color = Color.white;
+            _currentCharacterIndex++;
+        }
         _optionChosen = TurnOption.eNONE;
         _targettedCharacterIndex = -1;
-        _currentCharacterIndex++;
+
     }
 
     public void SetTurnOption(int turnOption)

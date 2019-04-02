@@ -3,12 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum ActionChoice
+{
+    ePrimary,
+    eSecondary
+}
 
 [RequireComponent(typeof(Image))]
 public class BattleCharacter : MonoBehaviour {
 
     public Character Character;
     public Text HealthText;
+    public ActionChoice CurrentAction = ActionChoice.ePrimary;
+    public bool PrimaryAction = false;
+    public bool SecondaryAction = false;
+    public int Initiative = 0;
 
 
     private void Awake()
