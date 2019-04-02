@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 114681325209559998}
   - component: {fileID: 114307313876485408}
   m_Layer: 5
-  m_Name: CloseButton
+  m_Name: CloseButton(1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -264,7 +264,7 @@ GameObject:
   - component: {fileID: 114104667967903930}
   - component: {fileID: 114828748337443112}
   m_Layer: 5
-  m_Name: CharacterButton
+  m_Name: CharacterButton(0)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -338,7 +338,7 @@ GameObject:
   - component: {fileID: 114472449926810748}
   - component: {fileID: 114192188596648652}
   m_Layer: 5
-  m_Name: CharacterButton
+  m_Name: CharacterButton(1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -356,7 +356,7 @@ GameObject:
   - component: {fileID: 114965677071619094}
   - component: {fileID: 114400828272314234}
   m_Layer: 5
-  m_Name: CloseButton
+  m_Name: CloseButton(2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -410,7 +410,7 @@ GameObject:
   - component: {fileID: 114580381040336722}
   - component: {fileID: 114301077736229688}
   m_Layer: 5
-  m_Name: CharacterButton
+  m_Name: CharacterButton(2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -427,7 +427,7 @@ GameObject:
   - component: {fileID: 222488666477675230}
   - component: {fileID: 114392076033574594}
   m_Layer: 5
-  m_Name: Switch
+  m_Name: Swap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -445,7 +445,7 @@ GameObject:
   - component: {fileID: 114874274178849396}
   - component: {fileID: 114476900920717068}
   m_Layer: 5
-  m_Name: Compare
+  m_Name: Compare(0)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -584,7 +584,7 @@ GameObject:
   - component: {fileID: 222960731986974720}
   - component: {fileID: 114090356507471126}
   m_Layer: 5
-  m_Name: Switch
+  m_Name: Swap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -601,7 +601,7 @@ GameObject:
   - component: {fileID: 222074197795896202}
   - component: {fileID: 114687218368221680}
   m_Layer: 5
-  m_Name: Switch
+  m_Name: Swap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -654,7 +654,7 @@ GameObject:
   - component: {fileID: 114484294226429372}
   - component: {fileID: 114320515463937700}
   m_Layer: 5
-  m_Name: SwitchButton
+  m_Name: SwapButton(1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -740,7 +740,7 @@ GameObject:
   - component: {fileID: 114446140739160524}
   - component: {fileID: 114870783756814174}
   m_Layer: 5
-  m_Name: SwitchButton
+  m_Name: SwapButton(2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -809,7 +809,7 @@ GameObject:
   - component: {fileID: 222224480980813368}
   - component: {fileID: 114989137383261072}
   m_Layer: 5
-  m_Name: Switch
+  m_Name: Swap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -981,7 +981,7 @@ GameObject:
   - component: {fileID: 114694706364984782}
   - component: {fileID: 114730108594511680}
   m_Layer: 5
-  m_Name: CloseButton
+  m_Name: CloseButton(3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1069,7 +1069,7 @@ GameObject:
   - component: {fileID: 114815797587838606}
   - component: {fileID: 114039748758611684}
   m_Layer: 5
-  m_Name: CloseButton
+  m_Name: CloseButton(0)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1088,7 +1088,7 @@ GameObject:
   - component: {fileID: 114980822203153182}
   - component: {fileID: 114547422420013510}
   m_Layer: 5
-  m_Name: CharacterButton
+  m_Name: CharacterButton(3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1106,7 +1106,7 @@ GameObject:
   - component: {fileID: 114476681326167026}
   - component: {fileID: 114948853652094396}
   m_Layer: 5
-  m_Name: SwitchButton
+  m_Name: SwapButton(3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1125,7 +1125,7 @@ GameObject:
   - component: {fileID: 114082711882455574}
   - component: {fileID: 114001542859115710}
   m_Layer: 5
-  m_Name: SwitchButton
+  m_Name: SwapButton(0)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1418,7 +1418,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114393919188717134}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114828748337443112}
+        m_MethodName: SetToSwapMode
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114090356507471126
@@ -1453,7 +1464,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Switch
+  m_Text: Swap
 --- !u!114 &114104667967903930
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1493,8 +1504,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114828748337443112}
-        m_MethodName: ShowButtons
+      - m_Target: {fileID: 1184911407916218}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1707,11 +1718,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1237964199507706}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91ad7090f39f38b4b834c373f5022c16, type: 3}
+  m_Script: {fileID: 11500000, guid: c19a1d93abd627f4e880f40ca92d4a40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SwitchButton: {fileID: 114320515463937700}
+  SwapButton: {fileID: 114320515463937700}
+  CompareButton: {fileID: 114227181733147828}
   CloseButton: {fileID: 114307313876485408}
+  CharacterCompare: {fileID: 114644549338925264}
+  CharacterSwap: {fileID: 0}
   Character:
     name: 
     Class: 0
@@ -1727,7 +1741,7 @@ MonoBehaviour:
     Comfort: 0
     Player: 1
     Alive: 0
-  CharacterIndex: 1
+  CharacterIndex: 0
 --- !u!114 &114195636663186046
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1841,7 +1855,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114828748337443112}
-        m_MethodName: ShowButtons
+        m_MethodName: SetToCompareMode
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1964,11 +1978,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1289475863780448}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91ad7090f39f38b4b834c373f5022c16, type: 3}
+  m_Script: {fileID: 11500000, guid: c19a1d93abd627f4e880f40ca92d4a40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SwitchButton: {fileID: 114870783756814174}
+  SwapButton: {fileID: 114870783756814174}
+  CompareButton: {fileID: 114466031705269224}
   CloseButton: {fileID: 114400828272314234}
+  CharacterCompare: {fileID: 114644549338925264}
+  CharacterSwap: {fileID: 0}
   Character:
     name: 
     Class: 0
@@ -1984,7 +2001,7 @@ MonoBehaviour:
     Comfort: 0
     Player: 1
     Alive: 0
-  CharacterIndex: 2
+  CharacterIndex: 0
 --- !u!114 &114307313876485408
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2141,7 +2158,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114484294226429372}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114192188596648652}
+        m_MethodName: SetToSwapMode
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114328181434048266
@@ -2229,25 +2257,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1213030627330524}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6f0b4948fcffdf42b7efbbecf485751, type: 3}
+  m_Script: {fileID: 11500000, guid: 1f4f578c13ae82d4aa9ae984dc7e0956, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonTemplate: {fileID: 1309280601481920, guid: c6cc6d8ce9b8e274786ce80f0e7210c2,
-    type: 2}
-  gridGroup: {fileID: 114339006882477836}
-  characterSprite:
-  - {fileID: 21300000, guid: 1d120f67e0e56bb45b0b41ca5922f5a9, type: 3}
-  - {fileID: 21300002, guid: 1d120f67e0e56bb45b0b41ca5922f5a9, type: 3}
-  - {fileID: 21300004, guid: 1d120f67e0e56bb45b0b41ca5922f5a9, type: 3}
-  - {fileID: 21300006, guid: 1d120f67e0e56bb45b0b41ca5922f5a9, type: 3}
-  - {fileID: 21300008, guid: 1d120f67e0e56bb45b0b41ca5922f5a9, type: 3}
-  - {fileID: 21300010, guid: 1d120f67e0e56bb45b0b41ca5922f5a9, type: 3}
-  - {fileID: 21300012, guid: 1d120f67e0e56bb45b0b41ca5922f5a9, type: 3}
-  - {fileID: 21300014, guid: 1d120f67e0e56bb45b0b41ca5922f5a9, type: 3}
-  - {fileID: 21300016, guid: 1d120f67e0e56bb45b0b41ca5922f5a9, type: 3}
-  - {fileID: 21300018, guid: 1d120f67e0e56bb45b0b41ca5922f5a9, type: 3}
-  - {fileID: 21300020, guid: 1d120f67e0e56bb45b0b41ca5922f5a9, type: 3}
-  - {fileID: 21300022, guid: 1d120f67e0e56bb45b0b41ca5922f5a9, type: 3}
+  CharacterCompare: {fileID: 0}
+  buttonTemplate: {fileID: 0}
+  gridGroup: {fileID: 0}
+  characterSprite: []
 --- !u!114 &114369198181923226
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2340,7 +2356,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Switch
+  m_Text: Swap
 --- !u!114 &114393919188717134
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2432,7 +2448,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Characters: []
-  NumofCharacters: 4
+  NumofCharacters: 0
 --- !u!114 &114437006183123560
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2526,8 +2542,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114828748337443112}
-        m_MethodName: ShowButtons
+      - m_Target: {fileID: 114301077736229688}
+        m_MethodName: SetToCompareMode
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2599,8 +2615,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114192188596648652}
-        m_MethodName: ShowButtons
+      - m_Target: {fileID: 1237964199507706}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2679,7 +2695,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114828748337443112}
-        m_MethodName: ShowButtons
+        m_MethodName: SetToCompareMode
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2885,11 +2901,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1846343833087274}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91ad7090f39f38b4b834c373f5022c16, type: 3}
+  m_Script: {fileID: 11500000, guid: c19a1d93abd627f4e880f40ca92d4a40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SwitchButton: {fileID: 114948853652094396}
+  SwapButton: {fileID: 114948853652094396}
+  CompareButton: {fileID: 114677555977227064}
   CloseButton: {fileID: 114730108594511680}
+  CharacterCompare: {fileID: 114644549338925264}
+  CharacterSwap: {fileID: 0}
   Character:
     name: 
     Class: 0
@@ -2905,7 +2924,7 @@ MonoBehaviour:
     Comfort: 0
     Player: 1
     Alive: 0
-  CharacterIndex: 3
+  CharacterIndex: 0
 --- !u!114 &114575029815935766
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3062,175 +3081,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71b804658089daf4d8d08e4cc2275187, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpareCharacterPool:
-  - name: 
-    Class: 2
-    Level: 0
-    MaxHealth: 0
-    CurrentHealth: 0
-    Strength: 0
-    Constitution: 0
-    Dexterity: 0
-    Intelligence: 0
-    Charisma: 0
-    Magic: 3
-    Comfort: 0
-    Player: 0
-    Alive: 0
-  - name: 
-    Class: 0
-    Level: 0
-    MaxHealth: 0
-    CurrentHealth: 0
-    Strength: 0
-    Constitution: 0
-    Dexterity: 0
-    Intelligence: 0
-    Charisma: 0
-    Magic: 0
-    Comfort: 0
-    Player: 0
-    Alive: 0
-  - name: 
-    Class: 0
-    Level: 0
-    MaxHealth: 0
-    CurrentHealth: 0
-    Strength: 0
-    Constitution: 0
-    Dexterity: 0
-    Intelligence: 0
-    Charisma: 0
-    Magic: 0
-    Comfort: 0
-    Player: 0
-    Alive: 0
-  - name: 
-    Class: 0
-    Level: 0
-    MaxHealth: 0
-    CurrentHealth: 0
-    Strength: 0
-    Constitution: 0
-    Dexterity: 0
-    Intelligence: 0
-    Charisma: 0
-    Magic: 0
-    Comfort: 0
-    Player: 0
-    Alive: 0
-  - name: 
-    Class: 0
-    Level: 0
-    MaxHealth: 0
-    CurrentHealth: 0
-    Strength: 0
-    Constitution: 0
-    Dexterity: 0
-    Intelligence: 0
-    Charisma: 0
-    Magic: 0
-    Comfort: 0
-    Player: 0
-    Alive: 0
-  - name: 
-    Class: 0
-    Level: 0
-    MaxHealth: 0
-    CurrentHealth: 0
-    Strength: 0
-    Constitution: 0
-    Dexterity: 0
-    Intelligence: 0
-    Charisma: 0
-    Magic: 0
-    Comfort: 0
-    Player: 0
-    Alive: 0
-  - name: 
-    Class: 0
-    Level: 0
-    MaxHealth: 0
-    CurrentHealth: 0
-    Strength: 0
-    Constitution: 0
-    Dexterity: 0
-    Intelligence: 0
-    Charisma: 0
-    Magic: 0
-    Comfort: 0
-    Player: 0
-    Alive: 0
-  - name: 
-    Class: 0
-    Level: 0
-    MaxHealth: 0
-    CurrentHealth: 0
-    Strength: 0
-    Constitution: 0
-    Dexterity: 0
-    Intelligence: 0
-    Charisma: 0
-    Magic: 0
-    Comfort: 0
-    Player: 0
-    Alive: 0
-  - name: 
-    Class: 0
-    Level: 0
-    MaxHealth: 0
-    CurrentHealth: 0
-    Strength: 0
-    Constitution: 0
-    Dexterity: 0
-    Intelligence: 0
-    Charisma: 0
-    Magic: 0
-    Comfort: 0
-    Player: 0
-    Alive: 0
-  - name: 
-    Class: 0
-    Level: 0
-    MaxHealth: 0
-    CurrentHealth: 0
-    Strength: 0
-    Constitution: 0
-    Dexterity: 0
-    Intelligence: 0
-    Charisma: 0
-    Magic: 0
-    Comfort: 0
-    Player: 0
-    Alive: 0
-  - name: 
-    Class: 0
-    Level: 0
-    MaxHealth: 0
-    CurrentHealth: 0
-    Strength: 0
-    Constitution: 0
-    Dexterity: 0
-    Intelligence: 0
-    Charisma: 0
-    Magic: 0
-    Comfort: 0
-    Player: 0
-    Alive: 0
-  - name: 
-    Class: 0
-    Level: 0
-    MaxHealth: 0
-    CurrentHealth: 0
-    Strength: 0
-    Constitution: 0
-    Dexterity: 0
-    Intelligence: 0
-    Charisma: 0
-    Magic: 0
-    Comfort: 0
-    Player: 0
-    Alive: 0
+  SpareCharacterPool: []
 --- !u!114 &114614866244486836
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3383,15 +3234,15 @@ MonoBehaviour:
     Comfort: 0
     Player: 1
     Alive: 0
-  Name: {fileID: 114159136959964506}
-  Level: {fileID: 114872452744341032}
-  Health: {fileID: 114497453802111328}
-  Comfort: {fileID: 114369269609647294}
-  Strength: {fileID: 114619440216614128}
-  Dexterity: {fileID: 114019673538268892}
-  Constitution: {fileID: 114500012195669674}
-  Intelligence: {fileID: 114177412584619124}
-  Charisma: {fileID: 114310484879307970}
+  Name: {fileID: 0}
+  Level: {fileID: 0}
+  Health: {fileID: 0}
+  Comfort: {fileID: 0}
+  Strength: {fileID: 0}
+  Dexterity: {fileID: 0}
+  Constitution: {fileID: 0}
+  Intelligence: {fileID: 0}
+  Charisma: {fileID: 0}
 --- !u!114 &114647217522053434
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3559,8 +3410,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114828748337443112}
-        m_MethodName: ShowButtons
+      - m_Target: {fileID: 114547422420013510}
+        m_MethodName: SetToCompareMode
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3631,7 +3482,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Switch
+  m_Text: Swap
 --- !u!114 &114693492419196736
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3896,15 +3747,15 @@ MonoBehaviour:
     Comfort: 0
     Player: 1
     Alive: 0
-  Name: {fileID: 114715791595496668}
-  Level: {fileID: 114581203203367298}
-  Health: {fileID: 114625501170634860}
-  Comfort: {fileID: 114979366815142816}
-  Strength: {fileID: 114614866244486836}
-  Dexterity: {fileID: 114312119759631054}
-  Constitution: {fileID: 114529094033712766}
-  Intelligence: {fileID: 114663028397633666}
-  Charisma: {fileID: 114788862717020394}
+  Name: {fileID: 0}
+  Level: {fileID: 0}
+  Health: {fileID: 0}
+  Comfort: {fileID: 0}
+  Strength: {fileID: 0}
+  Dexterity: {fileID: 0}
+  Constitution: {fileID: 0}
+  Intelligence: {fileID: 0}
+  Charisma: {fileID: 0}
 --- !u!114 &114784267240415180
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4007,11 +3858,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1184911407916218}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91ad7090f39f38b4b834c373f5022c16, type: 3}
+  m_Script: {fileID: 11500000, guid: c19a1d93abd627f4e880f40ca92d4a40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SwitchButton: {fileID: 114082711882455574}
+  SwapButton: {fileID: 114082711882455574}
+  CompareButton: {fileID: 114476900920717068}
   CloseButton: {fileID: 114039748758611684}
+  CharacterCompare: {fileID: 114644549338925264}
+  CharacterSwap: {fileID: 0}
   Character:
     name: 
     Class: 0
@@ -4093,7 +3947,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114446140739160524}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114301077736229688}
+        m_MethodName: SetToSwapMode
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114872452744341032
@@ -4324,7 +4189,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114476681326167026}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114547422420013510}
+        m_MethodName: SetToSwapMode
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114965677071619094
@@ -4539,7 +4415,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Switch
+  m_Text: Swap
 --- !u!114 &114998213443450582
 MonoBehaviour:
   m_ObjectHideFlags: 1

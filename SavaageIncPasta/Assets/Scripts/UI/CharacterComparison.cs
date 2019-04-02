@@ -20,14 +20,14 @@ public class CharacterComparison : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
-        Name.text = "name: " + character.name;
-        Level.text = character.Level.ToString();
-        Health.text = character.CurrentHealth.ToString();
-        Comfort.text = character.Comfort.ToString();
-        Strength.text = character.Strength.ToString();
-        Dexterity.text = character.Dexterity.ToString();
-        Constitution.text = character.Constitution.ToString();
-        Intelligence.text = character.Intelligence.ToString();
-        Charisma.text = character.Charisma.ToString();
+        Name.text = "Name: " + character.name;
+        Level.text = "Level: " + character.Level.ToString();
+        Health.text = "Health: " + character.CurrentHealth.ToString();
+        Comfort.text = "Comfort: " + character.Comfort.ToString();
+        Strength.text = "Strength: " + character.Strength.ToString();
+        Dexterity.text = "Dexterity: " + character.Dexterity.ToString();
+        Constitution.text = "Constitution: " + character.Constitution.ToString();
+        Intelligence.text = "Intelligence: " + character.Intelligence.ToString();
+        Charisma.text = "Charisma: " + character.Charisma.ToString();
     }
 }
