@@ -29,7 +29,6 @@ public class Character
     public int CurrCol = 1;
 
     public int Experience = 0;
-    public int Comfort;
 
     public Character()
     {

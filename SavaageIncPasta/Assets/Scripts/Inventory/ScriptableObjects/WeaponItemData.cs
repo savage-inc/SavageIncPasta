@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using UnityEngine;
 
 [System.Serializable]
@@ -11,6 +12,18 @@ public class WeaponItemData : BaseItemData
         eSWORD,
         eRANGE,
         eGUN
+    }
+
+    public enum SubType
+    {
+        eSHORTSWORD,
+        eLONGSWORD,
+        eWHIP,
+        eRAPIER,
+        eTHROWINGSTAR,
+        eBOW,
+        ePISTOL,
+        eRIFLE
     }
 
     public enum StatTypes
@@ -28,7 +41,9 @@ public class WeaponItemData : BaseItemData
     [SerializeField]
     private Type _weaponType;
     [SerializeField]
-    private StatTypes statType;
+    private SubType _weaponSubType;
+    [SerializeField]
+    private StatTypes _statType;
     [SerializeField]
     private float _baseDamage;
     [SerializeField]
@@ -49,39 +64,36 @@ public class WeaponItemData : BaseItemData
     private float _magicalModifier;
 
 
-    public Type WeaponType
-    {
-        get { return _weaponType; }
-    }
 
-    public StatTypes StatType
-    {
-        get { return statType; }
-    }
 
     public float BaseDamage
     {
         get { return _baseDamage; }
+        set { _baseDamage = value; }
     }
 
     public float VarianceDamage
     {
         get { return _varianceDamage; }
+        set { _varianceDamage = value; }
     }
 
     public float MinDamage
     {
         get { return _minDamage; }
+        set { _minDamage = value; }
     }
 
     public float MaxDamage
     {
         get { return _maxDamage; }
+        set { _maxDamage = value; }
     }
 
     public float MissFire
     {
         get { return _missFire; }
+        set { _missFire = value; }
     }
 
     public bool IsMelee
@@ -93,16 +105,19 @@ public class WeaponItemData : BaseItemData
     public bool IsMainHand
     {
         get { return _isMainHand; }
+        set { _isMainHand = value; }
     }
 
     public MagicType MagicalType
     {
         get { return _magicalType; }
+        set { _magicalType = value; }
     }
 
     public float MagicalModifier
     {
         get { return _magicalModifier; }
+        set { _magicalModifier = value; }
     }
 
     public Type WeaponType
@@ -135,13 +150,13 @@ public class WeaponItemData : BaseItemData
         _missFire = info.GetSingle("missFire");
         _isMelee = info.GetBoolean("melee");
         _isMainHand = info.GetBoolean("mainhand");
-        _magicalType = (MagicType) info.GetInt32("magicalType");
+        _magicalType = (MagicType)info.GetInt32("magicalType");
         _magicalModifier = info.GetInt32("magicalModifer");
     }
 
     public override void GetObjectData(SerializationInfo info, StreamingContext context)
     {
-        base.GetObjectData(info,context);
+        base.GetObjectData(info, context);
         info.AddValue("weaponType", _weaponType);
         info.AddValue("weaponSubType", _weaponSubType);
         info.AddValue("statType", _statType);

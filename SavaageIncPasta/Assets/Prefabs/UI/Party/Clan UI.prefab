@@ -1452,10 +1452,11 @@ MonoBehaviour:
   SwapButton: {fileID: 114545635666663680}
   CompareButton: {fileID: 114752367756945644}
   CloseButton: {fileID: 114858989164861930}
-  CharacterCompare: {fileID: 114990665348386150}
-  CharacterSwap: {fileID: 114558450440664986}
+  PartyCharacterCompare: {fileID: 114990665348386150}
+  ClanCharacterCompare: {fileID: 114558450440664986}
   Character:
-    name: 
+    Name: 
+    SpritePreviewName: 
     Class: 0
     Level: 0
     MaxHealth: 0
@@ -1469,6 +1470,10 @@ MonoBehaviour:
     Comfort: 0
     Player: 1
     Alive: 0
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    Experience: 0
   CharacterIndex: 0
 --- !u!114 &114058157720568422
 MonoBehaviour:
@@ -1752,10 +1757,11 @@ MonoBehaviour:
   SwapButton: {fileID: 114128890687393872}
   CompareButton: {fileID: 114174077327588154}
   CloseButton: {fileID: 114512261338591408}
-  CharacterCompare: {fileID: 114990665348386150}
-  CharacterSwap: {fileID: 114558450440664986}
+  PartyCharacterCompare: {fileID: 0}
+  ClanCharacterCompare: {fileID: 0}
   Character:
-    name: 
+    Name: 
+    SpritePreviewName: 
     Class: 0
     Level: 0
     MaxHealth: 0
@@ -1769,6 +1775,10 @@ MonoBehaviour:
     Comfort: 0
     Player: 1
     Alive: 0
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    Experience: 0
   CharacterIndex: 3
 --- !u!114 &114116316148086660
 MonoBehaviour:
@@ -2204,10 +2214,11 @@ MonoBehaviour:
   SwapButton: {fileID: 114841350187034178}
   CompareButton: {fileID: 114905088023486574}
   CloseButton: {fileID: 114223086793585442}
-  CharacterCompare: {fileID: 114990665348386150}
-  CharacterSwap: {fileID: 114558450440664986}
+  PartyCharacterCompare: {fileID: 0}
+  ClanCharacterCompare: {fileID: 0}
   Character:
-    name: 
+    Name: 
+    SpritePreviewName: 
     Class: 0
     Level: 0
     MaxHealth: 0
@@ -2221,6 +2232,10 @@ MonoBehaviour:
     Comfort: 0
     Player: 1
     Alive: 0
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    Experience: 0
   CharacterIndex: 1
 --- !u!114 &114248456452867364
 MonoBehaviour:
@@ -3768,7 +3783,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character:
-    name: 
+    Name: 
+    SpritePreviewName: 
     Class: 0
     Level: 0
     MaxHealth: 0
@@ -3782,6 +3798,10 @@ MonoBehaviour:
     Comfort: 0
     Player: 1
     Alive: 0
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    Experience: 0
   Name: {fileID: 114116316148086660}
   Level: {fileID: 114129763449195464}
   Health: {fileID: 114300206148751036}
@@ -4351,10 +4371,11 @@ MonoBehaviour:
   SwapButton: {fileID: 114422415496021352}
   CompareButton: {fileID: 114475663477816702}
   CloseButton: {fileID: 114083280219808350}
-  CharacterCompare: {fileID: 114990665348386150}
-  CharacterSwap: {fileID: 114558450440664986}
+  PartyCharacterCompare: {fileID: 0}
+  ClanCharacterCompare: {fileID: 0}
   Character:
-    name: 
+    Name: 
+    SpritePreviewName: 
     Class: 0
     Level: 0
     MaxHealth: 0
@@ -4368,6 +4389,10 @@ MonoBehaviour:
     Comfort: 0
     Player: 1
     Alive: 0
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    Experience: 0
   CharacterIndex: 2
 --- !u!114 &114839907957700056
 MonoBehaviour:
@@ -4776,7 +4801,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character:
-    name: 
+    Name: 
+    SpritePreviewName: 
     Class: 0
     Level: 0
     MaxHealth: 0
@@ -4790,6 +4816,10 @@ MonoBehaviour:
     Comfort: 0
     Player: 1
     Alive: 0
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    Experience: 0
   Name: {fileID: 114464982379626752}
   Level: {fileID: 114129763449195464}
   Health: {fileID: 114547411031758998}
@@ -5833,7 +5863,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000015361897, y: -0.000015258789}
+  m_AnchoredPosition: {x: 0.000015361897, y: 0.0000030043614}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!224 &224415662590165288

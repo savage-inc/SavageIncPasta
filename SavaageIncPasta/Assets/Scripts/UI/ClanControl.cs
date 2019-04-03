@@ -46,6 +46,7 @@ public class ClanControl : MonoBehaviour {
             ClanButton characterButton = newButton.AddComponent<ClanButton>();
             characterButton.Character = newCharacter; // Add new character
             characterButton.CharacterCompare = CharacterCompare; // Add character compare
+            newButton.transform.GetChild(0).GetComponent<Image>().sprite = FindObjectOfType<SpriteManager>().GetSprite(newCharacter.SpritePreviewName);
 
             // Add set to compare mode to newbutton when on click
             newButton.GetComponent<Button>().onClick.AddListener(characterButton.SetToCompareMode);

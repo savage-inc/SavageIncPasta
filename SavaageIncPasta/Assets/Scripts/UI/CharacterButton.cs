@@ -7,16 +7,25 @@ using UnityEngine.UI;
 public class CharacterButton : MonoBehaviour
 {
     public Button SwapButton, CompareButton, CloseButton;
-    public CharacterComparison CharacterCompare;
-    public CharacterComparison CharacterSwap;
+    public CharacterComparison PartyCharacterCompare;
+    public CharacterComparison ClanCharacterCompare;
     public Character Character;
     public int CharacterIndex = 0;
+
+    private PlayerManager _playerManager;
+    private ClanManager _clanManager;
 
 
     private void Awake()
     {
         var playerManager = FindObjectOfType<PlayerManager>();
         Character = playerManager.Characters[CharacterIndex];
+        //set sprite
+        transform.GetChild(0).GetComponent<Image>().sprite = FindObjectOfType<SpriteManager>().GetSprite(Character.SpritePreviewName);
+
+        _playerManager = FindObjectOfType<PlayerManager>();
+        _clanManager = FindObjectOfType<ClanManager>();
+
     }
 
     private void Update()
@@ -44,14 +53,35 @@ public class CharacterButton : MonoBehaviour
     {
         // Compares party stats
 
-        CharacterCompare.character = Character;    
+        PartyCharacterCompare.character = Character;
+        PartyCharacterCompare.CharaterButton = this;
 
     }
 
     public void SetToSwapMode()
     {
         // Switch party character
-        CharacterSwap.character = Character;
+        //ClanCharacterCompare.character = Character;
+        if (ClanCharacterCompare.character != null && PartyCharacterCompare.character != null)
+        {
+            Character character1 = PartyCharacterCompare.character;
+            Character character2 = ClanCharacterCompare.character;
+
+            //swap character data
+            _clanManager.SwapCharacters(character1, character2);
+
+            //swap button data
+            Character = character2;
+            ClanCharacterCompare.ClanButton.Character = character1;
+
+            //swap sprites
+            transform.GetChild(0).GetComponent<Image>().sprite = FindObjectOfType<SpriteManager>().GetSprite(character2.SpritePreviewName);
+            ClanCharacterCompare.ClanButton.transform.GetChild(0).GetComponent<Image>().sprite = FindObjectOfType<SpriteManager>().GetSprite(character1.SpritePreviewName);
+
+            //update compare
+            PartyCharacterCompare.character = character2;
+            ClanCharacterCompare.character = character1;
+        }
     }
 
 }

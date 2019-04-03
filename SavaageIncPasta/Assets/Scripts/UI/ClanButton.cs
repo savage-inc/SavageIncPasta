@@ -36,5 +36,7 @@ public class ClanButton : MonoBehaviour
     {
         // Compares clan stats
         CharacterCompare.character = Character;
+        CharacterCompare.ClanButton = this;
+
     }
 }

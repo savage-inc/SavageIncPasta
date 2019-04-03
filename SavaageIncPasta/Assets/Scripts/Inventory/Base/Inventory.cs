@@ -89,7 +89,7 @@ public class Inventory : ISerializable
             {
                 if (inventoryItem.Amount < item.StackSize || UnlimitedStackSize)
                 {
-                    if(OnItemUpdate != null)
+                    if (OnItemUpdate != null)
                     {
                         OnItemUpdate(inventoryItem, 1);
                     }
@@ -97,7 +97,7 @@ public class Inventory : ISerializable
                     inventoryItem.Amount++;
                     return;
                 }
-            }   
+            }
         }
 
         //TODO change inventory to store a string as the item instead of the item itself

@@ -11,7 +11,7 @@ public class GenerateRandomCharacter
         Character character = new Character();
 
         character.ID = System.Guid.NewGuid();
-        character.Name = "Character " + character.ID;
+        character.Name = "Character " + character.ID.ToString().Remove(4, character.ID.ToString().Length - 4);
         character.Class = (ClassType)Random.Range(0, 3);
         character.Alive = true;
         switch (character.Class)

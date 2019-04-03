@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using UnityEngine;
 
 public enum ItemType
@@ -19,10 +20,13 @@ public enum ItemRarity
 }
 
 [System.Serializable]
-public abstract class BaseItemData : ScriptableObject
+public abstract class BaseItemData : ScriptableObject, ISerializable
 {
     [SerializeField]
     private string _name;
+
+    [SerializeField]
+    private string _databaseName;
 
     [SerializeField]
     [TextArea(5, 10)]
@@ -48,21 +52,25 @@ public abstract class BaseItemData : ScriptableObject
     public string Name
     {
         get { return _name; }
+        set { _name = value; }
     }
 
     public string Description
     {
         get { return _description; }
+        set { _description = value; }
     }
 
     public Sprite PreviewSprite
     {
         get { return _previewSprite; }
+        set { _previewSprite = value; }
     }
 
     public ItemRarity Rarity
     {
         get { return _rarity; }
+        set { _rarity = value; }
     }
 
     public int StackSize
@@ -73,6 +81,13 @@ public abstract class BaseItemData : ScriptableObject
     public int BaseMoneyValue
     {
         get { return _baseMoneyValue; }
+        set { _baseMoneyValue = value; }
+    }
+
+    public string DatabaseName
+    {
+        get { return _databaseName; }
+        set { _databaseName = value; }
     }
 
     protected ItemType _itemType;
@@ -87,7 +102,7 @@ public abstract class BaseItemData : ScriptableObject
         _previewSprite = Resources.Load<Sprite>("Sprites/Items/" + info.GetString("spriteName"));
         _rarity = (ItemRarity)info.GetInt32("rarity");
         _stackSize = info.GetInt32("stackSize");
-        _itemType = (ItemType) info.GetInt32("itemType");
+        _itemType = (ItemType)info.GetInt32("itemType");
     }
 
     protected BaseItemData()

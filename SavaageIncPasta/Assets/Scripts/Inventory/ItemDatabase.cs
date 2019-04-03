@@ -13,7 +13,7 @@ public class ItemDatabase : MonoBehaviour
 
 
     // Use this for initialization
-    void Awake ()
+    void Awake()
     {
         DontDestroyOnLoad(this);
 
@@ -37,9 +37,9 @@ public class ItemDatabase : MonoBehaviour
 
     public BaseItemData GetItemInstance(string databaseName)
     {
-        if (!_items.ContainsKey(name))
+        if (!_items.ContainsKey(databaseName))
         {
-            Debug.LogError("Can't add item: " + name + " to inventory as it doesn't exist in the item database");
+            Debug.LogError("Can't add item: " + databaseName + " to inventory as it doesn't exist in the item database");
         }
 
         var itemData = _items[databaseName];
@@ -56,10 +56,10 @@ public class ItemDatabase : MonoBehaviour
         {
             if (item.Name.Length == 0)
             {
-                Debug.LogError("Item doesn't have a name and can't be added to item database");
+                Debug.LogError("Item doesn't have a databaseName and can't be added to item database");
             }
 
-            _items.Add(item.Name, item);
+            _items.Add(item.DatabaseName, item);
         }
     }
 
@@ -98,7 +98,7 @@ public class ItemDatabase : MonoBehaviour
 
         foreach (var item in items)
         {
-            _items.Add(item.DatabaseName,item);
+            _items.Add(item.DatabaseName, item);
         }
     }
 }

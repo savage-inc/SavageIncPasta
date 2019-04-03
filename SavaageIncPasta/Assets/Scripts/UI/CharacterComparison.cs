@@ -16,11 +16,14 @@ public class CharacterComparison : MonoBehaviour {
     public Text Intelligence;
     public Text Charisma;
 
+    public CharacterButton CharaterButton; // The character button that was used to compare with
+    public ClanButton ClanButton; // The clan button that was used to compare with
+
 
     // Update is called once per frame
     void Update ()
     {
-        Name.text = "Name: " + character.name;
+        Name.text = "Name: " + character.Name;
         Level.text = "Level: " + character.Level.ToString();
         Health.text = "Health: " + character.CurrentHealth.ToString();
         Comfort.text = "Comfort: " + character.Comfort.ToString();

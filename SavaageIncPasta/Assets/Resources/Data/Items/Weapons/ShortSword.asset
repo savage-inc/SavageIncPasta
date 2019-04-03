@@ -12,13 +12,15 @@ MonoBehaviour:
   m_Name: ShortSword
   m_EditorClassIdentifier: 
   _name: Short Sword
+  _databaseName: ShortSword
   _description: 
   _baseMoneyValue: 20
   _previewSprite: {fileID: 21300000, guid: cfd10b5fdaa317f46bd43f0622c85346, type: 3}
   _rarity: 0
   _stackSize: 1
   _weaponType: 0
-  statType: 1
+  _weaponSubType: 0
+  _statType: 0
   _baseDamage: 6
   _varianceDamage: 2
   _minDamage: 4
