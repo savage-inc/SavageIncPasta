@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 
@@ -11,9 +12,11 @@ public class CharacterButton : MonoBehaviour
     public CharacterComparison ClanCharacterCompare;
     public Character Character;
     public int CharacterIndex = 0;
+    public Transform ClanContent;
 
     private PlayerManager _playerManager;
     private ClanManager _clanManager;
+    private EventSystem _eventSystem;
 
 
     private void Awake()
@@ -25,6 +28,7 @@ public class CharacterButton : MonoBehaviour
 
         _playerManager = FindObjectOfType<PlayerManager>();
         _clanManager = FindObjectOfType<ClanManager>();
+        _eventSystem = FindObjectOfType<EventSystem>();
 
     }
 
@@ -40,12 +44,16 @@ public class CharacterButton : MonoBehaviour
             SwapButton.gameObject.SetActive(true);
             CompareButton.gameObject.SetActive(true);
             CloseButton.gameObject.SetActive(true);
+            _eventSystem.SetSelectedGameObject(SwapButton.gameObject);
+            transform.GetChild(0).GetComponent<Button>().interactable = false;
         }
         else
         {
             SwapButton.gameObject.SetActive(false);
             CompareButton.gameObject.SetActive(false);
             CloseButton.gameObject.SetActive(false);
+            _eventSystem.SetSelectedGameObject(transform.GetChild(0).gameObject);
+            transform.GetChild(0).GetComponent<Button>().interactable = true;
         }
     }
 
@@ -55,6 +63,9 @@ public class CharacterButton : MonoBehaviour
 
         PartyCharacterCompare.character = Character;
         PartyCharacterCompare.CharaterButton = this;
+
+        //set event system to the clan selection
+        _eventSystem.SetSelectedGameObject(ClanContent.GetChild(0).gameObject);
 
     }
 
