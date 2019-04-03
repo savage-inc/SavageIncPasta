@@ -76,4 +76,41 @@ public abstract class BaseItemData : ScriptableObject
     }
 
     protected ItemType _itemType;
+
+    protected BaseItemData(SerializationInfo info, StreamingContext context)
+    {
+        _name = info.GetString("name");
+        _databaseName = info.GetString("databaseName");
+        _description = info.GetString("description");
+        _baseMoneyValue = info.GetInt32("money");
+        //TODO sprite deserialization
+        _previewSprite = Resources.Load<Sprite>("Sprites/Items/" + info.GetString("spriteName"));
+        _rarity = (ItemRarity)info.GetInt32("rarity");
+        _stackSize = info.GetInt32("stackSize");
+        _itemType = (ItemType) info.GetInt32("itemType");
+    }
+
+    protected BaseItemData()
+    {
+    }
+
+    public virtual void GetObjectData(SerializationInfo info, StreamingContext context)
+    {
+        info.AddValue("name", _name);
+        info.AddValue("databaseName", _databaseName);
+        info.AddValue("description", _description);
+        info.AddValue("money", _baseMoneyValue);
+        if (_previewSprite != null)
+        {
+            info.AddValue("spriteName", _previewSprite.name);
+        }
+        else
+        {
+            info.AddValue("spriteName", "");
+        }
+
+        info.AddValue("rarity", _rarity);
+        info.AddValue("stackSize", _stackSize);
+        info.AddValue("itemType", _itemType);
+    }
 }

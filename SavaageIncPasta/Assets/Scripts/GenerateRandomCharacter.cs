@@ -10,6 +10,8 @@ public class GenerateRandomCharacter
     {
         Character character = new Character();
 
+        character.ID = System.Guid.NewGuid();
+        character.Name = "Character " + character.ID;
         character.Class = (ClassType)Random.Range(0, 3);
         character.Alive = true;
         switch (character.Class)
@@ -25,6 +27,21 @@ public class GenerateRandomCharacter
                     character.MaxHealth = 4 * character.Constitution + 6 * character.Level;
                     character.CurrentHealth = character.MaxHealth;
                     character.Magic = MagicType.eNONE;
+
+                    //random sprite
+                    switch (Random.Range(0, 3))
+                    {
+                        case 0:
+                            character.SpritePreviewName = "Warrior1";
+                            break;
+                        case 1:
+                            character.SpritePreviewName = "Warrior2";
+                            break;
+                        case 2:
+                            character.SpritePreviewName = "Warrior3";
+                            break;
+                    }
+                   
                     break;
                 }
             case ClassType.eRANGER:
@@ -38,6 +55,20 @@ public class GenerateRandomCharacter
                     character.MaxHealth = 4 * character.Constitution + 6 * character.Level;
                     character.CurrentHealth = character.MaxHealth;
                     character.Magic = MagicType.eNONE;
+
+                    //random sprite
+                    switch (Random.Range(0, 3))
+                    {
+                        case 0:
+                            character.SpritePreviewName = "Ranger1";
+                            break;
+                        case 1:
+                            character.SpritePreviewName = "Ranger2";
+                            break;
+                        case 2:
+                            character.SpritePreviewName = "Ranger3";
+                            break;
+                    }
                     break;
                 }
             case ClassType.eWIZARD:
@@ -51,6 +82,19 @@ public class GenerateRandomCharacter
                     character.MaxHealth = 4 * character.Constitution + 6 * character.Level;
                     character.CurrentHealth = character.MaxHealth;
                     character.Magic = (MagicType)Random.Range(1, 3);
+
+                    switch (Random.Range(0, 3))
+                    {
+                        case 0:
+                            character.SpritePreviewName = "Wizard1";
+                            break;
+                        case 1:
+                            character.SpritePreviewName = "Wizard2";
+                            break;
+                        case 2:
+                            character.SpritePreviewName = "Wizard3";
+                            break;
+                    }
                     break;
                 }
             case ClassType.eSHAMAN:
@@ -64,6 +108,19 @@ public class GenerateRandomCharacter
                     character.MaxHealth = 4 * character.Constitution + 6 * character.Level;
                     character.CurrentHealth = character.MaxHealth;
                     character.Magic = (MagicType)Random.Range(1, 3);
+
+                    switch (Random.Range(0, 3))
+                    {
+                        case 0:
+                            character.SpritePreviewName = "Shaman1";
+                            break;
+                        case 1:
+                            character.SpritePreviewName = "Shaman2";
+                            break;
+                        case 2:
+                            character.SpritePreviewName = "Shaman3";
+                            break;
+                    }
                     break;
                 }
         }

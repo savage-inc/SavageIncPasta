@@ -6,14 +6,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Data", menuName = "Items/WeaponItem", order = 1)]
 public class WeaponItemData : BaseItemData
 {
-    public enum MagicType
-    {
-        eNONE,
-        eRED,
-        eWHITE,
-        eGREEN
-    }
-
     public enum Type
     {
         eSWORD,
@@ -111,5 +103,56 @@ public class WeaponItemData : BaseItemData
     public float MagicalModifier
     {
         get { return _magicalModifier; }
+    }
+
+    public Type WeaponType
+    {
+        get { return _weaponType; }
+        set { _weaponType = value; }
+    }
+
+    public StatTypes StatType
+    {
+        get { return _statType; }
+        set { _statType = value; }
+    }
+
+    public SubType WeaponSubType
+    {
+        get { return _weaponSubType; }
+        set { _weaponSubType = value; }
+    }
+
+    protected WeaponItemData(SerializationInfo info, StreamingContext context) : base(info, context)
+    {
+        _weaponType = (Type)info.GetInt32("weaponType");
+        _weaponSubType = (SubType)info.GetInt32("weaponSubType");
+        _statType = (StatTypes)info.GetInt32("statType");
+        _baseDamage = info.GetInt32("baseDamage");
+        _minDamage = info.GetInt32("minDamage");
+        _maxDamage = info.GetInt32("maxDamage");
+        _varianceDamage = info.GetInt32("varianceDamage");
+        _missFire = info.GetSingle("missFire");
+        _isMelee = info.GetBoolean("melee");
+        _isMainHand = info.GetBoolean("mainhand");
+        _magicalType = (MagicType) info.GetInt32("magicalType");
+        _magicalModifier = info.GetInt32("magicalModifer");
+    }
+
+    public override void GetObjectData(SerializationInfo info, StreamingContext context)
+    {
+        base.GetObjectData(info,context);
+        info.AddValue("weaponType", _weaponType);
+        info.AddValue("weaponSubType", _weaponSubType);
+        info.AddValue("statType", _statType);
+        info.AddValue("baseDamage", _baseDamage);
+        info.AddValue("minDamage", _minDamage);
+        info.AddValue("maxDamage", _maxDamage);
+        info.AddValue("varianceDamage", _varianceDamage);
+        info.AddValue("missFire", MissFire);
+        info.AddValue("melee", _isMelee);
+        info.AddValue("mainhand", _isMainHand);
+        info.AddValue("magicalType", _magicalType);
+        info.AddValue("magicalModifer", _magicalModifier);
     }
 }
