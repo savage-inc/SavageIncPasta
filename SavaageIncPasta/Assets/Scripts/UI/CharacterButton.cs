@@ -15,7 +15,8 @@ public class CharacterButton : MonoBehaviour
 
     private void Awake()
     {
-        Character = FindObjectOfType<PlayerManager>().Characters[CharacterIndex];
+        var playerManager = FindObjectOfType<PlayerManager>();
+        Character = playerManager.Characters[CharacterIndex];
     }
 
     private void Update()

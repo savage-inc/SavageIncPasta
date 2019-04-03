@@ -27,15 +27,15 @@ public class ClanControl : MonoBehaviour {
 
     void GenClan()
     {
-        // If number of clan members less than 6, then constraint count of clanMember
-        if (_clanManager.SpareCharacterPool.Count < 6)
+        // If number of clan members less than 5, then constraint count of clanMember
+        if (_clanManager.SpareCharacterPool.Count < 5)
         {
             gridGroup.constraintCount = _clanManager.SpareCharacterPool.Count;
         }
         else
         {
-            // Set column to 5
-            gridGroup.constraintCount = 5;
+            // Set column to 4
+            gridGroup.constraintCount = 4;
         }
 
         foreach (Character newCharacter in _clanManager.SpareCharacterPool)
@@ -50,12 +50,21 @@ public class ClanControl : MonoBehaviour {
             // Add set to compare mode to newbutton when on click
             newButton.GetComponent<Button>().onClick.AddListener(characterButton.SetToCompareMode);
 
-            newButton.transform.SetParent(transform.GetChild(0).transform.GetChild(0), false);
+            newButton.transform.SetParent(gridGroup.transform, false);
         }
+
     }
 
     public struct SelectCharacter
     {
         public Sprite characterSprite;
+    }
+
+    private void OnRectTransformDimensionsChange()
+    {
+        //rsize button to fit
+        float width = RectTransformUtility.PixelAdjustRect(GetComponent<RectTransform>(), FindObjectOfType<Canvas>()).width - 32;
+        Vector2 newSize = new Vector2(width / 4, width / 4);
+        gridGroup.cellSize = newSize;
     }
 }

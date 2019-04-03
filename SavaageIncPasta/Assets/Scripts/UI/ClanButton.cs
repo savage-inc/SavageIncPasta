@@ -10,7 +10,6 @@ public class ClanButton : MonoBehaviour
     public Character Character;
     public int CharacterIndex = 0;
 
-
     private void Awake()
     {
         Character = FindObjectOfType<ClanManager>().SpareCharacterPool[CharacterIndex];

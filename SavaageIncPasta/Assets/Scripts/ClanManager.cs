@@ -5,12 +5,22 @@ using UnityEngine;
 public class ClanManager : MonoBehaviour
 {
     public List<Character> SpareCharacterPool;
+    public bool GenerateRandomClanMembers;
     List<Character> _party;
 
 
     private void Awake()
     {
         _party = FindObjectOfType<PlayerManager>().Characters;
+
+        if (GenerateRandomClanMembers)
+        {
+            for (int i = 0; i < 20; i++)
+            {
+                var character = GenerateRandomCharacter.GenerateCharacter();
+                SpareCharacterPool.Add(character);
+            }
+        }
     }
     public void AddCharacter(Character c)
     {
