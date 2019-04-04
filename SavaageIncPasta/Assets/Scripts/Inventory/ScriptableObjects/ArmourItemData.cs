@@ -59,7 +59,7 @@ public class ArmourItemData : BaseItemData
         set { _magicalType = value; }
     }
 
-    protected ArmourItemData(SerializationInfo info, StreamingContext context) : base(info,context)
+    protected ArmourItemData(SerializationInfo info, StreamingContext context) : base(info, context)
     {
         _armourSlotType = (SlotType)info.GetInt32("slotType");
         _armourType = (Type)info.GetInt32("armourType");

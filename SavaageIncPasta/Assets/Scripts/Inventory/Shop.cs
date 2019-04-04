@@ -30,37 +30,7 @@ public class Shop : MonoBehaviour
     // Use this for initialization
     void Awake ()
     {
-        Inventory = new Inventory(ShopStartItems.Count, true);
-        foreach (var shopItem in ShopStartItems)
-        {
-            for (int i = 0; i < shopItem.Stock; i++)
-            {
-                Inventory.AddItem(shopItem.Item);
-            }
-        }
-
-        //add random items
-        if (RandomArmour)
-        {
-            for (int i = 0; i < RandomItemCount; i++)
-            {
-                ShopItem shopItem;
-                shopItem.Item = ItemDatabase.Instance.Armour[Random.Range(0, ItemDatabase.Instance.Armour.Count)];
-                shopItem.Stock = 1;
-                Inventory.AddItem(shopItem.Item);
-            }
-        }
-
-        if (RandomWeapons)
-        {
-            for (int i = 0; i < RandomItemCount; i++)
-            {
-                ShopItem shopItem;
-                shopItem.Item = ItemDatabase.Instance.Weapons[Random.Range(0, ItemDatabase.Instance.Weapons.Count)];
-                shopItem.Stock = 1;
-                Inventory.AddItem(shopItem.Item);
-            }
-        }
+        StockShop();
 
         _partyInventory = FindObjectOfType<PartyInventory>();
     }
@@ -92,7 +62,7 @@ public class Shop : MonoBehaviour
         {
             //restock
             Debug.Log("Restocking shop");
-            Restock();
+            StockShop();
             _lastVisit = 0.0f;
         }
 
@@ -107,18 +77,6 @@ public class Shop : MonoBehaviour
         if (_lastVisit == 0.0f)
         {
             _lastVisit = Time.realtimeSinceStartup;
-        }
-    }
-
-    void Restock()
-    {
-        Inventory.Clear();
-        foreach (var shopItem in ShopStartItems)
-        {
-            for (int i = 0; i < shopItem.Stock; i++)
-            {
-                Inventory.AddItem(shopItem.Item);
-            }
         }
     }
 
@@ -146,5 +104,40 @@ public class Shop : MonoBehaviour
 
         //add it to the shop
         Inventory.AddItem(item);
+    }
+
+    private void StockShop()
+    {
+        Inventory = new Inventory(ShopStartItems.Count, true);
+        foreach (var shopItem in ShopStartItems)
+        {
+            for (int i = 0; i < shopItem.Stock; i++)
+            {
+                Inventory.AddItem(shopItem.Item);
+            }
+        }
+
+        //add random items
+        if (RandomArmour)
+        {
+            for (int i = 0; i < RandomItemCount; i++)
+            {
+                ShopItem shopItem;
+                shopItem.Item = ItemDatabase.Instance.Armour[Random.Range(0, ItemDatabase.Instance.Armour.Count)];
+                shopItem.Stock = 1;
+                Inventory.AddItem(shopItem.Item);
+            }
+        }
+
+        if (RandomWeapons)
+        {
+            for (int i = 0; i < RandomItemCount; i++)
+            {
+                ShopItem shopItem;
+                shopItem.Item = ItemDatabase.Instance.Weapons[Random.Range(0, ItemDatabase.Instance.Weapons.Count)];
+                shopItem.Stock = 1;
+                Inventory.AddItem(shopItem.Item);
+            }
+        }
     }
 }

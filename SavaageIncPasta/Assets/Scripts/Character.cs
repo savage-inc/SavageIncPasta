@@ -20,6 +20,7 @@ public class Character
     public int Intelligence;
     public int Charisma;
     public MagicType Magic;
+    public int Comfort;
     public bool Player = true;
     public bool Alive = true;
     public CharacterEquipment Equipment;
@@ -28,7 +29,6 @@ public class Character
     public int CurrCol = 1;
 
     public int Experience = 0;
-    public int Comfort;
 
     public Character()
     {

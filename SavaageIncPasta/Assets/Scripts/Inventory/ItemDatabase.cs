@@ -13,7 +13,7 @@ public class ItemDatabase : MonoBehaviour
 
 
     // Use this for initialization
-    void Awake ()
+    void Awake()
     {
         DontDestroyOnLoad(this);
 
@@ -98,7 +98,7 @@ public class ItemDatabase : MonoBehaviour
 
         foreach (var item in items)
         {
-            _items.Add(item.DatabaseName,item);
+            _items.Add(item.DatabaseName, item);
         }
     }
 }

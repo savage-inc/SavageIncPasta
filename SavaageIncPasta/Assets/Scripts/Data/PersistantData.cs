@@ -20,6 +20,7 @@ public class PersistantData
         public int Gold;
         //character data
         public List<Character> PartyCharacterData;
+        public List<Character> ClanCharacterData;
         public List<BaseItemData> ItemDatabase;
 
         public PartyData(List<Character> partyCharacterData = null) : this()
@@ -149,7 +150,7 @@ public class PersistantData
         }
     }
 
-    public static void SavePartyData(PartyInventory partyInventory, PlayerManager playerManager)
+    public static void SavePartyData(PartyInventory partyInventory, PlayerManager playerManager, ClanManager clanManager)
     {
         PartyData partyData = new PartyData();
         partyData.PartyInventory = partyInventory.Inventory;
@@ -157,12 +158,13 @@ public class PersistantData
 
         //Party characets
         partyData.PartyCharacterData = playerManager.Characters;
+        partyData.ClanCharacterData = clanManager.SpareCharacterPool;
         partyData.ItemDatabase = ItemDatabase.Instance.ToList();
 
         SaveBytesToFile(Application.persistentDataPath + "/save/","partyData.data", SerializeToBytes(partyData));
     }
 
-    public static void LoadPartyData(PartyInventory partyInventory, PlayerManager playerManager)
+    public static void LoadPartyData(PartyInventory partyInventory, PlayerManager playerManager, ClanManager clanManager)
     {
         var data = ReadBytesFromFile(Application.persistentDataPath + "/save/", "partyData.data");
         if (data != null)
@@ -175,6 +177,7 @@ public class PersistantData
                 partyInventory.Gold = partyData.Gold;
 
                 playerManager.Characters = partyData.PartyCharacterData;
+                clanManager.SpareCharacterPool = partyData.ClanCharacterData;
                 ItemDatabase.Instance.FromList(partyData.ItemDatabase);
             }
         }

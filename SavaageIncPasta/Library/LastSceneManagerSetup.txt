@@ -1,8 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
-- path: Assets/Scenes/World/WorldScene.unity
-=======
-- path: Assets/Scenes/Battle.unity
->>>>>>> Combat
+- path: Assets/Scenes/World/ClanScene.unity
   isLoaded: 1
   isActive: 1

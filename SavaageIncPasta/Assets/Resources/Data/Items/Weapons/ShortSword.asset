@@ -20,7 +20,7 @@ MonoBehaviour:
   _stackSize: 1
   _weaponType: 0
   _weaponSubType: 0
-  statType: 1
+  _statType: 0
   _baseDamage: 6
   _varianceDamage: 2
   _minDamage: 4

@@ -150,13 +150,13 @@ public class WeaponItemData : BaseItemData
         _missFire = info.GetSingle("missFire");
         _isMelee = info.GetBoolean("melee");
         _isMainHand = info.GetBoolean("mainhand");
-        _magicalType = (MagicType) info.GetInt32("magicalType");
+        _magicalType = (MagicType)info.GetInt32("magicalType");
         _magicalModifier = info.GetInt32("magicalModifer");
     }
 
     public override void GetObjectData(SerializationInfo info, StreamingContext context)
     {
-        base.GetObjectData(info,context);
+        base.GetObjectData(info, context);
         info.AddValue("weaponType", _weaponType);
         info.AddValue("weaponSubType", _weaponSubType);
         info.AddValue("statType", _statType);
