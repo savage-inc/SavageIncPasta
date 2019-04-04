@@ -97,7 +97,7 @@ public class EnemyCreator : EditorWindow
         _enemy.CurrentHealth = _enemy.MaxHealth;
 
         //create GUID if it doesnt already have one
-        if (_enemy.ID == null)
+        if (_enemy.ID == System.Guid.Empty)
         {
             _enemy.ID = System.Guid.NewGuid();
         }

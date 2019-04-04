@@ -13,12 +13,14 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectGenerator>VSTU</UnityProjectGenerator>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.4.24f1</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -321,11 +323,10 @@
     <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
     <Compile Include="Assets\Scripts\UI\SwapButton.cs" />
     <Compile Include="Assets\Scripts\UI\SwapPanels.cs" />
-    <Compile Include="Assets\Scripts\UI\UI Menu.cs" />
     <Compile Include="Assets\Scripts\UI\UIManager.cs" />
     <Compile Include="Assets\Scripts\World\CameraFollow.cs" />
+    <Compile Include="Assets\Scripts\World\ClanNPC.cs" />
     <Compile Include="Assets\Scripts\World\SceneDoor.cs" />
-    <Compile Include="Assets\Scripts\World\WorldInteraction.cs" />
     <Compile Include="Assets\Scripts\World\WorldManager.cs" />
     <Compile Include="Assets\Scripts\World\WorldManagerEditor.cs" />
   </ItemGroup>

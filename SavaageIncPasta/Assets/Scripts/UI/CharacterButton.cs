@@ -14,10 +14,20 @@ public class CharacterButton : MonoBehaviour
     public int CharacterIndex = 0;
     public Transform ClanContent;
 
-    private PlayerManager _playerManager;
     private ClanManager _clanManager;
     private EventSystem _eventSystem;
 
+    private void OnDisable()
+    {
+        SwapButton.gameObject.SetActive(false);
+        CompareButton.gameObject.SetActive(false);
+        CloseButton.gameObject.SetActive(false);
+        _eventSystem.SetSelectedGameObject(transform.GetChild(0).gameObject);
+        transform.GetChild(0).GetComponent<Button>().interactable = true;
+
+        PartyCharacterCompare.character = null;
+        ClanCharacterCompare.character = null;
+    }
 
     private void Awake()
     {
@@ -26,7 +36,6 @@ public class CharacterButton : MonoBehaviour
         //set sprite
         transform.GetChild(0).GetComponent<Image>().sprite = FindObjectOfType<SpriteManager>().GetSprite(Character.SpritePreviewName);
 
-        _playerManager = FindObjectOfType<PlayerManager>();
         _clanManager = FindObjectOfType<ClanManager>();
         _eventSystem = FindObjectOfType<EventSystem>();
 

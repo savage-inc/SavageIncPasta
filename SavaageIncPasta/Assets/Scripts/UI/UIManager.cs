@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
 {
     public GameObject Inventory;
     public GameObject pauseMenuUI;
+    public GameObject ClanUI;
     public GameObject FirstObject;
     public static bool GameIsPaused = false;
 
@@ -35,6 +36,11 @@ public class UIManager : MonoBehaviour
         {
             pauseMenuUI.SetActive(false);
         }
+
+        if (ClanUI != null)
+        {
+            ClanUI.SetActive(false);
+        }
         Time.timeScale = 1f;
     }
     public void OpenInventory()
@@ -50,6 +56,29 @@ public class UIManager : MonoBehaviour
             if (pauseMenuUI != null)
             {
                 pauseMenuUI.SetActive(false);
+            }
+            if (ClanUI != null)
+            {
+                ClanUI.SetActive(false);
+            }
+            Time.timeScale = 0f;
+        }
+    }
+
+    public void OpenClanUI()
+    {
+        if (ClanUI != null)
+        {
+            ClanUI.SetActive(true);
+
+
+            if (pauseMenuUI != null)
+            {
+                pauseMenuUI.SetActive(false);
+            }
+            if (Inventory != null)
+            {
+                Inventory.SetActive(false);
             }
             Time.timeScale = 0f;
         }
@@ -67,6 +96,11 @@ public class UIManager : MonoBehaviour
             {
                 OpenInventory();
             }
+        }
+
+        if (Input.GetButtonDown("B")) // X button
+        {
+            Close();
         }
 
         if (Input.GetButtonDown("Start")) // start button

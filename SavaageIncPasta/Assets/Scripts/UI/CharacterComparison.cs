@@ -19,10 +19,26 @@ public class CharacterComparison : MonoBehaviour {
     public CharacterButton CharaterButton; // The character button that was used to compare with
     public ClanButton ClanButton; // The clan button that was used to compare with
 
+    private void OnDisable()
+    {
+        Name.text = "Name: ";
+        Level.text = "Level: ";
+        Health.text = "Health: ";
+        Comfort.text = "Comfort: ";
+        Strength.text = "Strength: ";
+        Dexterity.text = "Dexterity: ";
+        Constitution.text = "Constitution: ";
+        Charisma.text = "Charisma: ";
+    }
 
     // Update is called once per frame
     void Update ()
     {
+        if(character == null)
+        {
+            return;
+        }
+
         Name.text = "Name: " + character.Name;
         Level.text = "Level: " + character.Level.ToString();
         Health.text = "Health: " + character.CurrentHealth.ToString();

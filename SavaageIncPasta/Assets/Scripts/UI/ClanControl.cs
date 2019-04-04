@@ -2,11 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class ClanControl : MonoBehaviour {
 
     public CharacterComparison CharacterCompare;
+    public GameObject FirstSelected;
 
     private List<SelectCharacter> clanMember;
     private ClanManager _clanManager;
@@ -19,10 +21,20 @@ public class ClanControl : MonoBehaviour {
     [SerializeField]
     private Sprite[] characterSprite; // Character Sprite array
 
+
     private void Start()
     {
         _clanManager = FindObjectOfType<ClanManager>();
         GenClan();
+    }
+
+    private void OnEnable()
+    {
+        if(FirstSelected != null)
+        {
+            var eventSystem = FindObjectOfType<EventSystem>();
+            eventSystem.SetSelectedGameObject(FirstSelected);
+        }
     }
 
     void GenClan()
