@@ -1071,7 +1071,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneName: TownScene
-  PositionInNewScene: {x: -6.5, y: 0}
+  PositionInNewScene: {x: -6.5, y: -2}
 --- !u!58 &807701526
 CircleCollider2D:
   m_ObjectHideFlags: 0
