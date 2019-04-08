@@ -21,10 +21,28 @@ public class BattleCharacter : MonoBehaviour {
     public int Initiative = 0;
     public float Defending = 1.0f;
     public int DamageTaken = 0;
-
-
+    public int ClassModifier = 0;
+    public int ChanceToHitModifier = 0;
+        
     private void Awake()
     {
+        switch (Character.Class)
+        {
+            case ClassType.eWARRIOR:
+                ClassModifier = Character.Strength;
+                break;
+            case ClassType.eRANGER:
+                ClassModifier = Character.Dexterity;
+                break;
+            case ClassType.eSHAMAN:
+            case ClassType.eWIZARD:
+                ClassModifier = Character.Intelligence;
+                break;
+            case ClassType.eENEMY:
+                ClassModifier = Character.Strength;
+                break;
+        }
+
     }
     // Use this for initialization
     void Start () {

@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GenerateRandomCharacter
-{ 
-
-
+{
     public static Character GenerateCharacter()
     {
         Character character = new Character();
@@ -85,6 +83,7 @@ public class GenerateRandomCharacter
                     character.CurrentHealth = character.MaxHealth;
                     character.Comfort = character.Constitution * 10 + character.Level * 4;
                     character.Magic = (MagicType)Random.Range(1, 3);
+                    character.Mana = character.Intelligence * 2;
 
                     switch (Random.Range(0, 3))
                     {
@@ -112,6 +111,7 @@ public class GenerateRandomCharacter
                     character.CurrentHealth = character.MaxHealth;
                     character.Comfort = character.Constitution * 10 + character.Level * 4;
                     character.Magic = (MagicType)Random.Range(1, 3);
+                    character.Mana = character.Intelligence * 2;
 
                     switch (Random.Range(0, 3))
                     {

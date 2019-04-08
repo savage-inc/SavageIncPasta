@@ -79,13 +79,14 @@ public class Battle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        BattleCharacter currentCharacter = _battleCharacterList[_currentCharacterIndex];
         if (_currentCharacterIndex >= _battleCharacterList.Count)
         {
             DecideTurnOrder();
             _currentCharacterIndex = 0;
         }
 
-        while (!_battleCharacterList[_currentCharacterIndex].Character.Alive)
+        while (!currentCharacter.Character.Alive)
         {
             _currentCharacterIndex++;
             if (_currentCharacterIndex >= _battleCharacterList.Count)
@@ -94,12 +95,12 @@ public class Battle : MonoBehaviour
             }
         }
 
-        if (_battleCharacterList[_currentCharacterIndex].StartTurn)
+        if (currentCharacter.StartTurn)
         {
             StartTurn();
         }
 
-        if (!_battleCharacterList[_currentCharacterIndex].Character.Player)
+        if (!currentCharacter.Character.Player)
         {
             EnemyAttack();
         }
@@ -112,20 +113,36 @@ public class Battle : MonoBehaviour
                     PlayerAttack();
                     break;
                 case TurnOption.eDEFEND:
-                    Defend(_battleCharacterList[_currentCharacterIndex]);
+                    Defend(currentCharacter);
                     break;
                 case TurnOption.eMOVE:
-                    Move(_battleCharacterList[_currentCharacterIndex]);
+                    Move(currentCharacter);
                     break;
                 case TurnOption.eACTION:
-                    SwitchAction(_battleCharacterList[_currentCharacterIndex]);
+                    SwitchAction(currentCharacter);
                     break;
                 case TurnOption.eAbility1:
-                    Ability(_battleCharacterList[_currentCharacterIndex].Character.Abilities[0]);
+                    Ability(currentCharacter.Character.Abilities[0], currentCharacter.Character);
+                    break;
+                case TurnOption.eAbility2:
+                    Ability(currentCharacter.Character.Abilities[1], currentCharacter.Character);
+                    break;
+                case TurnOption.eAbility3:
+                    Ability(currentCharacter.Character.Abilities[2], currentCharacter.Character);
+                    break;
+                case TurnOption.eAbility4:
+                    Ability(currentCharacter.Character.Abilities[3], currentCharacter.Character);
+                    break;
+                case TurnOption.eAbility5:
+                    Ability(currentCharacter.Character.Abilities[4], currentCharacter.Character);
+                    break;
+                case TurnOption.eAbility6:
+                    Ability(currentCharacter.Character.Abilities[5], currentCharacter.Character);
                     break;
                 default:
                     break;
             }
+            EndTurn();
         }
 
         if (_deadPlayers >= _characterList.Count)
@@ -141,16 +158,16 @@ public class Battle : MonoBehaviour
             {
                 //gold += enemy.GoldDrop; //Party gold needs to be added
                 experience += enemy.Experience;
-                
+
             }
             experience /= _characterList.Count;
             foreach (BattleCharacter player in _battleCharacterList)
             {
-                if(player.Character.Player)
+                if (player.Character.Player)
                 {
                     player.Character.Experience += (int)experience;
 
-                   player.Character.Comfort -= player.DamageTaken == 0 ? 1 : player.DamageTaken / 2;
+                    player.Character.Comfort -= player.DamageTaken == 0 ? 1 : player.DamageTaken / 2;
                 }
             }
             Vector2 newPos = new Vector2(PlayerPrefs.GetFloat("SceneOriginX"), PlayerPrefs.GetFloat("SceneOriginY"));
@@ -265,22 +282,145 @@ public class Battle : MonoBehaviour
     {
         if (_targettedCharacterIndex > -1)
         {
-            DealDamage();
+            if (hitChance())
+            {
+                BattleCharacter attacker = _battleCharacterList[_currentCharacterIndex];
+                Character defender = _battleCharacterList[_targettedCharacterIndex].Character;
+                int damage = 0;
+
+                var weapon = attacker.Character.Equipment.GetEquipedWeapon();
+
+                if (weapon == null)
+                {
+                    damage = (int)(attacker.Character.BaseAttack * _battleCharacterList[_targettedCharacterIndex].Defending);
+                }
+                else
+                {
+                    damage = (int)(weapon.BaseDamage + Random.Range(-(int)weapon.VarianceDamage + attacker.ClassModifier / 2, (int)weapon.VarianceDamage + attacker.ClassModifier) * _battleCharacterList[_targettedCharacterIndex].Defending);
+                }
+                DealDamage(damage);
+            }
         }
     }
-
-    void Ability(int ability)
+    void WizardAbility(int abilityNumber, Character attacker)
     {
-        switch (_battleCharacterList[_currentCharacterIndex].Character.Class)
+        switch (abilityNumber)
+        {
+            case 1:
+                LightningBolt(attacker);
+                break;
+            case 2:
+                MagicMissile(attacker);
+                break;
+            case 3:
+                Slow(attacker);
+                break;
+            case 4:
+                Teleport(attacker);
+                break;
+            case 5:
+                Disorientate(attacker);
+                break;
+        }
+    }
+    void LightningBolt(Character attacker)
+    {
+        if (_targettedCharacterIndex > -1)
+        {
+            if (hitChance())
+            {
+                DealDamage((int)(attacker.Intelligence + 1.5 * attacker.Level));
+            }
+        }
+        attacker.Mana -= 1;
+    }
+    void MagicMissile(Character attacker)
+    {
+        if (_targettedCharacterIndex > -1)
+        {
+            if (hitChance())
+            {
+                DealDamage(attacker.Intelligence);
+
+                do
+                {
+                    _targettedCharacterIndex = Random.Range(0, _battleCharacterList.Count);
+                } while (_battleCharacterList[_targettedCharacterIndex].Character.Player);
+
+                if (hitChance())
+                {
+                    DealDamage(attacker.Intelligence);
+                }
+            }
+        }
+        attacker.Mana -= 3;
+    }
+    void Slow(Character attacker)
+    {
+        if (_targettedCharacterIndex > -1)
+        {
+            if (hitChance())
+            {
+                _battleCharacterList[_targettedCharacterIndex].SecondaryAction = true;
+            }
+        }
+        attacker.Mana -= 3;
+    }
+    void Teleport(Character attacker)
+    {
+        if (_targettedCharacterIndex > -1)
+        {
+            Move(_battleCharacterList[_targettedCharacterIndex]);
+        }
+        attacker.Mana -= 5;
+    }
+    void Disorientate(Character attacker)
+    {
+        if (_targettedCharacterIndex > -1)
+        {
+            foreach (BattleCharacter character in _battleCharacterList)
+            {
+                if (!character.Character.Player && character.Character.CurrCol == _battleCharacterList[_targettedCharacterIndex].Character.CurrCol)
+                {
+                    if (hitChance())
+                    {
+                        character.ChanceToHitModifier -= 5 * attacker.Intelligence;
+                    }
+                }
+            }
+        }
+        attacker.Mana -= 5;
+    }
+    void Fireball(Character attacker)
+    {
+        if (_targettedCharacterIndex > -1)
+        {
+            foreach (BattleCharacter character in _battleCharacterList)
+            {
+                if (!character.Character.Player && character.Character.CurrCol == _battleCharacterList[_targettedCharacterIndex].Character.CurrCol)
+                {
+                    if (hitChance())
+                    {
+                        DealDamage(attacker.Intelligence * Random.Range(2, 5));
+                    }
+                }
+            }
+        }
+        attacker.Mana -= 5;
+    }
+
+    void Ability(int ability, Character attacker)
+    {
+        switch (attacker.Class)
         {
             case ClassType.eWARRIOR:
-                //do stuff.
                 break;
             case ClassType.eRANGER:
                 break;
             case ClassType.eSHAMAN:
                 break;
             case ClassType.eWIZARD:
+               WizardAbility(ability, attacker);
                 break;
         }
     }
@@ -304,7 +444,7 @@ public class Battle : MonoBehaviour
                     if ((_battleCharacterList[i].Character.CurrCol == colToAttack && _battleCharacterList[i].Character.Alive && !_battleCharacterList[i].Character.Player) || _battleCharacterList[i].Character.Player)
                     {
                         _battleCharacterList[i].gameObject.GetComponent<Button>().interactable = !_battleCharacterList[i].gameObject.GetComponent<Button>().interactable;
-                        if(!_battleCharacterList[i].Character.Player)
+                        if (!_battleCharacterList[i].Character.Player)
                         {
                             characterAvailable = true;
                         }
@@ -346,34 +486,35 @@ public class Battle : MonoBehaviour
         }
         if (_targettedCharacterIndex > -1)
         {
-            DealDamage();
+            if (hitChance())
+            {
+                BattleCharacter attacker = _battleCharacterList[_currentCharacterIndex];
+                Character defender = _battleCharacterList[_targettedCharacterIndex].Character;
+                int damage = 0;
+
+                var weapon = attacker.Character.Equipment.GetEquipedWeapon();
+
+                if (weapon == null)
+                {
+                    damage = (int)(attacker.Character.BaseAttack * _battleCharacterList[_targettedCharacterIndex].Defending);
+
+                }
+                else
+                {
+                    damage = (int)(weapon.BaseDamage + Random.Range(-(int)weapon.VarianceDamage + attacker.ClassModifier / 2, (int)weapon.VarianceDamage + attacker.ClassModifier) * _battleCharacterList[_targettedCharacterIndex].Defending);
+                }
+                DealDamage(damage);
+
+            }
         }
     }
 
-    void DealDamage()
+    bool hitChance()
     {
         float chanceToHit = 0.5f;
-        Character attacker = _battleCharacterList[_currentCharacterIndex].Character;
+        BattleCharacter attacker = _battleCharacterList[_currentCharacterIndex];
         Character defender = _battleCharacterList[_targettedCharacterIndex].Character;
-        int damage = 0;
-        int classModifier = 0;
-        switch (attacker.Class)
-        {
-            case ClassType.eWARRIOR:
-                classModifier = attacker.Strength;
-                break;
-            case ClassType.eRANGER:
-                classModifier = attacker.Dexterity;
-                break;
-            case ClassType.eSHAMAN:
-            case ClassType.eWIZARD:
-                classModifier = attacker.Intelligence;
-                break;
-            case ClassType.eENEMY:
-                classModifier = attacker.Strength;
-                break;
-        }
-        var weapon = attacker.Equipment.GetEquipedWeapon();
+        var weapon = attacker.Character.Equipment.GetEquipedWeapon();
         float magic = 0;
 
         if (weapon != null)
@@ -381,28 +522,27 @@ public class Battle : MonoBehaviour
             magic = weapon.MagicalModifier;
         }
 
-        chanceToHit = (50.0f + classModifier * 10.0f - defender.BaseArmour * 2.0f + magic) / 100.0f;
+        chanceToHit = ((50.0f + attacker.ClassModifier * 10.0f - defender.BaseArmour * 2.0f + magic) / 100.0f) - attacker.ChanceToHitModifier;
+        if(attacker.CurrentAction == ActionChoice.eSecondary)
+        {
+            chanceToHit *= 0.75f;
+        }
         chanceToHit = Mathf.Clamp(chanceToHit, 0.05f, 0.95f);
 
         if (Random.value < chanceToHit)
         {
-            if (weapon == null)
-            {
-                damage = (int)(attacker.BaseAttack * _battleCharacterList[_targettedCharacterIndex].Defending);
-
-            }
-            else
-            {
-
-                damage = (int)(weapon.BaseDamage + Random.Range(-(int)weapon.VarianceDamage + classModifier / 2, (int)weapon.VarianceDamage + classModifier) * _battleCharacterList[_targettedCharacterIndex].Defending);
-            }
-            _battleCharacterList[_targettedCharacterIndex].DamageTaken += damage;
-            _battleCharacterList[_targettedCharacterIndex].Character.ChangeHealth(-damage);
+            return true;
         }
-        else
-        {
-            //miss stuff
-        }
+
+        return false;
+
+    }
+
+    void DealDamage(int damage)
+    {
+        
+        _battleCharacterList[_targettedCharacterIndex].DamageTaken += damage;
+        _battleCharacterList[_targettedCharacterIndex].Character.ChangeHealth(-damage);
 
 
         if (!_battleCharacterList[_targettedCharacterIndex].Character.Alive)
@@ -428,7 +568,6 @@ public class Battle : MonoBehaviour
                 _targettingCharacterIndex = 0;
             }
         }
-        EndTurn();
     }
 
     void Defend(BattleCharacter defender)
@@ -469,13 +608,13 @@ public class Battle : MonoBehaviour
     void EndTurn()
     {
         BattleCharacter currentCharacter = _battleCharacterList[_currentCharacterIndex];
-        
-        if(currentCharacter.CurrentAction == ActionChoice.ePrimary)
+
+        if (currentCharacter.CurrentAction == ActionChoice.ePrimary)
         {
             currentCharacter.PrimaryAction = true;
             currentCharacter.CurrentAction = ActionChoice.eSecondary;
         }
-        else if(currentCharacter.CurrentAction == ActionChoice.eSecondary)
+        else if (currentCharacter.CurrentAction == ActionChoice.eSecondary)
         {
             currentCharacter.SecondaryAction = true;
             currentCharacter.CurrentAction = ActionChoice.ePrimary;
@@ -490,7 +629,7 @@ public class Battle : MonoBehaviour
         }
         _optionChosen = TurnOption.eNONE;
         _targettedCharacterIndex = -1;
-        
+
     }
 
     public void SetTurnOption(int turnOption)
