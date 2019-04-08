@@ -26,7 +26,9 @@ public class Character
     public int BaseAttack = 5;
     public int BaseArmour = 0;
     public int CurrCol = 1;
+    public List<int> Abilities = new List<int>() { 1 };
 
+    public int GoldDrop = 5;
     public int Experience = 0;
     public int Comfort;
 

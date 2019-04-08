@@ -26,6 +26,7 @@ public class GenerateRandomCharacter
                     character.Charisma = Random.Range(1, 8);
                     character.MaxHealth = 4 * character.Constitution + 6 * character.Level;
                     character.CurrentHealth = character.MaxHealth;
+                    character.Comfort = character.Constitution * 10 + character.Level * 4;
                     character.Magic = MagicType.eNONE;
 
                     //random sprite
@@ -54,6 +55,7 @@ public class GenerateRandomCharacter
                     character.Charisma = Random.Range(1, 8);
                     character.MaxHealth = 4 * character.Constitution + 6 * character.Level;
                     character.CurrentHealth = character.MaxHealth;
+                    character.Comfort = character.Constitution * 10 + character.Level * 4;           
                     character.Magic = MagicType.eNONE;
 
                     //random sprite
@@ -81,6 +83,7 @@ public class GenerateRandomCharacter
                     character.Charisma = Random.Range(1, 8);
                     character.MaxHealth = 4 * character.Constitution + 6 * character.Level;
                     character.CurrentHealth = character.MaxHealth;
+                    character.Comfort = character.Constitution * 10 + character.Level * 4;
                     character.Magic = (MagicType)Random.Range(1, 3);
 
                     switch (Random.Range(0, 3))
@@ -107,6 +110,7 @@ public class GenerateRandomCharacter
                     character.Charisma = Random.Range(1, 8);
                     character.MaxHealth = 4 * character.Constitution + 6 * character.Level;
                     character.CurrentHealth = character.MaxHealth;
+                    character.Comfort = character.Constitution * 10 + character.Level * 4;
                     character.Magic = (MagicType)Random.Range(1, 3);
 
                     switch (Random.Range(0, 3))

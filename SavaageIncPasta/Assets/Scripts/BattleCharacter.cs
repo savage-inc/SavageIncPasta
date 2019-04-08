@@ -17,7 +17,10 @@ public class BattleCharacter : MonoBehaviour {
     public ActionChoice CurrentAction = ActionChoice.ePrimary;
     public bool PrimaryAction = false;
     public bool SecondaryAction = false;
+    public bool StartTurn = true;
     public int Initiative = 0;
+    public float Defending = 1.0f;
+    public int DamageTaken = 0;
 
 
     private void Awake()

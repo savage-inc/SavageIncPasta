@@ -262,7 +262,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 61481570}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 281493660}
+        m_MethodName: SetTurnOption
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &61481570
@@ -418,13 +429,17 @@ MonoBehaviour:
     BaseAttack: 5
     BaseArmour: 0
     CurrCol: 1
+    GoldDrop: 5
     Experience: 0
     Comfort: 0
   HealthText: {fileID: 1318749680}
   CurrentAction: 0
   PrimaryAction: 0
   SecondaryAction: 0
+  StartTurn: 1
   Initiative: 0
+  Defending: 1
+  DamageTaken: 0
 --- !u!114 &72626056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -551,13 +566,17 @@ MonoBehaviour:
     BaseAttack: 5
     BaseArmour: 0
     CurrCol: 1
+    GoldDrop: 5
     Experience: 0
     Comfort: 0
   HealthText: {fileID: 1381147273}
   CurrentAction: 0
   PrimaryAction: 0
   SecondaryAction: 0
+  StartTurn: 1
   Initiative: 0
+  Defending: 1
+  DamageTaken: 0
 --- !u!212 &110827214
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -755,13 +774,17 @@ MonoBehaviour:
     BaseAttack: 5
     BaseArmour: 0
     CurrCol: 1
+    GoldDrop: 5
     Experience: 0
     Comfort: 0
   HealthText: {fileID: 420508746}
   CurrentAction: 0
   PrimaryAction: 0
   SecondaryAction: 0
+  StartTurn: 1
   Initiative: 0
+  Defending: 1
+  DamageTaken: 0
 --- !u!212 &120704461
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1380,18 +1403,18 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 12
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 1
+    m_MaxSize: 135
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Ability
+  m_Text: Defend
 --- !u!222 &295693672
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1751,7 +1774,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 394125670}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 281493660}
+        m_MethodName: SetTurnOption
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &394125670
@@ -1910,13 +1944,17 @@ MonoBehaviour:
     BaseAttack: 5
     BaseArmour: 0
     CurrCol: 1
+    GoldDrop: 5
     Experience: 0
     Comfort: 0
   HealthText: {fileID: 30306853}
   CurrentAction: 0
   PrimaryAction: 0
   SecondaryAction: 0
+  StartTurn: 1
   Initiative: 0
+  Defending: 1
+  DamageTaken: 0
 --- !u!212 &481552406
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2442,7 +2480,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Ability
+  m_Text: Attack
 --- !u!222 &697924244
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2598,7 +2636,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 715403988}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 281493660}
+        m_MethodName: SetTurnOption
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &715403988
@@ -2936,13 +2985,17 @@ MonoBehaviour:
     BaseAttack: 5
     BaseArmour: 0
     CurrCol: 1
+    GoldDrop: 5
     Experience: 0
     Comfort: 0
   HealthText: {fileID: 1432116582}
   CurrentAction: 0
   PrimaryAction: 0
   SecondaryAction: 0
+  StartTurn: 1
   Initiative: 0
+  Defending: 1
+  DamageTaken: 0
 --- !u!212 &750556661
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4657,13 +4710,17 @@ MonoBehaviour:
     BaseAttack: 5
     BaseArmour: 0
     CurrCol: 1
+    GoldDrop: 5
     Experience: 0
     Comfort: 0
   HealthText: {fileID: 909279948}
   CurrentAction: 0
   PrimaryAction: 0
   SecondaryAction: 0
+  StartTurn: 1
   Initiative: 0
+  Defending: 1
+  DamageTaken: 0
 --- !u!114 &1128762637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5243,7 +5300,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1265507789}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 281493660}
+        m_MethodName: SetTurnOption
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1265507789
@@ -5578,13 +5646,17 @@ MonoBehaviour:
     BaseAttack: 5
     BaseArmour: 0
     CurrCol: 1
+    GoldDrop: 5
     Experience: 0
     Comfort: 0
   HealthText: {fileID: 781222838}
   CurrentAction: 0
   PrimaryAction: 0
   SecondaryAction: 0
+  StartTurn: 1
   Initiative: 0
+  Defending: 1
+  DamageTaken: 0
 --- !u!212 &1332402906
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5808,7 +5880,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1353516782}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 281493660}
+        m_MethodName: SetTurnOption
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1353516782
@@ -6353,13 +6436,17 @@ MonoBehaviour:
     BaseAttack: 5
     BaseArmour: 0
     CurrCol: 1
+    GoldDrop: 5
     Experience: 0
     Comfort: 0
   HealthText: {fileID: 1578214260}
   CurrentAction: 0
   PrimaryAction: 0
   SecondaryAction: 0
+  StartTurn: 1
   Initiative: 0
+  Defending: 1
+  DamageTaken: 0
 --- !u!212 &1505924761
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6842,7 +6929,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1671047316}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 281493660}
+        m_MethodName: SetTurnOption
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1671047316
@@ -6953,7 +7051,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1711904330}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 281493660}
+        m_MethodName: SetTurnOption
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1711904330
@@ -8324,7 +8433,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2073109115}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 281493660}
+        m_MethodName: SetTurnOption
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2073109115
@@ -8435,7 +8555,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2085354789}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 281493660}
+        m_MethodName: SetTurnOption
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2085354789

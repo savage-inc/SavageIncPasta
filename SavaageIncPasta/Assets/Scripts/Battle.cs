@@ -10,7 +10,13 @@ public enum TurnOption
     eATTACK,
     eDEFEND,
     eMOVE,
-    eACTION
+    eACTION,
+    eAbility1,
+    eAbility2,
+    eAbility3,
+    eAbility4,
+    eAbility5,
+    eAbility6
 }
 
 
@@ -88,7 +94,10 @@ public class Battle : MonoBehaviour
             }
         }
 
-        _battleCharacterList[_currentCharacterIndex].gameObject.GetComponent<Image>().color = Color.magenta;
+        if (_battleCharacterList[_currentCharacterIndex].StartTurn)
+        {
+            StartTurn();
+        }
 
         if (!_battleCharacterList[_currentCharacterIndex].Character.Player)
         {
@@ -111,6 +120,9 @@ public class Battle : MonoBehaviour
                 case TurnOption.eACTION:
                     SwitchAction(_battleCharacterList[_currentCharacterIndex]);
                     break;
+                case TurnOption.eAbility1:
+                    Ability(_battleCharacterList[_currentCharacterIndex].Character.Abilities[0]);
+                    break;
                 default:
                     break;
             }
@@ -123,11 +135,36 @@ public class Battle : MonoBehaviour
         }
         else if (_deadEnemies >= _enemyList.Count)
         {
+            float experience = 0;
             // Player wins
+            foreach (Character enemy in _enemyList)
+            {
+                //gold += enemy.GoldDrop; //Party gold needs to be added
+                experience += enemy.Experience;
+                
+            }
+            experience /= _characterList.Count;
+            foreach (BattleCharacter player in _battleCharacterList)
+            {
+                if(player.Character.Player)
+                {
+                    player.Character.Experience += (int)experience;
+
+                   player.Character.Comfort -= player.DamageTaken == 0 ? 1 : player.DamageTaken / 2;
+                }
+            }
             Vector2 newPos = new Vector2(PlayerPrefs.GetFloat("SceneOriginX"), PlayerPrefs.GetFloat("SceneOriginY"));
             PersistantData.SetPlayerPositionInNextScene(newPos);
             SceneManager.LoadScene(PlayerPrefs.GetInt("SceneOrigin"), LoadSceneMode.Single);
         }
+    }
+
+    void StartTurn()
+    {
+        BattleCharacter currentCharacter = _battleCharacterList[_currentCharacterIndex];
+        currentCharacter.gameObject.GetComponent<Image>().color = Color.magenta;
+        currentCharacter.Defending = 1.0f;
+        currentCharacter.StartTurn = false;
     }
 
     void SwitchAction(BattleCharacter currentCharacter)
@@ -232,6 +269,22 @@ public class Battle : MonoBehaviour
         }
     }
 
+    void Ability(int ability)
+    {
+        switch (_battleCharacterList[_currentCharacterIndex].Character.Class)
+        {
+            case ClassType.eWARRIOR:
+                //do stuff.
+                break;
+            case ClassType.eRANGER:
+                break;
+            case ClassType.eSHAMAN:
+                break;
+            case ClassType.eWIZARD:
+                break;
+        }
+    }
+
     public void SetTargettedCharacter(int characterIndex)
     {
         _targettedCharacterIndex = characterIndex;
@@ -240,13 +293,41 @@ public class Battle : MonoBehaviour
 
     public void SwitchInteractableCharacterButtons()
     {
-        for (int i = 0; i < _battleCharacterList.Count; i++)
+        if (_battleCharacterList[_currentCharacterIndex].Character.Class == ClassType.eWARRIOR)
         {
-            if (_battleCharacterList[i].Character.Alive)
+            int colToAttack = 1;
+            bool characterAvailable = false;
+            while (!characterAvailable && colToAttack <= 3)
             {
-                _battleCharacterList[i].gameObject.GetComponent<Button>().interactable = !_battleCharacterList[i].gameObject.GetComponent<Button>().interactable;
-            }
+                for (int i = 0; i < _battleCharacterList.Count; i++)
+                {
+                    if ((_battleCharacterList[i].Character.CurrCol == colToAttack && _battleCharacterList[i].Character.Alive && !_battleCharacterList[i].Character.Player) || _battleCharacterList[i].Character.Player)
+                    {
+                        _battleCharacterList[i].gameObject.GetComponent<Button>().interactable = !_battleCharacterList[i].gameObject.GetComponent<Button>().interactable;
+                        if(!_battleCharacterList[i].Character.Player)
+                        {
+                            characterAvailable = true;
+                        }
 
+                    }
+                }
+                if (!characterAvailable)
+                {
+                    colToAttack++;
+                }
+            }
+        }
+        else
+        {
+
+            for (int i = 0; i < _battleCharacterList.Count; i++)
+            {
+                if (_battleCharacterList[i].Character.Alive)
+                {
+                    _battleCharacterList[i].gameObject.GetComponent<Button>().interactable = !_battleCharacterList[i].gameObject.GetComponent<Button>().interactable;
+                }
+
+            }
         }
     }
 
@@ -307,14 +388,15 @@ public class Battle : MonoBehaviour
         {
             if (weapon == null)
             {
-                damage = attacker.BaseAttack;
+                damage = (int)(attacker.BaseAttack * _battleCharacterList[_targettedCharacterIndex].Defending);
+
             }
             else
             {
 
-                damage = (int)weapon.BaseDamage + Random.Range(-(int)weapon.VarianceDamage + classModifier / 2, (int)weapon.VarianceDamage + classModifier);
+                damage = (int)(weapon.BaseDamage + Random.Range(-(int)weapon.VarianceDamage + classModifier / 2, (int)weapon.VarianceDamage + classModifier) * _battleCharacterList[_targettedCharacterIndex].Defending);
             }
-
+            _battleCharacterList[_targettedCharacterIndex].DamageTaken += damage;
             _battleCharacterList[_targettedCharacterIndex].Character.ChangeHealth(-damage);
         }
         else
@@ -328,6 +410,7 @@ public class Battle : MonoBehaviour
             if (_battleCharacterList[_targettedCharacterIndex].Character.Player)
             {
                 _deadPlayers++;
+                //remove dead characters from list?
             }
             else
             {
@@ -350,9 +433,19 @@ public class Battle : MonoBehaviour
 
     void Defend(BattleCharacter defender)
     {
-        //defenders are the most important players in a football game
-        // I recommend Nemanja Vidic or Paul Dummett
-        _currentCharacterIndex++;
+        if (defender.Defending < 1.0f)
+        {
+            defender.Defending = 0.25f;
+        }
+        else if (defender.CurrentAction == ActionChoice.ePrimary)
+        {
+            defender.Defending = 0.5f;
+        }
+        else if (defender.CurrentAction == ActionChoice.eSecondary)
+        {
+            defender.Defending = 0.75f;
+        }
+        EndTurn();
     }
 
     void Move(BattleCharacter mover)
@@ -390,11 +483,14 @@ public class Battle : MonoBehaviour
         if (currentCharacter.PrimaryAction == true && currentCharacter.SecondaryAction == true)
         {
             currentCharacter.gameObject.GetComponent<Image>().color = Color.white;
+            currentCharacter.StartTurn = true;
+            currentCharacter.PrimaryAction = false;
+            currentCharacter.SecondaryAction = false;
             _currentCharacterIndex++;
         }
         _optionChosen = TurnOption.eNONE;
         _targettedCharacterIndex = -1;
-
+        
     }
 
     public void SetTurnOption(int turnOption)
