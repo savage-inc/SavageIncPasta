@@ -429,6 +429,8 @@ MonoBehaviour:
     BaseAttack: 5
     BaseArmour: 0
     CurrCol: 1
+    Mana: 0
+    Abilities: 01000000
     GoldDrop: 5
     Experience: 0
     Comfort: 0
@@ -440,6 +442,8 @@ MonoBehaviour:
   Initiative: 0
   Defending: 1
   DamageTaken: 0
+  ClassModifier: 0
+  ChanceToHitModifier: 0
 --- !u!114 &72626056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -566,6 +570,8 @@ MonoBehaviour:
     BaseAttack: 5
     BaseArmour: 0
     CurrCol: 1
+    Mana: 0
+    Abilities: 01000000
     GoldDrop: 5
     Experience: 0
     Comfort: 0
@@ -577,6 +583,8 @@ MonoBehaviour:
   Initiative: 0
   Defending: 1
   DamageTaken: 0
+  ClassModifier: 0
+  ChanceToHitModifier: 0
 --- !u!212 &110827214
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -774,6 +782,8 @@ MonoBehaviour:
     BaseAttack: 5
     BaseArmour: 0
     CurrCol: 1
+    Mana: 0
+    Abilities: 01000000
     GoldDrop: 5
     Experience: 0
     Comfort: 0
@@ -785,6 +795,8 @@ MonoBehaviour:
   Initiative: 0
   Defending: 1
   DamageTaken: 0
+  ClassModifier: 0
+  ChanceToHitModifier: 0
 --- !u!212 &120704461
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -963,7 +975,7 @@ RectTransform:
   m_Children:
   - {fileID: 699275257}
   m_Father: {fileID: 1860524019}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1074,7 +1086,7 @@ RectTransform:
   m_Children:
   - {fileID: 990824116}
   m_Father: {fileID: 1860524019}
-  m_RootOrder: 9
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1185,7 +1197,7 @@ RectTransform:
   m_Children:
   - {fileID: 392179989}
   m_Father: {fileID: 1860524019}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1456,7 +1468,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 711, y: -25}
+  m_AnchoredPosition: {x: 762, y: -25}
   m_SizeDelta: {x: 100, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &299789499
@@ -1944,6 +1956,8 @@ MonoBehaviour:
     BaseAttack: 5
     BaseArmour: 0
     CurrCol: 1
+    Mana: 0
+    Abilities: 01000000
     GoldDrop: 5
     Experience: 0
     Comfort: 0
@@ -1955,6 +1969,8 @@ MonoBehaviour:
   Initiative: 0
   Defending: 1
   DamageTaken: 0
+  ClassModifier: 0
+  ChanceToHitModifier: 0
 --- !u!212 &481552406
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2161,7 +2177,7 @@ RectTransform:
   m_Children:
   - {fileID: 796758124}
   m_Father: {fileID: 1860524019}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2573,7 +2589,7 @@ GameObject:
   - component: {fileID: 715403988}
   - component: {fileID: 715403987}
   m_Layer: 5
-  m_Name: Ability6Button
+  m_Name: DefendButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2591,7 +2607,7 @@ RectTransform:
   m_Children:
   - {fileID: 295693670}
   m_Father: {fileID: 1272123516}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2695,7 +2711,7 @@ GameObject:
   - component: {fileID: 738699863}
   - component: {fileID: 738699862}
   m_Layer: 5
-  m_Name: Slot9Button
+  m_Name: Ability11Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2709,11 +2725,11 @@ RectTransform:
   m_GameObject: {fileID: 738699860}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.99974597, y: 0.99974597, z: 0.99974597}
+  m_LocalScale: {x: 0.99949205, y: 0.99949205, z: 0.99949205}
   m_Children:
   - {fileID: 938937750}
-  m_Father: {fileID: 1860524019}
-  m_RootOrder: 8
+  m_Father: {fileID: 1272123516}
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2985,6 +3001,8 @@ MonoBehaviour:
     BaseAttack: 5
     BaseArmour: 0
     CurrCol: 1
+    Mana: 0
+    Abilities: 01000000
     GoldDrop: 5
     Experience: 0
     Comfort: 0
@@ -2996,6 +3014,8 @@ MonoBehaviour:
   Initiative: 0
   Defending: 1
   DamageTaken: 0
+  ClassModifier: 0
+  ChanceToHitModifier: 0
 --- !u!212 &750556661
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3444,7 +3464,7 @@ RectTransform:
   m_Children:
   - {fileID: 581413425}
   m_Father: {fileID: 1860524019}
-  m_RootOrder: 13
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3685,7 +3705,7 @@ GameObject:
   - component: {fileID: 934119211}
   - component: {fileID: 934119210}
   m_Layer: 5
-  m_Name: Slot1Button
+  m_Name: Ability6Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3697,13 +3717,13 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 934119208}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.99974597, y: 0.99974597, z: 0.99974597}
   m_Children:
   - {fileID: 1152227521}
-  m_Father: {fileID: 1860524019}
-  m_RootOrder: 0
+  m_Father: {fileID: 1272123516}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3814,7 +3834,7 @@ RectTransform:
   m_Children:
   - {fileID: 1053665156}
   m_Father: {fileID: 1860524019}
-  m_RootOrder: 14
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3962,7 +3982,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Inv. Slot
+  m_Text: Ability
 --- !u!222 &938937752
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4073,7 +4093,7 @@ RectTransform:
   m_Children:
   - {fileID: 961374994}
   m_Father: {fileID: 1860524019}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4509,7 +4529,7 @@ RectTransform:
   m_Children:
   - {fileID: 885631225}
   m_Father: {fileID: 1860524019}
-  m_RootOrder: 15
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4710,6 +4730,8 @@ MonoBehaviour:
     BaseAttack: 5
     BaseArmour: 0
     CurrCol: 1
+    Mana: 0
+    Abilities: 01000000
     GoldDrop: 5
     Experience: 0
     Comfort: 0
@@ -4721,6 +4743,8 @@ MonoBehaviour:
   Initiative: 0
   Defending: 1
   DamageTaken: 0
+  ClassModifier: 0
+  ChanceToHitModifier: 0
 --- !u!114 &1128762637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4828,7 +4852,7 @@ RectTransform:
   m_Children:
   - {fileID: 1940035192}
   m_Father: {fileID: 1860524019}
-  m_RootOrder: 11
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4976,7 +5000,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Inv. Slot
+  m_Text: Ability
 --- !u!222 &1152227523
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5090,7 +5114,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 522, y: -76.742546}
+  m_AnchoredPosition: {x: 557, y: -76.27}
   m_SizeDelta: {x: 259, y: 126.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1227153362
@@ -5255,7 +5279,7 @@ RectTransform:
   m_Children:
   - {fileID: 2030202076}
   m_Father: {fileID: 1272123516}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5380,18 +5404,20 @@ RectTransform:
   - {fileID: 394125668}
   - {fileID: 1711904328}
   - {fileID: 61481568}
+  - {fileID: 934119209}
   - {fileID: 715403986}
   - {fileID: 2073109113}
   - {fileID: 1265507787}
   - {fileID: 2085354787}
   - {fileID: 1671047314}
+  - {fileID: 738699861}
   m_Father: {fileID: 1456047486}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.31212893, y: 0.16926955}
-  m_AnchoredPosition: {x: -6.1966863, y: -4.0146813}
-  m_SizeDelta: {x: 353.6421, y: 107.655426}
+  m_AnchoredPosition: {x: -5.666, y: -4.0146813}
+  m_SizeDelta: {x: 421.106, y: 107.655}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1272123517
 MonoBehaviour:
@@ -5415,7 +5441,7 @@ MonoBehaviour:
   m_CellSize: {x: 40, y: 40}
   m_Spacing: {x: 29, y: 10}
   m_Constraint: 1
-  m_ConstraintCount: 5
+  m_ConstraintCount: 6
 --- !u!114 &1272123518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5646,6 +5672,8 @@ MonoBehaviour:
     BaseAttack: 5
     BaseArmour: 0
     CurrCol: 1
+    Mana: 0
+    Abilities: 01000000
     GoldDrop: 5
     Experience: 0
     Comfort: 0
@@ -5657,6 +5685,8 @@ MonoBehaviour:
   Initiative: 0
   Defending: 1
   DamageTaken: 0
+  ClassModifier: 0
+  ChanceToHitModifier: 0
 --- !u!212 &1332402906
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6436,6 +6466,8 @@ MonoBehaviour:
     BaseAttack: 5
     BaseArmour: 0
     CurrCol: 1
+    Mana: 0
+    Abilities: 01000000
     GoldDrop: 5
     Experience: 0
     Comfort: 0
@@ -6447,6 +6479,8 @@ MonoBehaviour:
   Initiative: 0
   Defending: 1
   DamageTaken: 0
+  ClassModifier: 0
+  ChanceToHitModifier: 0
 --- !u!212 &1505924761
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6625,7 +6659,7 @@ RectTransform:
   m_Children:
   - {fileID: 1782246434}
   m_Father: {fileID: 1860524019}
-  m_RootOrder: 10
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -6884,7 +6918,7 @@ RectTransform:
   m_Children:
   - {fileID: 1264173731}
   m_Father: {fileID: 1272123516}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -7128,7 +7162,7 @@ RectTransform:
   m_Children:
   - {fileID: 1634847290}
   m_Father: {fileID: 1860524019}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -7387,7 +7421,7 @@ RectTransform:
   m_Children:
   - {fileID: 1287671506}
   m_Father: {fileID: 1860524019}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -7498,7 +7532,7 @@ RectTransform:
   m_Children:
   - {fileID: 1934340647}
   m_Father: {fileID: 1860524019}
-  m_RootOrder: 12
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -7681,7 +7715,6 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 90.21484}
   m_LocalScale: {x: 0.015719278, y: 0.015719278, z: 0.015719278}
   m_Children:
-  - {fileID: 934119209}
   - {fileID: 173406622}
   - {fileID: 1788034058}
   - {fileID: 503819236}
@@ -7689,7 +7722,6 @@ RectTransform:
   - {fileID: 182936979}
   - {fileID: 2024741947}
   - {fileID: 1728015543}
-  - {fileID: 738699861}
   - {fileID: 177320707}
   - {fileID: 1559814774}
   - {fileID: 1146010637}
@@ -7702,8 +7734,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.55764467, y: 0}
   m_AnchorMax: {x: 1, y: 0.16926955}
-  m_AnchoredPosition: {x: 4.897413, y: -4.0146813}
-  m_SizeDelta: {x: 501.1886, y: 107.655426}
+  m_AnchoredPosition: {x: 5.38, y: -4.0146813}
+  m_SizeDelta: {x: 439.842, y: 107.655}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1860524020
 MonoBehaviour:
@@ -7727,7 +7759,7 @@ MonoBehaviour:
   m_CellSize: {x: 40, y: 40}
   m_Spacing: {x: 21, y: 10}
   m_Constraint: 1
-  m_ConstraintCount: 8
+  m_ConstraintCount: 7
 --- !u!114 &1860524021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8129,7 +8161,7 @@ RectTransform:
   m_Children:
   - {fileID: 1777028698}
   m_Father: {fileID: 1860524019}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -8388,7 +8420,7 @@ RectTransform:
   m_Children:
   - {fileID: 1477473974}
   m_Father: {fileID: 1272123516}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -8510,7 +8542,7 @@ RectTransform:
   m_Children:
   - {fileID: 953513742}
   m_Father: {fileID: 1272123516}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
