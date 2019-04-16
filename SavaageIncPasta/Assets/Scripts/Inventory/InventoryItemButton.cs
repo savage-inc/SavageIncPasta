@@ -31,6 +31,14 @@ public class InventoryItemButton : MonoBehaviour, ISelectHandler, IDeselectHandl
         button.gameObject.GetComponent<EventTrigger>().triggers.Add(exitEvent); 
     }
 
+    void Update()
+    {
+        if(Input.GetButtonDown("LB") || Input.GetButtonDown("RB"))
+        {
+            Destroy(_itemToolTipInstance);
+        }
+    }
+
     public void TransferItem(Inventory to)
     {
         if(Inventory == null || to == null || Item == null || Item.Item == null)
