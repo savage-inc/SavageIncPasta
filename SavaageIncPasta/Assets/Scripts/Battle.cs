@@ -122,22 +122,22 @@ public class Battle : MonoBehaviour
                     SwitchAction(currentCharacter);
                     break;
                 case TurnOption.eAbility1:
-                    Ability(currentCharacter.Character.Abilities[0], currentCharacter.Character);
+                    Ability(currentCharacter.Character.Abilities[0], currentCharacter);
                     break;
                 case TurnOption.eAbility2:
-                    Ability(currentCharacter.Character.Abilities[1], currentCharacter.Character);
+                    Ability(currentCharacter.Character.Abilities[1], currentCharacter);
                     break;
                 case TurnOption.eAbility3:
-                    Ability(currentCharacter.Character.Abilities[2], currentCharacter.Character);
+                    Ability(currentCharacter.Character.Abilities[2], currentCharacter);
                     break;
                 case TurnOption.eAbility4:
-                    Ability(currentCharacter.Character.Abilities[3], currentCharacter.Character);
+                    Ability(currentCharacter.Character.Abilities[3], currentCharacter);
                     break;
                 case TurnOption.eAbility5:
-                    Ability(currentCharacter.Character.Abilities[4], currentCharacter.Character);
+                    Ability(currentCharacter.Character.Abilities[4], currentCharacter);
                     break;
                 case TurnOption.eAbility6:
-                    Ability(currentCharacter.Character.Abilities[5], currentCharacter.Character);
+                    Ability(currentCharacter.Character.Abilities[5], currentCharacter);
                     break;
                 default:
                     break;
@@ -284,46 +284,221 @@ public class Battle : MonoBehaviour
         {
             if (hitChance())
             {
-                BattleCharacter attacker = _battleCharacterList[_currentCharacterIndex];
-                Character defender = _battleCharacterList[_targettedCharacterIndex].Character;
-                int damage = 0;
-
-                var weapon = attacker.Character.Equipment.GetEquipedWeapon();
-
-                if (weapon == null)
-                {
-                    damage = (int)(attacker.Character.BaseAttack * _battleCharacterList[_targettedCharacterIndex].Defending);
-                }
-                else
-                {
-                    damage = (int)(weapon.BaseDamage + Random.Range(-(int)weapon.VarianceDamage + attacker.ClassModifier / 2, (int)weapon.VarianceDamage + attacker.ClassModifier) * _battleCharacterList[_targettedCharacterIndex].Defending);
-                }
-                DealDamage(damage);
+                DealDamage(CalculateDamage());
             }
         }
     }
-    void WizardAbility(int abilityNumber, Character attacker)
+
+    void WarriorAbility(int abilityNumber, BattleCharacter attacker)
     {
         switch (abilityNumber)
         {
             case 1:
-                LightningBolt(attacker);
+                MacNSnack(attacker.Character);
                 break;
             case 2:
-                MagicMissile(attacker);
+                RecklessCharge();
                 break;
             case 3:
-                Slow(attacker);
+                ConchiglieShell(attacker);
                 break;
             case 4:
-                Teleport(attacker);
+                RigatiBoomerang();
                 break;
             case 5:
-                Disorientate(attacker);
+                SpikedBucatini(attacker);
+                break;
+            case 6:
+                PenneStorm(attacker);
                 break;
         }
     }
-    void LightningBolt(Character attacker)
+
+    void MacNSnack(Character attacker)
+    {
+        attacker.ChangeHealth(5);
+    }
+
+    void RecklessCharge()
+    {
+        if (_targettedCharacterIndex > -1)
+        {
+            if (hitChance())
+            {
+                DealDamage((int)(CalculateDamage() * 1.5));
+            }
+        }
+
+        int col = _battleCharacterList[_targettedCharacterIndex].Character.CurrCol;
+        for (int i = 0; i < _battleCharacterList.Count; i++)
+        {
+            if (_battleCharacterList[i].Character.Alive && !_battleCharacterList[i].Character.Player && _battleCharacterList[i].Character.CurrCol <= col)
+            {
+                if (hitChance())
+                {
+                    _targettedCharacterIndex = _currentCharacterIndex;
+                    DealDamage(3);
+                }
+            }
+        }
+    }
+    void ConchiglieShell(BattleCharacter attacker)
+    {
+        Defend(attacker);
+        Defend(attacker);
+    }
+    void RigatiBoomerang()
+    {
+        if(hitChance())
+        {
+            PlayerAttack();
+        }
+        if(hitChance())
+        {
+            PlayerAttack();
+        }
+        
+    }
+    void SpikedBucatini(BattleCharacter attacker)
+    {
+        attacker.SpikedBucatini = true;
+    }
+    void PenneStorm(BattleCharacter attacker)
+    {
+        int count = 0;
+        while(count < 2)
+        {
+            if (hitChance())
+            {
+                PlayerAttack();
+                do
+                {
+                    _targettedCharacterIndex = Random.Range(0, _battleCharacterList.Count);
+                } while (_battleCharacterList[_targettedCharacterIndex].Character.Player);
+            }
+            else
+            {
+                count++;
+            }
+        }
+        attacker.PrimaryAction = true;
+        attacker.SecondaryAction = true;
+    }
+
+    void RangerAbility(int abilityNumber, BattleCharacter attacker)
+    {
+        switch (abilityNumber)
+        {
+            case 1:
+                FusiliShot(attacker.Character);
+                break;
+            case 2:
+                FarfalleShot(attacker.Character);
+                break;
+            case 3:
+                LasagneCloak(attacker);
+                break;
+            case 4:
+                StelleStars(attacker.Character);
+                break;
+            case 5:
+                BackStab(attacker.Character);
+                break;
+            case 6:
+                MacaroniFlurry(attacker);
+                break;
+        }
+    }
+
+    void FusiliShot(Character attacker)
+    {
+        if (hitChance(1.2f))
+        {
+            DealDamage(CalculateDamage() + attacker.Level);
+        }
+    }
+    void FarfalleShot(Character attacker)
+    {
+        if (hitChance())
+        {
+            DealDamage(CalculateDamage() / 2);
+        }
+        int col = _battleCharacterList[_targettedCharacterIndex].Character.CurrCol;
+        do
+        {
+            _targettedCharacterIndex = Random.Range(0, _battleCharacterList.Count);
+        } while (_battleCharacterList[_targettedCharacterIndex].Character.CurrCol != col && _battleCharacterList[_targettedCharacterIndex].Character.Player);
+    }
+    void LasagneCloak(BattleCharacter attacker)
+    {
+        attacker.Initiative = (int)(attacker.Initiative * 1.7);
+    }
+    void StelleStars(Character attacker)
+    {
+        for(int i = 0; i < 3; i++)
+        {
+            do
+            {
+                _targettedCharacterIndex = Random.Range(0, _battleCharacterList.Count);
+            } while (_battleCharacterList[_targettedCharacterIndex].Character.Player && _battleCharacterList[_targettedCharacterIndex].Character.Alive);
+            if (hitChance())
+            {
+                DealDamage(CalculateDamage() / 2);
+            }
+        }
+    }
+    void BackStab(Character attacker)
+    {
+        if(hitChance())
+        {
+            DealDamage((int)(CalculateDamage() * 1.5));
+        }
+    }
+    void MacaroniFlurry(BattleCharacter attacker)
+    {
+        for(int i = 0; i < 6; i++)
+        {
+            do
+            {
+                _targettedCharacterIndex = Random.Range(0, _battleCharacterList.Count);
+            } while (_battleCharacterList[_targettedCharacterIndex].Character.Player && _battleCharacterList[_targettedCharacterIndex].Character.Alive);
+            if(hitChance())
+            {
+                DealDamage(CalculateDamage());
+            }
+        }
+        attacker.PrimaryAction = true;
+        attacker.SecondaryAction = true;
+    }
+
+    void WizardAbility(int abilityNumber, BattleCharacter attacker)
+    {
+        switch (abilityNumber)
+        {
+            case 1:
+                ScaldingSauce(attacker.Character);
+                break;
+            case 2:
+                Meatball(attacker.Character);
+                break;
+            case 3:
+                Slow(attacker.Character);
+                break;
+            case 4:
+                Teleport(attacker.Character);
+                break;
+            case 5:
+                FlourAttack(attacker.Character);
+                break;
+            case 6:
+                RavioliBomb(attacker.Character);
+                break;
+            case 7:
+                SpaghettiWhip(attacker);
+                break;
+        }
+    }
+    void ScaldingSauce(Character attacker)
     {
         if (_targettedCharacterIndex > -1)
         {
@@ -334,7 +509,7 @@ public class Battle : MonoBehaviour
         }
         attacker.Mana -= 1;
     }
-    void MagicMissile(Character attacker)
+    void Meatball(Character attacker)
     {
         if (_targettedCharacterIndex > -1)
         {
@@ -374,33 +549,36 @@ public class Battle : MonoBehaviour
         }
         attacker.Mana -= 5;
     }
-    void Disorientate(Character attacker)
+    void FlourAttack(Character attacker)
     {
         if (_targettedCharacterIndex > -1)
         {
-            foreach (BattleCharacter character in _battleCharacterList)
+            int col = _battleCharacterList[_targettedCharacterIndex].Character.CurrCol;
+            for (int i = 0; i < _battleCharacterList.Count; i++)
             {
-                if (!character.Character.Player && character.Character.CurrCol == _battleCharacterList[_targettedCharacterIndex].Character.CurrCol)
+                if (_battleCharacterList[i].Character.Alive && !_battleCharacterList[i].Character.Player && _battleCharacterList[i].Character.CurrCol == col)
                 {
                     if (hitChance())
                     {
-                        character.ChanceToHitModifier -= 5 * attacker.Intelligence;
+                        _battleCharacterList[i].ChanceToHitModifier -= 5 * attacker.Intelligence;
                     }
                 }
             }
         }
         attacker.Mana -= 5;
     }
-    void Fireball(Character attacker)
+    void RavioliBomb(Character attacker)
     {
         if (_targettedCharacterIndex > -1)
         {
-            foreach (BattleCharacter character in _battleCharacterList)
+            int col = _battleCharacterList[_targettedCharacterIndex].Character.CurrCol;
+            for (int i = 0; i < _battleCharacterList.Count; i++)
             {
-                if (!character.Character.Player && character.Character.CurrCol == _battleCharacterList[_targettedCharacterIndex].Character.CurrCol)
+                if (_battleCharacterList[i].Character.Alive && !_battleCharacterList[i].Character.Player && _battleCharacterList[i].Character.CurrCol == col)
                 {
                     if (hitChance())
                     {
+                        _targettedCharacterIndex = i;
                         DealDamage(attacker.Intelligence * Random.Range(2, 5));
                     }
                 }
@@ -408,19 +586,37 @@ public class Battle : MonoBehaviour
         }
         attacker.Mana -= 5;
     }
-
-    void Ability(int ability, Character attacker)
+    void SpaghettiWhip(BattleCharacter attacker)
     {
-        switch (attacker.Class)
+        for (int i = 0; i < _battleCharacterList.Count; i++)
+        {
+            if (_battleCharacterList[i].Character.Alive && !_battleCharacterList[i].Character.Player)
+            {
+                _targettedCharacterIndex = i;
+                DealDamage((int)(attacker.Character.Intelligence * (1.5 + attacker.Character.Level)));
+            }
+        }
+        attacker.Character.Mana -= 10;
+        attacker.PrimaryAction = true;
+        attacker.SecondaryAction = true;
+    }
+
+
+    void Ability(int ability, BattleCharacter attacker)
+    {
+        switch (attacker.Character.Class)
         {
             case ClassType.eWARRIOR:
+                WarriorAbility(ability, attacker);
                 break;
             case ClassType.eRANGER:
+                RangerAbility(ability, attacker);
                 break;
             case ClassType.eSHAMAN:
+                ShamanAbility(ability, attacker);
                 break;
             case ClassType.eWIZARD:
-               WizardAbility(ability, attacker);
+                WizardAbility(ability, attacker);
                 break;
         }
     }
@@ -488,28 +684,43 @@ public class Battle : MonoBehaviour
         {
             if (hitChance())
             {
-                BattleCharacter attacker = _battleCharacterList[_currentCharacterIndex];
-                Character defender = _battleCharacterList[_targettedCharacterIndex].Character;
-                int damage = 0;
+                DealDamage(CalculateDamage());
 
-                var weapon = attacker.Character.Equipment.GetEquipedWeapon();
-
-                if (weapon == null)
+                if(_battleCharacterList[_targettedCharacterIndex].SpikedBucatini)
                 {
-                    damage = (int)(attacker.Character.BaseAttack * _battleCharacterList[_targettedCharacterIndex].Defending);
-
+                    int currChar = _currentCharacterIndex;
+                    _currentCharacterIndex = _targettedCharacterIndex;
+                    _targettedCharacterIndex = _currentCharacterIndex;
+                    if(hitChance())
+                    {
+                        DealDamage(CalculateDamage());
+                    }
+                    _currentCharacterIndex = currChar;
                 }
-                else
-                {
-                    damage = (int)(weapon.BaseDamage + Random.Range(-(int)weapon.VarianceDamage + attacker.ClassModifier / 2, (int)weapon.VarianceDamage + attacker.ClassModifier) * _battleCharacterList[_targettedCharacterIndex].Defending);
-                }
-                DealDamage(damage);
 
             }
         }
     }
 
-    bool hitChance()
+    int CalculateDamage()
+    {
+        BattleCharacter attacker = _battleCharacterList[_currentCharacterIndex];
+        BattleCharacter defender = _battleCharacterList[_targettedCharacterIndex];
+        int damage = 0;
+
+        var weapon = attacker.Character.Equipment.GetEquipedWeapon();
+
+        if (weapon == null)
+        {
+            return damage = (int)(attacker.Character.BaseAttack * _battleCharacterList[_targettedCharacterIndex].Defending);
+        }
+        else
+        {
+            return damage = (int)(weapon.BaseDamage + Random.Range(-(int)weapon.VarianceDamage + attacker.ClassModifier / 2, (int)weapon.VarianceDamage + attacker.ClassModifier) * _battleCharacterList[_targettedCharacterIndex].Defending);
+        }
+    }
+
+    bool hitChance(float hitModifier = 1)
     {
         float chanceToHit = 0.5f;
         BattleCharacter attacker = _battleCharacterList[_currentCharacterIndex];
@@ -522,8 +733,8 @@ public class Battle : MonoBehaviour
             magic = weapon.MagicalModifier;
         }
 
-        chanceToHit = ((50.0f + attacker.ClassModifier * 10.0f - defender.BaseArmour * 2.0f + magic) / 100.0f) - attacker.ChanceToHitModifier;
-        if(attacker.CurrentAction == ActionChoice.eSecondary)
+        chanceToHit = (((50.0f + attacker.ClassModifier * 10.0f - defender.BaseArmour * 2.0f + magic) / 100.0f) - attacker.ChanceToHitModifier) * hitModifier;
+        if (attacker.CurrentAction == ActionChoice.eSecondary)
         {
             chanceToHit *= 0.75f;
         }
@@ -535,12 +746,11 @@ public class Battle : MonoBehaviour
         }
 
         return false;
-
     }
 
     void DealDamage(int damage)
     {
-        
+
         _battleCharacterList[_targettedCharacterIndex].DamageTaken += damage;
         _battleCharacterList[_targettedCharacterIndex].Character.ChangeHealth(-damage);
 

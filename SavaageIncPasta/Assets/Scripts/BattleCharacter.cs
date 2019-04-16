@@ -23,13 +23,14 @@ public class BattleCharacter : MonoBehaviour {
     public int DamageTaken = 0;
     public int ClassModifier = 0;
     public int ChanceToHitModifier = 0;
+    public bool SpikedBucatini = false;
         
     private void Awake()
     {
         switch (Character.Class)
         {
             case ClassType.eWARRIOR:
-                ClassModifier = Character.Strength;
+                ClassModifier = Character.Strength + 2;
                 break;
             case ClassType.eRANGER:
                 ClassModifier = Character.Dexterity;
