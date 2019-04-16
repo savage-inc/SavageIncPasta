@@ -56,7 +56,6 @@ public class InventoryItemButton : MonoBehaviour, ISelectHandler, IDeselectHandl
     {
         if (Inventory == null || to == null || Item == null || Item.Item == null)
             return;
-
         switch (Item.Item.ItemType)
         {
             case ItemType.eCONSUMABLE:
@@ -69,6 +68,8 @@ public class InventoryItemButton : MonoBehaviour, ISelectHandler, IDeselectHandl
                 break;
         }
 
+        FindObjectOfType<EventSystem>().SetSelectedGameObject(transform.parent.GetChild(0).gameObject);
+
         Destroy(_itemToolTipInstance);
     }
 
@@ -78,6 +79,8 @@ public class InventoryItemButton : MonoBehaviour, ISelectHandler, IDeselectHandl
             return;
 
         Inventory.RemoveItem(Item);
+
+        FindObjectOfType<EventSystem>().SetSelectedGameObject(transform.parent.GetChild(0).gameObject);
 
         Destroy(_itemToolTipInstance);
     }
