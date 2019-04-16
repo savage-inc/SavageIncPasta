@@ -27,37 +27,22 @@ public class BasicLevelling : MonoBehaviour
             switch (_character.Class)
             {
                 case ClassType.eWARRIOR:
-                    IncreaseStats(2, 2, 0, 0, 1);
-                    WarriorsPathway(true);
                     break;
                 case ClassType.eRANGER:
-                    IncreaseStats(0, 2, 2, 0, 1);
                     break;
                 case ClassType.eWIZARD:
-                    IncreaseStats(0, 1, 1, 2, 1);
                     break;
                 case ClassType.eSHAMAN:
-                    IncreaseStats(1, 1, 1, 2, 0);
                     break;
                 default:
-                    IncreaseStats(1, 1, 1, 1, 1);
                     break;
             }
         }
     }
 
-    private void IncreaseStats(int strengthIncreaseValue, int constitutionIncreaseValue, int dexterityIncreaseValue, int intelligenceIncreaseValue, int charismaIncreaseValue)
-    {
-        _character.Strength += strengthIncreaseValue;
-        _character.Constitution += constitutionIncreaseValue;
-        _character.Dexterity += dexterityIncreaseValue;
-        _character.Intelligence += intelligenceIncreaseValue;
-        _character.Charisma += charismaIncreaseValue;
-    }
-
     private void WarriorsPathway(bool knight)
     {
-        switch (_character.Level)
+        switch (_character.Level + 1)
         {
             case 1:
                 //way of the warrior
@@ -76,13 +61,11 @@ public class BasicLevelling : MonoBehaviour
                 if (knight)
                 {
                     //constitution up
-                    IncreaseStats(0, 1, 0, 0, 0);
                     _character.Constitution++;
                 }
                 else
                 {
                     //strength up
-                    IncreaseStats(1, 0, 0, 0, 0);
                     _character.Strength++;
                 }
                 break;
@@ -98,7 +81,6 @@ public class BasicLevelling : MonoBehaviour
                 break;
             case 5:
                 //brutal critical and strength up
-                IncreaseStats(1, 0, 0, 0, 0);
                 _character.Strength++;
                 break;
             case 6:
@@ -113,20 +95,17 @@ public class BasicLevelling : MonoBehaviour
                 break;
             case 7:
                 //constitution up
-                IncreaseStats(0, 1, 0, 0, 0);
                 _character.Constitution++;
                 break;
             case 8:
                 if (knight)
                 {
                     //constitution up and noble rite
-                    IncreaseStats(0, 1, 0, 0, 0);
                     _character.Constitution++;
                 }
                 else
                 {
                     //strength up and fury
-                    IncreaseStats(1, 0, 0, 0, 0);
                     _character.Strength++;
                 }
                 break;

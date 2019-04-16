@@ -272,6 +272,7 @@
     <Compile Include="Assets\3rdParty\TextMeshPro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\3rdParty\TextMeshPro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
     <Compile Include="Assets\BasicLevelling.cs" />
+    <Compile Include="Assets\LevelUpMenu.cs" />
     <Compile Include="Assets\Scripts\AI\AIController.cs" />
     <Compile Include="Assets\Scripts\AI\AStarPathfinding.cs" />
     <Compile Include="Assets\Scripts\AI\FindPathToTarget.cs" />
