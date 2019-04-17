@@ -288,6 +288,7 @@
     <Compile Include="Assets\Scripts\DontDestroy.cs" />
     <Compile Include="Assets\Scripts\EnemyCreator.cs" />
     <Compile Include="Assets\Scripts\EnemyManager.cs" />
+    <Compile Include="Assets\Scripts\EnemyTeamCreator.cs" />
     <Compile Include="Assets\Scripts\GenerateRandomCharacter.cs" />
     <Compile Include="Assets\Scripts\InputManager.cs" />
     <Compile Include="Assets\Scripts\Inventory\Base\CharacterEquipment.cs" />

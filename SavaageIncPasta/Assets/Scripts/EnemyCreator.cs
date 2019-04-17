@@ -81,6 +81,16 @@ public class EnemyCreator : EditorWindow
         _enemy.Magic = (MagicType)EditorGUILayout.EnumPopup(_enemy.Magic);
         EditorGUILayout.EndHorizontal();
 
+        EditorGUILayout.BeginHorizontal();
+        GUILayout.Label("Enemy Base Damage");
+        _enemy.BaseAttack = EditorGUILayout.IntField(_enemy.BaseAttack);
+        EditorGUILayout.EndHorizontal();
+
+        EditorGUILayout.BeginHorizontal();
+        GUILayout.Label("Enemy Base Armour");
+        _enemy.BaseArmour = EditorGUILayout.IntField(_enemy.BaseArmour);
+        EditorGUILayout.EndHorizontal();
+
         EditorGUILayout.EndVertical();
 
         if (GUILayout.Button("Save to File"))
