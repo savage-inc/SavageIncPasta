@@ -86,7 +86,7 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Y")) // X button
+        if (Input.GetButtonDown("Y") || Input.GetKeyDown(KeyCode.I)) // X button
         {
             if (Inventory.activeInHierarchy)
             {

@@ -28,7 +28,8 @@ public class InventoryItemButton : MonoBehaviour, ISelectHandler, IDeselectHandl
 
         button.gameObject.AddComponent<EventTrigger>();
         button.gameObject.GetComponent<EventTrigger>().triggers.Add(enterEvent);
-        button.gameObject.GetComponent<EventTrigger>().triggers.Add(exitEvent); 
+        button.gameObject.GetComponent<EventTrigger>().triggers.Add(exitEvent);
+
     }
 
     void Update()
@@ -109,6 +110,8 @@ public class InventoryItemButton : MonoBehaviour, ISelectHandler, IDeselectHandl
             return;
 
         //instantiate tool tip
+        Destroy(_itemToolTipInstance);
+
         _itemToolTipInstance = Instantiate(ItemToolTipPrefab);
         _itemToolTipInstance.gameObject.SetActive(true);
 
@@ -126,6 +129,8 @@ public class InventoryItemButton : MonoBehaviour, ISelectHandler, IDeselectHandl
             return;
 
         //instantiate tool tip
+        Destroy(_itemToolTipInstance);
+
         _itemToolTipInstance = Instantiate(ItemToolTipPrefab);
         _itemToolTipInstance.gameObject.SetActive(true);
 

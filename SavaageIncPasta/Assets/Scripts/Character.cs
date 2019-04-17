@@ -33,6 +33,7 @@ public class Character
     public Character()
     {
         Equipment = new CharacterEquipment();
+        Equipment.Character = this;
         CurrentHealth = MaxHealth;
     }
 

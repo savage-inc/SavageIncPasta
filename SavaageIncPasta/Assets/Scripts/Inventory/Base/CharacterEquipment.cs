@@ -6,6 +6,10 @@ using UnityEngine;
 [System.Serializable]
 public class CharacterEquipment : Inventory
 {
+    public Character Character;
+    private MagicType _armourMagicType;
+    private MagicType _weaponMagicType;
+
     protected CharacterEquipment(SerializationInfo info, StreamingContext context) : base(info, context)
     {
     }
@@ -17,6 +21,13 @@ public class CharacterEquipment : Inventory
 
     public void EquipArmour(ArmourItemData armourItem ,Inventory partyInventory)
     {
+        //check if the magic type of the item is the same as the rest
+        if(armourItem.MagicalType != _armourMagicType && hasArmour())
+        {
+            return;
+        }
+
+
         //Remove the item from the part inventory
         partyInventory.RemoveItem(armourItem.Name);
 
@@ -45,10 +56,25 @@ public class CharacterEquipment : Inventory
 
         //Add it to the equipment
         AddItem(armourItem);
+
+        _armourMagicType = armourItem.MagicalType;
     }
 
     public void EquipWeapon(WeaponItemData weaponItem, Inventory partyInventory)
     {
+        //check if the magic type of the item is the same as the rest
+        if (weaponItem.MagicalType != _weaponMagicType)
+        {
+            if (Character.Magic != MagicType.eNONE && hasWeapon())
+            {
+                return;
+            }
+            else if (Character.Magic == weaponItem.MagicalType)
+            {
+                return;
+            }
+        }
+
         //Remove the item from the part inventory
         partyInventory.RemoveItem(weaponItem.Name);
 
@@ -78,6 +104,9 @@ public class CharacterEquipment : Inventory
 
         //Add it to the equipment
         AddItem(weaponItem);
+
+        _weaponMagicType = weaponItem.MagicalType;
+
     }
 
     public WeaponItemData GetEquipedWeapon()
@@ -108,5 +137,29 @@ public class CharacterEquipment : Inventory
         }
 
         return null;
+    }
+
+    bool hasArmour()
+    {
+        foreach (var item in _inventoryItems)
+        {
+            if(item.Item.ItemType == ItemType.eARMOUR)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    bool hasWeapon()
+    {
+        foreach (var item in _inventoryItems)
+        {
+            if (item.Item.ItemType == ItemType.eWEAPON)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }
