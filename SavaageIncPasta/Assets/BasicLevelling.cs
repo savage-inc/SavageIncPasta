@@ -1,116 +1,145 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BasicLevelling : MonoBehaviour
 {
-    public int Level; //Exists in character class
-    public int CurrentXP; //^^
-    private Character _character;
+    public GUIStyle FontStyle;
+    private List<Character> _characters;
+    private List<Character> _levelledUpCharacters;
+    private PlayerManager _playerManager;
+    private GameObject _choiceMenu;
+
+    private void Awake()
+    {
+        _choiceMenu = GameObject.Find("Choice Menu");
+        _levelledUpCharacters = new List<Character>();
+        _playerManager = FindObjectOfType<PlayerManager>();
+    }
 
     // Use this for initialization
     void Start()
     {
-        _character = gameObject.GetComponent<Character>();
-        Level = _character.Level;
-        CurrentXP = _character.Experience;
+        _characters = _playerManager.Characters;
+        CheckLevels();
     }
 
-    public void CheckLevel()
+    public void CheckLevels()
     {
-        int xpNeededForNextLevel = 11 * (Level * Level) + 30;
-
-        if (CurrentXP >= xpNeededForNextLevel)
+        foreach (Character character in _characters)
         {
-            Level++;
+            character.Experience += 20;
+            //int xpNeededForNextLevel = 11 * (character.Level * character.Level) + 30;
+            int xpNeededForNextLevel = 19;
 
-            switch (_character.Class)
+            if (character.Experience >= xpNeededForNextLevel)
             {
-                case ClassType.eWARRIOR:
-                    break;
-                case ClassType.eRANGER:
-                    break;
-                case ClassType.eWIZARD:
-                    break;
-                case ClassType.eSHAMAN:
-                    break;
-                default:
-                    break;
+                character.Level++;
+
+                _levelledUpCharacters.Add(character);
             }
         }
     }
 
-    private void WarriorsPathway(bool knight)
+    private void Update()
     {
-        switch (_character.Level + 1)
+        if (_levelledUpCharacters.Count > 0 && Input.GetKeyDown(KeyCode.Joystick1Button7))
         {
-            case 1:
-                //way of the warrior
-                break;
-            case 2:
-                if (knight)
-                {
-                    //shield master
-                }
-                else
-                {
-                    //charge
-                }
-                break;
-            case 3:
-                if (knight)
-                {
-                    //constitution up
-                    _character.Constitution++;
-                }
-                else
-                {
-                    //strength up
-                    _character.Strength++;
-                }
-                break;
-            case 4:
-                if (knight)
-                {
-                    //protector
-                }
-                else
-                {
-                    //rage
-                }
-                break;
-            case 5:
-                //brutal critical and strength up
-                _character.Strength++;
-                break;
-            case 6:
-                if (knight)
-                {
-                    //honour guard
-                }
-                else
-                {
-                    //frenzy
-                }
-                break;
-            case 7:
-                //constitution up
-                _character.Constitution++;
-                break;
-            case 8:
-                if (knight)
-                {
-                    //constitution up and noble rite
-                    _character.Constitution++;
-                }
-                else
-                {
-                    //strength up and fury
-                    _character.Strength++;
-                }
-                break;
-            default:
-                break;
+            GameObject.Find("UICanvas").GetComponent<LevelUpMenu>().LevelledUp();
         }
     }
+
+    public void RemoveFirstLevelledUpCharacterFromList()
+    {
+        _levelledUpCharacters.RemoveAt(0);
+    }
+
+    private void OnGUI()
+    {
+        if (_levelledUpCharacters.Count > 0)
+        {
+            GUI.Box(new Rect(Screen.width - 350, 50, 350, 50), "A character has levelled up!", FontStyle);
+
+            if (_choiceMenu.activeInHierarchy)
+            {
+                GUI.Box(new Rect(Screen.width / 2 - 100, 100, 250, 50), _levelledUpCharacters[0].Name, FontStyle);
+                GUI.Box(new Rect(Screen.width / 2 - 100, 170, 250, 50), "Welcome to level " + _levelledUpCharacters[0].Level, FontStyle);
+            }
+        }
+    }
+
+    //private void WarriorsPathway(bool knight)
+    //{
+    //    switch (_character.Level + 1)
+    //    {
+    //        case 1:
+    //            //way of the warrior
+    //            break;
+    //        case 2:
+    //            if (knight)
+    //            {
+    //                //shield master
+    //            }
+    //            else
+    //            {
+    //                //charge
+    //            }
+    //            break;
+    //        case 3:
+    //            if (knight)
+    //            {
+    //                //constitution up
+    //                _character.Constitution++;
+    //            }
+    //            else
+    //            {
+    //                //strength up
+    //                _character.Strength++;
+    //            }
+    //            break;
+    //        case 4:
+    //            if (knight)
+    //            {
+    //                //protector
+    //            }
+    //            else
+    //            {
+    //                //rage
+    //            }
+    //            break;
+    //        case 5:
+    //            //brutal critical and strength up
+    //            _character.Strength++;
+    //            break;
+    //        case 6:
+    //            if (knight)
+    //            {
+    //                //honour guard
+    //            }
+    //            else
+    //            {
+    //                //frenzy
+    //            }
+    //            break;
+    //        case 7:
+    //            //constitution up
+    //            _character.Constitution++;
+    //            break;
+    //        case 8:
+    //            if (knight)
+    //            {
+    //                //constitution up and noble rite
+    //                _character.Constitution++;
+    //            }
+    //            else
+    //            {
+    //                //strength up and fury
+    //                _character.Strength++;
+    //            }
+    //            break;
+    //        default:
+    //            break;
+    //    }
+    //}
 }
