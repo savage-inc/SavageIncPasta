@@ -139,6 +139,46 @@ public class CharacterEquipment : Inventory
         return null;
     }
 
+    public float GetArmourValue()
+    {
+        float value = 0;
+        foreach (var item in _inventoryItems)
+        {
+            if (item.Item.ItemType == ItemType.eARMOUR)
+            {
+                ArmourItemData armourItem = (ArmourItemData)item.Item;
+                value += armourItem.Value;
+            }
+        }
+        return value;
+    }
+
+    public MagicType GetArmourMagicType()
+    {
+        foreach (var item in _inventoryItems)
+        {
+            if (item.Item.ItemType == ItemType.eARMOUR)
+            {
+                ArmourItemData armourItem = (ArmourItemData)item.Item;
+                return armourItem.MagicalType;
+            }
+        }
+        return MagicType.eNONE;
+    }
+
+    public MagicType GetWeaponMagicType()
+    {
+        foreach (var item in _inventoryItems)
+        {
+            if (item.Item.ItemType == ItemType.eWEAPON)
+            {
+                WeaponItemData weaponData = (WeaponItemData)item.Item;
+                return weaponData.MagicalType;
+            }
+        }
+        return MagicType.eNONE;
+    }
+
     bool hasArmour()
     {
         foreach (var item in _inventoryItems)
