@@ -264,12 +264,23 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 281493660}
+        m_MethodName: SetInteractableCharacterButtonsBool
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 281493660}
         m_MethodName: SetTurnOption
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 11
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -444,6 +455,8 @@ MonoBehaviour:
   DamageTaken: 0
   ClassModifier: 0
   ChanceToHitModifier: 0
+  SpikedBucatini: 0
+  AttackBuffModifier: 1
 --- !u!114 &72626056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -585,6 +598,8 @@ MonoBehaviour:
   DamageTaken: 0
   ClassModifier: 0
   ChanceToHitModifier: 0
+  SpikedBucatini: 0
+  AttackBuffModifier: 1
 --- !u!212 &110827214
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -797,6 +812,8 @@ MonoBehaviour:
   DamageTaken: 0
   ClassModifier: 0
   ChanceToHitModifier: 0
+  SpikedBucatini: 0
+  AttackBuffModifier: 1
 --- !u!212 &120704461
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1315,6 +1332,7 @@ MonoBehaviour:
   Enemy2: {fileID: 481552405}
   Enemy3: {fileID: 110827213}
   Enemy4: {fileID: 750556660}
+  InteractableCharacterButtons: 0
 --- !u!4 &281493661
 Transform:
   m_ObjectHideFlags: 0
@@ -1788,12 +1806,23 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 281493660}
+        m_MethodName: SetInteractableCharacterButtonsBool
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 281493660}
         m_MethodName: SetTurnOption
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 7
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1971,6 +2000,8 @@ MonoBehaviour:
   DamageTaken: 0
   ClassModifier: 0
   ChanceToHitModifier: 0
+  SpikedBucatini: 0
+  AttackBuffModifier: 1
 --- !u!212 &481552406
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2774,7 +2805,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 738699863}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 281493660}
+        m_MethodName: SetInteractableCharacterButtonsBool
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &738699863
@@ -3016,6 +3058,8 @@ MonoBehaviour:
   DamageTaken: 0
   ClassModifier: 0
   ChanceToHitModifier: 0
+  SpikedBucatini: 0
+  AttackBuffModifier: 1
 --- !u!212 &750556661
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3768,7 +3812,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 934119211}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 281493660}
+        m_MethodName: SetTurnOption
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &934119211
@@ -4745,6 +4800,8 @@ MonoBehaviour:
   DamageTaken: 0
   ClassModifier: 0
   ChanceToHitModifier: 0
+  SpikedBucatini: 0
+  AttackBuffModifier: 1
 --- !u!114 &1128762637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5326,12 +5383,23 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 281493660}
+        m_MethodName: SetInteractableCharacterButtonsBool
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 281493660}
         m_MethodName: SetTurnOption
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 8
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -5687,6 +5755,8 @@ MonoBehaviour:
   DamageTaken: 0
   ClassModifier: 0
   ChanceToHitModifier: 0
+  SpikedBucatini: 0
+  AttackBuffModifier: 1
 --- !u!212 &1332402906
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5912,12 +5982,23 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 281493660}
+        m_MethodName: SetInteractableCharacterButtonsBool
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 281493660}
         m_MethodName: SetTurnOption
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 5
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -6481,6 +6562,8 @@ MonoBehaviour:
   DamageTaken: 0
   ClassModifier: 0
   ChanceToHitModifier: 0
+  SpikedBucatini: 0
+  AttackBuffModifier: 1
 --- !u!212 &1505924761
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6965,6 +7048,17 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 281493660}
+        m_MethodName: SetInteractableCharacterButtonsBool
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 281493660}
         m_MethodName: SetTurnOption
         m_Mode: 3
         m_Arguments:
@@ -7087,12 +7181,23 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 281493660}
+        m_MethodName: SetInteractableCharacterButtonsBool
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 281493660}
         m_MethodName: SetTurnOption
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 9
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -8467,12 +8572,23 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 281493660}
+        m_MethodName: SetInteractableCharacterButtonsBool
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 281493660}
         m_MethodName: SetTurnOption
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 6
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -8589,12 +8705,23 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 281493660}
+        m_MethodName: SetInteractableCharacterButtonsBool
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 281493660}
         m_MethodName: SetTurnOption
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 10
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

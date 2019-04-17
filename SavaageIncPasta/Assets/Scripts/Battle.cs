@@ -16,7 +16,8 @@ public enum TurnOption
     eAbility3,
     eAbility4,
     eAbility5,
-    eAbility6
+    eAbility6,
+    eAbility7
 }
 
 
@@ -44,6 +45,8 @@ public class Battle : MonoBehaviour
 
     private int _deadEnemies = 0;
     private int _deadPlayers = 0;
+
+    public bool InteractableCharacterButtons = false;
 
     // Use this for initialization
     void Start()
@@ -79,12 +82,13 @@ public class Battle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        BattleCharacter currentCharacter = _battleCharacterList[_currentCharacterIndex];
         if (_currentCharacterIndex >= _battleCharacterList.Count)
         {
             DecideTurnOrder();
             _currentCharacterIndex = 0;
         }
+
+        BattleCharacter currentCharacter = _battleCharacterList[_currentCharacterIndex];
 
         while (!currentCharacter.Character.Alive)
         {
@@ -139,10 +143,12 @@ public class Battle : MonoBehaviour
                 case TurnOption.eAbility6:
                     Ability(currentCharacter.Character.Abilities[5], currentCharacter);
                     break;
+                case TurnOption.eAbility7:
+                    Ability(currentCharacter.Character.Abilities[6], currentCharacter);
+                    break;
                 default:
                     break;
             }
-            EndTurn();
         }
 
         if (_deadPlayers >= _characterList.Count)
@@ -156,7 +162,7 @@ public class Battle : MonoBehaviour
             // Player wins
             foreach (Character enemy in _enemyList)
             {
-                //gold += enemy.GoldDrop; //Party gold needs to be added
+                //gold += enemy.GoldDrop; //Party gold needs to be added TIERAN - GIT GUD
                 experience += enemy.Experience;
 
             }
@@ -182,6 +188,7 @@ public class Battle : MonoBehaviour
         currentCharacter.gameObject.GetComponent<Image>().color = Color.magenta;
         currentCharacter.Defending = 1.0f;
         currentCharacter.StartTurn = false;
+        currentCharacter.AttackBuffModifier = 1.0f;
     }
 
     void SwitchAction(BattleCharacter currentCharacter)
@@ -278,13 +285,17 @@ public class Battle : MonoBehaviour
     }
 
 
-    void PlayerAttack()
+    void PlayerAttack(bool ability = false)
     {
         if (_targettedCharacterIndex > -1)
         {
             if (hitChance())
             {
                 DealDamage(CalculateDamage());
+            }
+            if (!ability)
+            {
+                EndTurn();
             }
         }
     }
@@ -317,72 +328,91 @@ public class Battle : MonoBehaviour
     void MacNSnack(Character attacker)
     {
         attacker.ChangeHealth(5);
+        EndTurn();
     }
 
     void RecklessCharge()
     {
+        if (InteractableCharacterButtons)
+        {
+            SwitchInteractableCharacterButtons();
+        }
         if (_targettedCharacterIndex > -1)
         {
             if (hitChance())
             {
                 DealDamage((int)(CalculateDamage() * 1.5));
             }
-        }
 
-        int col = _battleCharacterList[_targettedCharacterIndex].Character.CurrCol;
-        for (int i = 0; i < _battleCharacterList.Count; i++)
-        {
-            if (_battleCharacterList[i].Character.Alive && !_battleCharacterList[i].Character.Player && _battleCharacterList[i].Character.CurrCol <= col)
+            int col = _battleCharacterList[_targettedCharacterIndex].Character.CurrCol;
+            for (int i = 0; i < _battleCharacterList.Count; i++)
             {
-                if (hitChance())
+                if (_battleCharacterList[i].Character.Alive && !_battleCharacterList[i].Character.Player && _battleCharacterList[i].Character.CurrCol <= col)
                 {
-                    _targettedCharacterIndex = _currentCharacterIndex;
-                    DealDamage(3);
+                    if (hitChance())
+                    {
+                        _targettedCharacterIndex = _currentCharacterIndex;
+                        DealDamage(3);
+                    }
                 }
             }
+            EndTurn();
         }
     }
     void ConchiglieShell(BattleCharacter attacker)
     {
-        Defend(attacker);
-        Defend(attacker);
+        Defend(attacker, true);
+        Defend(attacker, true);
+        EndTurn();
     }
     void RigatiBoomerang()
     {
-        if(hitChance())
+        if (InteractableCharacterButtons)
         {
-            PlayerAttack();
+            SwitchInteractableCharacterButtons();
         }
-        if(hitChance())
+        if(_targettedCharacterIndex > -1)
         {
-            PlayerAttack();
+            PlayerAttack(true);
+            PlayerAttack(true);
+            EndTurn();
         }
-        
     }
     void SpikedBucatini(BattleCharacter attacker)
     {
         attacker.SpikedBucatini = true;
+        EndTurn();
     }
     void PenneStorm(BattleCharacter attacker)
     {
-        int count = 0;
-        while(count < 2)
+        int missCount = 0;
+        float hitCount = 0;
+        if (InteractableCharacterButtons)
         {
-            if (hitChance())
-            {
-                PlayerAttack();
-                do
-                {
-                    _targettedCharacterIndex = Random.Range(0, _battleCharacterList.Count);
-                } while (_battleCharacterList[_targettedCharacterIndex].Character.Player);
-            }
-            else
-            {
-                count++;
-            }
+            SwitchInteractableCharacterButtons();
         }
-        attacker.PrimaryAction = true;
-        attacker.SecondaryAction = true;
+        if (_targettedCharacterIndex > -1)
+        {
+            while (missCount < 2)
+            {
+                if (hitChance(1 - hitCount / 10))
+                {
+                    hitCount++;
+                    DealDamage(CalculateDamage());
+                    do
+                    {
+                        _targettedCharacterIndex = Random.Range(0, _battleCharacterList.Count);
+                    } while ((_battleCharacterList[_targettedCharacterIndex].Character.Player || !_battleCharacterList[_targettedCharacterIndex].Character.Alive) && _deadEnemies < _enemyList.Count);
+                }
+                else
+                {
+                    missCount++;
+                }
+            }
+            attacker.PrimaryAction = true;
+            attacker.SecondaryAction = true;
+            EndTurn();
+        }
     }
 
     void RangerAbility(int abilityNumber, BattleCharacter attacker)
@@ -412,30 +442,53 @@ public class Battle : MonoBehaviour
 
     void FusiliShot(Character attacker)
     {
-        if (hitChance(1.2f))
+        if (InteractableCharacterButtons)
         {
-            DealDamage(CalculateDamage() + attacker.Level);
+            SwitchInteractableCharacterButtons();
+        }
+        if (_targettedCharacterIndex > -1)
+        {
+            if (hitChance(1.2f))
+            {
+                DealDamage(CalculateDamage() + attacker.Level);
+            }
+            EndTurn();
         }
     }
     void FarfalleShot(Character attacker)
     {
-        if (hitChance())
+        if (InteractableCharacterButtons)
         {
-            DealDamage(CalculateDamage() / 2);
+            SwitchInteractableCharacterButtons();
         }
-        int col = _battleCharacterList[_targettedCharacterIndex].Character.CurrCol;
-        do
+        if (_targettedCharacterIndex > -1)
         {
-            _targettedCharacterIndex = Random.Range(0, _battleCharacterList.Count);
-        } while (_battleCharacterList[_targettedCharacterIndex].Character.CurrCol != col && _battleCharacterList[_targettedCharacterIndex].Character.Player);
+            if (hitChance())
+            {
+                DealDamage(CalculateDamage() / 2);
+            }
+            int col = _battleCharacterList[_targettedCharacterIndex].Character.CurrCol;
+            do
+            {
+                _targettedCharacterIndex = Random.Range(0, _battleCharacterList.Count);
+            } while ((_battleCharacterList[_targettedCharacterIndex].Character.CurrCol != col
+                  && !_battleCharacterList[_targettedCharacterIndex].Character.Alive)
+                  || _battleCharacterList[_targettedCharacterIndex].Character.Player); 
+            if (hitChance())
+            {
+                DealDamage(CalculateDamage() / 2);
+            }
+            EndTurn();
+        }
     }
     void LasagneCloak(BattleCharacter attacker)
     {
         attacker.Initiative = (int)(attacker.Initiative * 1.7);
+        EndTurn();
     }
     void StelleStars(Character attacker)
     {
-        for(int i = 0; i < 3; i++)
+        for (int i = 0; i < 3; i++)
         {
             do
             {
@@ -446,29 +499,164 @@ public class Battle : MonoBehaviour
                 DealDamage(CalculateDamage() / 2);
             }
         }
+        EndTurn();
     }
     void BackStab(Character attacker)
     {
-        if(hitChance())
+        if (InteractableCharacterButtons)
         {
-            DealDamage((int)(CalculateDamage() * 1.5));
+            SwitchInteractableCharacterButtons();
+        }
+        if (_targettedCharacterIndex > -1)
+        {
+            if (hitChance())
+            {
+                DealDamage((int)(CalculateDamage() * 1.5));
+            }
+            EndTurn();
         }
     }
     void MacaroniFlurry(BattleCharacter attacker)
     {
-        for(int i = 0; i < 6; i++)
+        for (int i = 0; i < 6; i++)
         {
             do
             {
                 _targettedCharacterIndex = Random.Range(0, _battleCharacterList.Count);
             } while (_battleCharacterList[_targettedCharacterIndex].Character.Player && _battleCharacterList[_targettedCharacterIndex].Character.Alive);
-            if(hitChance())
+            if (hitChance())
             {
                 DealDamage(CalculateDamage());
             }
         }
         attacker.PrimaryAction = true;
         attacker.SecondaryAction = true;
+        EndTurn();
+    }
+
+    void ShamanAbility(int abilityNumber, BattleCharacter attacker)
+    {
+        switch (abilityNumber)
+        {
+            case 1:
+                Leftovers(attacker.Character);
+                break;
+            case 2:
+                SpagSteal(attacker.Character);
+                break;
+            case 3:
+                SpiceUp();
+                break;
+            case 4:
+                PastaSurprise(attacker.Character);
+                break;
+            case 5:
+                SpiceCloud();
+                break;
+            case 6:
+                SpagHeist(attacker.Character);
+                break;
+        }
+    }
+
+    void Leftovers(Character attacker)
+    {
+        if (InteractableCharacterButtons)
+        {
+            SwitchInteractableCharacterButtons();
+        }
+        if (_targettedCharacterIndex > -1)
+        {
+            if (hitChance())
+            {
+                _battleCharacterList[_targettedCharacterIndex].Character.ChangeHealth(attacker.Intelligence);
+            }
+            EndTurn();
+        }
+    }
+    void SpagSteal(Character attacker)
+    {
+        if (InteractableCharacterButtons)
+        {
+            SwitchInteractableCharacterButtons();
+        }
+        if (_targettedCharacterIndex > -1)
+        {
+            if (hitChance())
+            {
+                int damage = CalculateDamage();
+                DealDamage(damage);
+                attacker.ChangeHealth(damage);
+            }
+            EndTurn();
+        }
+    }
+    void SpiceUp()
+    {
+        if (InteractableCharacterButtons)
+        {
+            SwitchInteractableCharacterButtons();
+        }
+        if (_targettedCharacterIndex > -1)
+        {
+            _battleCharacterList[_targettedCharacterIndex].AttackBuffModifier += .5f;
+            EndTurn();
+        }
+    }
+    void PastaSurprise(Character attacker)
+    {
+        for (int i = 0; i < 2; i++)
+        {
+            do
+            {
+                _targettedCharacterIndex = Random.Range(0, _battleCharacterList.Count);
+            } while (!_battleCharacterList[_targettedCharacterIndex].Character.Player || !_battleCharacterList[_targettedCharacterIndex].Character.Alive);
+
+            _battleCharacterList[_targettedCharacterIndex].Character.ChangeHealth(Random.Range(5, attacker.Intelligence * 2));
+        }
+        EndTurn();
+    }
+    void SpiceCloud()
+    {
+        foreach (BattleCharacter character in _battleCharacterList)
+        {
+            if (character.Character.Player)
+            {
+                character.AttackBuffModifier += .5f;
+            }
+        }
+        EndTurn();
+    }
+    void SpagHeist(Character attacker)
+    {
+        int totalDamage = 0;
+        int noOfPlayers = 0;
+        for (int i = 0; i < _battleCharacterList.Count; i++)
+        {
+            if (!_battleCharacterList[i].Character.Player && _battleCharacterList[i].Character.Alive)
+            {
+                if (hitChance())
+                {
+                    _targettedCharacterIndex = i;
+                    int damage = CalculateDamage();
+                    DealDamage(damage);
+                    totalDamage += damage;
+                }
+            }
+            else
+            {
+                noOfPlayers++;
+            }
+        }
+
+        for (int i = 0; i < _battleCharacterList.Count; i++)
+        {
+            if (_battleCharacterList[i].Character.Player)
+            {
+                _battleCharacterList[i].Character.ChangeHealth(totalDamage / noOfPlayers);
+            }
+        }
+        EndTurn();
     }
 
     void WizardAbility(int abilityNumber, BattleCharacter attacker)
@@ -500,17 +688,26 @@ public class Battle : MonoBehaviour
     }
     void ScaldingSauce(Character attacker)
     {
+        if (InteractableCharacterButtons)
+        {
+            SwitchInteractableCharacterButtons();
+        }
         if (_targettedCharacterIndex > -1)
         {
             if (hitChance())
             {
                 DealDamage((int)(attacker.Intelligence + 1.5 * attacker.Level));
             }
+            attacker.Mana -= 1;
+            EndTurn();
         }
-        attacker.Mana -= 1;
     }
     void Meatball(Character attacker)
     {
+        if (InteractableCharacterButtons)
+        {
+            SwitchInteractableCharacterButtons();
+        }
         if (_targettedCharacterIndex > -1)
         {
             if (hitChance())
@@ -527,30 +724,44 @@ public class Battle : MonoBehaviour
                     DealDamage(attacker.Intelligence);
                 }
             }
+            attacker.Mana -= 3;
+            EndTurn();
         }
-        attacker.Mana -= 3;
     }
     void Slow(Character attacker)
     {
+        if (InteractableCharacterButtons)
+        {
+            SwitchInteractableCharacterButtons();
+        }
         if (_targettedCharacterIndex > -1)
         {
             if (hitChance())
             {
                 _battleCharacterList[_targettedCharacterIndex].SecondaryAction = true;
             }
+            attacker.Mana -= 3;
+            EndTurn();
         }
-        attacker.Mana -= 3;
     }
     void Teleport(Character attacker)
     {
+        if (InteractableCharacterButtons)
+        {
+            SwitchInteractableCharacterButtons();
+        }
         if (_targettedCharacterIndex > -1)
         {
             Move(_battleCharacterList[_targettedCharacterIndex]);
+            attacker.Mana -= 5;
         }
-        attacker.Mana -= 5;
     }
     void FlourAttack(Character attacker)
     {
+        if (InteractableCharacterButtons)
+        {
+            SwitchInteractableCharacterButtons();
+        }
         if (_targettedCharacterIndex > -1)
         {
             int col = _battleCharacterList[_targettedCharacterIndex].Character.CurrCol;
@@ -564,11 +775,16 @@ public class Battle : MonoBehaviour
                     }
                 }
             }
+            attacker.Mana -= 5;
+            EndTurn();
         }
-        attacker.Mana -= 5;
     }
     void RavioliBomb(Character attacker)
     {
+        if (InteractableCharacterButtons)
+        {
+            SwitchInteractableCharacterButtons();
+        }
         if (_targettedCharacterIndex > -1)
         {
             int col = _battleCharacterList[_targettedCharacterIndex].Character.CurrCol;
@@ -579,12 +795,13 @@ public class Battle : MonoBehaviour
                     if (hitChance())
                     {
                         _targettedCharacterIndex = i;
-                        DealDamage(attacker.Intelligence * Random.Range(2, 5));
+                        DealDamage(attacker.Intelligence * Random.Range(1, 3));
                     }
                 }
             }
+            attacker.Mana -= 5;
+            EndTurn();
         }
-        attacker.Mana -= 5;
     }
     void SpaghettiWhip(BattleCharacter attacker)
     {
@@ -599,6 +816,7 @@ public class Battle : MonoBehaviour
         attacker.Character.Mana -= 10;
         attacker.PrimaryAction = true;
         attacker.SecondaryAction = true;
+        EndTurn();
     }
 
 
@@ -665,6 +883,7 @@ public class Battle : MonoBehaviour
 
             }
         }
+        InteractableCharacterButtons = false;
     }
 
     void EnemyAttack()
@@ -686,12 +905,12 @@ public class Battle : MonoBehaviour
             {
                 DealDamage(CalculateDamage());
 
-                if(_battleCharacterList[_targettedCharacterIndex].SpikedBucatini)
+                if (_battleCharacterList[_targettedCharacterIndex].SpikedBucatini)
                 {
                     int currChar = _currentCharacterIndex;
                     _currentCharacterIndex = _targettedCharacterIndex;
                     _targettedCharacterIndex = _currentCharacterIndex;
-                    if(hitChance())
+                    if (hitChance())
                     {
                         DealDamage(CalculateDamage());
                     }
@@ -709,14 +928,56 @@ public class Battle : MonoBehaviour
         int damage = 0;
 
         var weapon = attacker.Character.Equipment.GetEquipedWeapon();
+        var chest = defender.Character.Equipment.GetEquipedArmour(ArmourItemData.SlotType.eCHEST); // change all refewrences to armour
+        
+        float magicEffect = 1.0f;
+
+        if (weapon != null)
+        {
+            if (weapon.MagicalType == MagicType.eCHEESE || attacker.Character.Magic == MagicType.eCHEESE)
+            {
+                if (chest.MagicalType == MagicType.ePESTO || defender.Character.Magic == MagicType.ePESTO)
+                {
+                    magicEffect = 2.0f;
+                }
+                else if (chest.MagicalType == MagicType.eTOMATO || defender.Character.Magic == MagicType.eTOMATO)
+                {
+                    magicEffect = 0.5f;
+                }
+            }
+            else if (weapon.MagicalType == MagicType.ePESTO || attacker.Character.Magic == MagicType.ePESTO)
+            {
+                if (chest.MagicalType == MagicType.eTOMATO || defender.Character.Magic == MagicType.eTOMATO)
+                {
+                    magicEffect = 2.0f;
+                }
+                else if (chest.MagicalType == MagicType.eCHEESE || defender.Character.Magic == MagicType.eCHEESE)
+                {
+                    magicEffect = 0.5f;
+                }
+            }
+            else if (weapon.MagicalType == MagicType.eTOMATO || attacker.Character.Magic == MagicType.eTOMATO)
+            {
+                if (chest.MagicalType == MagicType.eCHEESE || defender.Character.Magic == MagicType.eCHEESE)
+                {
+                    magicEffect = 2.0f;
+                }
+                else if (chest.MagicalType == MagicType.ePESTO || defender.Character.Magic == MagicType.ePESTO)
+                {
+                    magicEffect = 0.5f;
+                }
+            }
+        }
 
         if (weapon == null)
         {
-            return damage = (int)(attacker.Character.BaseAttack * _battleCharacterList[_targettedCharacterIndex].Defending);
+            
+            return damage = (int)(attacker.Character.BaseAttack * _battleCharacterList[_targettedCharacterIndex].Defending * magicEffect);
+
         }
         else
         {
-            return damage = (int)(weapon.BaseDamage + Random.Range(-(int)weapon.VarianceDamage + attacker.ClassModifier / 2, (int)weapon.VarianceDamage + attacker.ClassModifier) * _battleCharacterList[_targettedCharacterIndex].Defending);
+            return damage = (int)((weapon.BaseDamage + Random.Range(-(int)weapon.VarianceDamage + attacker.ClassModifier / 2, (int)weapon.VarianceDamage + attacker.ClassModifier) * _battleCharacterList[_targettedCharacterIndex].Defending) * magicEffect);
         }
     }
 
@@ -750,7 +1011,7 @@ public class Battle : MonoBehaviour
 
     void DealDamage(int damage)
     {
-
+        damage = (int)(damage * _battleCharacterList[_currentCharacterIndex].AttackBuffModifier);
         _battleCharacterList[_targettedCharacterIndex].DamageTaken += damage;
         _battleCharacterList[_targettedCharacterIndex].Character.ChangeHealth(-damage);
 
@@ -780,7 +1041,7 @@ public class Battle : MonoBehaviour
         }
     }
 
-    void Defend(BattleCharacter defender)
+    void Defend(BattleCharacter defender, bool ability = false)
     {
         if (defender.Defending < 1.0f)
         {
@@ -794,7 +1055,10 @@ public class Battle : MonoBehaviour
         {
             defender.Defending = 0.75f;
         }
-        EndTurn();
+        if(!ability)
+        {
+            EndTurn();
+        }
     }
 
     void Move(BattleCharacter mover)
@@ -839,12 +1103,16 @@ public class Battle : MonoBehaviour
         }
         _optionChosen = TurnOption.eNONE;
         _targettedCharacterIndex = -1;
-
     }
 
     public void SetTurnOption(int turnOption)
     {
         _optionChosen = (TurnOption)turnOption;
+    }
+
+    public void SetInteractableCharacterButtonsBool()
+    {
+        InteractableCharacterButtons = true;
     }
 }
 

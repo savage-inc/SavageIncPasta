@@ -24,6 +24,7 @@ public class BattleCharacter : MonoBehaviour {
     public int ClassModifier = 0;
     public int ChanceToHitModifier = 0;
     public bool SpikedBucatini = false;
+    public float AttackBuffModifier = 1.0f;
         
     private void Awake()
     {

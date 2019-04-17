@@ -10,7 +10,7 @@ public class GenerateRandomCharacter
 
         character.ID = System.Guid.NewGuid();
         character.Name = "Character " + character.ID;
-        character.Class = (ClassType)Random.Range(0, 3);
+        character.Class = (ClassType)Random.Range(0, 4);
         character.Alive = true;
         switch (character.Class)
         {
