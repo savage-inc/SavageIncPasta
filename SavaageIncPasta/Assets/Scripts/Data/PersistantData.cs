@@ -177,7 +177,16 @@ public class PersistantData
                 partyInventory.Gold = partyData.Gold;
 
                 playerManager.Characters = partyData.PartyCharacterData;
+                //set character in the characters equipment
+                foreach (var character in playerManager.Characters)
+                {
+                    character.Equipment.Character = character;
+                }
                 clanManager.SpareCharacterPool = partyData.ClanCharacterData;
+                foreach (var character in clanManager.SpareCharacterPool)
+                {
+                    character.Equipment.Character = character;
+                }
                 ItemDatabase.Instance.FromList(partyData.ItemDatabase);
             }
         }

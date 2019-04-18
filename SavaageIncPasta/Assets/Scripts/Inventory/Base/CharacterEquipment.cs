@@ -6,7 +6,7 @@ using UnityEngine;
 [System.Serializable]
 public class CharacterEquipment : Inventory
 {
-    public Character Character;
+    [System.NonSerialized]  public Character Character;
     private MagicType _armourMagicType;
     private MagicType _weaponMagicType;
 
@@ -65,11 +65,16 @@ public class CharacterEquipment : Inventory
         //check if the magic type of the item is the same as the rest
         if (weaponItem.MagicalType != _weaponMagicType)
         {
-            if (Character.Magic != MagicType.eNONE && hasWeapon())
+            //first check if the chracter has a magic type
+            if(Character.Magic != MagicType.eNONE)
             {
-                return;
+                //character has a magic type, check if the weapon is the same as the characters magic
+                if(Character.Magic != weaponItem.MagicalType)
+                {
+                    return;
+                }
             }
-            else if (Character.Magic == weaponItem.MagicalType)
+            else if(weaponItem.MagicalType != _weaponMagicType && hasWeapon())
             {
                 return;
             }

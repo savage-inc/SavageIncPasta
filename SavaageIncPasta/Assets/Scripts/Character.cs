@@ -32,8 +32,10 @@ public class Character
 
     public Character()
     {
-        Equipment = new CharacterEquipment();
-        Equipment.Character = this;
+        Equipment = new CharacterEquipment
+        {
+            Character = this
+        };
         CurrentHealth = MaxHealth;
     }
 
