@@ -13,7 +13,6 @@ public enum ActionChoice
 public class BattleCharacter : MonoBehaviour {
 
     public Character Character;
-    public Text HealthText;
     public ActionChoice CurrentAction = ActionChoice.ePrimary;
     public bool PrimaryAction = false;
     public bool SecondaryAction = false;
@@ -53,6 +52,5 @@ public class BattleCharacter : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        HealthText.text = "Health: " + Character.CurrentHealth;
 	}
 }

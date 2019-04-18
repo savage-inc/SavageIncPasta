@@ -32,6 +32,7 @@ public class Battle : MonoBehaviour
     private int _currentCharacterIndex = 0;
     private int _targettedCharacterIndex = -1;
     private int _targettingCharacterIndex = 4;
+    public List<Button> abilitiyButtons = new List<Button>();
 
     public BattleCharacter Player1;
     public BattleCharacter Player2;
@@ -88,9 +89,8 @@ public class Battle : MonoBehaviour
             _currentCharacterIndex = 0;
         }
 
-        BattleCharacter currentCharacter = _battleCharacterList[_currentCharacterIndex];
 
-        while (!currentCharacter.Character.Alive)
+        while (!_battleCharacterList[_characterTurnOrder[_currentCharacterIndex]].Character.Alive)
         {
             _currentCharacterIndex++;
             if (_currentCharacterIndex >= _battleCharacterList.Count)
@@ -98,6 +98,8 @@ public class Battle : MonoBehaviour
                 _currentCharacterIndex = 0;
             }
         }
+
+        BattleCharacter currentCharacter = _battleCharacterList[_characterTurnOrder[_currentCharacterIndex]];
 
         if (currentCharacter.StartTurn)
         {
@@ -184,11 +186,18 @@ public class Battle : MonoBehaviour
 
     void StartTurn()
     {
-        BattleCharacter currentCharacter = _battleCharacterList[_currentCharacterIndex];
+        BattleCharacter currentCharacter = _battleCharacterList[_characterTurnOrder[_currentCharacterIndex]];
         currentCharacter.gameObject.GetComponent<Image>().color = Color.magenta;
         currentCharacter.Defending = 1.0f;
         currentCharacter.StartTurn = false;
         currentCharacter.AttackBuffModifier = 1.0f;
+        if (currentCharacter.Character.Abilities != null)
+        {
+            for (int i = 0; i < currentCharacter.Character.Abilities.Count; i++)
+            {
+                abilitiyButtons[i].gameObject.GetComponent<Button>().interactable = !abilitiyButtons[i].gameObject.GetComponent<Button>().interactable;
+            }
+        }
     }
 
     void SwitchAction(BattleCharacter currentCharacter)
@@ -351,7 +360,7 @@ public class Battle : MonoBehaviour
                 {
                     if (hitChance())
                     {
-                        _targettedCharacterIndex = _currentCharacterIndex;
+                        _targettedCharacterIndex = _characterTurnOrder[_currentCharacterIndex];
                         DealDamage(3);
                     }
                 }
@@ -523,7 +532,7 @@ public class Battle : MonoBehaviour
             do
             {
                 _targettedCharacterIndex = Random.Range(0, _battleCharacterList.Count);
-            } while (_battleCharacterList[_targettedCharacterIndex].Character.Player && _battleCharacterList[_targettedCharacterIndex].Character.Alive);
+            } while ((_battleCharacterList[_targettedCharacterIndex].Character.Player || !_battleCharacterList[_targettedCharacterIndex].Character.Alive) && _deadEnemies < _enemyList.Count);
             if (hitChance())
             {
                 DealDamage(CalculateDamage());
@@ -554,7 +563,7 @@ public class Battle : MonoBehaviour
                 SpiceCloud();
                 break;
             case 6:
-                SpagHeist(attacker.Character);
+                SpagHeistti(attacker.Character);
                 break;
         }
     }
@@ -627,17 +636,17 @@ public class Battle : MonoBehaviour
         }
         EndTurn();
     }
-    void SpagHeist(Character attacker)
+    void SpagHeistti(Character attacker)
     {
         int totalDamage = 0;
         int noOfPlayers = 0;
         for (int i = 0; i < _battleCharacterList.Count; i++)
         {
-            if (!_battleCharacterList[i].Character.Player && _battleCharacterList[i].Character.Alive)
+            if (!_battleCharacterList[_characterTurnOrder[i]].Character.Player && _battleCharacterList[_characterTurnOrder[i]].Character.Alive)
             {
+                _targettedCharacterIndex = _characterTurnOrder[i];
                 if (hitChance())
                 {
-                    _targettedCharacterIndex = i;
                     int damage = CalculateDamage();
                     DealDamage(damage);
                     totalDamage += damage;
@@ -651,9 +660,9 @@ public class Battle : MonoBehaviour
 
         for (int i = 0; i < _battleCharacterList.Count; i++)
         {
-            if (_battleCharacterList[i].Character.Player)
+            if (_battleCharacterList[_characterTurnOrder[i]].Character.Player)
             {
-                _battleCharacterList[i].Character.ChangeHealth(totalDamage / noOfPlayers);
+                _battleCharacterList[_characterTurnOrder[i]].Character.ChangeHealth(totalDamage / noOfPlayers);
             }
         }
         EndTurn();
@@ -845,59 +854,16 @@ public class Battle : MonoBehaviour
         SwitchInteractableCharacterButtons();
     }
 
-    public void SwitchInteractableCharacterButtons()
-    {
-        if (_battleCharacterList[_currentCharacterIndex].Character.Class == ClassType.eWARRIOR)
-        {
-            int colToAttack = 1;
-            bool characterAvailable = false;
-            while (!characterAvailable && colToAttack <= 3)
-            {
-                for (int i = 0; i < _battleCharacterList.Count; i++)
-                {
-                    if ((_battleCharacterList[i].Character.CurrCol == colToAttack && _battleCharacterList[i].Character.Alive && !_battleCharacterList[i].Character.Player) || _battleCharacterList[i].Character.Player)
-                    {
-                        _battleCharacterList[i].gameObject.GetComponent<Button>().interactable = !_battleCharacterList[i].gameObject.GetComponent<Button>().interactable;
-                        if (!_battleCharacterList[i].Character.Player)
-                        {
-                            characterAvailable = true;
-                        }
-
-                    }
-                }
-                if (!characterAvailable)
-                {
-                    colToAttack++;
-                }
-            }
-        }
-        else
-        {
-
-            for (int i = 0; i < _battleCharacterList.Count; i++)
-            {
-                if (_battleCharacterList[i].Character.Alive)
-                {
-                    _battleCharacterList[i].gameObject.GetComponent<Button>().interactable = !_battleCharacterList[i].gameObject.GetComponent<Button>().interactable;
-                }
-
-            }
-        }
-        InteractableCharacterButtons = false;
-    }
+    
 
     void EnemyAttack()
     {
 
-        _targettedCharacterIndex = Random.Range(0, 3);
+        _targettedCharacterIndex = Random.Range(0, _battleCharacterList.Count);
 
-        while (!_battleCharacterList[_targettedCharacterIndex].Character.Alive)
+        while (!_battleCharacterList[_targettedCharacterIndex].Character.Alive || !_battleCharacterList[_targettedCharacterIndex].Character.Player)
         {
-            _targettedCharacterIndex++;
-            if (_targettedCharacterIndex > _battleCharacterList.Count - 5)
-            {
-                _targettedCharacterIndex = 0;
-            }
+            _targettedCharacterIndex = Random.Range(0, _battleCharacterList.Count);
         }
         if (_targettedCharacterIndex > -1)
         {
@@ -907,28 +873,29 @@ public class Battle : MonoBehaviour
 
                 if (_battleCharacterList[_targettedCharacterIndex].SpikedBucatini)
                 {
-                    int currChar = _currentCharacterIndex;
-                    _currentCharacterIndex = _targettedCharacterIndex;
-                    _targettedCharacterIndex = _currentCharacterIndex;
+                    int currChar = _characterTurnOrder[_currentCharacterIndex];
+                    _characterTurnOrder[_currentCharacterIndex] = _targettedCharacterIndex;
+                    _targettedCharacterIndex = _characterTurnOrder[_currentCharacterIndex];
                     if (hitChance())
                     {
                         DealDamage(CalculateDamage());
                     }
-                    _currentCharacterIndex = currChar;
+                    _characterTurnOrder[_currentCharacterIndex] = currChar;
                 }
 
             }
         }
+        EndTurn();
     }
 
     int CalculateDamage()
     {
-        BattleCharacter attacker = _battleCharacterList[_currentCharacterIndex];
+        BattleCharacter attacker = _battleCharacterList[_characterTurnOrder[_currentCharacterIndex]];
         BattleCharacter defender = _battleCharacterList[_targettedCharacterIndex];
         int damage = 0;
 
-        var weapon = attacker.Character.Equipment.GetEquipedWeapon();
-        var chest = defender.Character.Equipment.GetEquipedArmour(ArmourItemData.SlotType.eCHEST); // change all refewrences to armour
+        var weapon = attacker.Character.Equipment.GetEquippedWeapon();
+        var chest = defender.Character.Equipment.GetEquippedArmour(ArmourItemData.SlotType.eCHEST); // change all refewrences to armour
         
         float magicEffect = 1.0f;
 
@@ -984,9 +951,9 @@ public class Battle : MonoBehaviour
     bool hitChance(float hitModifier = 1)
     {
         float chanceToHit = 0.5f;
-        BattleCharacter attacker = _battleCharacterList[_currentCharacterIndex];
-        Character defender = _battleCharacterList[_targettedCharacterIndex].Character;
-        var weapon = attacker.Character.Equipment.GetEquipedWeapon();
+        BattleCharacter attacker = _battleCharacterList[_characterTurnOrder[_currentCharacterIndex]];
+        Character defender = _battleCharacterList[_characterTurnOrder[_targettedCharacterIndex]].Character;
+        var weapon = attacker.Character.Equipment.GetEquippedWeapon();
         float magic = 0;
 
         if (weapon != null)
@@ -1011,7 +978,7 @@ public class Battle : MonoBehaviour
 
     void DealDamage(int damage)
     {
-        damage = (int)(damage * _battleCharacterList[_currentCharacterIndex].AttackBuffModifier);
+        damage = (int)(damage * _battleCharacterList[_characterTurnOrder[_currentCharacterIndex]].AttackBuffModifier);
         _battleCharacterList[_targettedCharacterIndex].DamageTaken += damage;
         _battleCharacterList[_targettedCharacterIndex].Character.ChangeHealth(-damage);
 
@@ -1081,7 +1048,7 @@ public class Battle : MonoBehaviour
 
     void EndTurn()
     {
-        BattleCharacter currentCharacter = _battleCharacterList[_currentCharacterIndex];
+        BattleCharacter currentCharacter = _battleCharacterList[_characterTurnOrder[_currentCharacterIndex]];
 
         if (currentCharacter.CurrentAction == ActionChoice.ePrimary)
         {
@@ -1099,6 +1066,13 @@ public class Battle : MonoBehaviour
             currentCharacter.StartTurn = true;
             currentCharacter.PrimaryAction = false;
             currentCharacter.SecondaryAction = false;
+            if (currentCharacter.Character.Abilities != null)
+            {
+                for (int i = 0; i < currentCharacter.Character.Abilities.Count; i++)
+                {
+                    abilitiyButtons[i].gameObject.GetComponent<Button>().interactable = !abilitiyButtons[i].gameObject.GetComponent<Button>().interactable;
+                }
+            }
             _currentCharacterIndex++;
         }
         _optionChosen = TurnOption.eNONE;
@@ -1108,6 +1082,47 @@ public class Battle : MonoBehaviour
     public void SetTurnOption(int turnOption)
     {
         _optionChosen = (TurnOption)turnOption;
+    }
+
+    public void SwitchInteractableCharacterButtons()
+    {
+        if (_battleCharacterList[_characterTurnOrder[_currentCharacterIndex]].Character.Class == ClassType.eWARRIOR)
+        {
+            int colToAttack = 1;
+            bool characterAvailable = false;
+            while (!characterAvailable && colToAttack <= 3)
+            {
+                for (int i = 0; i < _battleCharacterList.Count; i++)
+                {
+                    if ((_battleCharacterList[i].Character.CurrCol == colToAttack && _battleCharacterList[i].Character.Alive && !_battleCharacterList[i].Character.Player) || _battleCharacterList[i].Character.Player)
+                    {
+                        _battleCharacterList[i].gameObject.GetComponent<Button>().interactable = !_battleCharacterList[i].gameObject.GetComponent<Button>().interactable;
+                        if (!_battleCharacterList[i].Character.Player)
+                        {
+                            characterAvailable = true;
+                        }
+
+                    }
+                }
+                if (!characterAvailable)
+                {
+                    colToAttack++;
+                }
+            }
+        }
+        else
+        {
+
+            for (int i = 0; i < _battleCharacterList.Count; i++)
+            {
+                if (_battleCharacterList[i].Character.Alive)
+                {
+                    _battleCharacterList[i].gameObject.GetComponent<Button>().interactable = !_battleCharacterList[i].gameObject.GetComponent<Button>().interactable;
+                }
+
+            }
+        }
+        InteractableCharacterButtons = false;
     }
 
     public void SetInteractableCharacterButtonsBool()
