@@ -57,6 +57,10 @@ public class Shop : MonoBehaviour
 
     public void ShowShop()
     {
+        if(Inventory.GetItems().Count == 0)
+        {
+            StockShop();
+        }
         //check to restock
         if (_lastVisit + (RestockTime * 60.0f )<= Time.realtimeSinceStartup)
         {

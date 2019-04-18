@@ -315,6 +315,7 @@
     <Compile Include="Assets\Scripts\Sound\PlaySound.cs" />
     <Compile Include="Assets\Scripts\Sound\SoundManager.cs" />
     <Compile Include="Assets\Scripts\SpriteManager.cs" />
+    <Compile Include="Assets\Scripts\UI\AutoScroll.cs" />
     <Compile Include="Assets\Scripts\UI\CharacterButton.cs" />
     <Compile Include="Assets\Scripts\UI\CharacterComparison.cs" />
     <Compile Include="Assets\Scripts\UI\ClanButton.cs" />

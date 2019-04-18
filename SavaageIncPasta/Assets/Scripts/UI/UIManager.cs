@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     public GameObject Inventory;
+    public GameObject ShopUI;
     public GameObject pauseMenuUI;
     public GameObject ClanUI;
     public GameObject FirstObject;
@@ -41,6 +42,11 @@ public class UIManager : MonoBehaviour
         {
             ClanUI.SetActive(false);
         }
+
+        if(ShopUI != null)
+        {
+            ShopUI.SetActive(false);
+        }
         Time.timeScale = 1f;
     }
     public void OpenInventory()
@@ -49,9 +55,16 @@ public class UIManager : MonoBehaviour
         {
             Inventory.SetActive(true);
             //set first selected to first item
-            var firstItem = Inventory.transform.GetChild(1).GetComponent<PartyInventoryUI>().InventoryContent.transform.GetChild(0).gameObject;
-            _eventSystem.SetSelectedGameObject(firstItem);
-
+            if (FindObjectOfType<PartyInventory>().Inventory.GetItems().Count > 0)
+            {
+                var firstItem = Inventory.transform.GetChild(1).GetComponent<PartyInventoryUI>().InventoryContent.transform.GetChild(0).gameObject;
+                _eventSystem.SetSelectedGameObject(firstItem);
+            }
+            else
+            {
+                var firstItem = Inventory.transform.GetChild(2).GetComponent<CharacterInventoryUI>().HeadButton.gameObject;
+                _eventSystem.SetSelectedGameObject(firstItem);
+            }
 
             if (pauseMenuUI != null)
             {
@@ -60,6 +73,10 @@ public class UIManager : MonoBehaviour
             if (ClanUI != null)
             {
                 ClanUI.SetActive(false);
+            }
+            if (ShopUI != null)
+            {
+                ShopUI.SetActive(false);
             }
             Time.timeScale = 0f;
         }
@@ -79,6 +96,10 @@ public class UIManager : MonoBehaviour
             if (Inventory != null)
             {
                 Inventory.SetActive(false);
+            }
+            if (ShopUI != null)
+            {
+                ShopUI.SetActive(false);
             }
             Time.timeScale = 0f;
         }

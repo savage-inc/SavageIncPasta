@@ -83,6 +83,11 @@ public class ShopInventoryUI : MonoBehaviour
         PartyInventoryObject.SetActive(false);
         ShopInventoryObject.SetActive(true);
         SyncShop();
+
+        if(firstItem == null)
+        {
+            firstItem = ShopInventoryContent.GetChild(0).gameObject;
+        }
         FindObjectOfType<EventSystem>().SetSelectedGameObject(firstItem);
     }
 

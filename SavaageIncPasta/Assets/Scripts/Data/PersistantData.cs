@@ -14,6 +14,16 @@ public class PersistantData
     }
 
     [System.Serializable]
+    private struct ItemData
+    {
+        public List<BaseItemData> ItemDatabase;
+
+        public ItemData(List<BaseItemData> itemDatabase = null) : this()
+        {
+            ItemDatabase = new List<BaseItemData>();
+        }
+    }
+    [System.Serializable]
     private struct PartyData
     {
         public Inventory PartyInventory;
@@ -21,12 +31,10 @@ public class PersistantData
         //character data
         public List<Character> PartyCharacterData;
         public List<Character> ClanCharacterData;
-        public List<BaseItemData> ItemDatabase;
 
         public PartyData(List<Character> partyCharacterData = null) : this()
         {
             PartyCharacterData = new List<Character>();
-            ItemDatabase = new List<BaseItemData>();
         }
     }
 
@@ -159,7 +167,6 @@ public class PersistantData
         //Party characets
         partyData.PartyCharacterData = playerManager.Characters;
         partyData.ClanCharacterData = clanManager.SpareCharacterPool;
-        partyData.ItemDatabase = ItemDatabase.Instance.ToList();
 
         SaveBytesToFile(Application.persistentDataPath + "/save/","partyData.data", SerializeToBytes(partyData));
     }
@@ -187,8 +194,29 @@ public class PersistantData
                 {
                     character.Equipment.Character = character;
                 }
-                ItemDatabase.Instance.FromList(partyData.ItemDatabase);
             }
+        }
+    }
+
+    public static void SaveItemDatabase()
+    {
+        ItemData itemData = new ItemData();
+        itemData.ItemDatabase = ItemDatabase.Instance.ToList();
+
+        SaveBytesToFile(Application.persistentDataPath + "/save/", "itemData.data", SerializeToBytes(itemData));
+    }
+
+    public static void LoadItemDatabase()
+    {
+        var data = ReadBytesFromFile(Application.persistentDataPath + "/save/", "itemData.data");
+        if (data != null)
+        {
+            ItemData itemData = DeserializeToType<ItemData>(data);
+            ItemDatabase.Instance.FromList(itemData.ItemDatabase);
+        }
+        else
+        {
+            ItemDatabase.Instance.CreateItems();
         }
     }
 
