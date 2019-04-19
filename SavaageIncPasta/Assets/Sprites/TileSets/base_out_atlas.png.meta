@@ -15,8 +15,8 @@ TextureImporter:
     21300020: base_out_atlas_10
     21300022: base_out_atlas_11
     21300024: base_out_atlas_12
-    21300026: base_out_atlas_13
-    21300028: base_out_atlas_14
+    21300026: LakeSwampILT
+    21300028: LakeSwampIRT
     21300030: base_out_atlas_15
     21300032: base_out_atlas_16
     21300034: base_out_atlas_17
@@ -24,8 +24,8 @@ TextureImporter:
     21300038: base_out_atlas_19
     21300040: base_out_atlas_20
     21300042: base_out_atlas_21
-    21300044: base_out_atlas_22
-    21300046: base_out_atlas_23
+    21300044: GrassOverlayLT
+    21300046: GrassOverlayRT
     21300048: base_out_atlas_24
     21300050: base_out_atlas_25
     21300052: base_out_atlas_26
@@ -47,8 +47,8 @@ TextureImporter:
     21300084: base_out_atlas_42
     21300086: base_out_atlas_43
     21300088: base_out_atlas_44
-    21300090: base_out_atlas_45
-    21300092: base_out_atlas_46
+    21300090: LakeSwampILB
+    21300092: LakeSwampIRB
     21300094: base_out_atlas_47
     21300096: base_out_atlas_48
     21300098: base_out_atlas_49
@@ -56,8 +56,8 @@ TextureImporter:
     21300102: base_out_atlas_51
     21300104: base_out_atlas_52
     21300106: base_out_atlas_53
-    21300108: base_out_atlas_54
-    21300110: base_out_atlas_55
+    21300108: GrassOverlayLB
+    21300110: GrassOverlayRB
     21300112: base_out_atlas_56
     21300114: base_out_atlas_57
     21300116: base_out_atlas_58
@@ -78,9 +78,9 @@ TextureImporter:
     21300146: base_out_atlas_73
     21300148: base_out_atlas_74
     21300150: base_out_atlas_75
-    21300152: base_out_atlas_76
+    21300152: LakeSwampLT
     21300154: base_out_atlas_77
-    21300156: base_out_atlas_78
+    21300156: LakeSwampRT
     21300158: base_out_atlas_79
     21300160: base_out_atlas_80
     21300162: base_out_atlas_81
@@ -110,9 +110,9 @@ TextureImporter:
     21300210: base_out_atlas_105
     21300212: base_out_atlas_106
     21300214: base_out_atlas_107
-    21300216: base_out_atlas_108
+    21300216: LakeSwampLC
     21300218: base_out_atlas_109
-    21300220: base_out_atlas_110
+    21300220: LakeSwampRC
     21300222: base_out_atlas_111
     21300224: base_out_atlas_112
     21300226: base_out_atlas_113
@@ -141,9 +141,9 @@ TextureImporter:
     21300272: base_out_atlas_136
     21300274: base_out_atlas_137
     21300276: base_out_atlas_138
-    21300278: base_out_atlas_139
+    21300278: LakeSwampLB
     21300280: base_out_atlas_140
-    21300282: base_out_atlas_141
+    21300282: LakeSwampRB
     21300284: base_out_atlas_142
     21300286: base_out_atlas_143
     21300288: base_out_atlas_144
@@ -363,11 +363,11 @@ TextureImporter:
     21300716: Volcano02
     21300718: Volcano03
     21300720: base_out_atlas_360
-    21300722: base_out_atlas_361
-    21300724: base_out_atlas_362
-    21300726: base_out_atlas_363
-    21300728: base_out_atlas_364
-    21300730: base_out_atlas_365
+    21300722: LakeInlineLT
+    21300724: LakeInlineRT
+    21300726: Town1
+    21300728: Town2
+    21300730: Town3
     21300732: base_out_atlas_366
     21300734: base_out_atlas_367
     21300736: base_out_atlas_368
@@ -392,8 +392,8 @@ TextureImporter:
     21300774: base_out_atlas_387
     21300776: base_out_atlas_388
     21300778: base_out_atlas_389
-    21300780: base_out_atlas_390
-    21300782: base_out_atlas_391
+    21300780: LakeInlineLB
+    21300782: LakeInlineRB
     21300784: base_out_atlas_392
     21300786: base_out_atlas_393
     21300788: base_out_atlas_394
@@ -421,9 +421,9 @@ TextureImporter:
     21300832: base_out_atlas_416
     21300834: base_out_atlas_417
     21300836: base_out_atlas_418
-    21300838: base_out_atlas_419
-    21300840: base_out_atlas_420
-    21300842: base_out_atlas_421
+    21300838: LakeOutlineLT
+    21300840: LakeOutlineCT
+    21300842: LakeOutlineRT
     21300844: base_out_atlas_422
     21300846: Tree04
     21300848: base_out_atlas_424
@@ -453,9 +453,9 @@ TextureImporter:
     21300896: base_out_atlas_448
     21300898: base_out_atlas_449
     21300900: base_out_atlas_450
-    21300902: base_out_atlas_451
-    21300904: base_out_atlas_452
-    21300906: base_out_atlas_453
+    21300902: LakeOutlineLC
+    21300904: LakeOutlineCC
+    21300906: LakeOutlineRC
     21300908: base_out_atlas_454
     21300910: base_out_atlas_455
     21300912: base_out_atlas_456
@@ -481,9 +481,9 @@ TextureImporter:
     21300952: base_out_atlas_476
     21300954: base_out_atlas_477
     21300956: base_out_atlas_478
-    21300958: base_out_atlas_479
-    21300960: base_out_atlas_480
-    21300962: base_out_atlas_481
+    21300958: LakeOutlineLB
+    21300960: LakeOutlineCB
+    21300962: LakeOutlineRB
     21300964: base_out_atlas_482
     21300966: base_out_atlas_483
     21300968: base_out_atlas_484
@@ -802,8 +802,8 @@ TextureImporter:
     21301594: base_out_atlas_797
     21301596: base_out_atlas_798
     21301598: base_out_atlas_799
-    21301600: base_out_atlas_800
-    21301602: base_out_atlas_801
+    21301600: WallLeft
+    21301602: WallRight
     21301604: base_out_atlas_802
     21301606: base_out_atlas_803
     21301608: base_out_atlas_804
@@ -913,7 +913,7 @@ TextureImporter:
     21301816: base_out_atlas_908
     21301818: base_out_atlas_909
     21301820: base_out_atlas_910
-    21301822: base_out_atlas_911
+    21301822: WallFront
     21301824: base_out_atlas_912
     21301826: base_out_atlas_913
     21301828: base_out_atlas_914
@@ -925,7 +925,7 @@ TextureImporter:
     21301840: base_out_atlas_920
     21301842: base_out_atlas_921
     21301844: base_out_atlas_922
-    21301846: base_out_atlas_923
+    21301846: Tower
     21301848: base_out_atlas_924
     21301850: base_out_atlas_925
     21301852: base_out_atlas_926
@@ -939,6 +939,9 @@ TextureImporter:
     21301868: base_out_atlas_934
     21301870: base_out_atlas_935
     21301872: base_out_atlas_936
+    21301874: SwampLakeCC
+    21301876: LakeSwampCT
+    21301878: LakeSwampCB
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -1198,7 +1201,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_13
+      name: LakeSwampILT
       rect:
         serializedVersion: 2
         x: 416
@@ -1212,7 +1215,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_14
+      name: LakeSwampIRT
       rect:
         serializedVersion: 2
         x: 448
@@ -1324,7 +1327,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_22
+      name: GrassOverlayLT
       rect:
         serializedVersion: 2
         x: 704
@@ -1338,7 +1341,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_23
+      name: GrassOverlayRT
       rect:
         serializedVersion: 2
         x: 736
@@ -1646,7 +1649,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_45
+      name: LakeSwampILB
       rect:
         serializedVersion: 2
         x: 416
@@ -1660,7 +1663,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_46
+      name: LakeSwampIRB
       rect:
         serializedVersion: 2
         x: 448
@@ -1772,7 +1775,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_54
+      name: GrassOverlayLB
       rect:
         serializedVersion: 2
         x: 704
@@ -1786,7 +1789,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_55
+      name: GrassOverlayRB
       rect:
         serializedVersion: 2
         x: 736
@@ -2080,10 +2083,10 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_76
+      name: LakeSwampLT
       rect:
         serializedVersion: 2
-        x: 384
+        x: 400
         y: 928
         width: 32
         height: 32
@@ -2094,24 +2097,10 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_77
+      name: LakeSwampRT
       rect:
         serializedVersion: 2
-        x: 416
-        y: 928
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: base_out_atlas_78
-      rect:
-        serializedVersion: 2
-        x: 448
+        x: 432
         y: 928
         width: 32
         height: 32
@@ -2528,10 +2517,10 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_108
+      name: LakeSwampLC
       rect:
         serializedVersion: 2
-        x: 384
+        x: 400
         y: 896
         width: 32
         height: 32
@@ -2542,24 +2531,10 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_109
+      name: LakeSwampRC
       rect:
         serializedVersion: 2
-        x: 416
-        y: 896
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: base_out_atlas_110
-      rect:
-        serializedVersion: 2
-        x: 448
+        x: 432
         y: 896
         width: 32
         height: 32
@@ -2962,10 +2937,10 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_139
+      name: LakeSwampLB
       rect:
         serializedVersion: 2
-        x: 384
+        x: 400
         y: 864
         width: 32
         height: 32
@@ -2976,24 +2951,10 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_140
+      name: LakeSwampRB
       rect:
         serializedVersion: 2
-        x: 416
-        y: 864
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: base_out_atlas_141
-      rect:
-        serializedVersion: 2
-        x: 448
+        x: 432
         y: 864
         width: 32
         height: 32
@@ -6070,7 +6031,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_361
+      name: LakeInlineLT
       rect:
         serializedVersion: 2
         x: 704
@@ -6084,7 +6045,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_362
+      name: LakeInlineRT
       rect:
         serializedVersion: 2
         x: 736
@@ -6098,7 +6059,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_363
+      name: Town1
       rect:
         serializedVersion: 2
         x: 768
@@ -6112,7 +6073,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_364
+      name: Town2
       rect:
         serializedVersion: 2
         x: 800
@@ -6126,7 +6087,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_365
+      name: Town3
       rect:
         serializedVersion: 2
         x: 832
@@ -6476,7 +6437,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_390
+      name: LakeInlineLB
       rect:
         serializedVersion: 2
         x: 704
@@ -6490,7 +6451,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_391
+      name: LakeInlineRB
       rect:
         serializedVersion: 2
         x: 736
@@ -6798,7 +6759,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_419
+      name: LakeOutlineLT
       rect:
         serializedVersion: 2
         x: 672
@@ -6812,7 +6773,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_420
+      name: LakeOutlineCT
       rect:
         serializedVersion: 2
         x: 704
@@ -6826,7 +6787,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_421
+      name: LakeOutlineRT
       rect:
         serializedVersion: 2
         x: 736
@@ -7190,7 +7151,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_451
+      name: LakeOutlineLC
       rect:
         serializedVersion: 2
         x: 672
@@ -7204,7 +7165,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_452
+      name: LakeOutlineCC
       rect:
         serializedVersion: 2
         x: 704
@@ -7218,7 +7179,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_453
+      name: LakeOutlineRC
       rect:
         serializedVersion: 2
         x: 736
@@ -7498,7 +7459,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_479
+      name: LakeOutlineLB
       rect:
         serializedVersion: 2
         x: 672
@@ -7512,7 +7473,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_480
+      name: LakeOutlineCB
       rect:
         serializedVersion: 2
         x: 704
@@ -7526,7 +7487,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_481
+      name: LakeOutlineRB
       rect:
         serializedVersion: 2
         x: 736
@@ -9612,20 +9573,6 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_647
-      rect:
-        serializedVersion: 2
-        x: 544
-        y: 320
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
       name: base_out_atlas_648
       rect:
         serializedVersion: 2
@@ -9948,20 +9895,6 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_671
-      rect:
-        serializedVersion: 2
-        x: 544
-        y: 288
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
       name: base_out_atlas_672
       rect:
         serializedVersion: 2
@@ -10214,66 +10147,10 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_690
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 256
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
       name: base_out_atlas_691
       rect:
         serializedVersion: 2
         x: 480
-        y: 256
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: base_out_atlas_692
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 256
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: base_out_atlas_693
-      rect:
-        serializedVersion: 2
-        x: 544
-        y: 256
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: base_out_atlas_694
-      rect:
-        serializedVersion: 2
-        x: 576
         y: 256
         width: 32
         height: 32
@@ -10401,20 +10278,6 @@ TextureImporter:
         serializedVersion: 2
         x: 992
         y: 256
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: base_out_atlas_704
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 224
         width: 32
         height: 32
       alignment: 0
@@ -10592,66 +10455,10 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_717
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 224
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
       name: base_out_atlas_718
       rect:
         serializedVersion: 2
         x: 480
-        y: 224
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: base_out_atlas_719
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 224
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: base_out_atlas_720
-      rect:
-        serializedVersion: 2
-        x: 544
-        y: 224
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: base_out_atlas_721
-      rect:
-        serializedVersion: 2
-        x: 576
         y: 224
         width: 32
         height: 32
@@ -10830,20 +10637,6 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_734
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 192
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
       name: base_out_atlas_735
       rect:
         serializedVersion: 2
@@ -10904,34 +10697,6 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 160
-        y: 192
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: base_out_atlas_740
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 192
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: base_out_atlas_741
-      rect:
-        serializedVersion: 2
-        x: 224
         y: 192
         width: 32
         height: 32
@@ -11032,7 +10797,7 @@ TextureImporter:
         x: 448
         y: 192
         width: 32
-        height: 32
+        height: 96
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -11044,48 +10809,6 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 480
-        y: 192
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: base_out_atlas_750
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 192
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: base_out_atlas_751
-      rect:
-        serializedVersion: 2
-        x: 544
-        y: 192
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: base_out_atlas_752
-      rect:
-        serializedVersion: 2
-        x: 576
         y: 192
         width: 32
         height: 32
@@ -11278,20 +11001,6 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_766
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 160
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
       name: base_out_atlas_767
       rect:
         serializedVersion: 2
@@ -11352,34 +11061,6 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 160
-        y: 160
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: base_out_atlas_772
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 160
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: base_out_atlas_773
-      rect:
-        serializedVersion: 2
-        x: 224
         y: 160
         width: 32
         height: 32
@@ -11478,48 +11159,6 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 480
-        y: 160
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: base_out_atlas_781
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 160
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: base_out_atlas_782
-      rect:
-        serializedVersion: 2
-        x: 544
-        y: 160
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: base_out_atlas_783
-      rect:
-        serializedVersion: 2
-        x: 576
         y: 160
         width: 32
         height: 32
@@ -11718,7 +11357,7 @@ TextureImporter:
         x: 0
         y: 128
         width: 32
-        height: 32
+        height: 128
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -11754,13 +11393,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_800
+      name: WallLeft
       rect:
         serializedVersion: 2
         x: 192
         y: 128
         width: 32
-        height: 32
+        height: 96
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -11768,13 +11407,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_801
+      name: WallRight
       rect:
         serializedVersion: 2
         x: 224
         y: 128
         width: 32
-        height: 32
+        height: 96
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -11856,48 +11495,6 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 416
-        y: 128
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: base_out_atlas_808
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 128
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: base_out_atlas_809
-      rect:
-        serializedVersion: 2
-        x: 544
-        y: 128
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: base_out_atlas_810
-      rect:
-        serializedVersion: 2
-        x: 576
         y: 128
         width: 32
         height: 32
@@ -12118,20 +11715,6 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_826
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 96
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
       name: base_out_atlas_827
       rect:
         serializedVersion: 2
@@ -12276,48 +11859,6 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 480
-        y: 96
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: base_out_atlas_838
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 96
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: base_out_atlas_839
-      rect:
-        serializedVersion: 2
-        x: 544
-        y: 96
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: base_out_atlas_840
-      rect:
-        serializedVersion: 2
-        x: 576
         y: 96
         width: 32
         height: 32
@@ -12496,20 +12037,6 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_853
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
       name: base_out_atlas_854
       rect:
         serializedVersion: 2
@@ -12654,48 +12181,6 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 480
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: base_out_atlas_865
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: base_out_atlas_866
-      rect:
-        serializedVersion: 2
-        x: 544
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: base_out_atlas_867
-      rect:
-        serializedVersion: 2
-        x: 576
         y: 64
         width: 32
         height: 32
@@ -12874,20 +12359,6 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_880
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
       name: base_out_atlas_881
       rect:
         serializedVersion: 2
@@ -13032,48 +12503,6 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 480
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: base_out_atlas_892
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: base_out_atlas_893
-      rect:
-        serializedVersion: 2
-        x: 544
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: base_out_atlas_894
-      rect:
-        serializedVersion: 2
-        x: 576
         y: 32
         width: 32
         height: 32
@@ -13308,13 +12737,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_911
+      name: WallFront
       rect:
         serializedVersion: 2
         x: 128
         y: 0
         width: 32
-        height: 32
+        height: 160
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -13476,41 +12905,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_923
+      name: Tower
       rect:
         serializedVersion: 2
         x: 512
         y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: base_out_atlas_924
-      rect:
-        serializedVersion: 2
-        x: 544
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: base_out_atlas_925
-      rect:
-        serializedVersion: 2
-        x: 576
-        y: 0
-        width: 32
-        height: 32
+        width: 96
+        height: 350
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -13663,6 +13064,48 @@ TextureImporter:
         serializedVersion: 2
         x: 992
         y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SwampLakeCC
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 896
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LakeSwampCT
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 928
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LakeSwampCB
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 864
         width: 32
         height: 32
       alignment: 0
