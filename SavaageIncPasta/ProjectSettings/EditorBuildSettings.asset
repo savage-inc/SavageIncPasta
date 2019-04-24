@@ -23,3 +23,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/World/ClanScene.unity
     guid: 6694cb205153a7c4daa8894182aaf49a
+  - enabled: 1
+    path: Assets/Scenes/World/VolcanoScene.unity
+    guid: 38ddd30233fd33044b947752b332aad2
+  - enabled: 1
+    path: Assets/Scenes/World/TundraScene.unity
+    guid: b20ef2d3f9e564e45b95f61ae3617d2a
+  - enabled: 1
+    path: Assets/Scenes/World/SwampScene.unity
+    guid: 4be3f555f5e54b84c8e7af94e92d7342
