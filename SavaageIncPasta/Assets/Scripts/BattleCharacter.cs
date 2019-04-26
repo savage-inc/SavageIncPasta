@@ -9,7 +9,7 @@ public enum ActionChoice
     eSecondary
 }
 
-[RequireComponent(typeof(Image))]
+[RequireComponent(typeof(Sprite))]
 public class BattleCharacter : MonoBehaviour {
 
     public Character Character;
@@ -47,7 +47,7 @@ public class BattleCharacter : MonoBehaviour {
     }
     // Use this for initialization
     void Start () {
-        GetComponent<Image>().sprite = FindObjectOfType<SpriteManager>().GetSprite(Character.SpritePreviewName);
+        GetComponent<SpriteRenderer>().sprite = FindObjectOfType<SpriteManager>().GetSprite(Character.SpritePreviewName);
     }
 
     // Update is called once per frame

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public enum TurnOption
 {
@@ -43,11 +44,19 @@ public class Battle : MonoBehaviour
     public BattleCharacter Enemy2;
     public BattleCharacter Enemy3;
     public BattleCharacter Enemy4;
+    public GameObject FirstSelected;
 
     private int _deadEnemies = 0;
     private int _deadPlayers = 0;
+    private bool _selectingCharacter = false;
+    private bool _buttonPressed = false;
 
-    public bool InteractableCharacterButtons = false;
+    private EventSystem _eventSystem;
+
+    private void Awake()
+    {
+        _eventSystem = FindObjectOfType<EventSystem>();
+    }
 
     // Use this for initialization
     void Start()
@@ -110,6 +119,9 @@ public class Battle : MonoBehaviour
         {
             EnemyAttack();
         }
+
+        //select enemy
+        SelectEnemyState();
 
         if (_optionChosen > 0)
         {
@@ -189,7 +201,7 @@ public class Battle : MonoBehaviour
     void StartTurn()
     {
         BattleCharacter currentCharacter = _battleCharacterList[_characterTurnOrder[_currentCharacterIndex]];
-        currentCharacter.gameObject.GetComponent<Image>().color = Color.magenta;
+        currentCharacter.gameObject.GetComponent<SpriteRenderer>().color = Color.magenta;
         currentCharacter.Defending = 1.0f;
         currentCharacter.StartTurn = false;
         currentCharacter.AttackBuffModifier = 1.0f;
@@ -343,11 +355,7 @@ public class Battle : MonoBehaviour
     }
 
     void RecklessCharge()
-    {
-        if (InteractableCharacterButtons)
-        {
-            SwitchInteractableCharacterButtons();
-        }
+    { 
         if (_targettedCharacterIndex > -1)
         {
             if (hitChance())
@@ -378,10 +386,6 @@ public class Battle : MonoBehaviour
     }
     void RigatiBoomerang()
     {
-        if (InteractableCharacterButtons)
-        {
-            SwitchInteractableCharacterButtons();
-        }
         if(_targettedCharacterIndex > -1)
         {
             PlayerAttack(true);
@@ -398,10 +402,6 @@ public class Battle : MonoBehaviour
     {
         int missCount = 0;
         float hitCount = 0;
-        if (InteractableCharacterButtons)
-        {
-            SwitchInteractableCharacterButtons();
-        }
         if (_targettedCharacterIndex > -1)
         {
             while (missCount < 2)
@@ -453,10 +453,6 @@ public class Battle : MonoBehaviour
 
     void FusiliShot(Character attacker)
     {
-        if (InteractableCharacterButtons)
-        {
-            SwitchInteractableCharacterButtons();
-        }
         if (_targettedCharacterIndex > -1)
         {
             if (hitChance(1.2f))
@@ -468,10 +464,6 @@ public class Battle : MonoBehaviour
     }
     void FarfalleShot(Character attacker)
     {
-        if (InteractableCharacterButtons)
-        {
-            SwitchInteractableCharacterButtons();
-        }
         if (_targettedCharacterIndex > -1)
         {
             if (hitChance())
@@ -514,13 +506,9 @@ public class Battle : MonoBehaviour
     }
     void BackStab(Character attacker)
     {
-        if (InteractableCharacterButtons)
-        {
-            SwitchInteractableCharacterButtons();
-        }
         if (_targettedCharacterIndex > -1)
         {
-            if (hitChance())
+            if (hitChance(1.2f))
             {
                 DealDamage((int)(CalculateDamage() * 1.5));
             }
@@ -572,10 +560,6 @@ public class Battle : MonoBehaviour
 
     void Leftovers(Character attacker)
     {
-        if (InteractableCharacterButtons)
-        {
-            SwitchInteractableCharacterButtons();
-        }
         if (_targettedCharacterIndex > -1)
         {
             if (hitChance())
@@ -587,10 +571,6 @@ public class Battle : MonoBehaviour
     }
     void SpagSteal(Character attacker)
     {
-        if (InteractableCharacterButtons)
-        {
-            SwitchInteractableCharacterButtons();
-        }
         if (_targettedCharacterIndex > -1)
         {
             if (hitChance())
@@ -604,10 +584,6 @@ public class Battle : MonoBehaviour
     }
     void SpiceUp()
     {
-        if (InteractableCharacterButtons)
-        {
-            SwitchInteractableCharacterButtons();
-        }
         if (_targettedCharacterIndex > -1)
         {
             _battleCharacterList[_targettedCharacterIndex].AttackBuffModifier += .5f;
@@ -699,10 +675,6 @@ public class Battle : MonoBehaviour
     }
     void ScaldingSauce(Character attacker)
     {
-        if (InteractableCharacterButtons)
-        {
-            SwitchInteractableCharacterButtons();
-        }
         if (_targettedCharacterIndex > -1)
         {
             if (hitChance())
@@ -715,10 +687,6 @@ public class Battle : MonoBehaviour
     }
     void Meatball(Character attacker)
     {
-        if (InteractableCharacterButtons)
-        {
-            SwitchInteractableCharacterButtons();
-        }
         if (_targettedCharacterIndex > -1)
         {
             if (hitChance())
@@ -741,10 +709,6 @@ public class Battle : MonoBehaviour
     }
     void Slow(Character attacker)
     {
-        if (InteractableCharacterButtons)
-        {
-            SwitchInteractableCharacterButtons();
-        }
         if (_targettedCharacterIndex > -1)
         {
             if (hitChance())
@@ -756,11 +720,7 @@ public class Battle : MonoBehaviour
         }
     }
     void Teleport(Character attacker)
-    {
-        if (InteractableCharacterButtons)
-        {
-            SwitchInteractableCharacterButtons();
-        }
+    { 
         if (_targettedCharacterIndex > -1)
         {
             Move(_battleCharacterList[_targettedCharacterIndex]);
@@ -769,10 +729,6 @@ public class Battle : MonoBehaviour
     }
     void FlourAttack(Character attacker)
     {
-        if (InteractableCharacterButtons)
-        {
-            SwitchInteractableCharacterButtons();
-        }
         if (_targettedCharacterIndex > -1)
         {
             int col = _battleCharacterList[_targettedCharacterIndex].Character.CurrCol;
@@ -792,10 +748,6 @@ public class Battle : MonoBehaviour
     }
     void RavioliBomb(Character attacker)
     {
-        if (InteractableCharacterButtons)
-        {
-            SwitchInteractableCharacterButtons();
-        }
         if (_targettedCharacterIndex > -1)
         {
             int col = _battleCharacterList[_targettedCharacterIndex].Character.CurrCol;
@@ -852,6 +804,18 @@ public class Battle : MonoBehaviour
 
     public void SetTargettedCharacter(int characterIndex)
     {
+        if(_buttonPressed)
+        {
+            _buttonPressed = false;
+            return;
+        }
+
+        //check if the character is alive
+        if(!_battleCharacterList[characterIndex].Character.Alive)
+        {
+            return;
+        }
+
         //check if to use a consumable from the inventory
         BattleInventoryUI battleInv = FindObjectOfType<BattleInventoryUI>();
         if(battleInv.SelectedConsumable != null)
@@ -862,10 +826,10 @@ public class Battle : MonoBehaviour
         }
 
         _targettedCharacterIndex = characterIndex;
-        SwitchInteractableCharacterButtons();
+        _selectingCharacter = false;
     }
 
-    
+
 
     void EnemyAttack()
     {
@@ -1041,15 +1005,36 @@ public class Battle : MonoBehaviour
 
     void Move(BattleCharacter mover)
     {
-        if (Input.GetKeyDown(KeyCode.RightArrow) && mover.Character.CurrCol < 3)
+        //move left
+        if (Input.GetAxis("Horizontal") > 0.0f)
         {
-            mover.Character.CurrCol++;
+            if (_axisInUse == false)
+            {
+                mover.Character.CurrCol = Mathf.Clamp(mover.Character.CurrCol + 1, 1, 3);
+                _axisInUse = true;
+            }
         }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow) && mover.Character.CurrCol > 1)
+        else if (Input.GetAxis("Horizontal") == 0.0f)
         {
-            mover.Character.CurrCol--;
+            _axisInUse = false;
         }
-        else if (Input.GetKeyDown(KeyCode.Return))
+
+
+        if (Input.GetAxis("Horizontal") < 0.0f)
+        {
+            if (_axisInUse == false)
+            {
+                mover.Character.CurrCol = Mathf.Clamp(mover.Character.CurrCol - 1, 1, 3);
+                _axisInUse = true;
+            }
+        }
+        else if (Input.GetAxis("Horizontal") == 0.0f)
+        {
+            _axisInUse = false;
+        }
+
+
+        if (Input.GetButton("A"))
         {
             EndTurn();
         }
@@ -1073,7 +1058,7 @@ public class Battle : MonoBehaviour
         }
         if (currentCharacter.PrimaryAction == true && currentCharacter.SecondaryAction == true)
         {
-            currentCharacter.gameObject.GetComponent<Image>().color = Color.white;
+            currentCharacter.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
             currentCharacter.StartTurn = true;
             currentCharacter.PrimaryAction = false;
             currentCharacter.SecondaryAction = false;
@@ -1088,34 +1073,69 @@ public class Battle : MonoBehaviour
         }
         _optionChosen = TurnOption.eNONE;
         _targettedCharacterIndex = -1;
+
+
+        _eventSystem.SetSelectedGameObject(FirstSelected);
     }
 
+    IEnumerator sleep()
+    {
+        yield return new WaitForSeconds(0.1f);
+    }
     public void SetTurnOption(int turnOption)
     {
         _optionChosen = (TurnOption)turnOption;
+
+        if (_optionChosen != TurnOption.eNONE && _optionChosen != TurnOption.eDEFEND)
+        {
+            _eventSystem.SetSelectedGameObject(null);
+
+            _buttonPressed = true;
+            if (_optionChosen != TurnOption.eMOVE)
+            {
+                _selectingCharacter = true;
+            }
+            System.Threading.Thread.Sleep(400);
+        }
+
     }
 
-    public void SwitchInteractableCharacterButtons()
+    public List<BattleCharacter> GetEnemiesInCol(int col)
     {
-        if (_battleCharacterList[_characterTurnOrder[_currentCharacterIndex]].Character.Class == ClassType.eWARRIOR)
+        List<BattleCharacter> enemies = new List<BattleCharacter>();
+
+        for (int i = 0; i < _battleCharacterList.Count; i++)
+        {
+            if ((_battleCharacterList[i].Character.CurrCol == col && _battleCharacterList[i].Character.Alive && !_battleCharacterList[i].Character.Player))
+            {
+                enemies.Add(_battleCharacterList[i]);
+            }
+        }
+
+        return enemies;
+    }
+
+    public List<BattleCharacter> GetSelectableEnemiesFromPlayer(BattleCharacter player)
+    {
+        List<BattleCharacter> enemies = new List<BattleCharacter>();
+
+        if (player.Character.Class == ClassType.eWARRIOR)
         {
             int colToAttack = 1;
-            bool characterAvailable = false;
-            while (!characterAvailable && colToAttack <= 3)
+            bool enemyAvalible = false;
+            while (!enemyAvalible && colToAttack <= 3)
             {
                 for (int i = 0; i < _battleCharacterList.Count; i++)
                 {
                     if ((_battleCharacterList[i].Character.CurrCol == colToAttack && _battleCharacterList[i].Character.Alive && !_battleCharacterList[i].Character.Player) || _battleCharacterList[i].Character.Player)
                     {
-                        _battleCharacterList[i].gameObject.GetComponent<Button>().interactable = !_battleCharacterList[i].gameObject.GetComponent<Button>().interactable;
                         if (!_battleCharacterList[i].Character.Player)
                         {
-                            characterAvailable = true;
+                            enemyAvalible = true;
                         }
-
                     }
                 }
-                if (!characterAvailable)
+                if (!enemyAvalible)
                 {
                     colToAttack++;
                 }
@@ -1123,22 +1143,91 @@ public class Battle : MonoBehaviour
         }
         else
         {
-
+            //player can attack all as it is not a warrior
             for (int i = 0; i < _battleCharacterList.Count; i++)
             {
-                if (_battleCharacterList[i].Character.Alive)
+                if (_battleCharacterList[i].Character.Alive && !_battleCharacterList[i].Character.Player)
                 {
-                    _battleCharacterList[i].gameObject.GetComponent<Button>().interactable = !_battleCharacterList[i].gameObject.GetComponent<Button>().interactable;
+                    enemies.Add(_battleCharacterList[i]);
                 }
-
             }
         }
-        InteractableCharacterButtons = false;
+
+        return enemies;
     }
 
-    public void SetInteractableCharacterButtonsBool()
+    public BattleCharacter GetFirstAliveEnemy()
     {
-        InteractableCharacterButtons = true;
+        foreach (var character in _battleCharacterList)
+        {
+            if (!character.Character.Player && character.Character.Alive)
+            {
+                return character;
+            }
+        }
+        return _battleCharacterList[4];
+    }
+
+    int _tempSelectedEnemy = 4;
+    bool _axisInUse = false;
+    void SelectEnemyState()
+    {
+        if(_targettedCharacterIndex > -1 || !_selectingCharacter)
+        {
+            if (!_selectingCharacter)
+            {
+                for (int i = 4; i < 8; i++)
+                {
+                    _battleCharacterList[i].GetComponent<SpriteRenderer>().color = Color.white;
+                }
+            }
+            return;
+        }
+
+
+        var enemies = GetSelectableEnemiesFromPlayer(_battleCharacterList[_currentCharacterIndex]);
+
+        for (int i = 4; i < 8; i++)
+        {
+            _battleCharacterList[i].GetComponent<SpriteRenderer>().color = Color.white;
+        }
+
+
+        if (Input.GetButton("A"))
+        {
+            SetTargettedCharacter(_tempSelectedEnemy);
+        }
+
+        //move up
+        if (Input.GetAxis("Vertical") < 0.000f)
+        {
+            if (_axisInUse == false)
+            {
+                _tempSelectedEnemy = Mathf.Clamp(_tempSelectedEnemy + 1, 4, 7);
+                _axisInUse = true;
+            }
+        }
+        else if (Input.GetAxis("Vertical") == 0.0f)
+        {
+            _axisInUse = false;
+        }
+
+
+        if (Input.GetAxis("Vertical") > 0.0f)
+        {
+            if (_axisInUse == false)
+            {
+                _tempSelectedEnemy = Mathf.Clamp(_tempSelectedEnemy - 1, 4, 7);
+                _axisInUse = true;
+            }
+        }
+        else if(Input.GetAxis("Vertical") == 0.0f)
+        {
+            _axisInUse = false;
+        }
+        FindObjectOfType<EventSystem>().enabled = true;
+
+        _battleCharacterList[_tempSelectedEnemy].GetComponent<SpriteRenderer>().color = Color.red;
     }
 }
 
