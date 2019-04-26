@@ -156,6 +156,7 @@ public class Battle : MonoBehaviour
         if (_deadPlayers >= _characterList.Count)
         {
             // Player lose
+            FindObjectOfType<BattleInventoryUI>().Save();
             SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
         }
         else if (_deadEnemies >= _enemyList.Count)
@@ -180,6 +181,7 @@ public class Battle : MonoBehaviour
             }
             Vector2 newPos = new Vector2(PlayerPrefs.GetFloat("SceneOriginX"), PlayerPrefs.GetFloat("SceneOriginY"));
             PersistantData.SetPlayerPositionInNextScene(newPos);
+            FindObjectOfType<BattleInventoryUI>().Save();
             SceneManager.LoadScene(PlayerPrefs.GetInt("SceneOrigin"), LoadSceneMode.Single);
         }
     }
@@ -850,6 +852,15 @@ public class Battle : MonoBehaviour
 
     public void SetTargettedCharacter(int characterIndex)
     {
+        //check if to use a consumable from the inventory
+        BattleInventoryUI battleInv = FindObjectOfType<BattleInventoryUI>();
+        if(battleInv.SelectedConsumable != null)
+        {
+            //use consumable instead
+            battleInv.UseConsumableOnCharacter(_characterList[characterIndex]);
+            return;
+        }
+
         _targettedCharacterIndex = characterIndex;
         SwitchInteractableCharacterButtons();
     }

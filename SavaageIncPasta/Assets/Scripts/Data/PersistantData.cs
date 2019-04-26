@@ -174,7 +174,8 @@ public class PersistantData
                 partyInventory.Inventory = partyData.PartyInventory;
                 partyInventory.Gold = partyData.Gold;
 
-                playerManager.Characters = partyData.PartyCharacterData;
+                if(playerManager != null)
+                    playerManager.Characters = partyData.PartyCharacterData;
                 ItemDatabase.Instance.FromList(partyData.ItemDatabase);
             }
         }
