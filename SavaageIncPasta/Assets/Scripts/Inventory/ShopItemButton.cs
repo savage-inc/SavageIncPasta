@@ -49,7 +49,7 @@ public class ShopItemButton : MonoBehaviour, ISelectHandler, IDeselectHandler
         if (Shop == null || Shop == null || Item == null || Item.Item == null)
             return;
 
-        //shop sells the item to the part
+        //shop sells the item to the party
         Shop.SellItem(Item.Item);
 
         Destroy(_itemToolTipInstance);

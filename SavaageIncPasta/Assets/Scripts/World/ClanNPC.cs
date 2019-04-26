@@ -12,7 +12,7 @@ public class ClanNPC : MonoBehaviour {
 
     void OnTriggerStay2D(Collider2D other)
     {
-        if (Input.GetButtonDown("A") || Input.GetKeyDown(KeyCode.E))
+        if (Input.GetButtonDown("X") || Input.GetKeyDown(KeyCode.E))
         {
             if (!_uiManager.ClanUI.gameObject.activeInHierarchy)
             {
