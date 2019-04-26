@@ -70,7 +70,5 @@ public class BarracksManager : MonoBehaviour
         {
             AddToClan(BarracksMember);
         }
-
     }
-
 }
