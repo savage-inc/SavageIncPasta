@@ -10,6 +10,8 @@ public class LevelUpMenu : MonoBehaviour
     private GameObject _choiceMenu;
     private Button[] _buttons = new Button[2];
     private BasicLevelling _levellingManager;
+    private Character _levelledUpCharacter;
+    private int _numOptionsForLevel = 0;
 
     public void LevelledUp()
     {
@@ -62,9 +64,139 @@ public class LevelUpMenu : MonoBehaviour
     {
         if (!_choiceMenu.activeInHierarchy)
         {
+            _buttons[0].GetComponentInChildren<Text>().text = "hello";
             _choiceMenu.SetActive(true);
             Time.timeScale = 0.0f;
             FindObjectOfType<EventSystem>().SetSelectedGameObject(GameObject.Find("Option A"));
+        }
+    }
+
+    private string DisplayOptionAText()
+    {
+        _levelledUpCharacter = gameObject.GetComponent<BasicLevelling>().GetLevelledUpCharacter();
+
+        switch(_levelledUpCharacter.Level)
+        {
+            case 2:
+                switch(_levelledUpCharacter.Class)
+                {
+                    case ClassType.eWARRIOR:
+                        return "Reckless Charge";
+                    case ClassType.eRANGER:
+                        return "Keen Eye";
+                    case ClassType.eWIZARD:
+                        return "Meatball";
+                    case ClassType.eSHAMAN:
+                        return "Healing Word";
+                }
+                break;
+            case 3:
+                switch (_levelledUpCharacter.Class)
+                {
+                    case ClassType.eWARRIOR:
+                        return "Strength +1 and Constitution +1";
+                    case ClassType.eRANGER:
+                        return "Agility +1";
+                    case ClassType.eWIZARD:
+                        return "Meatball";
+                    case ClassType.eSHAMAN:
+                        return "Healing Word";
+                }
+                break;
+            case 4:
+                switch (_levelledUpCharacter.Class)
+                {
+                    case ClassType.eWARRIOR:
+                        return "Rigati Boomerang";
+                    case ClassType.eRANGER:
+                        return "Rapid Strike and Agility +1";
+                    case ClassType.eWIZARD:
+                        return "Meatball";
+                    case ClassType.eSHAMAN:
+                        return "Healing Word";
+                }
+                break;
+            case 5:
+                switch (_levelledUpCharacter.Class)
+                {
+                    case ClassType.eWARRIOR:
+                        return "Penne Storm and Strength +1";
+                    case ClassType.eRANGER:
+                        return "Agility +1 and Split Shot";
+                    case ClassType.eWIZARD:
+                        return "Meatball";
+                    case ClassType.eSHAMAN:
+                        return "Healing Word";
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
+    private string DisplayOptionBText()
+    {
+        if (_numOptionsForLevel == 2)
+        {
+            _levelledUpCharacter = gameObject.GetComponent<BasicLevelling>().GetLevelledUpCharacter();
+
+            switch (_levelledUpCharacter.Level)
+            {
+                case 2:
+                    switch (_levelledUpCharacter.Class)
+                    {
+                        case ClassType.eWARRIOR:
+                            return "Conchiglie Shell";
+                        case ClassType.eRANGER:
+                            return "Dagger Dagger Dagger";
+                        case ClassType.eWIZARD:
+                            return "Meatball";
+                        case ClassType.eSHAMAN:
+                            return "Healing Word";
+                    }
+                    break;
+                case 3:
+                    switch (_levelledUpCharacter.Class)
+                    {
+                        case ClassType.eWARRIOR:
+                            return "Strength +1 and Constitution +1";
+                        case ClassType.eRANGER:
+                            return "Agility +1";
+                        case ClassType.eWIZARD:
+                            return "Meatball";
+                        case ClassType.eSHAMAN:
+                            return "Healing Word";
+                    }
+                    break;
+                case 4:
+                    switch (_levelledUpCharacter.Class)
+                    {
+                        case ClassType.eWARRIOR:
+                            return "Spiked Bucatini";
+                        case ClassType.eRANGER:
+                            return "Sneak Attack";
+                        case ClassType.eWIZARD:
+                            return "Meatball";
+                        case ClassType.eSHAMAN:
+                            return "Healing Word";
+                    }
+                    break;
+                case 5:
+                    switch (_levelledUpCharacter.Class)
+                    {
+                        case ClassType.eWARRIOR:
+                            return "Penne Storm and Strength +1";
+                        case ClassType.eRANGER:
+                            return "Keen Eye";
+                        case ClassType.eWIZARD:
+                            return "Meatball";
+                        case ClassType.eSHAMAN:
+                            return "Healing Word";
+                    }
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }
