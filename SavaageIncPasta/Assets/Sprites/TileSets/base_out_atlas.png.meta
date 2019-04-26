@@ -209,8 +209,8 @@ TextureImporter:
     21300408: base_out_atlas_204
     21300410: base_out_atlas_205
     21300412: base_out_atlas_206
-    21300414: base_out_atlas_207
-    21300416: base_out_atlas_208
+    21300414: LavaInlineTL
+    21300416: LavaInlineTR
     21300418: base_out_atlas_209
     21300420: base_out_atlas_210
     21300422: base_out_atlas_211
@@ -236,8 +236,8 @@ TextureImporter:
     21300462: base_out_atlas_231
     21300464: base_out_atlas_232
     21300466: base_out_atlas_233
-    21300468: base_out_atlas_234
-    21300470: base_out_atlas_235
+    21300468: LavaInlineBL
+    21300470: LavaInlineBR
     21300472: base_out_atlas_236
     21300474: base_out_atlas_237
     21300476: base_out_atlas_238
@@ -265,9 +265,9 @@ TextureImporter:
     21300520: base_out_atlas_260
     21300522: base_out_atlas_261
     21300524: base_out_atlas_262
-    21300526: base_out_atlas_263
-    21300528: base_out_atlas_264
-    21300530: base_out_atlas_265
+    21300526: LavaOutlineTL
+    21300528: LavaOutlineTC
+    21300530: LavaOutlineTR
     21300532: base_out_atlas_266
     21300534: base_out_atlas_267
     21300536: base_out_atlas_268
@@ -297,9 +297,9 @@ TextureImporter:
     21300584: base_out_atlas_292
     21300586: base_out_atlas_293
     21300588: base_out_atlas_294
-    21300590: base_out_atlas_295
-    21300592: base_out_atlas_296
-    21300594: base_out_atlas_297
+    21300590: LavaOutlineCL
+    21300592: LavaOutlineCC
+    21300594: LavaOutlineCR
     21300596: base_out_atlas_298
     21300598: base_out_atlas_299
     21300600: base_out_atlas_300
@@ -328,9 +328,9 @@ TextureImporter:
     21300646: base_out_atlas_323
     21300648: base_out_atlas_324
     21300650: base_out_atlas_325
-    21300652: base_out_atlas_326
-    21300654: base_out_atlas_327
-    21300656: base_out_atlas_328
+    21300652: LavaOutlineBL
+    21300654: LavaOutlineBC
+    21300656: LavaOutlineBR
     21300658: base_out_atlas_329
     21300660: base_out_atlas_330
     21300662: base_out_atlas_331
@@ -3875,7 +3875,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_207
+      name: LavaInlineTL
       rect:
         serializedVersion: 2
         x: 512
@@ -3889,7 +3889,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_208
+      name: LavaInlineTR
       rect:
         serializedVersion: 2
         x: 544
@@ -4253,7 +4253,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_234
+      name: LavaInlineBL
       rect:
         serializedVersion: 2
         x: 512
@@ -4267,7 +4267,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_235
+      name: LavaInlineBR
       rect:
         serializedVersion: 2
         x: 544
@@ -4659,7 +4659,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_263
+      name: LavaOutlineTL
       rect:
         serializedVersion: 2
         x: 480
@@ -4673,7 +4673,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_264
+      name: LavaOutlineTC
       rect:
         serializedVersion: 2
         x: 512
@@ -4687,7 +4687,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_265
+      name: LavaOutlineTR
       rect:
         serializedVersion: 2
         x: 544
@@ -5107,7 +5107,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_295
+      name: LavaOutlineCL
       rect:
         serializedVersion: 2
         x: 480
@@ -5121,7 +5121,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_296
+      name: LavaOutlineCC
       rect:
         serializedVersion: 2
         x: 512
@@ -5135,7 +5135,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_297
+      name: LavaOutlineCR
       rect:
         serializedVersion: 2
         x: 544
@@ -5541,7 +5541,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_326
+      name: LavaOutlineBL
       rect:
         serializedVersion: 2
         x: 480
@@ -5555,7 +5555,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_327
+      name: LavaOutlineBC
       rect:
         serializedVersion: 2
         x: 512
@@ -5569,7 +5569,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_328
+      name: LavaOutlineBR
       rect:
         serializedVersion: 2
         x: 544
