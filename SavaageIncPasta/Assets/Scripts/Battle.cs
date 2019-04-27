@@ -90,6 +90,12 @@ public class Battle : MonoBehaviour
 
     }
 
+    //Save the game on destroy (Scene change)
+    void OnDestroy()
+    {
+        PersistantData.SavePartyData(FindObjectOfType<PartyInventory>(), FindObjectOfType<PlayerManager>());
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -204,6 +210,11 @@ public class Battle : MonoBehaviour
             FindObjectOfType<BattleInventoryUI>().Save();
             SceneManager.LoadScene(PlayerPrefs.GetInt("SceneOrigin"), LoadSceneMode.Single);
         }
+    }
+
+    public List<BattleCharacter> GetBattleCharacters()
+    {
+        return _battleCharacterList;
     }
 
     void StartTurn()
@@ -815,15 +826,6 @@ public class Battle : MonoBehaviour
         //check if the character is alive
         if(!_battleCharacterList[characterIndex].Character.Alive)
         {
-            return;
-        }
-
-        //check if to use a consumable from the inventory
-        BattleInventoryUI battleInv = FindObjectOfType<BattleInventoryUI>();
-        if(battleInv.SelectedConsumable != null)
-        {
-            //use consumable instead
-            battleInv.UseConsumableOnCharacter(_characterList[characterIndex]);
             return;
         }
 

@@ -151,12 +151,17 @@ public class PersistantData
 
     public static void SavePartyData(PartyInventory partyInventory, PlayerManager playerManager)
     {
+        if (partyInventory == null || playerManager == null)
+        {
+            return;
+        }
         PartyData partyData = new PartyData();
         partyData.PartyInventory = partyInventory.Inventory;
         partyData.Gold = partyInventory.Gold;
 
         //Party characets
         partyData.PartyCharacterData = playerManager.Characters;
+
         partyData.ItemDatabase = ItemDatabase.Instance.ToList();
 
         SaveBytesToFile(Application.persistentDataPath + "/save/","partyData.data", SerializeToBytes(partyData));
