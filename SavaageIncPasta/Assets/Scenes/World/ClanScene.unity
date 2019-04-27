@@ -365,7 +365,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 179892106}
+      - m_Target: {fileID: 781351615}
         m_MethodName: SetToColumnMode
         m_Mode: 1
         m_Arguments:
@@ -1314,6 +1314,41 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 39d58eb9f6f19e74a8dcbb85ca2424ed, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &384224224 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1258447218569782, guid: cef6fad864c048746ae7c45085d3e862,
+    type: 2}
+  m_PrefabInternal: {fileID: 838816110}
+--- !u!114 &384224229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 384224224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 9
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1931658318}
+          m_MethodName: GetPlayersColumn
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &428952730
 GameObject:
   m_ObjectHideFlags: 0
@@ -1325,6 +1360,7 @@ GameObject:
   - component: {fileID: 428952733}
   - component: {fileID: 428952732}
   - component: {fileID: 428952734}
+  - component: {fileID: 428952735}
   m_Layer: 5
   m_Name: Value
   m_TagString: Untagged
@@ -1436,8 +1472,31 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 428952735}
+        m_MethodName: ChangeSelected
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &428952735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 428952730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6507a2144b71f7d4095c7000fbb9ce50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChangeTo: {fileID: 2009162678}
 --- !u!1 &429860663
 GameObject:
   m_ObjectHideFlags: 0
@@ -1569,7 +1628,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 179892106}
+      - m_Target: {fileID: 1307472755}
         m_MethodName: SetToColumnMode
         m_Mode: 1
         m_Arguments:
@@ -1744,6 +1803,47 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 496322307}
+--- !u!1 &607132498 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1166890173029832, guid: cef6fad864c048746ae7c45085d3e862,
+    type: 2}
+  m_PrefabInternal: {fileID: 838816110}
+--- !u!114 &607132503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 607132498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 9
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 781351615}
+          m_MethodName: GetPlayersColumn
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
+--- !u!114 &781351615 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114033833050842832, guid: cef6fad864c048746ae7c45085d3e862,
+    type: 2}
+  m_PrefabInternal: {fileID: 838816110}
+  m_Script: {fileID: 11500000, guid: c19a1d93abd627f4e880f40ca92d4a40, type: 3}
 --- !u!1 &807701524
 GameObject:
   m_ObjectHideFlags: 0
@@ -1905,7 +2005,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-<<<<<<< HEAD
     - target: {fileID: 224963784567214990, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -2803,20 +2902,6 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1489312157865516, guid: cef6fad864c048746ae7c45085d3e862, type: 2}
       propertyPath: m_IsActive
-=======
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: cef6fad864c048746ae7c45085d3e862, type: 2}
-  m_IsPrefabParent: 0
---- !u!1001 &846853209
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 429860666}
-    m_Modifications:
-    - target: {fileID: 4537981468322970, guid: 5e330bfe6c0490d4abfddafaff44adf7, type: 2}
-      propertyPath: m_LocalPosition.x
->>>>>>> origin/Combat
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1959975989637278, guid: cef6fad864c048746ae7c45085d3e862, type: 2}
@@ -3326,11 +3411,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114313382199000234, guid: 5e330bfe6c0490d4abfddafaff44adf7,
-        type: 2}
-      propertyPath: GenerateRandomClanMembers
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5e330bfe6c0490d4abfddafaff44adf7, type: 2}
   m_IsPrefabParent: 0
@@ -3412,6 +3492,41 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 913496288}
+--- !u!1 &1010507738 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1282016058421150, guid: cef6fad864c048746ae7c45085d3e862,
+    type: 2}
+  m_PrefabInternal: {fileID: 838816110}
+--- !u!114 &1010507739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1010507738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 9
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1307472755}
+          m_MethodName: GetPlayersColumn
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &1068576369
 GameObject:
   m_ObjectHideFlags: 0
@@ -5098,6 +5213,12 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 838816110}
   m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &1307472755 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114845682858773258, guid: cef6fad864c048746ae7c45085d3e862,
+    type: 2}
+  m_PrefabInternal: {fileID: 838816110}
+  m_Script: {fileID: 11500000, guid: c19a1d93abd627f4e880f40ca92d4a40, type: 3}
 --- !u!1 &1329911344
 GameObject:
   m_ObjectHideFlags: 0
@@ -5715,7 +5836,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 179892106}
+      - m_Target: {fileID: 1931658318}
         m_MethodName: SetToColumnMode
         m_Mode: 1
         m_Arguments:
@@ -5763,6 +5884,47 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1879139849}
+--- !u!114 &1931658318 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114316870103043090, guid: cef6fad864c048746ae7c45085d3e862,
+    type: 2}
+  m_PrefabInternal: {fileID: 838816110}
+  m_Script: {fileID: 11500000, guid: c19a1d93abd627f4e880f40ca92d4a40, type: 3}
+--- !u!1 &2009162678 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1574210004650106, guid: cef6fad864c048746ae7c45085d3e862,
+    type: 2}
+  m_PrefabInternal: {fileID: 838816110}
+--- !u!114 &2009162679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2009162678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 9
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 179892106}
+          m_MethodName: GetPlayersColumn
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &2039056157
 GameObject:
   m_ObjectHideFlags: 0

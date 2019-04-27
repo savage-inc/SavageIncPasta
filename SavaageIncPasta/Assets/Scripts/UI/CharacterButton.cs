@@ -22,6 +22,7 @@ public class CharacterButton : MonoBehaviour
     {
         SwapButton.gameObject.SetActive(false);
         CompareButton.gameObject.SetActive(false);
+        ColumnButton.gameObject.SetActive(false);
         CloseButton.gameObject.SetActive(false);
         _eventSystem.SetSelectedGameObject(transform.GetChild(0).gameObject);
         transform.GetChild(0).GetComponent<Button>().interactable = true;
@@ -109,11 +110,26 @@ public class CharacterButton : MonoBehaviour
 
     public void SetToColumnMode()
     {
+        SwapButton.gameObject.SetActive(false);
+        CompareButton.gameObject.SetActive(false);
+        ColumnButton.gameObject.SetActive(false);
+        CloseButton.gameObject.SetActive(false);
+        transform.GetChild(0).GetComponent<Button>().interactable = true;
+        _eventSystem.SetSelectedGameObject(transform.GetChild(0).gameObject);
+
+
         var clanControl = FindObjectOfType<ClanControl>();
         clanControl.SelectedCharacter = Character;
 
         _eventSystem.SetSelectedGameObject(null, null);
         _eventSystem.SetSelectedGameObject(ColumnConroller);
+    }
+
+    public void GetPlayersColumn()
+    {
+        var clanControl = FindObjectOfType<ClanControl>();
+        clanControl.SelectedColumn = Character.CurrCol;
+        clanControl.ColumnText.text = clanControl.SelectedColumn.ToString();
     }
 
 }

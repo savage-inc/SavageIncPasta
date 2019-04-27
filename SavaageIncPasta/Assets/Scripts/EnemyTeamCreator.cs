@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿#if (UNITY_EDITOR) 
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -51,3 +53,4 @@ public class EnemyTeamCreator : EditorWindow
         PersistantData.SaveBytesToFile(Application.dataPath + "/Resources/Data/Enemies/", "Teams", data);
     }
 }
+#endif

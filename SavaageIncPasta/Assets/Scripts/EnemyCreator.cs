@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿#if (UNITY_EDITOR) 
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -114,7 +116,7 @@ public class EnemyCreator : EditorWindow
 
         //serlize 
         var data = PersistantData.SerializeToBytes(_enemy);
-        PersistantData.SaveBytesToFile(Application.dataPath + "/Resources/Data/Enemies/", _enemy.Name, data);
+        PersistantData.SaveBytesToFile(Application.dataPath + "/Resources/Data/Enemies/", _enemy.Name + ".bytes", data);
     }
 
     void LoadEnemy(string name)
@@ -127,3 +129,4 @@ public class EnemyCreator : EditorWindow
         }
     }
 }
+#endif

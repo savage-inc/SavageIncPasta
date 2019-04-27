@@ -25,6 +25,7 @@ public class GenerateRandomCharacter
                     character.MaxHealth = 4 * character.Constitution + 6 * character.Level;
                     character.CurrentHealth = character.MaxHealth;
                     character.Comfort = character.Constitution * 10 + character.Level * 4;
+                    character.MaxComfort = character.Comfort;
                     character.Magic = MagicType.eNONE;
                     character.MaxMana = 0;
 

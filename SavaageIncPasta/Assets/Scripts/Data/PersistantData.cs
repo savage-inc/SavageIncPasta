@@ -279,6 +279,14 @@ public class PersistantData
         return (T) formatter.Deserialize(stream);
     }
 
+    public static T DeserializeToType<T>(TextAsset asset)
+    {
+        var stream = new MemoryStream(asset.bytes);
+        var formatter = new BinaryFormatter();
+        stream.Seek(0, SeekOrigin.Begin);
+        return (T)formatter.Deserialize(stream);
+    }
+
     public static Byte[] SerializeToBytes<T>(T data)
     {
         var stream = new MemoryStream();

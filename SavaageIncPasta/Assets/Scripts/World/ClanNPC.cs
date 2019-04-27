@@ -44,5 +44,6 @@ public class ClanNPC : MonoBehaviour {
     public void CloseClan()
     {
         _uiManager.Close();
+        PersistantData.SavePartyData(FindObjectOfType<PartyInventory>(), FindObjectOfType<PlayerManager>(), FindObjectOfType<ClanManager>());
     }
 }
