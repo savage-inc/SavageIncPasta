@@ -42,8 +42,9 @@ public class BattleInventoryUI : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
+        PersistantData.LoadItemDatabase();
         //load party inventory from file
-        PersistantData.LoadPartyData(_partyInventory, null);
+        PersistantData.LoadPartyData(_partyInventory, null,null);
         AddItems();
         _battleCharacters = _battle.GetBattleCharacters();
     }
@@ -56,16 +57,15 @@ public class BattleInventoryUI : MonoBehaviour
             return;
         }
 
-        for (int i = 0; i < 4; i++)
-        {
-            _battleCharacters[i].GetComponent<SpriteRenderer>().color = Color.white;
-        }
-
         if (!_selectingPlayer)
         {
             return;
         }
 
+        for (int i = 0; i < 4; i++)
+        {
+            _battleCharacters[i].GetComponent<SpriteRenderer>().color = Color.white;
+        }
 
         if (Input.GetButtonDown("A"))
         {
@@ -174,7 +174,7 @@ public class BattleInventoryUI : MonoBehaviour
 
     public void Save()
     {
-        PersistantData.SavePartyData(_partyInventory,FindObjectOfType<PlayerManager>());
+        PersistantData.SavePartyData(_partyInventory,FindObjectOfType<PlayerManager>(), null);
     }
 
     public void UseConsumableOnCharacter(Character character, int slotIndex)
@@ -214,6 +214,7 @@ public class BattleInventoryUI : MonoBehaviour
         _selectingPlayer = false;
         _eventSystem.SetSelectedGameObject(null,null);
         _eventSystem.SetSelectedGameObject(FirstSelected);
+
     }
 
     public void UseItem(int itemSlot)
@@ -230,7 +231,7 @@ public class BattleInventoryUI : MonoBehaviour
 
     public void DisplayItem(int slotIndex)
     {
-        FindObjectOfType<BattleInfoUI>().Item = _slots[slotIndex].Item.Item;
+        FindObjectOfType<BattleInfoUI>().Item = _slots[slotIndex].Item;
     }
 
     public void RemoveItemDisplay()

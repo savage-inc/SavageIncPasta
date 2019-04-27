@@ -292,6 +292,7 @@ MonoBehaviour:
     Intelligence: 0
     Charisma: 0
     Magic: 0
+    Comfort: 0
     Player: 1
     Alive: 0
     BaseAttack: 5
@@ -301,7 +302,6 @@ MonoBehaviour:
     Abilities: 01000000
     GoldDrop: 5
     Experience: 0
-    Comfort: 0
   CurrentAction: 0
   PrimaryAction: 0
   SecondaryAction: 0
@@ -355,7 +355,7 @@ SpriteRenderer:
   m_Size: {x: 0.2, y: 0.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!1 &26391020
 GameObject:
@@ -1010,8 +1010,7 @@ MonoBehaviour:
   Item:
     Item: {fileID: 0}
     Amount: 0
-  ItemToolTipPrefab: {fileID: 1268185678497814, guid: c810b23a1244df547906d5ac4d71cbc0,
-    type: 2}
+  ItemToolTipPrefab: {fileID: 0}
 --- !u!222 &89715472
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1370,7 +1369,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fed6f61ad28b3247bdadad8eb429038, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Item: {fileID: 0}
+  Item:
+    Item: {fileID: 0}
+    Amount: 0
   TextBox1: {fileID: 623668177}
   TextBox2: {fileID: 1158100470}
   TextBox3: {fileID: 1363407234}
@@ -1736,8 +1737,7 @@ MonoBehaviour:
   Item:
     Item: {fileID: 0}
     Amount: 0
-  ItemToolTipPrefab: {fileID: 1268185678497814, guid: c810b23a1244df547906d5ac4d71cbc0,
-    type: 2}
+  ItemToolTipPrefab: {fileID: 0}
 --- !u!222 &204803233
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2142,8 +2142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InventorySize: 10
   _gold: 0
-  StartingItems:
-  - {fileID: 11400000, guid: 26e43c46c99deba4cb470c575cabccd8, type: 2}
+  StartingItems: []
 --- !u!1 &283420304
 GameObject:
   m_ObjectHideFlags: 0
@@ -2257,8 +2256,7 @@ MonoBehaviour:
   Item:
     Item: {fileID: 0}
     Amount: 0
-  ItemToolTipPrefab: {fileID: 1268185678497814, guid: c810b23a1244df547906d5ac4d71cbc0,
-    type: 2}
+  ItemToolTipPrefab: {fileID: 0}
 --- !u!222 &283420308
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3047,8 +3045,7 @@ MonoBehaviour:
   Item:
     Item: {fileID: 0}
     Amount: 0
-  ItemToolTipPrefab: {fileID: 1268185678497814, guid: c810b23a1244df547906d5ac4d71cbc0,
-    type: 2}
+  ItemToolTipPrefab: {fileID: 0}
 --- !u!114 &458825715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3368,8 +3365,7 @@ MonoBehaviour:
   Item:
     Item: {fileID: 0}
     Amount: 0
-  ItemToolTipPrefab: {fileID: 1268185678497814, guid: c810b23a1244df547906d5ac4d71cbc0,
-    type: 2}
+  ItemToolTipPrefab: {fileID: 0}
 --- !u!222 &478452078
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4857,8 +4853,7 @@ MonoBehaviour:
   Item:
     Item: {fileID: 0}
     Amount: 0
-  ItemToolTipPrefab: {fileID: 1268185678497814, guid: c810b23a1244df547906d5ac4d71cbc0,
-    type: 2}
+  ItemToolTipPrefab: {fileID: 0}
 --- !u!222 &802003275
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5044,8 +5039,7 @@ MonoBehaviour:
   Item:
     Item: {fileID: 0}
     Amount: 0
-  ItemToolTipPrefab: {fileID: 1268185678497814, guid: c810b23a1244df547906d5ac4d71cbc0,
-    type: 2}
+  ItemToolTipPrefab: {fileID: 0}
 --- !u!222 &817693617
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5535,8 +5529,7 @@ MonoBehaviour:
   Item:
     Item: {fileID: 0}
     Amount: 0
-  ItemToolTipPrefab: {fileID: 1268185678497814, guid: c810b23a1244df547906d5ac4d71cbc0,
-    type: 2}
+  ItemToolTipPrefab: {fileID: 0}
 --- !u!222 &881922553
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5737,6 +5730,7 @@ MonoBehaviour:
     Intelligence: 0
     Charisma: 0
     Magic: 0
+    Comfort: 0
     Player: 1
     Alive: 0
     BaseAttack: 5
@@ -5746,7 +5740,6 @@ MonoBehaviour:
     Abilities: 01000000
     GoldDrop: 5
     Experience: 0
-    Comfort: 0
   CurrentAction: 0
   PrimaryAction: 0
   SecondaryAction: 0
@@ -5800,7 +5793,7 @@ SpriteRenderer:
   m_Size: {x: 0.2, y: 0.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!1 &904380487
 GameObject:
@@ -5989,8 +5982,7 @@ MonoBehaviour:
   Item:
     Item: {fileID: 0}
     Amount: 0
-  ItemToolTipPrefab: {fileID: 1268185678497814, guid: c810b23a1244df547906d5ac4d71cbc0,
-    type: 2}
+  ItemToolTipPrefab: {fileID: 0}
 --- !u!222 &942440225
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6324,8 +6316,7 @@ MonoBehaviour:
   Item:
     Item: {fileID: 0}
     Amount: 0
-  ItemToolTipPrefab: {fileID: 1268185678497814, guid: c810b23a1244df547906d5ac4d71cbc0,
-    type: 2}
+  ItemToolTipPrefab: {fileID: 0}
 --- !u!222 &972707055
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7330,10 +7321,10 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1280, y: 720}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -8269,8 +8260,7 @@ MonoBehaviour:
   Item:
     Item: {fileID: 0}
     Amount: 0
-  ItemToolTipPrefab: {fileID: 1268185678497814, guid: c810b23a1244df547906d5ac4d71cbc0,
-    type: 2}
+  ItemToolTipPrefab: {fileID: 0}
 --- !u!222 &1332851609
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8680,8 +8670,7 @@ MonoBehaviour:
   Item:
     Item: {fileID: 0}
     Amount: 0
-  ItemToolTipPrefab: {fileID: 1268185678497814, guid: c810b23a1244df547906d5ac4d71cbc0,
-    type: 2}
+  ItemToolTipPrefab: {fileID: 0}
 --- !u!222 &1380670043
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8869,6 +8858,7 @@ MonoBehaviour:
     Intelligence: 0
     Charisma: 0
     Magic: 0
+    Comfort: 0
     Player: 1
     Alive: 0
     BaseAttack: 5
@@ -8878,7 +8868,6 @@ MonoBehaviour:
     Abilities: 01000000
     GoldDrop: 5
     Experience: 0
-    Comfort: 0
   CurrentAction: 0
   PrimaryAction: 0
   SecondaryAction: 0
@@ -8932,7 +8921,7 @@ SpriteRenderer:
   m_Size: {x: 0.2, y: 0.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!4 &1424902521
 Transform:
@@ -10341,8 +10330,7 @@ MonoBehaviour:
   Item:
     Item: {fileID: 0}
     Amount: 0
-  ItemToolTipPrefab: {fileID: 1268185678497814, guid: c810b23a1244df547906d5ac4d71cbc0,
-    type: 2}
+  ItemToolTipPrefab: {fileID: 0}
 --- !u!222 &1790755239
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10907,6 +10895,7 @@ MonoBehaviour:
     Intelligence: 0
     Charisma: 0
     Magic: 0
+    Comfort: 0
     Player: 1
     Alive: 0
     BaseAttack: 5
@@ -10916,7 +10905,6 @@ MonoBehaviour:
     Abilities: 01000000
     GoldDrop: 5
     Experience: 0
-    Comfort: 0
   CurrentAction: 0
   PrimaryAction: 0
   SecondaryAction: 0
@@ -10970,7 +10958,7 @@ SpriteRenderer:
   m_Size: {x: 0.2, y: 0.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!1001 &1868958614
 Prefab:
@@ -11159,7 +11147,7 @@ SpriteRenderer:
   m_Size: {x: 0.2, y: 0.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!114 &1959104322
 MonoBehaviour:
@@ -11185,6 +11173,7 @@ MonoBehaviour:
     Intelligence: 0
     Charisma: 0
     Magic: 0
+    Comfort: 0
     Player: 1
     Alive: 0
     BaseAttack: 5
@@ -11194,7 +11183,6 @@ MonoBehaviour:
     Abilities: 01000000
     GoldDrop: 5
     Experience: 0
-    Comfort: 0
   CurrentAction: 0
   PrimaryAction: 0
   SecondaryAction: 0
@@ -11260,6 +11248,7 @@ MonoBehaviour:
     Intelligence: 0
     Charisma: 0
     Magic: 0
+    Comfort: 0
     Player: 1
     Alive: 0
     BaseAttack: 5
@@ -11269,7 +11258,6 @@ MonoBehaviour:
     Abilities: 01000000
     GoldDrop: 5
     Experience: 0
-    Comfort: 0
   CurrentAction: 0
   PrimaryAction: 0
   SecondaryAction: 0
@@ -11323,7 +11311,7 @@ SpriteRenderer:
   m_Size: {x: 0.2, y: 0.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!1 &1997414488
 GameObject:
@@ -11820,6 +11808,7 @@ MonoBehaviour:
     Intelligence: 0
     Charisma: 0
     Magic: 0
+    Comfort: 0
     Player: 1
     Alive: 0
     BaseAttack: 5
@@ -11829,7 +11818,6 @@ MonoBehaviour:
     Abilities: 01000000
     GoldDrop: 5
     Experience: 0
-    Comfort: 0
   CurrentAction: 0
   PrimaryAction: 0
   SecondaryAction: 0
@@ -11883,7 +11871,7 @@ SpriteRenderer:
   m_Size: {x: 0.2, y: 0.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!1 &2066357343
 GameObject:
@@ -12011,6 +11999,7 @@ MonoBehaviour:
     Intelligence: 0
     Charisma: 0
     Magic: 0
+    Comfort: 0
     Player: 1
     Alive: 0
     BaseAttack: 5
@@ -12020,7 +12009,6 @@ MonoBehaviour:
     Abilities: 01000000
     GoldDrop: 5
     Experience: 0
-    Comfort: 0
   CurrentAction: 0
   PrimaryAction: 0
   SecondaryAction: 0
@@ -12074,7 +12062,7 @@ SpriteRenderer:
   m_Size: {x: 0.2, y: 0.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!1 &2096167918
 GameObject:
@@ -12263,8 +12251,7 @@ MonoBehaviour:
   Item:
     Item: {fileID: 0}
     Amount: 0
-  ItemToolTipPrefab: {fileID: 1268185678497814, guid: c810b23a1244df547906d5ac4d71cbc0,
-    type: 2}
+  ItemToolTipPrefab: {fileID: 0}
 --- !u!222 &2108910479
 CanvasRenderer:
   m_ObjectHideFlags: 0

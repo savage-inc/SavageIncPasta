@@ -81,6 +81,10 @@ public class RandomBattle : MonoBehaviour
                     break;
                 }
             }
+
+            //save player data
+            PersistantData.SavePartyData(FindObjectOfType<PartyInventory>(), FindObjectOfType<PlayerManager>(), FindObjectOfType<ClanManager>());
+
             SceneManager.LoadScene("Battle", LoadSceneMode.Single);
         }
     }

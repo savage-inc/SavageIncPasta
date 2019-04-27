@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class BattleInfoUI : MonoBehaviour
 {
-    public BaseItemData Item;
+    public InventoryItem Item;
 
     public Text TextBox1;
     public Text TextBox2;
@@ -21,7 +21,7 @@ public class BattleInfoUI : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        if (Item != null)
+        if (Item != null && Item.Item != null)
         {
             DisplayItem(Item);
         }
@@ -40,14 +40,14 @@ public class BattleInfoUI : MonoBehaviour
         TextBox5.text = "";
     }
 
-    void DisplayItem(BaseItemData item)
+    void DisplayItem(InventoryItem item)
     {
-        TextBox1.text = item.Name;
-        TextBox2.text = item.Description;
-        switch (Item.ItemType)
+        TextBox1.text = item.Item.Name + "x" + item.Amount;
+        TextBox2.text = item.Item.Description;
+        switch (Item.Item.ItemType)
         {
             case ItemType.eCONSUMABLE:
-                var consumable = (ConsumableItemData)Item;
+                var consumable = (ConsumableItemData)Item.Item;
                 TextBox3.text = consumable.ConsumableType.ToString().Remove(0, 1);
                 TextBox4.text = "Effect = " + consumable.EffectAmount;
                 break;

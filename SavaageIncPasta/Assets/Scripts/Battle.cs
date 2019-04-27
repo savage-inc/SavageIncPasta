@@ -93,7 +93,7 @@ public class Battle : MonoBehaviour
     //Save the game on destroy (Scene change)
     void OnDestroy()
     {
-        PersistantData.SavePartyData(FindObjectOfType<PartyInventory>(), FindObjectOfType<PlayerManager>());
+        PersistantData.SavePartyData(FindObjectOfType<PartyInventory>(), FindObjectOfType<PlayerManager>(), null);
     }
 
     // Update is called once per frame
@@ -105,6 +105,12 @@ public class Battle : MonoBehaviour
             return;
         }
 
+        //clear selected player color
+        for (int i = 0; i < 4; i++)
+        {
+            _battleCharacterList[i].GetComponent<SpriteRenderer>().color = Color.white;
+        }
+        _battleCharacterList[_characterTurnOrder[_currentCharacterIndex]].GetComponent<SpriteRenderer>().color = Color.magenta;
         //select enemy
         SelectEnemyState();
         //TODO SKIP FRAME WHEN BUTTON PRESSED
@@ -374,7 +380,7 @@ public class Battle : MonoBehaviour
     }
 
     void RecklessCharge()
-    { 
+    {
         if (_targettedCharacterIndex > -1)
         {
             if (hitChance())
@@ -405,7 +411,7 @@ public class Battle : MonoBehaviour
     }
     void RigatiBoomerang()
     {
-        if(_targettedCharacterIndex > -1)
+        if (_targettedCharacterIndex > -1)
         {
             PlayerAttack(true);
             PlayerAttack(true);
@@ -495,7 +501,7 @@ public class Battle : MonoBehaviour
                 _targettedCharacterIndex = Random.Range(0, _battleCharacterList.Count);
             } while ((_battleCharacterList[_targettedCharacterIndex].Character.CurrCol != col
                   && !_battleCharacterList[_targettedCharacterIndex].Character.Alive)
-                  || _battleCharacterList[_targettedCharacterIndex].Character.Player); 
+                  || _battleCharacterList[_targettedCharacterIndex].Character.Player);
             if (hitChance())
             {
                 DealDamage(CalculateDamage() / 2);
@@ -739,7 +745,7 @@ public class Battle : MonoBehaviour
         }
     }
     void Teleport(Character attacker)
-    { 
+    {
         if (_targettedCharacterIndex > -1)
         {
             Move(_battleCharacterList[_targettedCharacterIndex]);
@@ -824,7 +830,7 @@ public class Battle : MonoBehaviour
     public void SetTargettedCharacter(int characterIndex)
     {
         //check if the character is alive
-        if(!_battleCharacterList[characterIndex].Character.Alive)
+        if (!_battleCharacterList[characterIndex].Character.Alive)
         {
             return;
         }
@@ -875,7 +881,7 @@ public class Battle : MonoBehaviour
 
         var weapon = attacker.Character.Equipment.GetEquippedWeapon();
         var chest = defender.Character.Equipment.GetEquippedArmour(ArmourItemData.SlotType.eCHEST); // change all refewrences to armour
-        
+
         float magicEffect = 1.0f;
 
         if (weapon != null)
@@ -917,7 +923,7 @@ public class Battle : MonoBehaviour
 
         if (weapon == null)
         {
-            
+
             return damage = (int)(attacker.Character.BaseAttack * _battleCharacterList[_targettedCharacterIndex].Defending * magicEffect);
 
         }
@@ -1001,7 +1007,7 @@ public class Battle : MonoBehaviour
         {
             defender.Defending = 0.75f;
         }
-        if(!ability)
+        if (!ability)
         {
             EndTurn();
         }
@@ -1009,7 +1015,7 @@ public class Battle : MonoBehaviour
 
     void Move(BattleCharacter mover)
     {
-        _eventSystem.SetSelectedGameObject(null,null);
+        _eventSystem.SetSelectedGameObject(null, null);
         //move left
         if (Input.GetAxis("Horizontal") > 0.0f)
         {
@@ -1079,7 +1085,7 @@ public class Battle : MonoBehaviour
         _optionChosen = TurnOption.eNONE;
         _targettedCharacterIndex = -1;
 
-        _eventSystem.SetSelectedGameObject(null,null);
+        _eventSystem.SetSelectedGameObject(null, null);
         _eventSystem.SetSelectedGameObject(FirstSelected);
 
     }
@@ -1170,7 +1176,7 @@ public class Battle : MonoBehaviour
     bool _axisInUse = false;
     void SelectEnemyState()
     {
-        if(_targettedCharacterIndex > -1 || !_selectingCharacter)
+        if (_targettedCharacterIndex > -1 || !_selectingCharacter)
         {
             if (!_selectingCharacter)
             {
@@ -1219,7 +1225,7 @@ public class Battle : MonoBehaviour
                 _axisInUse = true;
             }
         }
-        else if(Input.GetAxis("Vertical") == 0.0f)
+        else if (Input.GetAxis("Vertical") == 0.0f)
         {
             _axisInUse = false;
         }
