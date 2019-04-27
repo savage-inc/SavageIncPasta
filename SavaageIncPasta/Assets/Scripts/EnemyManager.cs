@@ -13,6 +13,16 @@ public class EnemyManager : MonoBehaviour
 {
     public List<EnemyList> EnemyGroups;
 
+    private void Awake()
+    {
+        string path = Application.dataPath + "/Resources/Data/Enemies/";
+        if (System.IO.File.Exists(path + "Teams"))
+        {
+            var data = PersistantData.ReadBytesFromFile(path, "Teams");
+            EnemyGroups = PersistantData.DeserializeToType<List<EnemyList>>(data);
+        }
+    }
+
     public List<Character> CreateTeamInstance()
     {
         List<Character> enemies = null;

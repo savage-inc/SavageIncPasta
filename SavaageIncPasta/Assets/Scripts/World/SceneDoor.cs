@@ -21,7 +21,7 @@ public class SceneDoor : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other)
     {
-        if (Input.GetButtonDown("A") || Input.GetKeyDown(KeyCode.E))
+        if (Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.E))
         {
             var scene = SceneManager.GetSceneByName(SceneName);
             if (!scene.IsValid())

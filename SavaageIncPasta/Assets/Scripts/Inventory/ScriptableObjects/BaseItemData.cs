@@ -102,7 +102,7 @@ public abstract class BaseItemData : ScriptableObject, ISerializable
         _previewSprite = Resources.Load<Sprite>("Sprites/Items/" + info.GetString("spriteName"));
         _rarity = (ItemRarity)info.GetInt32("rarity");
         _stackSize = info.GetInt32("stackSize");
-        _itemType = (ItemType) info.GetInt32("itemType");
+        _itemType = (ItemType)info.GetInt32("itemType");
     }
 
     protected BaseItemData()

@@ -17,8 +17,8 @@ public class CharacterInventoryUI : MonoBehaviour
     public Sprite DefaultPreviewSprite;
 
     private PlayerManager _playerManager;
-    private CharacterEquipment _currentCharacterEquipment;
     private Inventory _partyInventory;
+    private int _currentCharacterIndex = 0;
 
     // Use this for initialization
     void Start ()
@@ -30,8 +30,8 @@ public class CharacterInventoryUI : MonoBehaviour
             Debug.LogWarning("Character Inventory couldn't find Player manager");
             return;
         }
-        _currentCharacterEquipment = _playerManager.Characters[0].Equipment;
-        
+        CharacterName.text = _playerManager.Characters[_currentCharacterIndex].Name;
+        CharacterPreview.sprite = FindObjectOfType<SpriteManager>().GetSprite(_playerManager.Characters[_currentCharacterIndex].SpritePreviewName);
 
         //get party inventory
         _partyInventory = FindObjectOfType<PartyInventory>().Inventory;
@@ -43,18 +43,18 @@ public class CharacterInventoryUI : MonoBehaviour
         MainHandButton.onClick.AddListener(() => MainHandButton.GetComponent<InventoryItemButton>().TransferItem(_partyInventory));
         OffHandButton.onClick.AddListener(() => OffHandButton.GetComponent<InventoryItemButton>().TransferItem(_partyInventory));
 
-        _playerManager.Characters[0].Equipment.OnItemAdd += AddUIItem;
-        _playerManager.Characters[0].Equipment.OnItemRemove += RemoveItemUI;
+        _playerManager.Characters[_currentCharacterIndex].Equipment.OnItemAdd += AddUIItem;
+        _playerManager.Characters[_currentCharacterIndex].Equipment.OnItemRemove += RemoveItemUI;
 
         SyncEquipment();
     }
 
     void OnDisable()
     {
-        if (_currentCharacterEquipment != null)
+        if (_playerManager.Characters[_currentCharacterIndex].Equipment != null)
         {
-            _currentCharacterEquipment.OnItemAdd -= AddUIItem;
-            _currentCharacterEquipment.OnItemRemove -= RemoveItemUI;
+            _playerManager.Characters[_currentCharacterIndex].Equipment.OnItemAdd -= AddUIItem;
+            _playerManager.Characters[_currentCharacterIndex].Equipment.OnItemRemove -= RemoveItemUI;
         }
 
         HeadButton.image.sprite = DefaultPreviewSprite;
@@ -71,19 +71,48 @@ public class CharacterInventoryUI : MonoBehaviour
 
     void OnEnable()
     {
-        if (_currentCharacterEquipment == null)
+        if (_playerManager == null || _playerManager.Characters[_currentCharacterIndex].Equipment == null)
         {
             return;
         }
 
-        _currentCharacterEquipment.OnItemAdd += AddUIItem;
-        _currentCharacterEquipment.OnItemRemove += RemoveItemUI;
+        _playerManager.Characters[_currentCharacterIndex].Equipment.OnItemAdd += AddUIItem;
+        _playerManager.Characters[_currentCharacterIndex].Equipment.OnItemRemove += RemoveItemUI;
         SyncEquipment();
     }
 
+    private void Update()
+    {
+        if (Input.GetButtonDown("LB"))
+        {
+            _currentCharacterIndex = Mathf.Clamp(_currentCharacterIndex-1, 0, 3);
+            changeCharacter(_currentCharacterIndex);
+        }
+        else if (Input.GetButtonDown("RB"))
+        {
+            _currentCharacterIndex = Mathf.Clamp(_currentCharacterIndex+1, 0, 3);
+            changeCharacter(_currentCharacterIndex);
+        }
+    }
+
+    public CharacterEquipment GetCharacterEquipment()
+    {
+        return _playerManager.Characters[_currentCharacterIndex].Equipment;
+    }
+
     void SyncEquipment()
-    {        
-        foreach (var item in _currentCharacterEquipment.GetItems())
+    {
+        HeadButton.image.sprite = DefaultPreviewSprite;
+        HeadButton.GetComponent<InventoryItemButton>().Item = null;
+        LegsButton.image.sprite = DefaultPreviewSprite;
+        LegsButton.GetComponent<InventoryItemButton>().Item = null;
+        BodyButton.image.sprite = DefaultPreviewSprite;
+        BodyButton.GetComponent<InventoryItemButton>().Item = null;
+        MainHandButton.image.sprite = DefaultPreviewSprite;
+        MainHandButton.GetComponent<InventoryItemButton>().Item = null;
+        OffHandButton.image.sprite = DefaultPreviewSprite;
+        OffHandButton.GetComponent<InventoryItemButton>().Item = null;
+        foreach (var item in _playerManager.Characters[_currentCharacterIndex].Equipment.GetItems())
         {
             AddUIItem(item);
         }
@@ -99,17 +128,17 @@ public class CharacterInventoryUI : MonoBehaviour
                 case ArmourItemData.SlotType.eHEAD:
                     HeadButton.image.sprite = armourItem.PreviewSprite;
                     HeadButton.GetComponent<InventoryItemButton>().Item = item;
-                    HeadButton.GetComponent<InventoryItemButton>().Inventory = _currentCharacterEquipment;
+                    HeadButton.GetComponent<InventoryItemButton>().Inventory = _playerManager.Characters[_currentCharacterIndex].Equipment;
                     break;
                 case ArmourItemData.SlotType.eCHEST:
                     BodyButton.image.sprite = armourItem.PreviewSprite;
                     BodyButton.GetComponent<InventoryItemButton>().Item = item;
-                    BodyButton.GetComponent<InventoryItemButton>().Inventory = _currentCharacterEquipment;
+                    BodyButton.GetComponent<InventoryItemButton>().Inventory = _playerManager.Characters[_currentCharacterIndex].Equipment;
                     break;
                 case ArmourItemData.SlotType.eLEGS:
                     LegsButton.image.sprite = armourItem.PreviewSprite;
                     LegsButton.GetComponent<InventoryItemButton>().Item = item;
-                    LegsButton.GetComponent<InventoryItemButton>().Inventory = _currentCharacterEquipment;
+                    LegsButton.GetComponent<InventoryItemButton>().Inventory = _playerManager.Characters[_currentCharacterIndex].Equipment;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -122,13 +151,13 @@ public class CharacterInventoryUI : MonoBehaviour
             {
                 MainHandButton.image.sprite = weaponItem.PreviewSprite;
                 MainHandButton.GetComponent<InventoryItemButton>().Item = item;
-                MainHandButton.GetComponent<InventoryItemButton>().Inventory = _currentCharacterEquipment;
+                MainHandButton.GetComponent<InventoryItemButton>().Inventory = _playerManager.Characters[_currentCharacterIndex].Equipment;
             }
             else
             {
                 OffHandButton.image.sprite = weaponItem.PreviewSprite;
                 OffHandButton.GetComponent<InventoryItemButton>().Item = item;
-                OffHandButton.GetComponent<InventoryItemButton>().Inventory = _currentCharacterEquipment;
+                OffHandButton.GetComponent<InventoryItemButton>().Inventory = _playerManager.Characters[_currentCharacterIndex].Equipment;
             }
         }
     }
@@ -173,5 +202,22 @@ public class CharacterInventoryUI : MonoBehaviour
                 OffHandButton.GetComponent<InventoryItemButton>().Item = null;
             }
         }
+    }
+
+    void changeCharacter(int index)
+    {
+        _playerManager.Characters[_currentCharacterIndex].Equipment.OnItemAdd -= AddUIItem;
+        _playerManager.Characters[_currentCharacterIndex].Equipment.OnItemRemove -= RemoveItemUI;
+
+        //change player
+        _currentCharacterIndex = index;
+        var currentCharacter = _playerManager.Characters[_currentCharacterIndex];
+        _playerManager.Characters[_currentCharacterIndex].Equipment = currentCharacter.Equipment;
+        currentCharacter.Equipment.OnItemAdd += AddUIItem;
+        currentCharacter.Equipment.OnItemRemove += RemoveItemUI;
+        CharacterName.text = currentCharacter.Name;
+        CharacterPreview.sprite = FindObjectOfType<SpriteManager>().GetSprite(currentCharacter.SpritePreviewName);
+
+        SyncEquipment();
     }
 }

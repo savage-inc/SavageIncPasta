@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class ShopInventoryUI : MonoBehaviour
@@ -13,17 +14,38 @@ public class ShopInventoryUI : MonoBehaviour
     public GameObject PartyInventoryObject;
     public RectTransform PartyInventoryContent;
     public Text PartyGoldText;
+    public GameObject firstItem;
 
+    private EventSystem _eventSystem;
     private PartyInventory _partyInventory;
 
     // Use this for initialization
     void Awake ()
     {
         _partyInventory = FindObjectOfType<PartyInventory>();
+        _eventSystem = FindObjectOfType<EventSystem>();
+    }
+
+    void Update()
+    {
+        if (Input.GetButton("B") || Input.GetKeyDown(KeyCode.E))
+        {
+            gameObject.SetActive(false);
+        }
+        else if (Input.GetButton("LB"))
+        {
+            ShowShop();
+        }
+        else if (Input.GetButton("RB"))
+        {
+            ShowParty();
+        }
     }
 
     void OnDisable()
     {
+        Time.timeScale = 1.0f;
+
         _partyInventory.Inventory.OnItemAdd -= AddPartyUIItem;
         _partyInventory.Inventory.OnItemRemove -= RemovePartyItemUI;
         _partyInventory.Inventory.OnItemUpdate -= UpdatePartyItemUI;
@@ -38,6 +60,8 @@ public class ShopInventoryUI : MonoBehaviour
 
     void OnEnable()
     {
+        Time.timeScale = 0f;
+
         _partyInventory.Inventory.OnItemAdd += AddPartyUIItem;
         _partyInventory.Inventory.OnItemRemove += RemovePartyItemUI;
         _partyInventory.Inventory.OnItemUpdate += UpdatePartyItemUI;
@@ -46,8 +70,12 @@ public class ShopInventoryUI : MonoBehaviour
         Shop.Inventory.OnItemRemove += RemoveShoptemUI;
         Shop.Inventory.OnItemUpdate += UpdateShopItemUI;
 
-        SyncShop();
         ShowShop();
+    }
+
+    void Start()
+    {
+        //_eventSystem.SetSelectedGameObject(firstItem);
     }
 
     public void ShowShop()
@@ -56,6 +84,22 @@ public class ShopInventoryUI : MonoBehaviour
         PartyInventoryObject.SetActive(false);
         ShopInventoryObject.SetActive(true);
         SyncShop();
+
+        if(firstItem == null)
+        {
+            firstItem = ShopInventoryContent.GetChild(0).gameObject;
+        }
+
+        if (_eventSystem.currentSelectedGameObject != null)
+        {
+            var previous = _eventSystem.currentSelectedGameObject.GetComponent<Selectable>();
+            if (previous != null)
+            {
+                previous.OnDeselect(null);
+                _eventSystem.SetSelectedGameObject(null);
+            }
+        }
+        _eventSystem.SetSelectedGameObject(firstItem);
     }
 
     public void ShowParty()
@@ -64,6 +108,8 @@ public class ShopInventoryUI : MonoBehaviour
         ShopInventoryObject.SetActive(false);
         PartyInventoryObject.SetActive(true);
         SyncParty();
+        _eventSystem.SetSelectedGameObject(firstItem);
+
     }
 
     void SyncShop()
@@ -88,6 +134,7 @@ public class ShopInventoryUI : MonoBehaviour
 
     void ClearShop()
     {
+        firstItem = null;
         //Clear all shop inventory
         foreach (Transform child in ShopInventoryContent.transform)
         {
@@ -97,6 +144,8 @@ public class ShopInventoryUI : MonoBehaviour
 
     void ClearParty()
     {
+        firstItem = null;
+
         //Clear all party inventory items
         foreach (Transform child in PartyInventoryContent.transform)
         {
@@ -121,6 +170,11 @@ public class ShopInventoryUI : MonoBehaviour
         itemPanel.GetComponent<Button>().onClick.AddListener(() => itemButton.SellItem());
 
         PartyGoldText.text = "Party Gold " + _partyInventory.Gold;
+
+        if (firstItem == null)
+        {
+            firstItem = itemButton.gameObject;
+        }
     }
 
     void AddShopUIItem(InventoryItem item)
@@ -141,6 +195,11 @@ public class ShopInventoryUI : MonoBehaviour
         itemPanel.GetComponent<Button>().onClick.AddListener(() => itemButton.BuyItem());
 
         PartyGoldText.text = "Party Gold " + _partyInventory.Gold;
+
+        if (firstItem == null)
+        {
+            firstItem = itemButton.gameObject;
+        }
     }
 
     void UpdatePartyItemUI(InventoryItem inventoryItem, int amount)
@@ -181,6 +240,7 @@ public class ShopInventoryUI : MonoBehaviour
             if (item == shopItemButton.Item)
             {
                 Destroy(child.gameObject);
+                _eventSystem.SetSelectedGameObject(PartyInventoryContent.transform.GetChild(0).gameObject);
             }
         }
         PartyGoldText.text = "Party Gold " + _partyInventory.Gold;
@@ -194,6 +254,8 @@ public class ShopInventoryUI : MonoBehaviour
             if (item == shopItemButton.Item)
             {
                 Destroy(child.gameObject);
+                _eventSystem.SetSelectedGameObject(ShopInventoryContent.transform.GetChild(0).gameObject);
+
             }
         }
         PartyGoldText.text = "Party Gold " + _partyInventory.Gold;

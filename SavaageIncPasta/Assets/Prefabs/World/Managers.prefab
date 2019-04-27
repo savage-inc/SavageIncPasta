@@ -1,0 +1,697 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1796462205983022}
+  m_IsPrefabParent: 1
+--- !u!1 &1129910989785102
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4743570650191288}
+  - component: {fileID: 114313382199000234}
+  m_Layer: 0
+  m_Name: ClanManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1143404219061594
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4812473626880884}
+  - component: {fileID: 114745299453662136}
+  - component: {fileID: 114595681680325820}
+  m_Layer: 0
+  m_Name: Inventory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1396149733338698
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4429728184336396}
+  - component: {fileID: 114494066298526384}
+  m_Layer: 0
+  m_Name: PlayerManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1607654641528598
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4475427782298048}
+  - component: {fileID: 114268991483319108}
+  - component: {fileID: 114247951618886494}
+  m_Layer: 0
+  m_Name: A* Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1796462205983022
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4537981468322970}
+  m_Layer: 0
+  m_Name: Managers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4429728184336396
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1396149733338698}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5.1965227, y: 1.8255979, z: -0.21408987}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4537981468322970}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4475427782298048
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1607654641528598}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5.6781893, y: 0.52957654, z: 0.02028513}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4537981468322970}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4537981468322970
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1796462205983022}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4743570650191288}
+  - {fileID: 4429728184336396}
+  - {fileID: 4812473626880884}
+  - {fileID: 4475427782298048}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4743570650191288
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1129910989785102}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5.1965227, y: 1.8255979, z: -0.21408987}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4537981468322970}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4812473626880884
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1143404219061594}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.580289, y: -2.0656953, z: -0.30944324}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4537981468322970}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114247951618886494
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1607654641528598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c68a233606310b48b4bed4533388989, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114268991483319108
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1607654641528598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89c47b5087feafc4cba73e483005d9ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DebugView: 0
+  Obstacle:
+    serializedVersion: 2
+    m_Bits: 256
+  _worldSize: {x: 300, y: 100}
+--- !u!114 &114313382199000234
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1129910989785102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71b804658089daf4d8d08e4cc2275187, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpareCharacterPool:
+  - Name: Character 9dc0
+    SpritePreviewName: Wizard1
+    Class: 2
+    Level: 1
+    MaxHealth: 18
+    CurrentHealth: 18
+    Strength: 2
+    Constitution: 3
+    Dexterity: 3
+    Intelligence: 4
+    Charisma: 3
+    Magic: 1
+    Comfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    Experience: 0
+  - Name: Character a47b
+    SpritePreviewName: Ranger1
+    Class: 1
+    Level: 1
+    MaxHealth: 30
+    CurrentHealth: 30
+    Strength: 2
+    Constitution: 6
+    Dexterity: 4
+    Intelligence: 3
+    Charisma: 6
+    Magic: 0
+    Comfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    Experience: 0
+  - Name: Character b385
+    SpritePreviewName: Ranger2
+    Class: 1
+    Level: 1
+    MaxHealth: 26
+    CurrentHealth: 26
+    Strength: 3
+    Constitution: 5
+    Dexterity: 6
+    Intelligence: 1
+    Charisma: 6
+    Magic: 0
+    Comfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    Experience: 0
+  - Name: Character 7617
+    SpritePreviewName: Wizard2
+    Class: 2
+    Level: 1
+    MaxHealth: 10
+    CurrentHealth: 10
+    Strength: 1
+    Constitution: 1
+    Dexterity: 1
+    Intelligence: 6
+    Charisma: 3
+    Magic: 2
+    Comfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    Experience: 0
+  - Name: Character 7559
+    SpritePreviewName: Wizard1
+    Class: 2
+    Level: 1
+    MaxHealth: 14
+    CurrentHealth: 14
+    Strength: 1
+    Constitution: 2
+    Dexterity: 2
+    Intelligence: 5
+    Charisma: 2
+    Magic: 1
+    Comfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    Experience: 0
+  - Name: Character b880
+    SpritePreviewName: Wizard1
+    Class: 2
+    Level: 1
+    MaxHealth: 14
+    CurrentHealth: 14
+    Strength: 3
+    Constitution: 2
+    Dexterity: 1
+    Intelligence: 6
+    Charisma: 4
+    Magic: 1
+    Comfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    Experience: 0
+  - Name: Character 35b7
+    SpritePreviewName: Wizard1
+    Class: 2
+    Level: 1
+    MaxHealth: 10
+    CurrentHealth: 10
+    Strength: 1
+    Constitution: 1
+    Dexterity: 2
+    Intelligence: 5
+    Charisma: 1
+    Magic: 2
+    Comfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    Experience: 0
+  - Name: Character 8735
+    SpritePreviewName: Ranger2
+    Class: 1
+    Level: 1
+    MaxHealth: 26
+    CurrentHealth: 26
+    Strength: 1
+    Constitution: 5
+    Dexterity: 4
+    Intelligence: 2
+    Charisma: 4
+    Magic: 0
+    Comfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    Experience: 0
+  - Name: Character 1cb1
+    SpritePreviewName: Warrior3
+    Class: 0
+    Level: 1
+    MaxHealth: 22
+    CurrentHealth: 22
+    Strength: 6
+    Constitution: 4
+    Dexterity: 1
+    Intelligence: 2
+    Charisma: 2
+    Magic: 0
+    Comfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    Experience: 0
+  - Name: Character a81b
+    SpritePreviewName: Wizard2
+    Class: 2
+    Level: 1
+    MaxHealth: 18
+    CurrentHealth: 18
+    Strength: 3
+    Constitution: 3
+    Dexterity: 2
+    Intelligence: 6
+    Charisma: 5
+    Magic: 2
+    Comfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    Experience: 0
+  - Name: Character d028
+    SpritePreviewName: Warrior1
+    Class: 0
+    Level: 1
+    MaxHealth: 30
+    CurrentHealth: 30
+    Strength: 4
+    Constitution: 6
+    Dexterity: 1
+    Intelligence: 1
+    Charisma: 5
+    Magic: 0
+    Comfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    Experience: 0
+  - Name: Character 5329
+    SpritePreviewName: Ranger2
+    Class: 1
+    Level: 1
+    MaxHealth: 26
+    CurrentHealth: 26
+    Strength: 2
+    Constitution: 5
+    Dexterity: 4
+    Intelligence: 1
+    Charisma: 7
+    Magic: 0
+    Comfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    Experience: 0
+  - Name: Character af3a
+    SpritePreviewName: Wizard1
+    Class: 2
+    Level: 1
+    MaxHealth: 10
+    CurrentHealth: 10
+    Strength: 2
+    Constitution: 1
+    Dexterity: 1
+    Intelligence: 6
+    Charisma: 3
+    Magic: 1
+    Comfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    Experience: 0
+  - Name: Character 7c20
+    SpritePreviewName: Ranger1
+    Class: 1
+    Level: 1
+    MaxHealth: 30
+    CurrentHealth: 30
+    Strength: 2
+    Constitution: 6
+    Dexterity: 5
+    Intelligence: 3
+    Charisma: 1
+    Magic: 0
+    Comfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    Experience: 0
+  - Name: Character 7bb9
+    SpritePreviewName: Wizard3
+    Class: 2
+    Level: 1
+    MaxHealth: 10
+    CurrentHealth: 10
+    Strength: 3
+    Constitution: 1
+    Dexterity: 3
+    Intelligence: 4
+    Charisma: 7
+    Magic: 2
+    Comfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    Experience: 0
+  - Name: Character 06f6
+    SpritePreviewName: Warrior1
+    Class: 0
+    Level: 1
+    MaxHealth: 26
+    CurrentHealth: 26
+    Strength: 4
+    Constitution: 5
+    Dexterity: 3
+    Intelligence: 3
+    Charisma: 7
+    Magic: 0
+    Comfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    Experience: 0
+  - Name: Character 2877
+    SpritePreviewName: Warrior1
+    Class: 0
+    Level: 1
+    MaxHealth: 26
+    CurrentHealth: 26
+    Strength: 4
+    Constitution: 5
+    Dexterity: 3
+    Intelligence: 3
+    Charisma: 6
+    Magic: 0
+    Comfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    Experience: 0
+  - Name: Character bb9a
+    SpritePreviewName: Wizard1
+    Class: 2
+    Level: 1
+    MaxHealth: 14
+    CurrentHealth: 14
+    Strength: 2
+    Constitution: 2
+    Dexterity: 3
+    Intelligence: 5
+    Charisma: 7
+    Magic: 1
+    Comfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    Experience: 0
+  - Name: Character f12f
+    SpritePreviewName: Warrior1
+    Class: 0
+    Level: 1
+    MaxHealth: 22
+    CurrentHealth: 22
+    Strength: 6
+    Constitution: 4
+    Dexterity: 1
+    Intelligence: 1
+    Charisma: 3
+    Magic: 0
+    Comfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    Experience: 0
+  - Name: Character 0161
+    SpritePreviewName: Wizard2
+    Class: 2
+    Level: 1
+    MaxHealth: 14
+    CurrentHealth: 14
+    Strength: 3
+    Constitution: 2
+    Dexterity: 1
+    Intelligence: 4
+    Charisma: 5
+    Magic: 1
+    Comfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    Experience: 0
+  GenerateRandomClanMembers: 1
+--- !u!114 &114494066298526384
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1396149733338698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 258a5a778a971554b9895996b4fd6324, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Characters:
+  - Name: Character ea54
+    SpritePreviewName: Ranger1
+    Class: 1
+    Level: 1
+    MaxHealth: 26
+    CurrentHealth: 26
+    Strength: 2
+    Constitution: 5
+    Dexterity: 5
+    Intelligence: 1
+    Charisma: 2
+    Magic: 0
+    Comfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    Experience: 0
+  - Name: Character 6102
+    SpritePreviewName: Ranger1
+    Class: 1
+    Level: 1
+    MaxHealth: 30
+    CurrentHealth: 30
+    Strength: 3
+    Constitution: 6
+    Dexterity: 5
+    Intelligence: 2
+    Charisma: 2
+    Magic: 0
+    Comfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    Experience: 0
+  - Name: Character 5640
+    SpritePreviewName: Warrior2
+    Class: 0
+    Level: 1
+    MaxHealth: 26
+    CurrentHealth: 26
+    Strength: 5
+    Constitution: 5
+    Dexterity: 1
+    Intelligence: 3
+    Charisma: 4
+    Magic: 0
+    Comfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    Experience: 0
+  - Name: Character eb7e
+    SpritePreviewName: Ranger2
+    Class: 1
+    Level: 1
+    MaxHealth: 30
+    CurrentHealth: 30
+    Strength: 3
+    Constitution: 6
+    Dexterity: 5
+    Intelligence: 2
+    Charisma: 6
+    Magic: 0
+    Comfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    Experience: 0
+  NumofCharacters: 4
+--- !u!114 &114595681680325820
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1143404219061594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ee0f6ca100a664489f17b0281a20123, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InventorySize: 10
+  _gold: 30
+  StartingItems: []
+--- !u!114 &114745299453662136
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1143404219061594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 137676da254112f479920649dc2bb238, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

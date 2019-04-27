@@ -20,6 +20,7 @@ public class Character
     public int Intelligence;
     public int Charisma;
     public MagicType Magic;
+    public int Comfort;
     public bool Player = true;
     public bool Alive = true;
     public CharacterEquipment Equipment;
@@ -31,11 +32,13 @@ public class Character
 
     public int GoldDrop = 5;
     public int Experience = 0;
-    public int Comfort;
 
     public Character()
     {
-        Equipment = new CharacterEquipment();
+        Equipment = new CharacterEquipment
+        {
+            Character = this
+        };
         CurrentHealth = MaxHealth;
     }
 

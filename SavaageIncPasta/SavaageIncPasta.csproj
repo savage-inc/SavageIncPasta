@@ -238,39 +238,39 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\3rdParty\TextMeshPro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
-    <Compile Include="Assets\3rdParty\TextMeshPro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
-    <Compile Include="Assets\3rdParty\TextMeshPro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
-    <Compile Include="Assets\3rdParty\TextMeshPro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
-    <Compile Include="Assets\3rdParty\TextMeshPro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
-    <Compile Include="Assets\3rdParty\TextMeshPro\Examples &amp; Extras\Scripts\CameraController.cs" />
-    <Compile Include="Assets\3rdParty\TextMeshPro\Examples &amp; Extras\Scripts\ChatController.cs" />
-    <Compile Include="Assets\3rdParty\TextMeshPro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
-    <Compile Include="Assets\3rdParty\TextMeshPro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
-    <Compile Include="Assets\3rdParty\TextMeshPro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
-    <Compile Include="Assets\3rdParty\TextMeshPro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
-    <Compile Include="Assets\3rdParty\TextMeshPro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
-    <Compile Include="Assets\3rdParty\TextMeshPro\Examples &amp; Extras\Scripts\TeleType.cs" />
-    <Compile Include="Assets\3rdParty\TextMeshPro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
-    <Compile Include="Assets\3rdParty\TextMeshPro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
-    <Compile Include="Assets\3rdParty\TextMeshPro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
-    <Compile Include="Assets\3rdParty\TextMeshPro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
-    <Compile Include="Assets\3rdParty\TextMeshPro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
-    <Compile Include="Assets\3rdParty\TextMeshPro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
-    <Compile Include="Assets\3rdParty\TextMeshPro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
-    <Compile Include="Assets\3rdParty\TextMeshPro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
-    <Compile Include="Assets\3rdParty\TextMeshPro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
-    <Compile Include="Assets\3rdParty\TextMeshPro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
-    <Compile Include="Assets\3rdParty\TextMeshPro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
-    <Compile Include="Assets\3rdParty\TextMeshPro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
-    <Compile Include="Assets\3rdParty\TextMeshPro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
-    <Compile Include="Assets\3rdParty\TextMeshPro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
-    <Compile Include="Assets\3rdParty\TextMeshPro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
-    <Compile Include="Assets\3rdParty\TextMeshPro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
-    <Compile Include="Assets\3rdParty\TextMeshPro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
-    <Compile Include="Assets\3rdParty\TextMeshPro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
-    <Compile Include="Assets\3rdParty\TextMeshPro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
-    <Compile Include="Assets\3rdParty\TextMeshPro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
+    <Compile Include="Assets\3rdParty\TextMeshPro\Examples _ Extras\Scripts\Benchmark01.cs" />
+    <Compile Include="Assets\3rdParty\TextMeshPro\Examples _ Extras\Scripts\Benchmark01_UGUI.cs" />
+    <Compile Include="Assets\3rdParty\TextMeshPro\Examples _ Extras\Scripts\Benchmark02.cs" />
+    <Compile Include="Assets\3rdParty\TextMeshPro\Examples _ Extras\Scripts\Benchmark03.cs" />
+    <Compile Include="Assets\3rdParty\TextMeshPro\Examples _ Extras\Scripts\Benchmark04.cs" />
+    <Compile Include="Assets\3rdParty\TextMeshPro\Examples _ Extras\Scripts\CameraController.cs" />
+    <Compile Include="Assets\3rdParty\TextMeshPro\Examples _ Extras\Scripts\ChatController.cs" />
+    <Compile Include="Assets\3rdParty\TextMeshPro\Examples _ Extras\Scripts\EnvMapAnimator.cs" />
+    <Compile Include="Assets\3rdParty\TextMeshPro\Examples _ Extras\Scripts\ObjectSpin.cs" />
+    <Compile Include="Assets\3rdParty\TextMeshPro\Examples _ Extras\Scripts\ShaderPropAnimator.cs" />
+    <Compile Include="Assets\3rdParty\TextMeshPro\Examples _ Extras\Scripts\SimpleScript.cs" />
+    <Compile Include="Assets\3rdParty\TextMeshPro\Examples _ Extras\Scripts\SkewTextExample.cs" />
+    <Compile Include="Assets\3rdParty\TextMeshPro\Examples _ Extras\Scripts\TeleType.cs" />
+    <Compile Include="Assets\3rdParty\TextMeshPro\Examples _ Extras\Scripts\TextConsoleSimulator.cs" />
+    <Compile Include="Assets\3rdParty\TextMeshPro\Examples _ Extras\Scripts\TextMeshProFloatingText.cs" />
+    <Compile Include="Assets\3rdParty\TextMeshPro\Examples _ Extras\Scripts\TextMeshSpawner.cs" />
+    <Compile Include="Assets\3rdParty\TextMeshPro\Examples _ Extras\Scripts\TMP_DigitValidator.cs" />
+    <Compile Include="Assets\3rdParty\TextMeshPro\Examples _ Extras\Scripts\TMP_ExampleScript_01.cs" />
+    <Compile Include="Assets\3rdParty\TextMeshPro\Examples _ Extras\Scripts\TMP_FrameRateCounter.cs" />
+    <Compile Include="Assets\3rdParty\TextMeshPro\Examples _ Extras\Scripts\TMP_PhoneNumberValidator.cs" />
+    <Compile Include="Assets\3rdParty\TextMeshPro\Examples _ Extras\Scripts\TMP_TextEventCheck.cs" />
+    <Compile Include="Assets\3rdParty\TextMeshPro\Examples _ Extras\Scripts\TMP_TextEventHandler.cs" />
+    <Compile Include="Assets\3rdParty\TextMeshPro\Examples _ Extras\Scripts\TMP_TextInfoDebugTool.cs" />
+    <Compile Include="Assets\3rdParty\TextMeshPro\Examples _ Extras\Scripts\TMP_TextSelector_A.cs" />
+    <Compile Include="Assets\3rdParty\TextMeshPro\Examples _ Extras\Scripts\TMP_TextSelector_B.cs" />
+    <Compile Include="Assets\3rdParty\TextMeshPro\Examples _ Extras\Scripts\TMP_UiFrameRateCounter.cs" />
+    <Compile Include="Assets\3rdParty\TextMeshPro\Examples _ Extras\Scripts\TMPro_InstructionOverlay.cs" />
+    <Compile Include="Assets\3rdParty\TextMeshPro\Examples _ Extras\Scripts\VertexColorCycler.cs" />
+    <Compile Include="Assets\3rdParty\TextMeshPro\Examples _ Extras\Scripts\VertexJitter.cs" />
+    <Compile Include="Assets\3rdParty\TextMeshPro\Examples _ Extras\Scripts\VertexShakeA.cs" />
+    <Compile Include="Assets\3rdParty\TextMeshPro\Examples _ Extras\Scripts\VertexShakeB.cs" />
+    <Compile Include="Assets\3rdParty\TextMeshPro\Examples _ Extras\Scripts\VertexZoom.cs" />
+    <Compile Include="Assets\3rdParty\TextMeshPro\Examples _ Extras\Scripts\WarpTextExample.cs" />
     <Compile Include="Assets\Scripts\AI\AIController.cs" />
     <Compile Include="Assets\Scripts\AI\AStarPathfinding.cs" />
     <Compile Include="Assets\Scripts\AI\FindPathToTarget.cs" />
@@ -288,9 +288,15 @@
     <Compile Include="Assets\Scripts\DontDestroy.cs" />
     <Compile Include="Assets\Scripts\EnemyCreator.cs" />
     <Compile Include="Assets\Scripts\EnemyManager.cs" />
+<<<<<<< HEAD
     <Compile Include="Assets\Scripts\EnemyNavigation.cs" />
     <Compile Include="Assets\Scripts\GenerateRandomCharacter.cs" />
     <Compile Include="Assets\Scripts\HealthBar.cs" />
+=======
+    <Compile Include="Assets\Scripts\EnemyTeamCreator.cs" />
+    <Compile Include="Assets\Scripts\GenerateRandomCharacter.cs" />
+    <Compile Include="Assets\Scripts\InputManager.cs" />
+>>>>>>> master
     <Compile Include="Assets\Scripts\Inventory\Base\CharacterEquipment.cs" />
     <Compile Include="Assets\Scripts\Inventory\Base\Inventory.cs" />
     <Compile Include="Assets\Scripts\Inventory\BattleInventoryUI.cs" />
@@ -316,25 +322,34 @@
     <Compile Include="Assets\Scripts\Sound\PlaySound.cs" />
     <Compile Include="Assets\Scripts\Sound\SoundManager.cs" />
     <Compile Include="Assets\Scripts\SpriteManager.cs" />
+<<<<<<< HEAD
     <Compile Include="Assets\Scripts\UI\BattleInfoUI.cs" />
     <Compile Include="Assets\Scripts\UI\ChangeSelectedOnClick.cs" />
     <Compile Include="Assets\Scripts\UI\ChangeSelectedToAliveEnemy.cs" />
     <Compile Include="Assets\Scripts\UI\GridScalar.cs" />
+=======
+    <Compile Include="Assets\Scripts\UI\AutoScroll.cs" />
+    <Compile Include="Assets\Scripts\UI\CharacterButton.cs" />
+    <Compile Include="Assets\Scripts\UI\CharacterComparison.cs" />
+    <Compile Include="Assets\Scripts\UI\ClanButton.cs" />
+    <Compile Include="Assets\Scripts\UI\ClanControl.cs" />
+>>>>>>> master
     <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
-    <Compile Include="Assets\Scripts\UI\UI Menu.cs" />
+    <Compile Include="Assets\Scripts\UI\SwapButton.cs" />
+    <Compile Include="Assets\Scripts\UI\SwapPanels.cs" />
     <Compile Include="Assets\Scripts\UI\UIManager.cs" />
     <Compile Include="Assets\Scripts\World\CameraFollow.cs" />
+    <Compile Include="Assets\Scripts\World\ClanNPC.cs" />
     <Compile Include="Assets\Scripts\World\SceneDoor.cs" />
-    <Compile Include="Assets\Scripts\World\WorldInteraction.cs" />
     <Compile Include="Assets\Scripts\World\WorldManager.cs" />
     <Compile Include="Assets\Scripts\World\WorldManagerEditor.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\3rdParty\TextMeshPro\Examples &amp; Extras\Fonts\Anton OFL.txt" />
-    <None Include="Assets\3rdParty\TextMeshPro\Examples &amp; Extras\Fonts\Bangers - OFL.txt" />
-    <None Include="Assets\3rdParty\TextMeshPro\Examples &amp; Extras\Fonts\LiberationSans - OFL.txt" />
-    <None Include="Assets\3rdParty\TextMeshPro\Examples &amp; Extras\Fonts\NotoSans - License.txt" />
-    <None Include="Assets\3rdParty\TextMeshPro\Examples &amp; Extras\Fonts\Oswald Bold - OFL.txt" />
+    <None Include="Assets\3rdParty\TextMeshPro\Examples _ Extras\Fonts\Anton OFL.txt" />
+    <None Include="Assets\3rdParty\TextMeshPro\Examples _ Extras\Fonts\Bangers - OFL.txt" />
+    <None Include="Assets\3rdParty\TextMeshPro\Examples _ Extras\Fonts\LiberationSans - OFL.txt" />
+    <None Include="Assets\3rdParty\TextMeshPro\Examples _ Extras\Fonts\NotoSans - License.txt" />
+    <None Include="Assets\3rdParty\TextMeshPro\Examples _ Extras\Fonts\Oswald Bold - OFL.txt" />
     <None Include="Assets\3rdParty\TextMeshPro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\3rdParty\TextMeshPro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\3rdParty\TextMeshPro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />

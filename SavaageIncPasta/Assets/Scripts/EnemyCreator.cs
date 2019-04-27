@@ -81,6 +81,16 @@ public class EnemyCreator : EditorWindow
         _enemy.Magic = (MagicType)EditorGUILayout.EnumPopup(_enemy.Magic);
         EditorGUILayout.EndHorizontal();
 
+        EditorGUILayout.BeginHorizontal();
+        GUILayout.Label("Enemy Base Damage");
+        _enemy.BaseAttack = EditorGUILayout.IntField(_enemy.BaseAttack);
+        EditorGUILayout.EndHorizontal();
+
+        EditorGUILayout.BeginHorizontal();
+        GUILayout.Label("Enemy Base Armour");
+        _enemy.BaseArmour = EditorGUILayout.IntField(_enemy.BaseArmour);
+        EditorGUILayout.EndHorizontal();
+
         EditorGUILayout.EndVertical();
 
         if (GUILayout.Button("Save to File"))
@@ -97,7 +107,7 @@ public class EnemyCreator : EditorWindow
         _enemy.CurrentHealth = _enemy.MaxHealth;
 
         //create GUID if it doesnt already have one
-        if (_enemy.ID == null)
+        if (_enemy.ID == System.Guid.Empty)
         {
             _enemy.ID = System.Guid.NewGuid();
         }

@@ -317,7 +317,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f347112b7c96ba438977f997b98b453, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InventoryGameObject: {fileID: 811794373}
+  OffCanvas: {fileID: 0}
+  OnCanvas: {fileID: 0}
+  FirstObject: {fileID: 0}
+  Inventory: {fileID: 811794373}
+  Menu: {fileID: 0}
 --- !u!1 &939825384
 GameObject:
   m_ObjectHideFlags: 0

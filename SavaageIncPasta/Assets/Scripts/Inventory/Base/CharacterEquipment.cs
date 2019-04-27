@@ -6,6 +6,10 @@ using UnityEngine;
 [System.Serializable]
 public class CharacterEquipment : Inventory
 {
+    [System.NonSerialized]  public Character Character;
+    private MagicType _armourMagicType;
+    private MagicType _weaponMagicType;
+
     protected CharacterEquipment(SerializationInfo info, StreamingContext context) : base(info, context)
     {
     }
@@ -17,6 +21,13 @@ public class CharacterEquipment : Inventory
 
     public void EquipArmour(ArmourItemData armourItem ,Inventory partyInventory)
     {
+        //check if the magic type of the item is the same as the rest
+        if(armourItem.MagicalType != _armourMagicType && hasArmour())
+        {
+            return;
+        }
+
+
         //Remove the item from the part inventory
         partyInventory.RemoveItem(armourItem.Name);
 
@@ -45,10 +56,30 @@ public class CharacterEquipment : Inventory
 
         //Add it to the equipment
         AddItem(armourItem);
+
+        _armourMagicType = armourItem.MagicalType;
     }
 
     public void EquipWeapon(WeaponItemData weaponItem, Inventory partyInventory)
     {
+        //check if the magic type of the item is the same as the rest
+        if (weaponItem.MagicalType != _weaponMagicType)
+        {
+            //first check if the chracter has a magic type
+            if(Character.Magic != MagicType.eNONE)
+            {
+                //character has a magic type, check if the weapon is the same as the characters magic
+                if(Character.Magic != weaponItem.MagicalType)
+                {
+                    return;
+                }
+            }
+            else if(weaponItem.MagicalType != _weaponMagicType && hasWeapon())
+            {
+                return;
+            }
+        }
+
         //Remove the item from the part inventory
         partyInventory.RemoveItem(weaponItem.Name);
 
@@ -78,6 +109,9 @@ public class CharacterEquipment : Inventory
 
         //Add it to the equipment
         AddItem(weaponItem);
+
+        _weaponMagicType = weaponItem.MagicalType;
+
     }
 
     public WeaponItemData GetEquippedWeapon()
@@ -108,5 +142,69 @@ public class CharacterEquipment : Inventory
         }
 
         return null;
+    }
+
+    public float GetArmourValue()
+    {
+        float value = 0;
+        foreach (var item in _inventoryItems)
+        {
+            if (item.Item.ItemType == ItemType.eARMOUR)
+            {
+                ArmourItemData armourItem = (ArmourItemData)item.Item;
+                value += armourItem.Value;
+            }
+        }
+        return value;
+    }
+
+    public MagicType GetArmourMagicType()
+    {
+        foreach (var item in _inventoryItems)
+        {
+            if (item.Item.ItemType == ItemType.eARMOUR)
+            {
+                ArmourItemData armourItem = (ArmourItemData)item.Item;
+                return armourItem.MagicalType;
+            }
+        }
+        return MagicType.eNONE;
+    }
+
+    public MagicType GetWeaponMagicType()
+    {
+        foreach (var item in _inventoryItems)
+        {
+            if (item.Item.ItemType == ItemType.eWEAPON)
+            {
+                WeaponItemData weaponData = (WeaponItemData)item.Item;
+                return weaponData.MagicalType;
+            }
+        }
+        return MagicType.eNONE;
+    }
+
+    bool hasArmour()
+    {
+        foreach (var item in _inventoryItems)
+        {
+            if(item.Item.ItemType == ItemType.eARMOUR)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    bool hasWeapon()
+    {
+        foreach (var item in _inventoryItems)
+        {
+            if (item.Item.ItemType == ItemType.eWEAPON)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }

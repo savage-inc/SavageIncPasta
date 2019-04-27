@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class InventoryItemButton : MonoBehaviour
+public class InventoryItemButton : MonoBehaviour, ISelectHandler, IDeselectHandler
 {
     public InventoryItem Item;
     public Inventory Inventory;
@@ -28,7 +28,16 @@ public class InventoryItemButton : MonoBehaviour
 
         button.gameObject.AddComponent<EventTrigger>();
         button.gameObject.GetComponent<EventTrigger>().triggers.Add(enterEvent);
-        button.gameObject.GetComponent<EventTrigger>().triggers.Add(exitEvent); 
+        button.gameObject.GetComponent<EventTrigger>().triggers.Add(exitEvent);
+
+    }
+
+    void Update()
+    {
+        if(Input.GetButtonDown("LB") || Input.GetButtonDown("RB"))
+        {
+            Destroy(_itemToolTipInstance);
+        }
     }
 
     public void TransferItem(Inventory to)
@@ -56,7 +65,6 @@ public class InventoryItemButton : MonoBehaviour
     {
         if (Inventory == null || to == null || Item == null || Item.Item == null)
             return;
-
         switch (Item.Item.ItemType)
         {
             case ItemType.eCONSUMABLE:
@@ -69,6 +77,8 @@ public class InventoryItemButton : MonoBehaviour
                 break;
         }
 
+        FindObjectOfType<EventSystem>().SetSelectedGameObject(transform.parent.GetChild(0).gameObject);
+
         Destroy(_itemToolTipInstance);
     }
 
@@ -78,6 +88,8 @@ public class InventoryItemButton : MonoBehaviour
             return;
 
         Inventory.RemoveItem(Item);
+
+        FindObjectOfType<EventSystem>().SetSelectedGameObject(transform.parent.GetChild(0).gameObject);
 
         Destroy(_itemToolTipInstance);
     }
@@ -98,11 +110,32 @@ public class InventoryItemButton : MonoBehaviour
             return;
 
         //instantiate tool tip
+        Destroy(_itemToolTipInstance);
+
         _itemToolTipInstance = Instantiate(ItemToolTipPrefab);
         _itemToolTipInstance.gameObject.SetActive(true);
 
         RectTransform rectTransform = gameObject.GetComponent<RectTransform>();
         float width = rectTransform.rect.width/2;
+        _itemToolTipInstance.transform.SetParent(FindObjectOfType<Canvas>().transform);
+        _itemToolTipInstance.transform.position = new Vector3(gameObject.transform.position.x - width, gameObject.transform.position.y, 0);
+
+        _itemToolTipInstance.GetComponent<ItemTooltip>().Item = Item.Item;
+    }
+
+    public void OnSelect(BaseEventData eventData)
+    {
+        if (Item == null || Item.Item == null)
+            return;
+
+        //instantiate tool tip
+        Destroy(_itemToolTipInstance);
+
+        _itemToolTipInstance = Instantiate(ItemToolTipPrefab);
+        _itemToolTipInstance.gameObject.SetActive(true);
+
+        RectTransform rectTransform = gameObject.GetComponent<RectTransform>();
+        float width = rectTransform.rect.width / 2;
         _itemToolTipInstance.transform.SetParent(FindObjectOfType<Canvas>().transform);
         _itemToolTipInstance.transform.position = new Vector3(gameObject.transform.position.x - width, gameObject.transform.position.y, 0);
 
@@ -116,6 +149,14 @@ public class InventoryItemButton : MonoBehaviour
 
         Destroy(_itemToolTipInstance);
 
+    }
+
+    public void OnDeselect(BaseEventData eventData)
+    {
+        if (Item == null || Item.Item == null)
+            return;
+
+        Destroy(_itemToolTipInstance);
     }
 
     void OnDisable()
