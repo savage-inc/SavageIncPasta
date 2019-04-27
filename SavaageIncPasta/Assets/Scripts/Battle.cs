@@ -27,63 +27,104 @@ public enum TurnOption
 public class Battle : MonoBehaviour
 {
     private TurnOption _optionChosen = TurnOption.eNONE;
-    private List<Character> _characterList = new List<Character>();
+    private List<Character> _partyList = new List<Character>();
     private List<Character> _enemyList = new List<Character>();
     private List<BattleCharacter> _battleCharacterList = new List<BattleCharacter>(); // all players in battle
     private List<int> _characterTurnOrder = new List<int>();
     private int _currentCharacterIndex = 0;
     private int _targettedCharacterIndex = -1;
     private int _targettingCharacterIndex = 4;
-    public List<Button> abilitiyButtons = new List<Button>();
+    public List<Button> abilityButtons = new List<Button>();
+    public List<BattleCharacter> Players = new List<BattleCharacter>();
+    public List<BattleCharacter> Enemies = new List<BattleCharacter>();
+    public List<GameObject> PlayerHealthBars = new List<GameObject>();
+    public List<GameObject> EnemyHealthBars = new List<GameObject>();
+    public List<GameObject> PlayerParticles = new List<GameObject>();
+    public List<GameObject> EnemyParticles = new List<GameObject>();
 
-    public BattleCharacter Player1;
-    public BattleCharacter Player2;
-    public BattleCharacter Player3;
-    public BattleCharacter Player4;
-
-    public BattleCharacter Enemy1;
-    public BattleCharacter Enemy2;
-    public BattleCharacter Enemy3;
-    public BattleCharacter Enemy4;
     public GameObject FirstSelected;
 
     private int _deadEnemies = 0;
     private int _deadPlayers = 0;
     private bool _selectingCharacter = false;
     private bool _skipFrame = false; //skip frame when selecting character to clear input
+    private int _tempSelectedEnemy;
 
     private EventSystem _eventSystem;
 
     private void Awake()
     {
         _eventSystem = FindObjectOfType<EventSystem>();
+
+        
     }
 
     // Use this for initialization
     void Start()
     {
-        _characterList = FindObjectOfType<PlayerManager>().Characters;
+        _partyList = FindObjectOfType<PlayerManager>().Characters;
+        for (int i = 0; i < Players.Count; i++)
+        {
+            if (Players[i].Character != null)
+            {
+                Players[i].Character = _partyList[i];
+                _battleCharacterList.Add(Players[i]);
+                PlayerHealthBars[i].SetActive(true);
 
-        Player1.Character = _characterList[0];
-        Player2.Character = _characterList[1];
-        Player3.Character = _characterList[2];
-        Player4.Character = _characterList[3];
+                if (Players[i].Character.Magic != MagicType.eNONE)
+                {
+                    ParticleSystem pSystem = PlayerParticles[i].GetComponent<ParticleSystem>();                    
+                    PlayerParticles[i].SetActive(true);
+                    switch(Players[i].Character.Magic)
+                    {
+                        case (MagicType.eCHEESE):
+                            pSystem.startColor = Color.yellow;
+                            break;
+                        case (MagicType.ePESTO):
+                            pSystem.startColor = Color.green;
+                            break;
+                        case (MagicType.eTOMATO):
+                            pSystem.startColor = Color.red;
+                            break;
+                    }
+                }
+            }
+        }
 
         _enemyList = FindObjectOfType<EnemyManager>().CreateTeamInstance();
 
-        Enemy1.Character = _enemyList[0];
-        Enemy2.Character = _enemyList[1];
-        Enemy3.Character = _enemyList[2];
-        Enemy4.Character = _enemyList[3];
+        for (int i = 0; i < _enemyList.Count; i++)
+        {
+            if(Enemies[i].Character != null)
+            {
+                Enemies[i].Character = _enemyList[i];
+                _battleCharacterList.Add(Enemies[i]);
+                EnemyHealthBars[i].SetActive(true);
 
-        _battleCharacterList.Add(Player1);
-        _battleCharacterList.Add(Player2);
-        _battleCharacterList.Add(Player3);
-        _battleCharacterList.Add(Player4);
-        _battleCharacterList.Add(Enemy1);
-        _battleCharacterList.Add(Enemy2);
-        _battleCharacterList.Add(Enemy3);
-        _battleCharacterList.Add(Enemy4);
+                if (Enemies[i].Character.Magic != MagicType.eNONE)
+                {
+                    ParticleSystem pSystem = EnemyParticles[i].GetComponent<ParticleSystem>();
+                    Renderer render = pSystem.GetComponent<Renderer>();
+                    render.sortingLayerName = "Particle";
+
+                    EnemyParticles[i].SetActive(true);
+                    switch (Enemies[i].Character.Magic)
+                    {
+                        case (MagicType.eCHEESE):
+                            pSystem.startColor = Color.yellow;
+                            break;
+                        case (MagicType.ePESTO):
+                            pSystem.startColor = Color.green;
+                            break;
+                        case (MagicType.eTOMATO):
+                            pSystem.startColor = Color.red;
+                            break;
+                    }
+                }
+            }
+        }
+
+        _tempSelectedEnemy = _partyList.Count;
 
         DecideTurnOrder();
         PlaceInColumns();
@@ -184,7 +225,7 @@ public class Battle : MonoBehaviour
             }
         }
 
-        if (_deadPlayers >= _characterList.Count)
+        if (_deadPlayers >= _partyList.Count)
         {
             // Player lose
             FindObjectOfType<BattleInventoryUI>().Save();
@@ -196,11 +237,11 @@ public class Battle : MonoBehaviour
             // Player wins
             foreach (Character enemy in _enemyList)
             {
-                //gold += enemy.GoldDrop; //Party gold needs to be added TIERAN - GIT GUD
+                FindObjectOfType<PartyInventory>().Gold += enemy.GoldDrop;
                 experience += enemy.Experience;
 
             }
-            experience /= _characterList.Count;
+            experience /= _partyList.Count;
             foreach (BattleCharacter player in _battleCharacterList)
             {
                 if (player.Character.Player)
@@ -233,7 +274,8 @@ public class Battle : MonoBehaviour
         {
             for (int i = 0; i < currentCharacter.Character.Abilities.Count; i++)
             {
-                abilitiyButtons[i].gameObject.GetComponent<Button>().interactable = !abilitiyButtons[i].gameObject.GetComponent<Button>().interactable;
+                abilityButtons[i].gameObject.GetComponent<Button>().interactable = !abilityButtons[i].gameObject.GetComponent<Button>().interactable;
+                //TODO: TURN OFF BUTTONS WHEN NOT ENOUGH MANA
             }
         }
     }
@@ -568,13 +610,13 @@ public class Battle : MonoBehaviour
                 SpagSteal(attacker.Character);
                 break;
             case 3:
-                SpiceUp();
+                SpiceUp(attacker.Character);
                 break;
             case 4:
                 PastaSurprise(attacker.Character);
                 break;
             case 5:
-                SpiceCloud();
+                SpiceCloud(attacker.Character);
                 break;
             case 6:
                 SpagHeistti(attacker.Character);
@@ -590,8 +632,10 @@ public class Battle : MonoBehaviour
             {
                 _battleCharacterList[_targettedCharacterIndex].Character.ChangeHealth(attacker.Intelligence);
             }
+            attacker.ChangeMana(-1);
             EndTurn();
         }
+
     }
     void SpagSteal(Character attacker)
     {
@@ -603,14 +647,16 @@ public class Battle : MonoBehaviour
                 DealDamage(damage);
                 attacker.ChangeHealth(damage);
             }
+            attacker.ChangeMana(-3);
             EndTurn();
         }
     }
-    void SpiceUp()
+    void SpiceUp(Character attacker)
     {
         if (_targettedCharacterIndex > -1)
         {
             _battleCharacterList[_targettedCharacterIndex].AttackBuffModifier += .5f;
+            attacker.ChangeMana(-3);
             EndTurn();
         }
     }
@@ -625,9 +671,10 @@ public class Battle : MonoBehaviour
 
             _battleCharacterList[_targettedCharacterIndex].Character.ChangeHealth(Random.Range(5, attacker.Intelligence * 2));
         }
+        attacker.ChangeMana(-5);
         EndTurn();
     }
-    void SpiceCloud()
+    void SpiceCloud(Character attacker)
     {
         foreach (BattleCharacter character in _battleCharacterList)
         {
@@ -636,6 +683,7 @@ public class Battle : MonoBehaviour
                 character.AttackBuffModifier += .5f;
             }
         }
+        attacker.ChangeMana(-5);
         EndTurn();
     }
     void SpagHeistti(Character attacker)
@@ -667,6 +715,7 @@ public class Battle : MonoBehaviour
                 _battleCharacterList[_characterTurnOrder[i]].Character.ChangeHealth(totalDamage / noOfPlayers);
             }
         }
+        attacker.ChangeMana(-10);
         EndTurn();
     }
 
@@ -842,6 +891,8 @@ public class Battle : MonoBehaviour
 
     void EnemyAttack()
     {
+        //play animation
+
 
         _targettedCharacterIndex = Random.Range(0, _battleCharacterList.Count);
 
@@ -1076,7 +1127,7 @@ public class Battle : MonoBehaviour
             {
                 for (int i = 0; i < currentCharacter.Character.Abilities.Count; i++)
                 {
-                    abilitiyButtons[i].gameObject.GetComponent<Button>().interactable = !abilitiyButtons[i].gameObject.GetComponent<Button>().interactable;
+                    abilityButtons[i].gameObject.GetComponent<Button>().interactable = !abilityButtons[i].gameObject.GetComponent<Button>().interactable;
                 }
             }
             _currentCharacterIndex++;
@@ -1171,7 +1222,6 @@ public class Battle : MonoBehaviour
         return _battleCharacterList[4];
     }
 
-    int _tempSelectedEnemy = 4;
     bool _axisInUse = false;
     void SelectEnemyState()
     {
@@ -1179,7 +1229,7 @@ public class Battle : MonoBehaviour
         {
             if (!_selectingCharacter)
             {
-                for (int i = 4; i < 8; i++)
+                for (int i = _partyList.Count; i < _battleCharacterList.Count; i++)
                 {
                     _battleCharacterList[i].GetComponent<SpriteRenderer>().color = Color.white;
                 }
@@ -1190,7 +1240,7 @@ public class Battle : MonoBehaviour
 
         var enemies = GetSelectableEnemiesFromPlayer(_battleCharacterList[_currentCharacterIndex]);
 
-        for (int i = 4; i < 8; i++)
+        for (int i = _partyList.Count; i < _battleCharacterList.Count; i++)
         {
             _battleCharacterList[i].GetComponent<SpriteRenderer>().color = Color.white;
         }
@@ -1206,7 +1256,7 @@ public class Battle : MonoBehaviour
         {
             if (_axisInUse == false)
             {
-                _tempSelectedEnemy = Mathf.Clamp(_tempSelectedEnemy + 1, 4, 7);
+                _tempSelectedEnemy = Mathf.Clamp(_tempSelectedEnemy + 1, 0, _battleCharacterList.Count - 1);
                 _axisInUse = true;
             }
         }
@@ -1215,12 +1265,12 @@ public class Battle : MonoBehaviour
             _axisInUse = false;
         }
 
-
+        //move down
         if (Input.GetAxis("Vertical") > 0.0f)
         {
             if (_axisInUse == false)
             {
-                _tempSelectedEnemy = Mathf.Clamp(_tempSelectedEnemy - 1, 4, 7);
+                _tempSelectedEnemy = Mathf.Clamp(_tempSelectedEnemy - 1, 0, _battleCharacterList.Count - 1);
                 _axisInUse = true;
             }
         }
