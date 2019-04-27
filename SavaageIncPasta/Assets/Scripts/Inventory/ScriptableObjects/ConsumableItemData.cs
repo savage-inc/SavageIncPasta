@@ -10,6 +10,7 @@ public class ConsumableItemData : BaseItemData
     public enum Type
     {
         eHEALTH,
+        eMANA,
         eSTRENGTH,
         eCONSITUTION,
         eDEXTERITY

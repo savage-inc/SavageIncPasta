@@ -160,15 +160,49 @@ public class PersistantData
 
     public static void SavePartyData(PartyInventory partyInventory, PlayerManager playerManager, ClanManager clanManager)
     {
+        if (partyInventory == null || playerManager == null)
+        {
+            return;
+        }
         PartyData partyData = new PartyData();
         partyData.PartyInventory = partyInventory.Inventory;
         partyData.Gold = partyInventory.Gold;
 
         //Party characets
         partyData.PartyCharacterData = playerManager.Characters;
-        partyData.ClanCharacterData = clanManager.SpareCharacterPool;
+
+        if (clanManager != null)
+        {
+            partyData.ClanCharacterData = clanManager.SpareCharacterPool;
+        }
+        else
+        {
+            partyData.ClanCharacterData = GetSavedClanData();
+        }
 
         SaveBytesToFile(Application.persistentDataPath + "/save/","partyData.data", SerializeToBytes(partyData));
+    }
+
+    private static List<Character> GetSavedClanData()
+    {
+        List<Character> clan = new List<Character>();
+
+        var data = ReadBytesFromFile(Application.persistentDataPath + "/save/", "partyData.data");
+        if (data != null)
+        {
+            PartyData partyData = DeserializeToType<PartyData>(data);
+
+            if (partyData.PartyInventory != null && partyData.Gold > 0)
+            {
+                clan = partyData.ClanCharacterData;
+                foreach (var character in clan)
+                {
+                    character.Equipment.Character = character;
+                }
+            }
+        }
+
+        return clan;
     }
 
     public static void LoadPartyData(PartyInventory partyInventory, PlayerManager playerManager, ClanManager clanManager)
@@ -183,16 +217,24 @@ public class PersistantData
                 partyInventory.Inventory = partyData.PartyInventory;
                 partyInventory.Gold = partyData.Gold;
 
-                playerManager.Characters = partyData.PartyCharacterData;
-                //set character in the characters equipment
-                foreach (var character in playerManager.Characters)
+                if (playerManager != null)
                 {
-                    character.Equipment.Character = character;
+                    playerManager.Characters = partyData.PartyCharacterData;
+                    //set character in the characters equipment
+                    foreach (var character in playerManager.Characters)
+                    {
+                        character.Equipment.Character = character;
+                    }
                 }
-                clanManager.SpareCharacterPool = partyData.ClanCharacterData;
-                foreach (var character in clanManager.SpareCharacterPool)
+
+                if (clanManager != null)
                 {
-                    character.Equipment.Character = character;
+                    clanManager.SpareCharacterPool = partyData.ClanCharacterData;
+
+                    foreach (var character in clanManager.SpareCharacterPool)
+                    {
+                        character.Equipment.Character = character;
+                    }
                 }
             }
         }

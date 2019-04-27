@@ -106,7 +106,7 @@ public class InventoryItemButton : MonoBehaviour, ISelectHandler, IDeselectHandl
 
     public void OnHoverEnter()
     {
-        if (Item == null || Item.Item == null)
+        if (Item == null || Item.Item == null || ItemToolTipPrefab == null)
             return;
 
         //instantiate tool tip
@@ -125,7 +125,7 @@ public class InventoryItemButton : MonoBehaviour, ISelectHandler, IDeselectHandl
 
     public void OnSelect(BaseEventData eventData)
     {
-        if (Item == null || Item.Item == null)
+        if (Item == null || Item.Item == null || ItemToolTipPrefab == null)
             return;
 
         //instantiate tool tip

@@ -27,7 +27,11 @@ public class Character
     public int BaseAttack = 5;
     public int BaseArmour = 0;
     public int CurrCol = 1;
+    public int MaxMana;
+    public int CurrentMana;
+    public List<int> Abilities = new List<int>() { 1 };
 
+    public int GoldDrop = 5;
     public int Experience = 0;
 
     public Character()
@@ -37,6 +41,7 @@ public class Character
             Character = this
         };
         CurrentHealth = MaxHealth;
+        CurrentMana = MaxMana;
     }
 
     public void ChangeHealth(int health)
@@ -51,6 +56,20 @@ public class Character
         else if (CurrentHealth > MaxHealth)
         {
             CurrentHealth = MaxHealth;
+        }
+    }
+
+    public void ChangeMana(int mana)
+    {
+        CurrentMana += mana;
+
+        if (CurrentMana <= 0)
+        {
+            CurrentHealth = 0;
+        }
+        else if (CurrentMana > MaxMana)
+        {
+            CurrentMana = MaxMana;
         }
     }
 }

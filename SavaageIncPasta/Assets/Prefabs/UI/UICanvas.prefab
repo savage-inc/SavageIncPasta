@@ -2279,7 +2279,6 @@ GameObject:
   - component: {fileID: 114411826324759912}
   - component: {fileID: 222738460577756448}
   - component: {fileID: 114525110376894328}
-  - component: {fileID: 114901719385283814}
   m_Layer: 5
   m_Name: Scroll View
   m_TagString: Untagged
@@ -2473,6 +2472,9 @@ MonoBehaviour:
     BaseAttack: 5
     BaseArmour: 0
     CurrCol: 1
+    Mana: 0
+    Abilities: 01000000
+    GoldDrop: 5
     Experience: 0
   CharacterIndex: 3
   ClanContent: {fileID: 224963784567214990}
@@ -3246,7 +3248,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114495292132679536}
   m_HandleRect: {fileID: 224324788606458122}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -3444,6 +3446,9 @@ MonoBehaviour:
     BaseAttack: 5
     BaseArmour: 0
     CurrCol: 1
+    Mana: 0
+    Abilities: 01000000
+    GoldDrop: 5
     Experience: 0
   Name: {fileID: 114629029587229696}
   Level: {fileID: 114705703159443544}
@@ -3963,6 +3968,9 @@ MonoBehaviour:
     BaseAttack: 5
     BaseArmour: 0
     CurrCol: 1
+    Mana: 0
+    Abilities: 01000000
+    GoldDrop: 5
     Experience: 0
   CharacterIndex: 2
   ClanContent: {fileID: 224963784567214990}
@@ -5851,7 +5859,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114239746283405424}
   m_HandleRect: {fileID: 224974241305902204}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -7220,6 +7228,9 @@ MonoBehaviour:
     BaseAttack: 5
     BaseArmour: 0
     CurrCol: 1
+    Mana: 0
+    Abilities: 01000000
+    GoldDrop: 5
     Experience: 0
   Name: {fileID: 114102415584153366}
   Level: {fileID: 114705703159443544}
@@ -7439,6 +7450,9 @@ MonoBehaviour:
     BaseAttack: 5
     BaseArmour: 0
     CurrCol: 1
+    Mana: 0
+    Abilities: 01000000
+    GoldDrop: 5
     Experience: 0
   CharacterIndex: 1
   ClanContent: {fileID: 224963784567214990}
@@ -7565,6 +7579,9 @@ MonoBehaviour:
     BaseAttack: 5
     BaseArmour: 0
     CurrCol: 1
+    Mana: 0
+    Abilities: 01000000
+    GoldDrop: 5
     Experience: 0
   CharacterIndex: 0
   ClanContent: {fileID: 224963784567214990}
@@ -7632,18 +7649,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &114901719385283814
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1977400122202474}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a302dc9cf834824793a072ede9c30bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LerpTime: 1
 --- !u!114 &114909254866896444
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11365,7 +11370,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00000078035913, y: 0.0000030043614}
+  m_AnchoredPosition: {x: -2.5172412, y: -0.87925184}
   m_SizeDelta: {x: -40.659973, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!224 &224971424616143860
