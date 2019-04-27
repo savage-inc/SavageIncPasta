@@ -57,18 +57,19 @@ public class BarracksManager : MonoBehaviour
     }
 
     // Buy Character, remove character from barracks add character to party if party is full 
-    //add character to clan
-    public void BuyCharacter(Character BarracksMember)
+    // add character to clan
+    public void BuyCharacter(int index)
     {
-        RemoveFromBarracks(BarracksMember);
-
+        Debug.Log("Buying Character");
         if (FindObjectOfType<PlayerManager>().Characters.Count < 4)
         {
-            AddToParty(BarracksMember);
+            AddToParty(RandomCharacterPool[index]);
         }
-        else
+        else 
         {
-            AddToClan(BarracksMember);
+            AddToClan(RandomCharacterPool[index]);
         }
+
+        RemoveFromBarracks(RandomCharacterPool[index]);
     }
 }

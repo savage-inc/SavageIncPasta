@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿/* Attach to BarracksMenu */
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -11,28 +12,32 @@ public class BarracksControl : MonoBehaviour
     public GameObject FirstSelected;
     public Text PartyGoldText;
     public RectTransform PartyInventoryContent;
-    public GameObject BarracksContent;
+    public RectTransform BarracksContent;
 
-    private List<SelectCharacter> Characters;
+    public GameObject BarracksMember1;
+    public GameObject BarracksMember2;
+    public GameObject BarracksMember3;
+    public GameObject BarracksMember4;
+
     private BarracksManager _barracksManager;
     private PartyInventory _partyInventory;
-
 
     [SerializeField]
     private GameObject buttonTemplate;
     [SerializeField]
     private GridLayoutGroup gridGroup;
-
+    [SerializeField]
+    private Sprite[] characterSprite; // Character Sprite array
     // Use this for initialization
     void Start()
     {
-        GenBarracks();
+        _barracksManager = FindObjectOfType<BarracksManager>();
+        BarracksMember();
     }
 
     private void Awake()
     {
         _partyInventory = FindObjectOfType<PartyInventory>();
-
     }
 
     private void OnEnable()
@@ -44,42 +49,22 @@ public class BarracksControl : MonoBehaviour
         }
     }
 
-    void GenBarracks()
-    {        
-        //If number of clan members less than 5, then constraint count of clanMember
-        if (_barracksManager.RandomCharacterPool.Count < 5)
-        {
-            gridGroup.constraintCount = _barracksManager.RandomCharacterPool.Count;
-        }
-        else
-        {
-            // Set column to 4
-            gridGroup.constraintCount = 4;
-        }
-
-        foreach (Character newCharacter in _barracksManager.RandomCharacterPool)
-        {
-            GameObject newButton = Instantiate(buttonTemplate) as GameObject;
-            newButton.SetActive(true);
-
-            BuyButton buyButton = newButton.AddComponent<BuyButton>();
-            buyButton.Character = newCharacter; // Add new character
-            buyButton.CharacterCompare = CharacterCompare; // Add character compare
-            newButton.transform.GetChild(0).GetComponent<Image>().sprite = FindObjectOfType<SpriteManager>().GetSprite(newCharacter.SpritePreviewName);
-
-            // Add set to compare mode to newbutton when on click
-            newButton.GetComponent<Button>().onClick.AddListener(buyButton.Buy);
-
-            newButton.transform.SetParent(gridGroup.transform, false);
-        }
+    private void BarracksMember()
+    {
+        // Generate random character
+        BarracksMember1.transform.GetChild(0).GetComponent<Image>().sprite =
+            FindObjectOfType<SpriteManager>().GetSprite(_barracksManager.RandomCharacterPool[0].SpritePreviewName);
+        BarracksMember2.transform.GetChild(0).GetComponent<Image>().sprite =
+            FindObjectOfType<SpriteManager>().GetSprite(_barracksManager.RandomCharacterPool[1].SpritePreviewName);
+        BarracksMember3.transform.GetChild(0).GetComponent<Image>().sprite =
+            FindObjectOfType<SpriteManager>().GetSprite(_barracksManager.RandomCharacterPool[2].SpritePreviewName);
+        BarracksMember4.transform.GetChild(0).GetComponent<Image>().sprite =
+            FindObjectOfType<SpriteManager>().GetSprite(_barracksManager.RandomCharacterPool[3].SpritePreviewName);
     }
 
-
-    // We need to randomise characters to be able to be bought
-    // Need them to be compared to current party
-    // Need an if statement that if party is full go to clan
-    // We need to be able to display the following in the UI the character, the price, 
-    // the party gold 
+    /* We need to randomise characters to be able to be bought
+     * We need to be able to display the following in the UI the character, the price, 
+       the party gold */
 
     void UpdatePartyItemUI(InventoryItem inventoryItem, int amount)
     {
@@ -110,10 +95,4 @@ public class BarracksControl : MonoBehaviour
         }
         PartyGoldText.text = "Party Gold " + _partyInventory.Gold;
     }
-
-    public struct SelectCharacter
-    {
-        public Sprite characterSprite;
-    }
-
 }
