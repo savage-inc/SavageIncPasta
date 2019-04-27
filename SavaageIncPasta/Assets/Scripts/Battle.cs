@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -49,7 +50,7 @@ public class Battle : MonoBehaviour
     private int _deadEnemies = 0;
     private int _deadPlayers = 0;
     private bool _selectingCharacter = false;
-    private bool _buttonPressed = false;
+    private bool _skipFrame = false; //skip frame when selecting character to clear input
 
     private EventSystem _eventSystem;
 
@@ -92,6 +93,16 @@ public class Battle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (_skipFrame)
+        {
+            _skipFrame = false;
+            return;
+        }
+
+        //select enemy
+        SelectEnemyState();
+        //TODO SKIP FRAME WHEN BUTTON PRESSED
+
         if (_currentCharacterIndex >= _battleCharacterList.Count)
         {
             DecideTurnOrder();
@@ -119,9 +130,6 @@ public class Battle : MonoBehaviour
         {
             EnemyAttack();
         }
-
-        //select enemy
-        SelectEnemyState();
 
         if (_optionChosen > 0)
         {
@@ -804,12 +812,6 @@ public class Battle : MonoBehaviour
 
     public void SetTargettedCharacter(int characterIndex)
     {
-        if(_buttonPressed)
-        {
-            _buttonPressed = false;
-            return;
-        }
-
         //check if the character is alive
         if(!_battleCharacterList[characterIndex].Character.Alive)
         {
@@ -1005,6 +1007,7 @@ public class Battle : MonoBehaviour
 
     void Move(BattleCharacter mover)
     {
+        _eventSystem.SetSelectedGameObject(null,null);
         //move left
         if (Input.GetAxis("Horizontal") > 0.0f)
         {
@@ -1034,7 +1037,7 @@ public class Battle : MonoBehaviour
         }
 
 
-        if (Input.GetButton("A"))
+        if (Input.GetButtonDown("A"))
         {
             EndTurn();
         }
@@ -1074,30 +1077,23 @@ public class Battle : MonoBehaviour
         _optionChosen = TurnOption.eNONE;
         _targettedCharacterIndex = -1;
 
-
+        _eventSystem.SetSelectedGameObject(null,null);
         _eventSystem.SetSelectedGameObject(FirstSelected);
+
     }
 
-    IEnumerator sleep()
-    {
-        yield return new WaitForSeconds(0.1f);
-    }
     public void SetTurnOption(int turnOption)
     {
+        _skipFrame = true;
         _optionChosen = (TurnOption)turnOption;
 
-        if (_optionChosen != TurnOption.eNONE && _optionChosen != TurnOption.eDEFEND)
+        if (_optionChosen != TurnOption.eNONE && _optionChosen != TurnOption.eDEFEND && _optionChosen != TurnOption.eACTION)
         {
-            _eventSystem.SetSelectedGameObject(null);
-
-            _buttonPressed = true;
             if (_optionChosen != TurnOption.eMOVE)
             {
                 _selectingCharacter = true;
             }
-            System.Threading.Thread.Sleep(400);
         }
-
     }
 
     public List<BattleCharacter> GetEnemiesInCol(int col)
@@ -1193,7 +1189,7 @@ public class Battle : MonoBehaviour
         }
 
 
-        if (Input.GetButton("A"))
+        if (Input.GetButtonDown("A"))
         {
             SetTargettedCharacter(_tempSelectedEnemy);
         }
@@ -1228,6 +1224,11 @@ public class Battle : MonoBehaviour
         FindObjectOfType<EventSystem>().enabled = true;
 
         _battleCharacterList[_tempSelectedEnemy].GetComponent<SpriteRenderer>().color = Color.red;
+    }
+
+    IEnumerator skipFrame()
+    {
+        yield return new WaitForSeconds(1);
     }
 }
 

@@ -19,13 +19,13 @@ public class BattleInventoryUI : MonoBehaviour
         _slots = new List<InventoryItemButton>();
         _partyInventory = FindObjectOfType<PartyInventory>();
         _eventSystem = FindObjectOfType<EventSystem>();
-        //foreach (Transform child in transform)
-        //{
-        //   var button = child.gameObject.GetComponent<InventoryItemButton>();
-        //   button.GetComponent<Button>().onClick.AddListener(() => useItem(button));
-        //    _slots.Add(button);
+        foreach (Transform child in transform)
+        {
+            var button = child.gameObject.GetComponent<InventoryItemButton>();
+            button.GetComponent<Button>().onClick.AddListener(() => useItem(button));
+            _slots.Add(button);
 
-        //}
+        }
     }
 
 	// Use this for initialization
