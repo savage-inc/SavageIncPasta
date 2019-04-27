@@ -113,7 +113,6 @@ public class Battle : MonoBehaviour
         _battleCharacterList[_characterTurnOrder[_currentCharacterIndex]].GetComponent<SpriteRenderer>().color = Color.magenta;
         //select enemy
         SelectEnemyState();
-        //TODO SKIP FRAME WHEN BUTTON PRESSED
 
         if (_currentCharacterIndex >= _battleCharacterList.Count)
         {
@@ -706,7 +705,7 @@ public class Battle : MonoBehaviour
             {
                 DealDamage((int)(attacker.Intelligence + 1.5 * attacker.Level));
             }
-            attacker.Mana -= 1;
+            attacker.ChangeMana(-1);
             EndTurn();
         }
     }
@@ -728,7 +727,7 @@ public class Battle : MonoBehaviour
                     DealDamage(attacker.Intelligence);
                 }
             }
-            attacker.Mana -= 3;
+            attacker.ChangeMana(-3);
             EndTurn();
         }
     }
@@ -740,7 +739,7 @@ public class Battle : MonoBehaviour
             {
                 _battleCharacterList[_targettedCharacterIndex].SecondaryAction = true;
             }
-            attacker.Mana -= 3;
+            attacker.ChangeMana(-3);
             EndTurn();
         }
     }
@@ -749,7 +748,7 @@ public class Battle : MonoBehaviour
         if (_targettedCharacterIndex > -1)
         {
             Move(_battleCharacterList[_targettedCharacterIndex]);
-            attacker.Mana -= 5;
+            attacker.ChangeMana(-3);
         }
     }
     void FlourAttack(Character attacker)
@@ -767,7 +766,7 @@ public class Battle : MonoBehaviour
                     }
                 }
             }
-            attacker.Mana -= 5;
+            attacker.ChangeMana(-5);
             EndTurn();
         }
     }
@@ -787,7 +786,7 @@ public class Battle : MonoBehaviour
                     }
                 }
             }
-            attacker.Mana -= 5;
+            attacker.ChangeMana(-5);
             EndTurn();
         }
     }
@@ -801,7 +800,7 @@ public class Battle : MonoBehaviour
                 DealDamage((int)(attacker.Character.Intelligence * (1.5 + attacker.Character.Level)));
             }
         }
-        attacker.Character.Mana -= 10;
+        attacker.Character.ChangeMana(-10);
         attacker.PrimaryAction = true;
         attacker.SecondaryAction = true;
         EndTurn();

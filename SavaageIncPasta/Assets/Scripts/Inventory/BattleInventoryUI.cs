@@ -187,7 +187,7 @@ public class BattleInventoryUI : MonoBehaviour
                     character.ChangeHealth((int)SelectedConsumable.EffectAmount);            
                     break;
                 case ConsumableItemData.Type.eMANA:
-                    character.Mana += (int)SelectedConsumable.EffectAmount;
+                    character.ChangeMana((int)SelectedConsumable.EffectAmount);
                     break;
                 case ConsumableItemData.Type.eSTRENGTH:
                     break;

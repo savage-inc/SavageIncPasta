@@ -7,7 +7,7 @@ public class HealthBar : MonoBehaviour {
 
     public Image ImgHealthBar;
     public Text TxtHealth;
-    private float _percentage;
+    private float _healthPercentage;
     public BattleCharacter c;
 
     private void Awake()
@@ -19,13 +19,11 @@ public class HealthBar : MonoBehaviour {
 
     void Update()
     {
-        transform.position = new Vector2(c.transform.position.x, c.transform.position.y + .5f);
+        transform.position = new Vector2(c.transform.position.x, c.transform.position.y + .6f);
 
-
-        _percentage = (float)c.Character.CurrentHealth / (float)c.Character.MaxHealth;
-        ImgHealthBar.fillAmount = _percentage;
+        _healthPercentage = (float)c.Character.CurrentHealth / (float)c.Character.MaxHealth;
+        ImgHealthBar.fillAmount = _healthPercentage;
         TxtHealth.text = c.Character.CurrentHealth.ToString() + "/" + c.Character.MaxHealth.ToString();
-
     }
 
 }

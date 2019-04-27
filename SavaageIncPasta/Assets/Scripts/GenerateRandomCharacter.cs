@@ -26,6 +26,7 @@ public class GenerateRandomCharacter
                     character.CurrentHealth = character.MaxHealth;
                     character.Comfort = character.Constitution * 10 + character.Level * 4;
                     character.Magic = MagicType.eNONE;
+                    character.MaxMana = 0;
 
                     //random sprite
                     switch (Random.Range(0, 3))
@@ -55,6 +56,7 @@ public class GenerateRandomCharacter
                     character.CurrentHealth = character.MaxHealth;
                     character.Comfort = character.Constitution * 10 + character.Level * 4;           
                     character.Magic = MagicType.eNONE;
+                    character.MaxMana = 0;
 
                     //random sprite
                     switch (Random.Range(0, 3))
@@ -83,7 +85,8 @@ public class GenerateRandomCharacter
                     character.CurrentHealth = character.MaxHealth;
                     character.Comfort = character.Constitution * 10 + character.Level * 4;
                     character.Magic = (MagicType)Random.Range(1, 4);
-                    character.Mana = character.Intelligence * 2;
+                    character.MaxMana = character.Intelligence * 2;
+                    character.CurrentMana = character.MaxMana;
 
                     switch (Random.Range(0, 3))
                     {
@@ -111,7 +114,8 @@ public class GenerateRandomCharacter
                     character.CurrentHealth = character.MaxHealth;
                     character.Comfort = character.Constitution * 10 + character.Level * 4;
                     character.Magic = (MagicType)Random.Range(1, 4);
-                    character.Mana = character.Intelligence * 2;
+                    character.MaxMana = character.Intelligence * 2;
+                    character.CurrentMana = character.MaxMana;
 
                     switch (Random.Range(0, 3))
                     {
