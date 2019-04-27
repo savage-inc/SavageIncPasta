@@ -9,6 +9,10 @@ public class ClanControl : MonoBehaviour {
 
     public CharacterComparison CharacterCompare;
     public GameObject FirstSelected;
+    public Character SelectedCharacter;
+    public int SelectedColumn = 1;
+    public Text ColumnText;
+
 
     private List<SelectCharacter> clanMember;
     private ClanManager _clanManager;
@@ -79,5 +83,26 @@ public class ClanControl : MonoBehaviour {
         float width = RectTransformUtility.PixelAdjustRect(GetComponent<RectTransform>(), FindObjectOfType<Canvas>()).width - 32;
         Vector2 newSize = new Vector2(width / 4, width / 4);
         gridGroup.cellSize = newSize;
+    }
+
+    public void ChangeColumnOfSelectedCharacter()
+    {
+        SelectedCharacter.CurrCol = SelectedColumn;
+        SelectedCharacter = null;
+
+    }
+
+    public void IncreaseColumn()
+    {
+        SelectedColumn = Mathf.Clamp(SelectedColumn + 1, 1, 3);
+        ColumnText.text = SelectedColumn.ToString();
+    }
+
+
+    public void DecreaseColumn()
+    {
+        SelectedColumn = Mathf.Clamp(SelectedColumn - 1, 1, 3);
+        ColumnText.text = SelectedColumn.ToString();
+
     }
 }

@@ -7,12 +7,13 @@ using UnityEngine.UI;
 
 public class CharacterButton : MonoBehaviour
 {
-    public Button SwapButton, CompareButton, CloseButton;
+    public Button SwapButton, CompareButton, ColumnButton, CloseButton;
     public CharacterComparison PartyCharacterCompare;
     public CharacterComparison ClanCharacterCompare;
     public Character Character;
     public int CharacterIndex = 0;
     public Transform ClanContent;
+    public GameObject ColumnConroller;
 
     private ClanManager _clanManager;
     private EventSystem _eventSystem;
@@ -52,6 +53,7 @@ public class CharacterButton : MonoBehaviour
         {
             SwapButton.gameObject.SetActive(true);
             CompareButton.gameObject.SetActive(true);
+            ColumnButton.gameObject.SetActive(true);
             CloseButton.gameObject.SetActive(true);
             _eventSystem.SetSelectedGameObject(SwapButton.gameObject);
             transform.GetChild(0).GetComponent<Button>().interactable = false;
@@ -60,6 +62,7 @@ public class CharacterButton : MonoBehaviour
         {
             SwapButton.gameObject.SetActive(false);
             CompareButton.gameObject.SetActive(false);
+            ColumnButton.gameObject.SetActive(false);
             CloseButton.gameObject.SetActive(false);
             _eventSystem.SetSelectedGameObject(transform.GetChild(0).gameObject);
             transform.GetChild(0).GetComponent<Button>().interactable = true;
@@ -102,6 +105,15 @@ public class CharacterButton : MonoBehaviour
             PartyCharacterCompare.character = character2;
             ClanCharacterCompare.character = character1;
         }
+    }
+
+    public void SetToColumnMode()
+    {
+        var clanControl = FindObjectOfType<ClanControl>();
+        clanControl.SelectedCharacter = Character;
+
+        _eventSystem.SetSelectedGameObject(null, null);
+        _eventSystem.SetSelectedGameObject(ColumnConroller);
     }
 
 }
