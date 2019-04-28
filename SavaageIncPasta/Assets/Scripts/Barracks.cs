@@ -17,13 +17,19 @@ public class Barracks : MonoBehaviour
         {
             if (!_uiManager.BarracksUI.gameObject.activeInHierarchy)
             {
-                ShowBarracks();
+                StartCoroutine(showbarracks());
             }
             else
             {
                 CloseBarracks();
             }
         }
+    }
+
+    IEnumerator showbarracks()
+    {
+        yield return new WaitForEndOfFrame();
+        ShowBarracks();
     }
 
     void OnTriggerExit2D(Collider2D other)

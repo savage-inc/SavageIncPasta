@@ -27,6 +27,9 @@ EditorBuildSettings:
     path: Assets/Scenes/World/ClanScene.unity
     guid: 6694cb205153a7c4daa8894182aaf49a
   - enabled: 1
+    path: Assets/Scenes/World/BarracksScene.unity
+    guid: f8986cd05212d114eaed94474857aa08
+  - enabled: 1
     path: Assets/Scenes/World/VolcanoScene.unity
     guid: 38ddd30233fd33044b947752b332aad2
   - enabled: 1

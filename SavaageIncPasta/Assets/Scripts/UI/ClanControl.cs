@@ -133,10 +133,13 @@ public class ClanControl : MonoBehaviour {
 
     public void RegenComfort(int regenAmount)
     {
-        Debug.Log("Regenerating Comfort levels (regen amount = " + regenAmount + ")");
-        foreach (var character in _clanManager.SpareCharacterPool)
+        if (_clanManager != null && _clanManager.SpareCharacterPool != null)
         {
-            character.Comfort = Mathf.Clamp(character.Comfort + regenAmount,0,character.MaxComfort);
+            Debug.Log("Regenerating Comfort levels (regen amount = " + regenAmount + ")");
+            foreach (var character in _clanManager.SpareCharacterPool)
+            {
+                character.Comfort = Mathf.Clamp(character.Comfort + regenAmount, 0, character.MaxComfort);
+            }
         }
     }
 }

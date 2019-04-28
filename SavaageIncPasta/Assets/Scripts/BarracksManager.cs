@@ -27,16 +27,6 @@ public class BarracksManager : MonoBehaviour
         }
     }
 
-    public void AddCharacter(Character c)
-    {
-        RandomCharacterPool.Add(c);
-    }
-    
-    public void AddToBarracks(Character BarracksMember)
-    {
-        FindObjectOfType<PlayerManager>().AddCharacter(BarracksMember);
-    }
-
     public void AddToParty(Character PartyMember)
     {
         FindObjectOfType<PlayerManager>().AddCharacter(PartyMember);
@@ -44,7 +34,7 @@ public class BarracksManager : MonoBehaviour
 
     public void AddToClan(Character ClanMember)
     {
-        FindObjectOfType<PlayerManager>().AddCharacter(ClanMember);
+        FindObjectOfType<ClanManager>().AddCharacter(ClanMember);
     }
 
     // Buy Character, remove character from barracks add character to party if party is full 

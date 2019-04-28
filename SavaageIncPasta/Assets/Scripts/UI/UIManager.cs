@@ -44,18 +44,18 @@ public class UIManager : MonoBehaviour
             ClanUI.SetActive(false);
         }
 
-<<<<<<< HEAD
         if (BarracksUI != null)
         {
             BarracksUI.SetActive(false);
-=======
+        }
         if(ShopUI != null)
         {
             ShopUI.SetActive(false);
->>>>>>> dev
+
         }
         Time.timeScale = 1f;
     }
+
     public void OpenInventory()
     {
         if (Inventory != null)
@@ -81,15 +81,13 @@ public class UIManager : MonoBehaviour
             {
                 ClanUI.SetActive(false);
             }
-<<<<<<< HEAD
             if (BarracksUI != null)
             {
                 BarracksUI.SetActive(false);
-=======
+            }
             if (ShopUI != null)
             {
                 ShopUI.SetActive(false);
->>>>>>> dev
             }
             Time.timeScale = 0f;
         }
@@ -110,7 +108,7 @@ public class UIManager : MonoBehaviour
             {
                 Inventory.SetActive(false);
             }
-<<<<<<< HEAD
+
             if (BarracksUI != null)
             {
                 BarracksUI.SetActive(false);
@@ -136,11 +134,10 @@ public class UIManager : MonoBehaviour
             if (ClanUI != null)
             {
                 ClanUI.SetActive(false);
-=======
+            }
             if (ShopUI != null)
             {
                 ShopUI.SetActive(false);
->>>>>>> dev
             }
             Time.timeScale = 0f;
         }

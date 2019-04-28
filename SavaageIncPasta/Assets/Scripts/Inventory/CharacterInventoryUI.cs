@@ -20,18 +20,23 @@ public class CharacterInventoryUI : MonoBehaviour
     private Inventory _partyInventory;
     private int _currentCharacterIndex = 0;
 
+    private void Awake()
+    {
+        _playerManager = FindObjectOfType<PlayerManager>();
+
+    }
     // Use this for initialization
     void Start ()
     {
-        //TODO get a specfic character
-        _playerManager = FindObjectOfType<PlayerManager>();
         if(_playerManager == null)
         {
             Debug.LogWarning("Character Inventory couldn't find Player manager");
             return;
         }
-        CharacterName.text = _playerManager.Characters[_currentCharacterIndex].Name;
-        CharacterPreview.sprite = FindObjectOfType<SpriteManager>().GetSprite(_playerManager.Characters[_currentCharacterIndex].SpritePreviewName);
+        else if(_playerManager.Characters.Count == 0)
+        {
+            return;
+        }
 
         //get party inventory
         _partyInventory = FindObjectOfType<PartyInventory>().Inventory;
@@ -51,6 +56,11 @@ public class CharacterInventoryUI : MonoBehaviour
 
     void OnDisable()
     {
+        if (_playerManager.Characters.Count == 0)
+        {
+            return;
+        }
+
         if (_playerManager.Characters[_currentCharacterIndex].Equipment != null)
         {
             _playerManager.Characters[_currentCharacterIndex].Equipment.OnItemAdd -= AddUIItem;
@@ -71,10 +81,14 @@ public class CharacterInventoryUI : MonoBehaviour
 
     void OnEnable()
     {
-        if (_playerManager == null || _playerManager.Characters[_currentCharacterIndex].Equipment == null)
+        if (_playerManager == null || _playerManager.Characters == null || _playerManager.Characters.Count == 0 || _playerManager.Characters[_currentCharacterIndex].Equipment == null)
         {
+            Debug.LogWarning("No chracters in party");
             return;
         }
+
+        CharacterName.text = _playerManager.Characters[_currentCharacterIndex].Name;
+        CharacterPreview.sprite = FindObjectOfType<SpriteManager>().GetSprite(_playerManager.Characters[_currentCharacterIndex].SpritePreviewName);
 
         _playerManager.Characters[_currentCharacterIndex].Equipment.OnItemAdd += AddUIItem;
         _playerManager.Characters[_currentCharacterIndex].Equipment.OnItemRemove += RemoveItemUI;
@@ -83,14 +97,14 @@ public class CharacterInventoryUI : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("LB"))
+        if (Input.GetButtonDown("LB") && _playerManager.Characters.Count > 0)
         {
-            _currentCharacterIndex = Mathf.Clamp(_currentCharacterIndex-1, 0, 3);
+            _currentCharacterIndex = Mathf.Clamp(_currentCharacterIndex-1, 0, _playerManager.Characters.Count-1);
             changeCharacter(_currentCharacterIndex);
         }
-        else if (Input.GetButtonDown("RB"))
+        else if (Input.GetButtonDown("RB") && _playerManager.Characters.Count > 0)
         {
-            _currentCharacterIndex = Mathf.Clamp(_currentCharacterIndex+1, 0, 3);
+            _currentCharacterIndex = Mathf.Clamp(_currentCharacterIndex+1, 0, _playerManager.Characters.Count - 1);
             changeCharacter(_currentCharacterIndex);
         }
     }
