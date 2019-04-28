@@ -17,6 +17,6 @@ MonoBehaviour:
   _manaCost: 0
   _level: 1
   _class: 0
-  _target: 1
-  _path: 2
+  _target: 0
+  _tree: 1
   _id: 1

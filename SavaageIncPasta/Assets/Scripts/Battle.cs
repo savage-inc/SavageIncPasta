@@ -1145,11 +1145,45 @@ public class Battle : MonoBehaviour
         _skipFrame = true;
         _optionChosen = (TurnOption)turnOption;
 
-        if (_optionChosen != TurnOption.eNONE && _optionChosen != TurnOption.eDEFEND && _optionChosen != TurnOption.eACTION)
+        if (_optionChosen != TurnOption.eNONE && _optionChosen != TurnOption.eDEFEND && _optionChosen != TurnOption.eACTION && _optionChosen != TurnOption.eMOVE)
         {
-            if (_optionChosen != TurnOption.eMOVE)
+            if (_optionChosen == TurnOption.eATTACK)
             {
                 _selectingCharacter = true;
+            }
+            else
+            {
+                //option must be an ability, we need to check if the ability selected requires a targer
+                int abilityID = 1;
+                switch (_optionChosen)
+                {
+                    case TurnOption.eAbility1:
+                        abilityID = 1;
+                        break;
+                    case TurnOption.eAbility2:
+                        abilityID = 2;
+                        break;
+                    case TurnOption.eAbility3:
+                        abilityID = 3;
+                        break;
+                    case TurnOption.eAbility4:
+                        abilityID = 4;
+                        break;
+                    case TurnOption.eAbility5:
+                        abilityID = 5;
+                        break;
+                    case TurnOption.eAbility6:
+                        abilityID = 6;
+                        break;
+                    case TurnOption.eAbility7:
+                        abilityID = 7;
+                        break;
+                }
+                //If the current players selected ability requires a target then enter select character state
+                if (AbilityManager.Instance.GetAbility(GetCurrentPlayer().Character.Class, abilityID).RequiresTarget)
+                {
+                    _selectingCharacter = true;
+                }
             }
         }
     }
@@ -1212,14 +1246,14 @@ public class Battle : MonoBehaviour
 
     public BattleCharacter GetFirstAliveEnemy()
     {
-        foreach (var character in _battleCharacterList)
+        foreach (var enemy in Enemies)
         {
-            if (!character.Character.Player && character.Character.Alive)
+            if (enemy != null && enemy.Character.Alive)
             {
-                return character;
+                return enemy;
             }
         }
-        return _battleCharacterList[4];
+        return Enemies[0];
     }
 
     bool _axisInUse = false;
