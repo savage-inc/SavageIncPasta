@@ -21,7 +21,7 @@ public class AbilityData : ScriptableObject
     [SerializeField]
     private bool _target = true;
     [SerializeField]
-    private int _path = 1;
+    private int _tree = 1;
     [SerializeField]
     private int _id = 1;
 
@@ -81,11 +81,11 @@ public class AbilityData : ScriptableObject
         }
     }
 
-    public int Path
+    public int Tree
     {
         get
         {
-            return _path;
+            return _tree;
         }
     }
 

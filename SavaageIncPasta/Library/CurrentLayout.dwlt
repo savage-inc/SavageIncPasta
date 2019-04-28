@@ -45,11 +45,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 492}
   m_MaxSize: {x: 14004, y: 14042}
   vertical: 0
-<<<<<<< HEAD
-  controlID: 49
-=======
   controlID: 9
->>>>>>> Combat
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -64,15 +60,9 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-<<<<<<< HEAD
-    x: 1522
+    x: 1531
     y: 0
-    width: 398
-=======
-    x: 1551
-    y: 0
-    width: 369
->>>>>>> Combat
+    width: 389
     height: 1067
   m_MinSize: {x: 277, y: 71}
   m_MaxSize: {x: 4002, y: 4021}
@@ -97,15 +87,10 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-<<<<<<< HEAD
-    width: 377
-    height: 651
-=======
-    width: 221
-    height: 665
->>>>>>> Combat
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+    width: 379
+    height: 645
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -126,15 +111,9 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-<<<<<<< HEAD
-    y: 651
-    width: 1522
-    height: 416
-=======
-    y: 665
-    width: 1551
-    height: 402
->>>>>>> Combat
+    y: 645
+    width: 1531
+    height: 422
   m_MinSize: {x: 232, y: 271}
   m_MaxSize: {x: 10002, y: 10021}
   m_ActualView: {fileID: 13}
@@ -164,11 +143,7 @@ MonoBehaviour:
     y: 0
     width: 1920
     height: 1117
-<<<<<<< HEAD
-  m_MinSize: {x: 950, y: 542}
-=======
   m_MinSize: {x: 950, y: 300}
->>>>>>> Combat
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &7
 MonoBehaviour:
@@ -229,20 +204,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-<<<<<<< HEAD
-    width: 1522
-=======
-    width: 1551
->>>>>>> Combat
+    width: 1531
     height: 1067
   m_MinSize: {x: 406, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-<<<<<<< HEAD
-  controlID: 50
-=======
   controlID: 10
->>>>>>> Combat
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -261,21 +228,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-<<<<<<< HEAD
-    width: 1522
-    height: 651
-  m_MinSize: {x: 406, y: 221}
-  m_MaxSize: {x: 8006, y: 4021}
-  vertical: 0
-  controlID: 51
-=======
-    width: 1551
-    height: 665
+    width: 1531
+    height: 645
   m_MinSize: {x: 406, y: 221}
   m_MaxSize: {x: 8006, y: 4021}
   vertical: 0
   controlID: 11
->>>>>>> Combat
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -290,17 +248,10 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-<<<<<<< HEAD
-    x: 377
+    x: 379
     y: 0
-    width: 1145
-    height: 651
-=======
-    x: 221
-    y: 0
-    width: 1330
-    height: 665
->>>>>>> Combat
+    width: 1152
+    height: 645
   m_MinSize: {x: 204, y: 221}
   m_MaxSize: {x: 4004, y: 4021}
   m_ActualView: {fileID: 16}
@@ -360,15 +311,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-<<<<<<< HEAD
-    y: 743
-    width: 1520
-    height: 395
-=======
-    y: 757
-    width: 1549
-    height: 381
->>>>>>> Combat
+    y: 737
+    width: 1529
+    height: 401
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SearchFilter:
     m_NameFilter: 
@@ -382,35 +327,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-<<<<<<< HEAD
-    - Assets/Resources/Data/Abilties/Shaman
+    - Assets/Resources/Data
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Resources/Data/Abilties/Shaman
+  - Assets/Resources/Data
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\t7042361\source\SavageIncPasta\SavaageIncPasta
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: da290000
-    m_LastClickedID: 10714
-    m_ExpandedIDs: 00000000d8280000dc28000034290000a2290000062a00000e2a00004a2a0000962a0000c22a0000762b00008c2b0000da2b0000f62b0000442c00002a2d000000ca9a3bffffff7f
-=======
-    - Assets/Sprites/Characters/Players
-  m_ViewMode: 1
-  m_StartGridSize: 64
-  m_LastFolders:
-  - Assets/Sprites/Characters/Players
-  m_LastFoldersGridSize: -1
-  m_LastProjectPath: C:\Users\t7051015\Source\SavageIncPasta\SavaageIncPasta
-  m_IsLocked: 0
-  m_FolderTreeState:
-    scrollPos: {x: 0, y: 244}
-    m_SelectedIDs: e22c0000
-    m_LastClickedID: 11490
-    m_ExpandedIDs: 00000000162c0000642c0000822c0000862c0000ce2c00000c2d00003a2d0000622d0000002e0000582e0000ae2e00005c2f0000543000005630000000ca9a3bffffff7f
->>>>>>> Combat
+    m_SelectedIDs: 2e320000
+    m_LastClickedID: 12846
+    m_ExpandedIDs: 00000000ac2f0000b02f000008300000723000002e320000343200006e320000b8320000e4320000683300007c330000bc330000d633000020340000f834000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -438,11 +367,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-<<<<<<< HEAD
-    m_ExpandedIDs: 00000000d8280000dc28000034290000a2290000062a00000e2a00004a2a0000962a0000c22a0000762b00008c2b0000da2b0000f62b0000442c00002a2d0000
-=======
-    m_ExpandedIDs: 00000000162c0000642c0000822c0000862c0000ce2c00000c2d00003a2d0000622d0000002e0000582e0000ae2e00005c2f00005430000056300000
->>>>>>> Combat
+    m_ExpandedIDs: 00000000ac2f0000b02f000008300000723000002e320000343200006e320000b8320000e4320000683300007c330000bc330000d633000020340000f8340000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -496,7 +421,7 @@ MonoBehaviour:
     m_NewAssetIndexInList: -1
     m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 64
-  m_DirectoriesAreaWidth: 233
+  m_DirectoriesAreaWidth: 115
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -519,15 +444,9 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
-<<<<<<< HEAD
-    x: 1524
+    x: 1533
     y: 92
-    width: 396
-=======
-    x: 1553
-    y: 92
-    width: 367
->>>>>>> Combat
+    width: 387
     height: 1046
   m_PersistentViewDataDictionary: {fileID: 0}
   m_ScrollPosition: {x: 0, y: 0}
@@ -561,25 +480,14 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 92
-<<<<<<< HEAD
-    width: 375
-    height: 630
-  m_PersistentViewDataDictionary: {fileID: 0}
-  m_TreeViewState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: da290000
-    m_LastClickedID: 0
-    m_ExpandedIDs: 08f9ffff9cfbffff00000000
-=======
-    width: 219
-    height: 644
+    width: 377
+    height: 624
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 801ce6ff5c1fe6ffe23de6ffd260fcff62daffff1eebffff64f8ffff00000000803a00009c3a0000fa3a0000283b0000423b0000ba3b0000c23b0000f63b00000a3c0000843c0000d83c0000123d00003a3d00004e3d0000a43d0000cc3d0000ee3d0000003e00002c3e0000423e0000683e0000743e0000923e0000ac3e0000b43e0000f23e0000fc3e00000c3f00003a3f0000
->>>>>>> Combat
+    m_ExpandedIDs: 74e9ffff90f5ffff00000000903600003239000076390000463a00001e3b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -595,10 +503,10 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 0
-      m_ClientGUIView: {fileID: 4}
+      m_ClientGUIView: {fileID: 0}
     m_SearchString: 
   m_ExpandedScenes:
-  - WorldScene
+  - Battle
   m_CurrenRootInstanceID: 0
   m_Locked: 0
   m_CurrentSortingName: TransformSorting
@@ -624,33 +532,20 @@ MonoBehaviour:
   m_DepthBufferBits: 32
   m_Pos:
     serializedVersion: 2
-<<<<<<< HEAD
-    x: 379
+    x: 381
     y: 92
-    width: 1141
-    height: 630
-=======
-    x: 223
-    y: 92
-    width: 1326
-    height: 644
->>>>>>> Combat
+    width: 1148
+    height: 624
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SceneLighting: 1
-  lastFramingTime: 5908.613085548244
+  lastFramingTime: 0
   m_2DMode: 1
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-<<<<<<< HEAD
-    m_Target: {x: -0.5594276, y: -2.3869023, z: 0}
+    m_Target: {x: 511.87683, y: 384.67575, z: 0.375}
     speed: 2
-    m_Value: {x: -0.5594276, y: -2.3869023, z: 0}
-=======
-    m_Target: {x: 4.8007636, y: -0.29172772, z: 82.988205}
-    speed: 2
-    m_Value: {x: 4.8007636, y: -0.29172772, z: 82.988205}
->>>>>>> Combat
+    m_Value: {x: 511.87683, y: 384.67575, z: 0.375}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -678,9 +573,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 45.63837
+    m_Target: 954.8951
     speed: 2
-    m_Value: 45.63837
+    m_Value: 954.8951
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -714,23 +609,23 @@ MonoBehaviour:
   m_DepthBufferBits: 32
   m_Pos:
     serializedVersion: 2
-    x: 223
+    x: 381
     y: 92
-    width: 1326
-    height: 644
+    width: 1148
+    height: 624
   m_PersistentViewDataDictionary: {fileID: 0}
   m_MaximizeOnPlay: 0
   m_Gizmos: 0
   m_Stats: 0
-  m_SelectedSizes: 05000000000000000000000000000000000000000000000000000000000000000000000000000000
+  m_SelectedSizes: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
   m_TargetDisplay: 0
   m_ZoomArea:
     m_HRangeLocked: 0
     m_VRangeLocked: 0
-    m_HBaseRangeMin: -557.3333
-    m_HBaseRangeMax: 557.3333
-    m_VBaseRangeMin: -313.5
-    m_VBaseRangeMax: 313.5
+    m_HBaseRangeMin: -574
+    m_HBaseRangeMax: 574
+    m_VBaseRangeMin: -303.5
+    m_VBaseRangeMax: 303.5
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -747,25 +642,25 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 17
-      width: 1326
-      height: 627
+      width: 1148
+      height: 607
     m_Scale: {x: 1, y: 1}
-    m_Translation: {x: 663, y: 313.5}
+    m_Translation: {x: 574, y: 303.5}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -663
-      y: -313.5
-      width: 1326
-      height: 627
+      x: -574
+      y: -303.5
+      width: 1148
+      height: 607
     m_MinimalGUI: 1
   m_defaultScale: 1
   m_TargetTexture: {fileID: 0}
   m_CurrentColorSpace: 0
-  m_LastWindowPixelSize: {x: 1326, y: 644}
+  m_LastWindowPixelSize: {x: 1148, y: 624}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000100000100
@@ -792,7 +687,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 757
-    width: 1549
-    height: 381
+    y: 737
+    width: 1529
+    height: 401
   m_PersistentViewDataDictionary: {fileID: 0}
