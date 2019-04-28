@@ -1283,6 +1283,11 @@ public class Battle : MonoBehaviour
         _battleCharacterList[_tempSelectedEnemy].GetComponent<SpriteRenderer>().color = Color.red;
     }
 
+    public BattleCharacter GetCurrentPlayer()
+    {
+        return _battleCharacterList[_characterTurnOrder[_currentCharacterIndex]];
+    }
+
     IEnumerator skipFrame()
     {
         yield return new WaitForSeconds(1);

@@ -273,6 +273,7 @@
     <Compile Include="Assets\3rdParty\TextMeshPro\Examples _ Extras\Scripts\WarpTextExample.cs" />
     <Compile Include="Assets\Scripts\AbilityData.cs" />
     <Compile Include="Assets\Scripts\AbilityManager.cs" />
+    <Compile Include="Assets\Scripts\AbilltyButton.cs" />
     <Compile Include="Assets\Scripts\AI\AIController.cs" />
     <Compile Include="Assets\Scripts\AI\AStarPathfinding.cs" />
     <Compile Include="Assets\Scripts\AI\FindPathToTarget.cs" />

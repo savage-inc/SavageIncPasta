@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class BattleInfoUI : MonoBehaviour
 {
     public InventoryItem Item;
+    public AbilityData Ability;
 
     public Text TextBox1;
     public Text TextBox2;
@@ -21,7 +22,11 @@ public class BattleInfoUI : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        if (Item != null && Item.Item != null)
+        if(Ability != null)
+        {
+            DisplayAbilty(Ability);
+        }
+        else if (Item != null && Item.Item != null)
         {
             DisplayItem(Item);
         }
@@ -58,5 +63,12 @@ public class BattleInfoUI : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    void DisplayAbilty(AbilityData ability)
+    {
+        TextBox1.text = ability.AbilityName;
+        TextBox2.text = "Level: " + ability.Level;
+        TextBox3.text = ability.AbilityDescription;
     }
 }
