@@ -212,29 +212,29 @@ public class PersistantData
         {
             PartyData partyData = DeserializeToType<PartyData>(data);
 
-            if (partyData.PartyInventory != null && partyData.Gold > 0)
+            if (partyInventory != null && partyData.PartyInventory != null && partyData.Gold > 0)
             {
                 partyInventory.Inventory = partyData.PartyInventory;
                 partyInventory.Gold = partyData.Gold;
+            }
 
-                if (playerManager != null)
+            if (playerManager != null)
+            {
+                playerManager.Characters = partyData.PartyCharacterData;
+                //set character in the characters equipment
+                foreach (var character in playerManager.Characters)
                 {
-                    playerManager.Characters = partyData.PartyCharacterData;
-                    //set character in the characters equipment
-                    foreach (var character in playerManager.Characters)
-                    {
-                        character.Equipment.Character = character;
-                    }
+                    character.Equipment.Character = character;
                 }
+            }
 
-                if (clanManager != null)
+            if (clanManager != null)
+            {
+                clanManager.SpareCharacterPool = partyData.ClanCharacterData;
+
+                foreach (var character in clanManager.SpareCharacterPool)
                 {
-                    clanManager.SpareCharacterPool = partyData.ClanCharacterData;
-
-                    foreach (var character in clanManager.SpareCharacterPool)
-                    {
-                        character.Equipment.Character = character;
-                    }
+                    character.Equipment.Character = character;
                 }
             }
         }

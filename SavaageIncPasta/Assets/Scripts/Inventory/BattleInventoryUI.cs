@@ -42,9 +42,6 @@ public class BattleInventoryUI : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
-        PersistantData.LoadItemDatabase();
-        //load party inventory from file
-        PersistantData.LoadPartyData(_partyInventory, null,null);
         AddItems();
         _battleCharacters = _battle.GetBattleCharacters();
     }

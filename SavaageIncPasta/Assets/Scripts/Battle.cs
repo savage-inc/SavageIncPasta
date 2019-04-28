@@ -56,13 +56,19 @@ public class Battle : MonoBehaviour
     {
         _eventSystem = FindObjectOfType<EventSystem>();
 
-        
+        PersistantData.LoadItemDatabase();
+        //load party inventory from file
+        PersistantData.LoadPartyData(FindObjectOfType<PartyInventory>(), FindObjectOfType<PlayerManager>(), null);
     }
 
     // Use this for initialization
     void Start()
     {
+        //load party
         _partyList = FindObjectOfType<PlayerManager>().Characters;
+
+
+
         for (int i = 0; i < Players.Count; i++)
         {
             if (Players[i].Character != null)
