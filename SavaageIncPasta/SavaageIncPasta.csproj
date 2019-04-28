@@ -289,11 +289,14 @@
     <Compile Include="Assets\Scripts\DontDestroy.cs" />
     <Compile Include="Assets\Scripts\EnemyCreator.cs" />
     <Compile Include="Assets\Scripts\EnemyManager.cs" />
+    <Compile Include="Assets\Scripts\EnemyNavigation.cs" />
     <Compile Include="Assets\Scripts\EnemyTeamCreator.cs" />
     <Compile Include="Assets\Scripts\GenerateRandomCharacter.cs" />
+    <Compile Include="Assets\Scripts\HealthBar.cs" />
     <Compile Include="Assets\Scripts\InputManager.cs" />
     <Compile Include="Assets\Scripts\Inventory\Base\CharacterEquipment.cs" />
     <Compile Include="Assets\Scripts\Inventory\Base\Inventory.cs" />
+    <Compile Include="Assets\Scripts\Inventory\BattleInventoryUI.cs" />
     <Compile Include="Assets\Scripts\Inventory\CharacterInventory.cs" />
     <Compile Include="Assets\Scripts\Inventory\CharacterInventoryUI.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventoryItemButton.cs" />
@@ -310,6 +313,7 @@
     <Compile Include="Assets\Scripts\Inventory\ShopInventoryUI.cs" />
     <Compile Include="Assets\Scripts\Inventory\ShopItemButton.cs" />
     <Compile Include="Assets\Scripts\MagicTypes.cs" />
+    <Compile Include="Assets\Scripts\ManaBar.cs" />
     <Compile Include="Assets\Scripts\Movement\PlayerController.cs" />
     <Compile Include="Assets\Scripts\PlayerManager.cs" />
     <Compile Include="Assets\Scripts\RandomBattle.cs" />
@@ -317,10 +321,14 @@
     <Compile Include="Assets\Scripts\Sound\SoundManager.cs" />
     <Compile Include="Assets\Scripts\SpriteManager.cs" />
     <Compile Include="Assets\Scripts\UI\AutoScroll.cs" />
+    <Compile Include="Assets\Scripts\UI\BattleInfoUI.cs" />
+    <Compile Include="Assets\Scripts\UI\ChangeSelectedOnClick.cs" />
+    <Compile Include="Assets\Scripts\UI\ChangeSelectedToAliveEnemy.cs" />
     <Compile Include="Assets\Scripts\UI\CharacterButton.cs" />
     <Compile Include="Assets\Scripts\UI\CharacterComparison.cs" />
     <Compile Include="Assets\Scripts\UI\ClanButton.cs" />
     <Compile Include="Assets\Scripts\UI\ClanControl.cs" />
+    <Compile Include="Assets\Scripts\UI\GridScalar.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
     <Compile Include="Assets\Scripts\UI\SwapButton.cs" />
     <Compile Include="Assets\Scripts\UI\SwapPanels.cs" />

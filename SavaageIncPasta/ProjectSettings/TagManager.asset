@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Ability
   layers:
   - Default
   - TransparentFX
@@ -14,8 +15,8 @@ TagManager:
   - 
   - 
   - Obstacle
-  - 
-  - 
+  - Particle
+  - Player
   - 
   - 
   - 
@@ -49,6 +50,9 @@ TagManager:
     locked: 0
   - name: Trees
     uniqueID: 628849695
+    locked: 0
+  - name: Particle
+    uniqueID: 725863073
     locked: 0
   - name: UI
     uniqueID: 41579351

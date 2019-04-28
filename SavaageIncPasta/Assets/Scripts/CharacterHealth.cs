@@ -16,6 +16,6 @@ public class CharacterHealth : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        CharacterHealthText.text = "Health: " + character.CurrentHealth.ToString();
+        CharacterHealthText.text = character.CurrentHealth.ToString() + "/" + character.MaxHealth.ToString();
 	}
 }

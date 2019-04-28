@@ -114,7 +114,7 @@ public class CharacterEquipment : Inventory
 
     }
 
-    public WeaponItemData GetEquipedWeapon()
+    public WeaponItemData GetEquippedWeapon()
     {
         foreach (var inventoryItem in _inventoryItems)
         {
@@ -127,7 +127,7 @@ public class CharacterEquipment : Inventory
         return null;
     }
 
-    public ArmourItemData GetEquipedArmour(ArmourItemData.SlotType armourSlotType)
+    public ArmourItemData GetEquippedArmour(ArmourItemData.SlotType armourSlotType)
     {
         foreach (var inventoryItem in _inventoryItems)
         {
