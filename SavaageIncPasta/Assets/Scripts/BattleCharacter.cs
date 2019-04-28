@@ -2,6 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Threading;
+using System.Threading.Tasks;
+
+public class Result<T>
+{
+    public T val;
+}
 
 public enum ActionChoice
 {
@@ -24,6 +31,7 @@ public class BattleCharacter : MonoBehaviour {
     public int ChanceToHitModifier = 0;
     public bool SpikedBucatini = false;
     public float AttackBuffModifier = 1.0f;
+    private bool _runningAnimation = false;
         
     private void Awake()
     {
@@ -53,4 +61,35 @@ public class BattleCharacter : MonoBehaviour {
     // Update is called once per frame
     void Update () {
 	}
+
+
+    public IEnumerator MoveToAnimation(Vector2 target, float speed)
+    {
+        yield return StartCoroutine(MoveTo(target, speed));
+    }
+
+    public IEnumerator MissAnimation()
+    {
+        Vector2 start = transform.position;
+        yield return StartCoroutine(MoveTo(start + Vector2.up * .25f, 5.0f ));
+        yield return StartCoroutine(MoveTo(start, 5.0f));
+    }
+
+
+
+    IEnumerator MoveTo(Vector2 target, float speed)
+    {
+        float t = 0.0f;
+        Vector2 start = transform.position;
+        Vector2 end = target;
+
+        float distance = Vector3.Distance(start, end);
+        while (distance >= 0.05f)
+        {
+            t += Time.deltaTime;
+            transform.position = Vector2.Lerp(start, end, t * speed);
+            distance = Vector2.Distance(transform.position, end);
+            yield return null;
+        }
+    }
 }

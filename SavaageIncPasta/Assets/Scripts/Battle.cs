@@ -50,6 +50,7 @@ public class Battle : MonoBehaviour
     private bool _skipFrame = false; //skip frame when selecting character to clear input
     private int _tempSelectedEnemy;
     private bool _debugMode = false;
+    private bool _runningAnimation = false;
 
     private EventSystem _eventSystem;
     private PlayerManager _playerManager;
@@ -162,20 +163,14 @@ public class Battle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (_runningAnimation)
+        {
+            return;
+        }
         if (_skipFrame)
         {
             _skipFrame = false;
             return;
-        }
-
-       
-        //select enemy
-        SelectEnemyState();
-
-        if (_currentCharacterIndex >= _battleCharacterList.Count)
-        {
-            DecideTurnOrder();
-            _currentCharacterIndex = 0;
         }
 
         //clear selected player color
@@ -183,7 +178,18 @@ public class Battle : MonoBehaviour
         {
             _battleCharacterList[i].GetComponent<SpriteRenderer>().color = Color.white;
         }
+
+        if (_currentCharacterIndex >= _battleCharacterList.Count)
+        {
+            DecideTurnOrder();
+            _currentCharacterIndex = 0;
+        }
+
+        //Set selected player to magenta
         _battleCharacterList[_characterTurnOrder[_currentCharacterIndex]].GetComponent<SpriteRenderer>().color = Color.magenta;
+
+        //select enemy
+        SelectEnemyState();
 
         while (!_battleCharacterList[_characterTurnOrder[_currentCharacterIndex]].Character.Alive)
         {
@@ -1042,19 +1048,40 @@ public class Battle : MonoBehaviour
             return true;
         }
 
+        //Play miss animation
+        StartCoroutine(_battleCharacterList[_characterTurnOrder[_currentCharacterIndex]].MissAnimation());
+
         return false;
     }
 
     void DealDamage(int damage)
     {
+        StartCoroutine(dealDamageCoroutine(damage));
+    }
+
+    IEnumerator dealDamageCoroutine(int damage)
+    {
         damage = (int)(damage * _battleCharacterList[_characterTurnOrder[_currentCharacterIndex]].AttackBuffModifier);
-        _battleCharacterList[_targettedCharacterIndex].DamageTaken += damage;
-        _battleCharacterList[_targettedCharacterIndex].Character.ChangeHealth(-damage);
 
+        int targetIndex = _targettedCharacterIndex;
+        int currentCharacter = _characterTurnOrder[_currentCharacterIndex];
 
-        if (!_battleCharacterList[_targettedCharacterIndex].Character.Alive)
+        //play animation
+        Vector2 target = _battleCharacterList[targetIndex].transform.position;
+        Vector2 start = _battleCharacterList[currentCharacter].transform.position;
+        _runningAnimation = true;
+        yield return _battleCharacterList[currentCharacter].MoveToAnimation(target,1.0f);
+
+        _battleCharacterList[targetIndex].DamageTaken += damage;
+        _battleCharacterList[targetIndex].Character.ChangeHealth(-damage);
+
+        //return back to start pos
+        yield return _battleCharacterList[currentCharacter].MoveToAnimation(start,1.0f);
+        _runningAnimation = false;
+
+        if (!_battleCharacterList[targetIndex].Character.Alive)
         {
-            if (_battleCharacterList[_targettedCharacterIndex].Character.Player)
+            if (_battleCharacterList[targetIndex].Character.Player)
             {
                 _deadPlayers++;
                 //remove dead characters from list?
@@ -1075,6 +1102,7 @@ public class Battle : MonoBehaviour
                 _targettingCharacterIndex = 0;
             }
         }
+
     }
 
     void Defend(BattleCharacter defender, bool ability = false)
@@ -1372,5 +1400,6 @@ public class Battle : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
     }
+
 }
 

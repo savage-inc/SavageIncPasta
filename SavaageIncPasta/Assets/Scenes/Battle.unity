@@ -3763,6 +3763,7 @@ MonoBehaviour:
     Charisma: 0
     Magic: 0
     Comfort: 0
+    MaxComfort: 0
     Player: 1
     Alive: 0
     BaseAttack: 5
@@ -4081,7 +4082,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.28661427}
-  m_AnchoredPosition: {x: 0, y: 0.70018005}
+  m_AnchoredPosition: {x: 0, y: 0.7001953}
   m_SizeDelta: {x: 0, y: 1.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &44644512
@@ -5488,15 +5489,15 @@ MonoBehaviour:
   - {fileID: 1009620466}
   - {fileID: 1796244441}
   Players:
+  - {fileID: 24584389}
   - {fileID: 1860578739}
   - {fileID: 2061886537}
   - {fileID: 1959104322}
-  - {fileID: 24584389}
   Enemies:
+  - {fileID: 1968026200}
   - {fileID: 2085800798}
   - {fileID: 894637039}
   - {fileID: 1424902519}
-  - {fileID: 1968026200}
   PlayerHealthBars:
   - {fileID: 1041399774}
   - {fileID: 1699645165}
@@ -5508,15 +5509,15 @@ MonoBehaviour:
   - {fileID: 26391020}
   - {fileID: 2031896608}
   PlayerParticles:
+  - {fileID: 9717577}
   - {fileID: 451894810}
   - {fileID: 853014528}
   - {fileID: 1545963713}
-  - {fileID: 9717577}
   EnemyParticles:
+  - {fileID: 1356975710}
   - {fileID: 527987368}
   - {fileID: 1215972197}
   - {fileID: 353870048}
-  - {fileID: 1356975710}
   FirstSelected: {fileID: 1779701961}
 --- !u!4 &281493661
 Transform:
@@ -23090,6 +23091,7 @@ MonoBehaviour:
     Charisma: 0
     Magic: 0
     Comfort: 0
+    MaxComfort: 0
     Player: 1
     Alive: 0
     BaseAttack: 5
@@ -33724,6 +33726,7 @@ MonoBehaviour:
     Charisma: 0
     Magic: 0
     Comfort: 0
+    MaxComfort: 0
     Player: 1
     Alive: 0
     BaseAttack: 5
@@ -39255,6 +39258,7 @@ MonoBehaviour:
     Charisma: 0
     Magic: 0
     Comfort: 0
+    MaxComfort: 0
     Player: 1
     Alive: 0
     BaseAttack: 5
@@ -39612,6 +39616,7 @@ MonoBehaviour:
     Charisma: 0
     Magic: 0
     Comfort: 0
+    MaxComfort: 0
     Player: 1
     Alive: 0
     BaseAttack: 5
@@ -39689,6 +39694,7 @@ MonoBehaviour:
     Charisma: 0
     Magic: 0
     Comfort: 0
+    MaxComfort: 0
     Player: 1
     Alive: 0
     BaseAttack: 5
@@ -40331,6 +40337,7 @@ MonoBehaviour:
     Charisma: 0
     Magic: 0
     Comfort: 0
+    MaxComfort: 0
     Player: 1
     Alive: 0
     BaseAttack: 5
@@ -40524,6 +40531,7 @@ MonoBehaviour:
     Charisma: 0
     Magic: 0
     Comfort: 0
+    MaxComfort: 0
     Player: 1
     Alive: 0
     BaseAttack: 5
