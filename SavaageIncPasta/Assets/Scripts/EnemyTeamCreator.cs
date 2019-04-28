@@ -39,9 +39,9 @@ public class EnemyTeamCreator : EditorWindow
     void load()
     {
         string path = Application.dataPath + "/Resources/Data/Enemies/";
-        if (System.IO.File.Exists(path + "Teams"))
+        if (System.IO.File.Exists(path + "Teams.bytes"))
         {
-            var data = PersistantData.ReadBytesFromFile(path, "Teams");
+            var data = PersistantData.ReadBytesFromFile(path, "Teams.bytes");
             _teamList = PersistantData.DeserializeToType<List<EnemyList>>(data);
         }
     }

@@ -122,9 +122,9 @@ public class EnemyCreator : EditorWindow
     void LoadEnemy(string name)
     {
         string path = Application.dataPath + "/Resources/Data/Enemies/";
-        if(System.IO.File.Exists(path + name))
+        if(System.IO.File.Exists(path + name + ".bytes"))
         {
-            var data = PersistantData.ReadBytesFromFile(path, name);
+            var data = PersistantData.ReadBytesFromFile(path, name+".bytes");
             _enemy = PersistantData.DeserializeToType<Character>(data);
         }
     }

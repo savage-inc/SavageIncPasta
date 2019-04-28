@@ -152,12 +152,7 @@ public class Battle : MonoBehaviour
             return;
         }
 
-        //clear selected player color
-        for (int i = 0; i < 4; i++)
-        {
-            _battleCharacterList[i].GetComponent<SpriteRenderer>().color = Color.white;
-        }
-        _battleCharacterList[_characterTurnOrder[_currentCharacterIndex]].GetComponent<SpriteRenderer>().color = Color.magenta;
+       
         //select enemy
         SelectEnemyState();
 
@@ -167,6 +162,12 @@ public class Battle : MonoBehaviour
             _currentCharacterIndex = 0;
         }
 
+        //clear selected player color
+        for (int i = 0; i < 4; i++)
+        {
+            _battleCharacterList[i].GetComponent<SpriteRenderer>().color = Color.white;
+        }
+        _battleCharacterList[_characterTurnOrder[_currentCharacterIndex]].GetComponent<SpriteRenderer>().color = Color.magenta;
 
         while (!_battleCharacterList[_characterTurnOrder[_currentCharacterIndex]].Character.Alive)
         {
