@@ -358,11 +358,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 462391095}
     m_Modifications:
-    - target: {fileID: 114595681680325820, guid: 5e330bfe6c0490d4abfddafaff44adf7,
-        type: 2}
-      propertyPath: StartingItems.Array.size
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 4537981468322970, guid: 5e330bfe6c0490d4abfddafaff44adf7, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -395,36 +390,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114595681680325820, guid: 5e330bfe6c0490d4abfddafaff44adf7,
-        type: 2}
-      propertyPath: StartingItems.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: 26e43c46c99deba4cb470c575cabccd8,
-        type: 2}
-    - target: {fileID: 114595681680325820, guid: 5e330bfe6c0490d4abfddafaff44adf7,
-        type: 2}
-      propertyPath: StartingItems.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: 26e43c46c99deba4cb470c575cabccd8,
-        type: 2}
-    - target: {fileID: 114595681680325820, guid: 5e330bfe6c0490d4abfddafaff44adf7,
-        type: 2}
-      propertyPath: StartingItems.Array.data[2]
-      value: 
-      objectReference: {fileID: 11400000, guid: 26e43c46c99deba4cb470c575cabccd8,
-        type: 2}
-    - target: {fileID: 114595681680325820, guid: 5e330bfe6c0490d4abfddafaff44adf7,
-        type: 2}
-      propertyPath: StartingItems.Array.data[3]
-      value: 
-      objectReference: {fileID: 11400000, guid: 26e43c46c99deba4cb470c575cabccd8,
-        type: 2}
-    - target: {fileID: 114595681680325820, guid: 5e330bfe6c0490d4abfddafaff44adf7,
-        type: 2}
-      propertyPath: StartingItems.Array.data[4]
-      value: 
-      objectReference: {fileID: 11400000, guid: 26e43c46c99deba4cb470c575cabccd8,
-        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5e330bfe6c0490d4abfddafaff44adf7, type: 2}
   m_IsPrefabParent: 0
@@ -2977,50 +2942,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 0}
-<<<<<<< HEAD
---- !u!1001 &2066071368
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4278469953047040, guid: b42aa9d4a497fd246b0163d4c48151d5, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4278469953047040, guid: b42aa9d4a497fd246b0163d4c48151d5, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4278469953047040, guid: b42aa9d4a497fd246b0163d4c48151d5, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4278469953047040, guid: b42aa9d4a497fd246b0163d4c48151d5, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4278469953047040, guid: b42aa9d4a497fd246b0163d4c48151d5, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4278469953047040, guid: b42aa9d4a497fd246b0163d4c48151d5, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4278469953047040, guid: b42aa9d4a497fd246b0163d4c48151d5, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4278469953047040, guid: b42aa9d4a497fd246b0163d4c48151d5, type: 2}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: b42aa9d4a497fd246b0163d4c48151d5, type: 2}
-  m_IsPrefabParent: 0
-=======
 --- !u!213 &2126395088
 Sprite:
   m_ObjectHideFlags: 0
@@ -3176,4 +3097,3 @@ Sprite:
     uvTransform: {x: 4, y: 2, z: 4, w: 2}
     downscaleMultiplier: 1
   m_PhysicsShape: []
->>>>>>> Design

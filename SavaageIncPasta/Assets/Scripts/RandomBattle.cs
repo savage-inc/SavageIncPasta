@@ -26,7 +26,7 @@ public class RandomBattle : MonoBehaviour
     private bool _isColliding = false;
     private Rigidbody2D _rb;
     private Vector2 _oldPos;
-    private readonly float _range = 2.5f;
+    private readonly float _range = 1.0f;
     private int _totalWeights = 0;
 
     [SerializeField] public List<ListOfEnemies> ListOfEnemyTeams = new List<ListOfEnemies>();
@@ -51,7 +51,7 @@ public class RandomBattle : MonoBehaviour
     void Update()
     {
         //If player takes a step in the battle area then increase step counter
-        if ((_oldPos.sqrMagnitude <= _rb.position.sqrMagnitude - _range || _oldPos.sqrMagnitude >= _rb.position.sqrMagnitude + _range) && _isColliding)
+        if ((_oldPos.magnitude <= _rb.position.magnitude - _range || _oldPos.magnitude >= _rb.position.magnitude + _range) && _isColliding)
         {
             _oldPos = _rb.position;
             _stepCounter++;
