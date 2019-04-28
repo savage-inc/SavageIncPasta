@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class ClanManager : MonoBehaviour
 {
@@ -47,6 +48,5 @@ public class ClanManager : MonoBehaviour
         FindObjectOfType<PlayerManager>().AddCharacter(ClanMember);
         RemoveCharacter(ClanMember);
     }
-
 
 }

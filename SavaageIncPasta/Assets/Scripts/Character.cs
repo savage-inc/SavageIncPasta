@@ -21,6 +21,9 @@ public class Character
     public int Charisma;
     public MagicType Magic;
     public int Comfort;
+    public int MaxComfort;
+
+
     public bool Player = true;
     public bool Alive = true;
     public CharacterEquipment Equipment;

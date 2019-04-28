@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Scenes/Battle.unity
+=======
+- path: Assets/Scenes/World/ClanScene.unity
+>>>>>>> UIOverhaul
   isLoaded: 1
   isActive: 1

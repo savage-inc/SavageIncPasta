@@ -36,11 +36,11 @@ public class Shop : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other)
     {
-        if (Input.GetButtonDown("X"))
+        if (Input.GetButtonDown("A"))
         {
             if (!ShopUI.gameObject.activeInHierarchy)
             {
-                ShowShop();
+                StartCoroutine(showshop());
             }
             else
             {
@@ -54,6 +54,11 @@ public class Shop : MonoBehaviour
         CloseShop();
     }
 
+    IEnumerator showshop()
+    {
+        yield return new WaitForEndOfFrame();
+        ShowShop();
+    }
     public void ShowShop()
     {
         if(Inventory == null || Inventory.GetItems().Count == 0)

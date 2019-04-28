@@ -20,7 +20,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 6}
-  m_MinSize: {x: 950, y: 392}
+  m_MinSize: {x: 950, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -42,8 +42,13 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 1067
+<<<<<<< HEAD
   m_MinSize: {x: 681, y: 342}
   m_MaxSize: {x: 12006, y: 8042}
+=======
+  m_MinSize: {x: 679, y: 492}
+  m_MaxSize: {x: 14002, y: 14042}
+>>>>>>> UIOverhaul
   vertical: 0
   controlID: 9
 --- !u!114 &3
@@ -64,8 +69,8 @@ MonoBehaviour:
     y: 0
     width: 389
     height: 1067
-  m_MinSize: {x: 277, y: 71}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -114,14 +119,20 @@ MonoBehaviour:
     y: 645
     width: 1531
     height: 422
+<<<<<<< HEAD
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 18}
+=======
+  m_MinSize: {x: 232, y: 271}
+  m_MaxSize: {x: 10002, y: 10021}
+  m_ActualView: {fileID: 13}
+>>>>>>> UIOverhaul
   m_Panes:
   - {fileID: 13}
   - {fileID: 18}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -143,7 +154,11 @@ MonoBehaviour:
     y: 0
     width: 1920
     height: 1117
+<<<<<<< HEAD
   m_MinSize: {x: 950, y: 300}
+=======
+  m_MinSize: {x: 950, y: 542}
+>>>>>>> UIOverhaul
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &7
 MonoBehaviour:
@@ -206,8 +221,13 @@ MonoBehaviour:
     y: 0
     width: 1531
     height: 1067
+<<<<<<< HEAD
   m_MinSize: {x: 404, y: 342}
   m_MaxSize: {x: 8004, y: 8042}
+=======
+  m_MinSize: {x: 404, y: 492}
+  m_MaxSize: {x: 10002, y: 14042}
+>>>>>>> UIOverhaul
   vertical: 1
   controlID: 10
 --- !u!114 &10
@@ -327,6 +347,7 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
+<<<<<<< HEAD
     - Assets/Scripts
   m_ViewMode: 1
   m_StartGridSize: 64
@@ -340,6 +361,21 @@ MonoBehaviour:
     m_SelectedIDs: da2b0000
     m_LastClickedID: 11226
     m_ExpandedIDs: 00000000ee280000f228000054290000c6290000962b00009e2b0000da2b0000262c0000522c00000a2d0000222d0000702d00008c2d0000da2d0000c02e000000ca9a3bffffff7f
+=======
+    - Assets
+  m_ViewMode: 1
+  m_StartGridSize: 64
+  m_LastFolders:
+  - Assets
+  m_LastFoldersGridSize: -1
+  m_LastProjectPath: C:\Users\t7042361\source\New folder\New folder\SavageIncPasta\SavaageIncPasta
+  m_IsLocked: 0
+  m_FolderTreeState:
+    scrollPos: {x: 0, y: 79}
+    m_SelectedIDs: ec2e0000
+    m_LastClickedID: 12012
+    m_ExpandedIDs: 00000000ec2e0000f02e00004c2f0000b82f00000a3000004e30000098300000b2300000c63000006231000076310000b6310000d031000018320000ee32000000ca9a3bffffff7f
+>>>>>>> UIOverhaul
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -367,7 +403,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< HEAD
     m_ExpandedIDs: 00000000ee280000f228000054290000c6290000962b00009e2b0000da2b0000262c0000522c00000a2d0000222d0000702d00008c2d0000da2d0000c02e0000
+=======
+    m_ExpandedIDs: 00000000ec2e0000f02e00004c2f0000b82f00000a3000004e30000098300000b2300000c63000006231000076310000b6310000d031000018320000ee320000
+>>>>>>> UIOverhaul
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -392,8 +432,13 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
+<<<<<<< HEAD
     m_SelectedInstanceIDs: 4a460000
     m_LastClickedInstanceID: 17994
+=======
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
+>>>>>>> UIOverhaul
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
@@ -485,9 +530,15 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
     m_SelectedIDs: 82480000
     m_LastClickedID: 18562
     m_ExpandedIDs: c0d3ffff46f5ffff9cfbffff00000000be4500004a460000b447000070480000bc4800008c490000684a0000
+=======
+    m_SelectedIDs: 
+    m_LastClickedID: 0
+    m_ExpandedIDs: 24d9fbffb0e2fbff82e3fbffb6e9fbff66eefbff14f3fbff1cf3fbff44f3fbff62f3fbff487ffcff3c2efdff122ffdff4235fdffee39fdff983efdff9c3efdffc03efdffda3efdffbc57fdff7660fdff4061fdfff062fdff9c67fdff466cfdfffa70fdff1a71fdff3471fdff36b6ffff40b6ffff4ab6ffff52b6ffff58b6ffff5ab6ffff66b6ffff8ab6ffff90b6ffff92b6ffff98b6ffffa4b6ffffb4b6ffffceb6ffffd2b6ffff0ab7ffff1cb7ffff40b7ffff0ac3ffffaed4ffff94daffffa2e0ffffcae9ffffd0efffff40f7ffff4afbffff00000000d8420000ec420000f64200006a4300009a430000
+>>>>>>> UIOverhaul
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -506,7 +557,11 @@ MonoBehaviour:
       m_ClientGUIView: {fileID: 0}
     m_SearchString: 
   m_ExpandedScenes:
+<<<<<<< HEAD
   - Battle
+=======
+  - ClanScene
+>>>>>>> UIOverhaul
   m_CurrenRootInstanceID: 0
   m_Locked: 0
   m_CurrentSortingName: TransformSorting
@@ -538,14 +593,24 @@ MonoBehaviour:
     height: 624
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SceneLighting: 1
+<<<<<<< HEAD
   lastFramingTime: 1302.1618623944212
+=======
+  lastFramingTime: 5972.298449923554
+>>>>>>> UIOverhaul
   m_2DMode: 1
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
+<<<<<<< HEAD
     m_Target: {x: -6.274583, y: 2.4672716, z: 0.0546875}
     speed: 2
     m_Value: {x: -6.274583, y: 2.4672716, z: 0.0546875}
+=======
+    m_Target: {x: 2.4351993, y: 0.4478806, z: -0.24744925}
+    speed: 2
+    m_Value: {x: 2.4351993, y: 0.4478806, z: -0.24744925}
+>>>>>>> UIOverhaul
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -573,9 +638,15 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
+<<<<<<< HEAD
     m_Target: 8.940295
     speed: 2
     m_Value: 8.940295
+=======
+    m_Target: 8.793778
+    speed: 2
+    m_Value: 8.793778
+>>>>>>> UIOverhaul
   m_Ortho:
     m_Target: 1
     speed: 2

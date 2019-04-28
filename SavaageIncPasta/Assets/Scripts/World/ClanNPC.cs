@@ -12,17 +12,23 @@ public class ClanNPC : MonoBehaviour {
 
     void OnTriggerStay2D(Collider2D other)
     {
-        if (Input.GetButtonDown("X") || Input.GetKeyDown(KeyCode.E))
+        if (Input.GetButtonDown("A") || Input.GetKeyDown(KeyCode.E))
         {
             if (!_uiManager.ClanUI.gameObject.activeInHierarchy)
             {
-                ShowClan();
+                StartCoroutine(showClan());
             }
             else
             {
                 CloseClan();
             }
         }
+    }
+
+    IEnumerator showClan()
+    {
+        yield return new WaitForEndOfFrame();
+        ShowClan();
     }
 
     void OnTriggerExit2D(Collider2D other)
@@ -38,5 +44,6 @@ public class ClanNPC : MonoBehaviour {
     public void CloseClan()
     {
         _uiManager.Close();
+        PersistantData.SavePartyData(FindObjectOfType<PartyInventory>(), FindObjectOfType<PlayerManager>(), FindObjectOfType<ClanManager>());
     }
 }
