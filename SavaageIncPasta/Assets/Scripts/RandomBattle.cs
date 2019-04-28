@@ -20,6 +20,7 @@ public class RandomBattle : MonoBehaviour
 {
     public int MinStepsBeforeBattle;
     public int MaxStepsBeforeBattle;
+    public bool DebugMode = false;
     private readonly System.Random _randNumGenerator = new System.Random();
     private int _battleTriggerCounter;
     private int _stepCounter = 0;
@@ -61,6 +62,12 @@ public class RandomBattle : MonoBehaviour
         {
             _battleTriggerCounter = _randNumGenerator.Next(MinStepsBeforeBattle, MaxStepsBeforeBattle + 1);
             _stepCounter = 0;
+
+            if (!FindObjectOfType<PlayerManager>().IsAlive() && !DebugMode)
+            {
+                Debug.LogWarning("Party is dead, can't go into battle");
+                return;
+            }
 
             //Randomise number between 0 and total weights
             //See which enemy the randomised number points to by adding their weights

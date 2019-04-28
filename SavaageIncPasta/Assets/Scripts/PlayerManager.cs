@@ -31,4 +31,15 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    public bool IsAlive()
+    {
+        foreach (var character in Characters)
+        {
+            if (character.Alive)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 }

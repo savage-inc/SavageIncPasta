@@ -49,12 +49,16 @@ public class Battle : MonoBehaviour
     private bool _selectingCharacter = false;
     private bool _skipFrame = false; //skip frame when selecting character to clear input
     private int _tempSelectedEnemy;
+    private bool _debugMode = false;
 
     private EventSystem _eventSystem;
+    private PlayerManager _playerManager;
+
 
     private void Awake()
     {
         _eventSystem = FindObjectOfType<EventSystem>();
+        _playerManager = FindObjectOfType<PlayerManager>();
 
         PersistantData.LoadItemDatabase();
         //load party inventory from file
@@ -64,8 +68,20 @@ public class Battle : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        //load party
-        _partyList = FindObjectOfType<PlayerManager>().Characters;
+        if (!_playerManager.IsAlive())
+        {
+            Debug.LogWarning("Saved party is dead generating a new party (THIS SHOULD NEVER HAPPEN WITHIN THE WORLD)");
+            for (int i = 0; i < 4; i++)
+            {
+                _partyList.Add(GenerateRandomCharacter.GenerateCharacter());
+            }
+            _debugMode = true;
+        }
+        else
+        {
+            //load party
+            _partyList = _playerManager.Characters;
+        }
 
 
 
@@ -260,7 +276,11 @@ public class Battle : MonoBehaviour
             }
             Vector2 newPos = new Vector2(PlayerPrefs.GetFloat("SceneOriginX"), PlayerPrefs.GetFloat("SceneOriginY"));
             PersistantData.SetPlayerPositionInNextScene(newPos);
-            FindObjectOfType<BattleInventoryUI>().Save();
+            //only save not in debug mode (Generated characters upon battle load instead of saved party)
+            if (!_debugMode)
+            {
+                FindObjectOfType<BattleInventoryUI>().Save();
+            }
             SceneManager.LoadScene(PlayerPrefs.GetInt("SceneOrigin"), LoadSceneMode.Single);
         }
     }
@@ -898,6 +918,13 @@ public class Battle : MonoBehaviour
 
     void EnemyAttack()
     {
+        //check if party is alive
+        if (!partyAlive())
+        {
+            EndTurn();
+            return;
+        }
+
         //play animation
 
 
@@ -1327,6 +1354,18 @@ public class Battle : MonoBehaviour
     public BattleCharacter GetCurrentPlayer()
     {
         return _battleCharacterList[_characterTurnOrder[_currentCharacterIndex]];
+    }
+
+    bool partyAlive()
+    {
+        foreach (var character in _partyList)
+        {
+            if (character.Alive)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     IEnumerator skipFrame()
