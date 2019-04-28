@@ -27,7 +27,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 6}
-  m_MinSize: {x: 950, y: 392}
+  m_MinSize: {x: 950, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -57,8 +57,13 @@ MonoBehaviour:
 =======
     width: 1920
     height: 1067
+<<<<<<< HEAD
   m_MinSize: {x: 679, y: 342}
   m_MaxSize: {x: 12004, y: 8042}
+=======
+  m_MinSize: {x: 681, y: 492}
+  m_MaxSize: {x: 14004, y: 14042}
+>>>>>>> Combat
   vertical: 0
   controlID: 26
 >>>>>>> Map
@@ -117,7 +122,11 @@ MonoBehaviour:
   m_MaxSize: {x: 4002, y: 4021}
 =======
     width: 379
+<<<<<<< HEAD
     height: 648
+=======
+    height: 683
+>>>>>>> Combat
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
 >>>>>>> Map
@@ -142,6 +151,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     y: 811
     width: 2041
     height: 530
@@ -165,6 +175,19 @@ MonoBehaviour:
   m_Selected: 1
 >>>>>>> Map
   m_LastSelected: 0
+=======
+    y: 683
+    width: 1531
+    height: 384
+  m_MinSize: {x: 232, y: 271}
+  m_MaxSize: {x: 10002, y: 10021}
+  m_ActualView: {fileID: 13}
+  m_Panes:
+  - {fileID: 13}
+  - {fileID: 18}
+  m_Selected: 0
+  m_LastSelected: 1
+>>>>>>> Combat
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -267,8 +290,8 @@ MonoBehaviour:
 =======
     width: 1525
     height: 1067
-  m_MinSize: {x: 404, y: 342}
-  m_MaxSize: {x: 8004, y: 8042}
+  m_MinSize: {x: 404, y: 492}
+  m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
   controlID: 27
 >>>>>>> Map
@@ -291,6 +314,7 @@ MonoBehaviour:
     x: 0
     y: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     width: 2041
     height: 811
   m_MinSize: {x: 406, y: 221}
@@ -300,6 +324,10 @@ MonoBehaviour:
 =======
     width: 1525
     height: 648
+=======
+    width: 1531
+    height: 683
+>>>>>>> Combat
   m_MinSize: {x: 404, y: 221}
   m_MaxSize: {x: 8004, y: 4021}
   vertical: 0
@@ -322,12 +350,17 @@ MonoBehaviour:
     x: 379
     y: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     width: 1536
     height: 811
 =======
     width: 1146
     height: 648
 >>>>>>> Map
+=======
+    width: 1152
+    height: 683
+>>>>>>> Combat
   m_MinSize: {x: 204, y: 221}
   m_MaxSize: {x: 4004, y: 4021}
   m_ActualView: {fileID: 16}
@@ -387,6 +420,7 @@ MonoBehaviour:
     serializedVersion: 2
 <<<<<<< HEAD
     x: 0
+<<<<<<< HEAD
     y: 905
     width: 2039
     height: 509
@@ -395,6 +429,11 @@ MonoBehaviour:
     y: 740
     width: 1523
     height: 398
+=======
+    y: 775
+    width: 1529
+    height: 363
+>>>>>>> Combat
   m_PersistentViewDataDictionary: {fileID: 0}
 >>>>>>> Map
   m_SearchFilter:
@@ -408,6 +447,7 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
+<<<<<<< HEAD
     - Assets
   m_ViewMode: 1
   m_StartGridSize: 64
@@ -431,6 +471,21 @@ MonoBehaviour:
     m_LastClickedID: 10418
     m_ExpandedIDs: 00000000ae280000e8280000042900004c290000b2290000ea2900000c2a00005e2a0000ca2a0000082b0000642b000000ca9a3bffffff7f
 >>>>>>> Map
+=======
+    - Assets/Scripts/UI
+  m_ViewMode: 1
+  m_StartGridSize: 64
+  m_LastFolders:
+  - Assets/Scripts/UI
+  m_LastFoldersGridSize: -1
+  m_LastProjectPath: C:\Users\t7051015\Source\SavageIncPasta\SavaageIncPasta
+  m_IsLocked: 0
+  m_FolderTreeState:
+    scrollPos: {x: 0, y: 208}
+    m_SelectedIDs: f0280000
+    m_LastClickedID: 10480
+    m_ExpandedIDs: 00000000ec280000f028000052290000c4290000942b00009c2b0000d82b0000242c0000502c0000082d0000202d00006e2d00008a2d0000d82d0000be2e000000ca9a3bffffff7f
+>>>>>>> Combat
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -460,10 +515,14 @@ MonoBehaviour:
     m_SelectedIDs: 
     m_LastClickedID: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_ExpandedIDs: 00000000b023000000ca9a3bffffff7f
 =======
     m_ExpandedIDs: 00000000ae280000e8280000042900004c290000b2290000ea2900000c2a00005e2a0000ca2a0000082b0000642b0000
 >>>>>>> Map
+=======
+    m_ExpandedIDs: 00000000ec280000f028000052290000c4290000942b00009c2b0000d82b0000242c0000502c0000082d0000202d00006e2d00008a2d0000d82d0000be2e0000
+>>>>>>> Combat
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -490,6 +549,9 @@ MonoBehaviour:
     m_ColumnWidths: []
   m_ListAreaState:
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Combat
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 0
@@ -525,7 +587,7 @@ MonoBehaviour:
     m_NewAssetIndexInList: -1
     m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 64
-  m_DirectoriesAreaWidth: 115
+  m_DirectoriesAreaWidth: 225
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -603,6 +665,7 @@ MonoBehaviour:
     x: 1920
     y: 92
     width: 377
+<<<<<<< HEAD
     height: 627
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
@@ -611,6 +674,15 @@ MonoBehaviour:
     m_LastClickedID: 20170
     m_ExpandedIDs: 1cd5fcff78edfcffce35feff9a96feff26fbffff8afbffff9efbffff00000000482c0000522c0000642c0000782c0000a44e0000ae4e0000c44e0000d64e0000
 >>>>>>> Map
+=======
+    height: 662
+  m_PersistentViewDataDictionary: {fileID: 0}
+  m_TreeViewState:
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 36310000
+    m_LastClickedID: 12598
+    m_ExpandedIDs: 9cfbffff00000000d02f00001a300000fa300000023100006c32000082320000583300006a3300009e3300007a340000
+>>>>>>> Combat
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: GameObject
@@ -626,6 +698,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 0
       m_IsRenamingFilename: 0
+<<<<<<< HEAD
       m_ClientGUIView: {fileID: 0}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
@@ -633,6 +706,9 @@ MonoBehaviour:
       m_Path: 
       m_Icon: {fileID: 0}
       m_ResourceFile: 
+=======
+      m_ClientGUIView: {fileID: 4}
+>>>>>>> Combat
     m_SearchString: 
 <<<<<<< HEAD
     m_ColumnWidths: []
@@ -683,8 +759,13 @@ MonoBehaviour:
 =======
     x: 2301
     y: 92
+<<<<<<< HEAD
     width: 1142
     height: 627
+=======
+    width: 1148
+    height: 662
+>>>>>>> Combat
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SceneLighting: 1
   lastFramingTime: 5598.925055222352
@@ -692,10 +773,16 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
+<<<<<<< HEAD
     m_Target: {x: 0.2425257, y: -0.098351955, z: -0.017089844}
     speed: 2
     m_Value: {x: 0.2425257, y: -0.098351955, z: -0.017089844}
 >>>>>>> Map
+=======
+    m_Target: {x: 565.8835, y: 293.4653, z: -7.608218}
+    speed: 2
+    m_Value: {x: 565.8835, y: 293.4653, z: -7.608218}
+>>>>>>> Combat
   m_RenderMode: 0
   m_SceneViewState:
     showFog: 1
@@ -731,6 +818,7 @@ MonoBehaviour:
     m_Value: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
   m_Size:
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_Target: 10
     speed: 2
     m_Value: 10
@@ -739,6 +827,11 @@ MonoBehaviour:
     speed: 2
     m_Value: 4.0105505
 >>>>>>> Map
+=======
+    m_Target: 760.69885
+    speed: 2
+    m_Value: 760.69885
+>>>>>>> Combat
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -779,8 +872,13 @@ MonoBehaviour:
 =======
     x: 2301
     y: 92
+<<<<<<< HEAD
     width: 1142
     height: 627
+=======
+    width: 1148
+    height: 662
+>>>>>>> Combat
   m_PersistentViewDataDictionary: {fileID: 0}
 >>>>>>> Map
   m_MaximizeOnPlay: 0
@@ -792,6 +890,7 @@ MonoBehaviour:
     m_HRangeLocked: 0
     m_VRangeLocked: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_HBaseRangeMin: -383
     m_HBaseRangeMax: 383
     m_VBaseRangeMin: -193.25
@@ -802,6 +901,12 @@ MonoBehaviour:
     m_VBaseRangeMin: -305
     m_VBaseRangeMax: 305
 >>>>>>> Map
+=======
+    m_HBaseRangeMin: -574
+    m_HBaseRangeMax: 574
+    m_VBaseRangeMin: -322.5
+    m_VBaseRangeMax: 322.5
+>>>>>>> Combat
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -819,6 +924,7 @@ MonoBehaviour:
       x: 0
       y: 17
 <<<<<<< HEAD
+<<<<<<< HEAD
       width: 1532
       height: 773
     m_Scale: {x: 2, y: 2}
@@ -829,12 +935,19 @@ MonoBehaviour:
     m_Scale: {x: 1, y: 1}
     m_Translation: {x: 571, y: 305}
 >>>>>>> Map
+=======
+      width: 1148
+      height: 645
+    m_Scale: {x: 1, y: 1}
+    m_Translation: {x: 574, y: 322.5}
+>>>>>>> Combat
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
+<<<<<<< HEAD
 <<<<<<< HEAD
       x: -383
       y: -193.25
@@ -846,6 +959,12 @@ MonoBehaviour:
       width: 1142
       height: 610
 >>>>>>> Map
+=======
+      x: -574
+      y: -322.5
+      width: 1148
+      height: 645
+>>>>>>> Combat
     m_MinimalGUI: 1
   m_defaultScale: 2
   m_TargetTexture: {fileID: 0}
@@ -854,8 +973,12 @@ MonoBehaviour:
   m_LastWindowPixelSize: {x: 3064, y: 1580}
 =======
   m_CurrentColorSpace: 0
+<<<<<<< HEAD
   m_LastWindowPixelSize: {x: 1142, y: 627}
 >>>>>>> Map
+=======
+  m_LastWindowPixelSize: {x: 1148, y: 662}
+>>>>>>> Combat
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 010000000001000001

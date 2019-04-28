@@ -13,8 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sprite: {fileID: 0}
   _abilityName: LasagnaCloak
-  _abilityDescription: You cloak yourself making you go at an earlier slot on the
-    next turn.
+  _abilityDescription: Cloak yourself in lasagne sheets, making you move earlier next
+    turn.
   _manaCost: 0
   _level: 1
   _class: 1

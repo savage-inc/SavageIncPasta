@@ -13,8 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sprite: {fileID: 0}
   _abilityName: Conchiglie Shell
-  _abilityDescription: You brace for the next attack by making a concerted effort
-    to block the next blow.
+  _abilityDescription: Brace by making a concerted effort to block until the next
+    turn.
   _manaCost: 0
   _level: 2
   _class: 0

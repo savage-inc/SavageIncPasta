@@ -13,9 +13,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sprite: {fileID: 0}
   _abilityName: Fusilli Shot
-  _abilityDescription: You take a more stedied shot having a greater chance to hit
-    and increased damage to what you are aiming at.
+  _abilityDescription: Take a more accurate shot which has a greater chance to hit
+    and deals more damage to your target.
   _manaCost: 0
   _level: 1
   _class: 1
-  _attack: 1
+  _target: 1
+  _tree: 1
+  _id: 1

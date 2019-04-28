@@ -12,7 +12,6 @@ public class BattleInfoUI : MonoBehaviour
     public Text TextBox2;
     public Text TextBox3;
     public Text TextBox4;
-    public Text TextBox5;
 
     // Use this for initialization
     void Start () {
@@ -42,7 +41,6 @@ public class BattleInfoUI : MonoBehaviour
         TextBox2.text = "";
         TextBox3.text = "";
         TextBox4.text = "";
-        TextBox5.text = "";
     }
 
     void DisplayItem(InventoryItem item)

@@ -13,11 +13,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sprite: {fileID: 0}
   _abilityName: Spag Steal
-  _abilityDescription: You attack an enemy with a lifestealing attack recovering the
-    same amount of damage that you dealt to them.
+  _abilityDescription: Deal damage with a life-stealing attack, recovering the same
+    amount of damage that you dealt.
   _manaCost: 0
   _level: 1
   _class: 3
   _target: 1
-  _path: 1
+  _tree: 1
   _id: 2

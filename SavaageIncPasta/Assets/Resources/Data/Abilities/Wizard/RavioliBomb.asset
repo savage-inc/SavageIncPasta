@@ -13,11 +13,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sprite: {fileID: 0}
   _abilityName: Ravioli Bomb
-  _abilityDescription: Conjure a ravioli bomb at an enemy and everyone in the same
-    range band take damage if hit.
+  _abilityDescription: Conjure a Ravioli Bomb to hit all enemies in a range band.
   _manaCost: 0
   _level: 4
   _class: 2
   _target: 1
-  _path: 1
+  _tree: 1
   _id: 6

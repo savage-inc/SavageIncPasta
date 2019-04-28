@@ -13,8 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sprite: {fileID: 0}
   _abilityName: Spiked Bucatini
-  _abilityDescription: You ready yourself for the next blow and ready yourself to
-    punish the enemy for foolishly attacking you.
+  _abilityDescription: Ready yourself for attacks by punishing the enemy for foolishly
+    attacking you until the next turn.
   _manaCost: 0
   _level: 4
   _class: 0

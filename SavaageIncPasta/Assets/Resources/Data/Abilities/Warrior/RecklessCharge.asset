@@ -13,11 +13,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sprite: {fileID: 0}
   _abilityName: Reckless Charge
-  _abilityDescription: You make a reckless charge to the rear of the enemy lines allowing
+  _abilityDescription: Make a reckless charge to the rear of the enemy lines allowing
     anyone you pass to get in a quick attack as you return to your side.
   _manaCost: 0
   _level: 2
   _class: 0
   _target: 1
-  _path: 1
+  _tree: 1
   _id: 2

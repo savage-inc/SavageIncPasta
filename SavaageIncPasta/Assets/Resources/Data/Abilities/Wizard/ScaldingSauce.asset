@@ -13,9 +13,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sprite: {fileID: 0}
   _abilityName: Scalding Sauce
-  _abilityDescription: You attack an aenemy with a more powerful magic attack
+  _abilityDescription: Conjure scalding-hot sauce on an enemy to deal magic damage.
   _manaCost: 0
   _level: 1
   _class: 2
   _target: 1
-  _path: 2
+  _tree: 1
+  _id: 1
