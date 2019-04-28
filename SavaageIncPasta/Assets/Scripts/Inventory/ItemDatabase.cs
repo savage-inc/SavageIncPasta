@@ -20,13 +20,6 @@ public class ItemDatabase : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-
-            _items = new Dictionary<string, BaseItemData>();
-            Weapons = new List<WeaponItemData>();
-            Armour = new List<ArmourItemData>();
-
-            LoadItemsFromResources();
-            GenerateItems();
         }
         else
         {
@@ -34,6 +27,15 @@ public class ItemDatabase : MonoBehaviour
         }
     }
 
+    public void CreateItems()
+    {
+        _items = new Dictionary<string, BaseItemData>();
+        Weapons = new List<WeaponItemData>();
+        Armour = new List<ArmourItemData>();
+
+        LoadItemsFromResources();
+        GenerateItems();
+    }
 
     public BaseItemData GetItemInstance(string databaseName)
     {
@@ -94,12 +96,27 @@ public class ItemDatabase : MonoBehaviour
 
     public void FromList(List<BaseItemData> items)
     {
-        _items.Clear();
+        _items = new Dictionary<string, BaseItemData>();
+        Weapons = new List<WeaponItemData>();
+        Armour = new List<ArmourItemData>();
 
         foreach (var item in items)
         {
             _items.Add(item.DatabaseName, item);
+            if(item.ItemType == ItemType.eARMOUR)
+            {
+                Armour.Add((ArmourItemData)item);
+            }
+            else if (item.ItemType == ItemType.eWEAPON)
+            {
+                Weapons.Add((WeaponItemData)item);
+            }
         }
+    }
+
+    public bool HasItems()
+    {
+        return _items != null && _items.Count > 0;
     }
 }
 

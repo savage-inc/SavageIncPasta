@@ -145,6 +145,7 @@ public class Inventory : ISerializable
             }
 
             _inventoryItems.Remove(item);
+            item.Amount = 0;
         }
         else
         {

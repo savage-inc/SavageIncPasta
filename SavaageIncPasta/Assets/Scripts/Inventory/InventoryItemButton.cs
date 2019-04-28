@@ -28,7 +28,16 @@ public class InventoryItemButton : MonoBehaviour, ISelectHandler, IDeselectHandl
 
         button.gameObject.AddComponent<EventTrigger>();
         button.gameObject.GetComponent<EventTrigger>().triggers.Add(enterEvent);
-        button.gameObject.GetComponent<EventTrigger>().triggers.Add(exitEvent); 
+        button.gameObject.GetComponent<EventTrigger>().triggers.Add(exitEvent);
+
+    }
+
+    void Update()
+    {
+        if(Input.GetButtonDown("LB") || Input.GetButtonDown("RB"))
+        {
+            Destroy(_itemToolTipInstance);
+        }
     }
 
     public void TransferItem(Inventory to)
@@ -56,7 +65,6 @@ public class InventoryItemButton : MonoBehaviour, ISelectHandler, IDeselectHandl
     {
         if (Inventory == null || to == null || Item == null || Item.Item == null)
             return;
-
         switch (Item.Item.ItemType)
         {
             case ItemType.eCONSUMABLE:
@@ -69,6 +77,8 @@ public class InventoryItemButton : MonoBehaviour, ISelectHandler, IDeselectHandl
                 break;
         }
 
+        FindObjectOfType<EventSystem>().SetSelectedGameObject(transform.parent.GetChild(0).gameObject);
+
         Destroy(_itemToolTipInstance);
     }
 
@@ -78,6 +88,8 @@ public class InventoryItemButton : MonoBehaviour, ISelectHandler, IDeselectHandl
             return;
 
         Inventory.RemoveItem(Item);
+
+        FindObjectOfType<EventSystem>().SetSelectedGameObject(transform.parent.GetChild(0).gameObject);
 
         Destroy(_itemToolTipInstance);
     }
@@ -94,10 +106,12 @@ public class InventoryItemButton : MonoBehaviour, ISelectHandler, IDeselectHandl
 
     public void OnHoverEnter()
     {
-        if (Item == null || Item.Item == null)
+        if (Item == null || Item.Item == null || ItemToolTipPrefab == null)
             return;
 
         //instantiate tool tip
+        Destroy(_itemToolTipInstance);
+
         _itemToolTipInstance = Instantiate(ItemToolTipPrefab);
         _itemToolTipInstance.gameObject.SetActive(true);
 
@@ -111,10 +125,12 @@ public class InventoryItemButton : MonoBehaviour, ISelectHandler, IDeselectHandl
 
     public void OnSelect(BaseEventData eventData)
     {
-        if (Item == null || Item.Item == null)
+        if (Item == null || Item.Item == null || ItemToolTipPrefab == null)
             return;
 
         //instantiate tool tip
+        Destroy(_itemToolTipInstance);
+
         _itemToolTipInstance = Instantiate(ItemToolTipPrefab);
         _itemToolTipInstance.gameObject.SetActive(true);
 

@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _rb.freezeRotation = true;
         _rb.gravityScale = 0.0f;
-
     }
 
     private void Update()

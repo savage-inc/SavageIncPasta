@@ -124,7 +124,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1796462205983022}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -199,7 +199,387 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71b804658089daf4d8d08e4cc2275187, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpareCharacterPool: []
+  SpareCharacterPool:
+  - Name: Character 9dc0
+    SpritePreviewName: Wizard1
+    Class: 2
+    Level: 1
+    MaxHealth: 18
+    CurrentHealth: 18
+    Strength: 2
+    Constitution: 3
+    Dexterity: 3
+    Intelligence: 4
+    Charisma: 3
+    Magic: 1
+    Comfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    Experience: 0
+  - Name: Character a47b
+    SpritePreviewName: Ranger1
+    Class: 1
+    Level: 1
+    MaxHealth: 30
+    CurrentHealth: 30
+    Strength: 2
+    Constitution: 6
+    Dexterity: 4
+    Intelligence: 3
+    Charisma: 6
+    Magic: 0
+    Comfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    Experience: 0
+  - Name: Character b385
+    SpritePreviewName: Ranger2
+    Class: 1
+    Level: 1
+    MaxHealth: 26
+    CurrentHealth: 26
+    Strength: 3
+    Constitution: 5
+    Dexterity: 6
+    Intelligence: 1
+    Charisma: 6
+    Magic: 0
+    Comfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    Experience: 0
+  - Name: Character 7617
+    SpritePreviewName: Wizard2
+    Class: 2
+    Level: 1
+    MaxHealth: 10
+    CurrentHealth: 10
+    Strength: 1
+    Constitution: 1
+    Dexterity: 1
+    Intelligence: 6
+    Charisma: 3
+    Magic: 2
+    Comfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    Experience: 0
+  - Name: Character 7559
+    SpritePreviewName: Wizard1
+    Class: 2
+    Level: 1
+    MaxHealth: 14
+    CurrentHealth: 14
+    Strength: 1
+    Constitution: 2
+    Dexterity: 2
+    Intelligence: 5
+    Charisma: 2
+    Magic: 1
+    Comfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    Experience: 0
+  - Name: Character b880
+    SpritePreviewName: Wizard1
+    Class: 2
+    Level: 1
+    MaxHealth: 14
+    CurrentHealth: 14
+    Strength: 3
+    Constitution: 2
+    Dexterity: 1
+    Intelligence: 6
+    Charisma: 4
+    Magic: 1
+    Comfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    Experience: 0
+  - Name: Character 35b7
+    SpritePreviewName: Wizard1
+    Class: 2
+    Level: 1
+    MaxHealth: 10
+    CurrentHealth: 10
+    Strength: 1
+    Constitution: 1
+    Dexterity: 2
+    Intelligence: 5
+    Charisma: 1
+    Magic: 2
+    Comfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    Experience: 0
+  - Name: Character 8735
+    SpritePreviewName: Ranger2
+    Class: 1
+    Level: 1
+    MaxHealth: 26
+    CurrentHealth: 26
+    Strength: 1
+    Constitution: 5
+    Dexterity: 4
+    Intelligence: 2
+    Charisma: 4
+    Magic: 0
+    Comfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    Experience: 0
+  - Name: Character 1cb1
+    SpritePreviewName: Warrior3
+    Class: 0
+    Level: 1
+    MaxHealth: 22
+    CurrentHealth: 22
+    Strength: 6
+    Constitution: 4
+    Dexterity: 1
+    Intelligence: 2
+    Charisma: 2
+    Magic: 0
+    Comfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    Experience: 0
+  - Name: Character a81b
+    SpritePreviewName: Wizard2
+    Class: 2
+    Level: 1
+    MaxHealth: 18
+    CurrentHealth: 18
+    Strength: 3
+    Constitution: 3
+    Dexterity: 2
+    Intelligence: 6
+    Charisma: 5
+    Magic: 2
+    Comfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    Experience: 0
+  - Name: Character d028
+    SpritePreviewName: Warrior1
+    Class: 0
+    Level: 1
+    MaxHealth: 30
+    CurrentHealth: 30
+    Strength: 4
+    Constitution: 6
+    Dexterity: 1
+    Intelligence: 1
+    Charisma: 5
+    Magic: 0
+    Comfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    Experience: 0
+  - Name: Character 5329
+    SpritePreviewName: Ranger2
+    Class: 1
+    Level: 1
+    MaxHealth: 26
+    CurrentHealth: 26
+    Strength: 2
+    Constitution: 5
+    Dexterity: 4
+    Intelligence: 1
+    Charisma: 7
+    Magic: 0
+    Comfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    Experience: 0
+  - Name: Character af3a
+    SpritePreviewName: Wizard1
+    Class: 2
+    Level: 1
+    MaxHealth: 10
+    CurrentHealth: 10
+    Strength: 2
+    Constitution: 1
+    Dexterity: 1
+    Intelligence: 6
+    Charisma: 3
+    Magic: 1
+    Comfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    Experience: 0
+  - Name: Character 7c20
+    SpritePreviewName: Ranger1
+    Class: 1
+    Level: 1
+    MaxHealth: 30
+    CurrentHealth: 30
+    Strength: 2
+    Constitution: 6
+    Dexterity: 5
+    Intelligence: 3
+    Charisma: 1
+    Magic: 0
+    Comfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    Experience: 0
+  - Name: Character 7bb9
+    SpritePreviewName: Wizard3
+    Class: 2
+    Level: 1
+    MaxHealth: 10
+    CurrentHealth: 10
+    Strength: 3
+    Constitution: 1
+    Dexterity: 3
+    Intelligence: 4
+    Charisma: 7
+    Magic: 2
+    Comfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    Experience: 0
+  - Name: Character 06f6
+    SpritePreviewName: Warrior1
+    Class: 0
+    Level: 1
+    MaxHealth: 26
+    CurrentHealth: 26
+    Strength: 4
+    Constitution: 5
+    Dexterity: 3
+    Intelligence: 3
+    Charisma: 7
+    Magic: 0
+    Comfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    Experience: 0
+  - Name: Character 2877
+    SpritePreviewName: Warrior1
+    Class: 0
+    Level: 1
+    MaxHealth: 26
+    CurrentHealth: 26
+    Strength: 4
+    Constitution: 5
+    Dexterity: 3
+    Intelligence: 3
+    Charisma: 6
+    Magic: 0
+    Comfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    Experience: 0
+  - Name: Character bb9a
+    SpritePreviewName: Wizard1
+    Class: 2
+    Level: 1
+    MaxHealth: 14
+    CurrentHealth: 14
+    Strength: 2
+    Constitution: 2
+    Dexterity: 3
+    Intelligence: 5
+    Charisma: 7
+    Magic: 1
+    Comfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    Experience: 0
+  - Name: Character f12f
+    SpritePreviewName: Warrior1
+    Class: 0
+    Level: 1
+    MaxHealth: 22
+    CurrentHealth: 22
+    Strength: 6
+    Constitution: 4
+    Dexterity: 1
+    Intelligence: 1
+    Charisma: 3
+    Magic: 0
+    Comfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    Experience: 0
+  - Name: Character 0161
+    SpritePreviewName: Wizard2
+    Class: 2
+    Level: 1
+    MaxHealth: 14
+    CurrentHealth: 14
+    Strength: 3
+    Constitution: 2
+    Dexterity: 1
+    Intelligence: 4
+    Charisma: 5
+    Magic: 1
+    Comfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    Experience: 0
   GenerateRandomClanMembers: 1
 --- !u!114 &114494066298526384
 MonoBehaviour:
@@ -212,7 +592,83 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 258a5a778a971554b9895996b4fd6324, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Characters: []
+  Characters:
+  - Name: Character ea54
+    SpritePreviewName: Ranger1
+    Class: 1
+    Level: 1
+    MaxHealth: 26
+    CurrentHealth: 26
+    Strength: 2
+    Constitution: 5
+    Dexterity: 5
+    Intelligence: 1
+    Charisma: 2
+    Magic: 0
+    Comfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    Experience: 0
+  - Name: Character 6102
+    SpritePreviewName: Ranger1
+    Class: 1
+    Level: 1
+    MaxHealth: 30
+    CurrentHealth: 30
+    Strength: 3
+    Constitution: 6
+    Dexterity: 5
+    Intelligence: 2
+    Charisma: 2
+    Magic: 0
+    Comfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    Experience: 0
+  - Name: Character 5640
+    SpritePreviewName: Warrior2
+    Class: 0
+    Level: 1
+    MaxHealth: 26
+    CurrentHealth: 26
+    Strength: 5
+    Constitution: 5
+    Dexterity: 1
+    Intelligence: 3
+    Charisma: 4
+    Magic: 0
+    Comfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    Experience: 0
+  - Name: Character eb7e
+    SpritePreviewName: Ranger2
+    Class: 1
+    Level: 1
+    MaxHealth: 30
+    CurrentHealth: 30
+    Strength: 3
+    Constitution: 6
+    Dexterity: 5
+    Intelligence: 2
+    Charisma: 6
+    Magic: 0
+    Comfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    Experience: 0
   NumofCharacters: 4
 --- !u!114 &114595681680325820
 MonoBehaviour:
@@ -227,15 +683,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InventorySize: 10
   _gold: 30
-  StartingItems:
-  - {fileID: 11400000, guid: 26e43c46c99deba4cb470c575cabccd8, type: 2}
-  - {fileID: 11400000, guid: 26e43c46c99deba4cb470c575cabccd8, type: 2}
-  - {fileID: 11400000, guid: 26e43c46c99deba4cb470c575cabccd8, type: 2}
-  - {fileID: 11400000, guid: 26e43c46c99deba4cb470c575cabccd8, type: 2}
-  - {fileID: 11400000, guid: 9bc669924fb82044f8edb569d34ed46a, type: 2}
-  - {fileID: 11400000, guid: 2901d31c4e6aa2248b7fdc0c63aad8be, type: 2}
-  - {fileID: 11400000, guid: f9142eae0efb55045972cdf81e4caaab, type: 2}
-  - {fileID: 11400000, guid: 84e75e2f963d8094ebf3147944e85afa, type: 2}
+  StartingItems: []
 --- !u!114 &114745299453662136
 MonoBehaviour:
   m_ObjectHideFlags: 1

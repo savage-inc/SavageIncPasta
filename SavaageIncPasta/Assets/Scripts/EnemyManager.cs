@@ -13,6 +13,19 @@ public class EnemyManager : MonoBehaviour
 {
     public List<EnemyList> EnemyGroups;
 
+    private void Awake()
+    {
+        TextAsset assest = Resources.Load("Data/Enemies/Teams") as TextAsset;
+        if (assest != null)
+        {
+            EnemyGroups = PersistantData.DeserializeToType<List<EnemyList>>(assest);
+        }
+        else
+        {
+            Debug.LogError("Failed to load enemy teams");
+        }
+    }
+
     public List<Character> CreateTeamInstance()
     {
         List<Character> enemies = null;
@@ -48,11 +61,10 @@ public class EnemyManager : MonoBehaviour
     {
         Character enemy = new Character();
 
-        string path = Application.dataPath + "/Resources/Data/Enemies/";
-        if (System.IO.File.Exists(path + filename))
+        TextAsset assest = Resources.Load("Data/Enemies/" + filename) as TextAsset;
+        if (assest != null)
         {
-            var data = PersistantData.ReadBytesFromFile(path, filename);
-            enemy = PersistantData.DeserializeToType<Character>(data);
+            enemy = PersistantData.DeserializeToType<Character>(assest);
             enemy.Alive = true;
             return enemy;
         }

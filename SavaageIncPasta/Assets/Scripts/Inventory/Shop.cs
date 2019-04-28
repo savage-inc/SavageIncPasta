@@ -30,14 +30,13 @@ public class Shop : MonoBehaviour
     // Use this for initialization
     void Awake ()
     {
-        StockShop();
-
         _partyInventory = FindObjectOfType<PartyInventory>();
+
     }
 
     void OnTriggerStay2D(Collider2D other)
     {
-        if (Input.GetButtonDown("A") || Input.GetKeyDown(KeyCode.E))
+        if (Input.GetButtonDown("X"))
         {
             if (!ShopUI.gameObject.activeInHierarchy)
             {
@@ -57,6 +56,10 @@ public class Shop : MonoBehaviour
 
     public void ShowShop()
     {
+        if(Inventory == null || Inventory.GetItems().Count == 0)
+        {
+            StockShop();
+        }
         //check to restock
         if (_lastVisit + (RestockTime * 60.0f )<= Time.realtimeSinceStartup)
         {

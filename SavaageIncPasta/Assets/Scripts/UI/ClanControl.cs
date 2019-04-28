@@ -6,9 +6,14 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class ClanControl : MonoBehaviour {
-
+    public float TimeInMinutesToRegenComfort = .5f;
+    public float RegenAmount = 5.0f;
     public CharacterComparison CharacterCompare;
     public GameObject FirstSelected;
+    public Character SelectedCharacter;
+    public int SelectedColumn = 1;
+    public Text ColumnText;
+
 
     private List<SelectCharacter> clanMember;
     private ClanManager _clanManager;
@@ -34,6 +39,30 @@ public class ClanControl : MonoBehaviour {
         {
             var eventSystem = FindObjectOfType<EventSystem>();
             eventSystem.SetSelectedGameObject(FirstSelected);
+        }
+
+        System.DateTime now = System.DateTime.Now;
+        if (PlayerPrefs.HasKey("LastClanUpdate"))
+        {
+            string timeString = PlayerPrefs.GetString("LastClanUpdate");
+            System.DateTime lastTime = System.DateTime.Parse(timeString);
+
+            System.TimeSpan span = now - lastTime;
+            double totalMinutesPassed = span.TotalMinutes;
+
+            if (totalMinutesPassed >= TimeInMinutesToRegenComfort)
+            {
+                int comfortIncreaseAmount = (int)((totalMinutesPassed / TimeInMinutesToRegenComfort) * RegenAmount);
+                RegenComfort(comfortIncreaseAmount);
+
+                PlayerPrefs.SetString("LastClanUpdate", now.ToString());
+                PlayerPrefs.Save();
+            }
+        }
+        else
+        {
+            PlayerPrefs.SetString("LastClanUpdate", now.ToString());
+            PlayerPrefs.Save();
         }
     }
 
@@ -79,5 +108,35 @@ public class ClanControl : MonoBehaviour {
         float width = RectTransformUtility.PixelAdjustRect(GetComponent<RectTransform>(), FindObjectOfType<Canvas>()).width - 32;
         Vector2 newSize = new Vector2(width / 4, width / 4);
         gridGroup.cellSize = newSize;
+    }
+
+    public void ChangeColumnOfSelectedCharacter()
+    {
+        SelectedCharacter.CurrCol = SelectedColumn;
+        SelectedCharacter = null;
+
+    }
+
+    public void IncreaseColumn()
+    {
+        SelectedColumn = Mathf.Clamp(SelectedColumn + 1, 1, 3);
+        ColumnText.text = SelectedColumn.ToString();
+    }
+
+
+    public void DecreaseColumn()
+    {
+        SelectedColumn = Mathf.Clamp(SelectedColumn - 1, 1, 3);
+        ColumnText.text = SelectedColumn.ToString();
+
+    }
+
+    public void RegenComfort(int regenAmount)
+    {
+        Debug.Log("Regenerating Comfort levels (regen amount = " + regenAmount + ")");
+        foreach (var character in _clanManager.SpareCharacterPool)
+        {
+            character.Comfort = Mathf.Clamp(character.Comfort + regenAmount,0,character.MaxComfort);
+        }
     }
 }
