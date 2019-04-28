@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     public GameObject Inventory;
     public GameObject pauseMenuUI;
     public GameObject ClanUI;
+    public GameObject BarracksUI;
     public GameObject FirstObject;
     public static bool GameIsPaused = false;
 
@@ -41,6 +42,11 @@ public class UIManager : MonoBehaviour
         {
             ClanUI.SetActive(false);
         }
+
+        if (BarracksUI != null)
+        {
+            BarracksUI.SetActive(false);
+        }
         Time.timeScale = 1f;
     }
     public void OpenInventory()
@@ -61,6 +67,10 @@ public class UIManager : MonoBehaviour
             {
                 ClanUI.SetActive(false);
             }
+            if (BarracksUI != null)
+            {
+                BarracksUI.SetActive(false);
+            }
             Time.timeScale = 0f;
         }
     }
@@ -79,6 +89,32 @@ public class UIManager : MonoBehaviour
             if (Inventory != null)
             {
                 Inventory.SetActive(false);
+            }
+            if (BarracksUI != null)
+            {
+                BarracksUI.SetActive(false);
+            }
+            Time.timeScale = 0f;
+        }
+    }
+
+    public void OpenBarracksUI()
+    {
+        if (BarracksUI != null)
+        {
+            BarracksUI.SetActive(true);
+
+            if (pauseMenuUI != null)
+            {
+                pauseMenuUI.SetActive(false);
+            }
+            if (Inventory != null)
+            {
+                Inventory.SetActive(false);
+            }
+            if (ClanUI != null)
+            {
+                ClanUI.SetActive(false);
             }
             Time.timeScale = 0f;
         }

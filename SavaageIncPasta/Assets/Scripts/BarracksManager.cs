@@ -6,11 +6,14 @@ public class BarracksManager : MonoBehaviour
 {
 
     public List<Character> RandomCharacterPool;
+    public List<int> Prices;
     public bool RandomCharacter;
+    private PartyInventory _partyInventory;
 
     //Gerenate characters to be bought
     private void Awake()
     {
+        _partyInventory = FindObjectOfType<PartyInventory>();
         RandomCharacterPool = new List<Character>();
         if (RandomCharacter)
         {
@@ -18,6 +21,8 @@ public class BarracksManager : MonoBehaviour
             {
                 var character = GenerateRandomCharacter.GenerateCharacter();
                 RandomCharacterPool.Add(character);
+                Prices.Add(Random.Range(15,21));
+
             }
         }
     }
@@ -27,49 +32,42 @@ public class BarracksManager : MonoBehaviour
         RandomCharacterPool.Add(c);
     }
     
-    public void RemoveCharacter(Character c)
-    {
-        RandomCharacterPool.Remove(c);
-    }
-
     public void AddToBarracks(Character BarracksMember)
     {
         FindObjectOfType<PlayerManager>().AddCharacter(BarracksMember);
-        RemoveCharacter(BarracksMember);
-    }
-
-    public void RemoveFromBarracks(Character BarracksMember)
-    {
-        AddCharacter(BarracksMember);
-        FindObjectOfType<PlayerManager>().RemoveCharacter(BarracksMember);
     }
 
     public void AddToParty(Character PartyMember)
     {
         FindObjectOfType<PlayerManager>().AddCharacter(PartyMember);
-        RemoveCharacter(PartyMember);
     }
 
     public void AddToClan(Character ClanMember)
     {
         FindObjectOfType<PlayerManager>().AddCharacter(ClanMember);
-        RemoveCharacter(ClanMember);
     }
 
     // Buy Character, remove character from barracks add character to party if party is full 
     // add character to clan
     public void BuyCharacter(int index)
     {
-        Debug.Log("Buying Character");
-        if (FindObjectOfType<PlayerManager>().Characters.Count < 4)
+        if (_partyInventory.Gold - Prices[index] >= 0)
         {
-            AddToParty(RandomCharacterPool[index]);
-        }
-        else 
-        {
-            AddToClan(RandomCharacterPool[index]);
-        }
+           
+            if (FindObjectOfType<PlayerManager>().Characters.Count < 4)
+            {
+                AddToParty(RandomCharacterPool[index]);
+            }
+            else
+            {
+                AddToClan(RandomCharacterPool[index]);
+            }
 
-        RemoveFromBarracks(RandomCharacterPool[index]);
+            _partyInventory.Gold -= Prices[index];
+
+            //generate new character to replace the old one
+            RandomCharacterPool[index] = GenerateRandomCharacter.GenerateCharacter();
+            Prices[index] = Random.Range(15, 21);
+        }
     }
 }

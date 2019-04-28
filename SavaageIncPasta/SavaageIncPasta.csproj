@@ -276,6 +276,7 @@
     <Compile Include="Assets\Scripts\AI\FindPathToTarget.cs" />
     <Compile Include="Assets\Scripts\AI\GridMap.cs" />
     <Compile Include="Assets\Scripts\AI\Node.cs" />
+    <Compile Include="Assets\Scripts\Barracks.cs" />
     <Compile Include="Assets\Scripts\BarracksManager.cs" />
     <Compile Include="Assets\Scripts\Battle.cs" />
     <Compile Include="Assets\Scripts\BattleCharacter.cs" />
@@ -316,7 +317,6 @@
     <Compile Include="Assets\Scripts\Sound\SoundManager.cs" />
     <Compile Include="Assets\Scripts\SpriteManager.cs" />
     <Compile Include="Assets\Scripts\UI\BarracksControl.cs" />
-    <Compile Include="Assets\Scripts\UI\BuyButton.cs" />
     <Compile Include="Assets\Scripts\UI\CharacterButton.cs" />
     <Compile Include="Assets\Scripts\UI\CharacterComparison.cs" />
     <Compile Include="Assets\Scripts\UI\ClanButton.cs" />
