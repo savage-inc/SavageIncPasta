@@ -1,8 +1,12 @@
 sceneSetups:
 <<<<<<< HEAD
+<<<<<<< HEAD
 - path: Assets/Scenes/Battle.unity
 =======
 - path: Assets/Scenes/World/ClanScene.unity
 >>>>>>> UIOverhaul
+=======
+- path: Assets/Scenes/World/SwampScene.unity
+>>>>>>> Design
   isLoaded: 1
   isActive: 1
