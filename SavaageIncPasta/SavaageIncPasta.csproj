@@ -228,6 +228,7 @@
       <HintPath>Assets/3rdParty/TextMeshPro/Plugins/Editor DLL/TextMeshPro-2017.3-Runtime.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Analytics">
+<<<<<<< HEAD
       <HintPath>C:/Users/t7042361/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.13/UnityEngine.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Purchasing">
@@ -235,6 +236,15 @@
     </Reference>
     <Reference Include="UnityEngine.StandardEvents">
       <HintPath>C:/Users/t7042361/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
+=======
+      <HintPath>C:/Users/Patrick/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.13/UnityEngine.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Purchasing">
+      <HintPath>C:/Users/Patrick/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.purchasing@0.0.19/UnityEngine.Purchasing.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.StandardEvents">
+      <HintPath>C:/Users/Patrick/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
+>>>>>>> Map
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -317,8 +327,15 @@
     <Compile Include="Assets\Scripts\MagicTypes.cs" />
     <Compile Include="Assets\Scripts\ManaBar.cs" />
     <Compile Include="Assets\Scripts\Movement\PlayerController.cs" />
+<<<<<<< HEAD
     <Compile Include="Assets\Scripts\PlayerManager.cs" />
     <Compile Include="Assets\Scripts\RandomBattle.cs" />
+=======
+    <Compile Include="Assets\Scripts\Movement\TeleportButton.cs" />
+    <Compile Include="Assets\Scripts\Movement\TeleportDestination.cs" />
+    <Compile Include="Assets\Scripts\Movement\TeleportGO.cs" />
+    <Compile Include="Assets\Scripts\Option.cs" />
+>>>>>>> Map
     <Compile Include="Assets\Scripts\Sound\PlaySound.cs" />
     <Compile Include="Assets\Scripts\Sound\SoundManager.cs" />
     <Compile Include="Assets\Scripts\SpriteManager.cs" />
@@ -332,8 +349,13 @@
     <Compile Include="Assets\Scripts\UI\ClanControl.cs" />
     <Compile Include="Assets\Scripts\UI\GridScalar.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
+<<<<<<< HEAD
     <Compile Include="Assets\Scripts\UI\SwapButton.cs" />
     <Compile Include="Assets\Scripts\UI\SwapPanels.cs" />
+=======
+    <Compile Include="Assets\Scripts\UI\MiniMapTreeobject.cs" />
+    <Compile Include="Assets\Scripts\UI\UI Menu.cs" />
+>>>>>>> Map
     <Compile Include="Assets\Scripts\UI\UIManager.cs" />
     <Compile Include="Assets\Scripts\World\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\World\ClanNPC.cs" />

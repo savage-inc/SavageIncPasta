@@ -1,6 +1,7 @@
 sceneSetups:
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 - path: Assets/Scenes/Battle.unity
 =======
 - path: Assets/Scenes/World/ClanScene.unity
@@ -8,5 +9,8 @@ sceneSetups:
 =======
 - path: Assets/Scenes/World/SwampScene.unity
 >>>>>>> Design
+=======
+- path: Assets/Scenes/TestMovement.unity
+>>>>>>> Map
   isLoaded: 1
   isActive: 1
