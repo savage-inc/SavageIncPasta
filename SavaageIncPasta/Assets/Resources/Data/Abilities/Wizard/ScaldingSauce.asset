@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sprite: {fileID: 0}
   _abilityName: Scalding Sauce
-  _abilityDescription: Conjure scalding hot sauce on an enemy to deal magic damage.
+  _abilityDescription: Conjure scalding-hot sauce on an enemy to deal magic damage.
   _manaCost: 0
   _level: 1
   _class: 2

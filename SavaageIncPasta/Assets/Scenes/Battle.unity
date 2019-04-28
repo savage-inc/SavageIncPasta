@@ -4081,7 +4081,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.28661427}
-  m_AnchoredPosition: {x: 0, y: 0.7001953}
+  m_AnchoredPosition: {x: 0, y: 0.70018005}
   m_SizeDelta: {x: 0, y: 1.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &44644512
@@ -4812,7 +4812,6 @@ RectTransform:
   - {fileID: 1158100469}
   - {fileID: 1363407233}
   - {fileID: 568777193}
-  - {fileID: 2032352535}
   m_Father: {fileID: 1080479803}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4873,7 +4872,6 @@ MonoBehaviour:
   TextBox2: {fileID: 1158100470}
   TextBox3: {fileID: 1363407234}
   TextBox4: {fileID: 568777194}
-  TextBox5: {fileID: 2032352536}
 --- !u!114 &130806113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4886,12 +4884,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 0
-    m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
+    m_Left: 10
+    m_Right: 10
+    m_Top: 10
+    m_Bottom: 10
   m_ChildAlignment: 0
-  m_Spacing: 0
+  m_Spacing: 3
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 1
@@ -13530,7 +13528,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 972707052}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 89715469}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnRight: {fileID: 802003272}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -13981,7 +13979,7 @@ MonoBehaviour:
   m_MinHeight: -1
   m_PreferredWidth: -1
   m_PreferredHeight: -1
-  m_FlexibleWidth: 1
+  m_FlexibleWidth: 2.17
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
 --- !u!1 &485854746
@@ -18027,7 +18025,7 @@ MonoBehaviour:
     m_Mode: 4
     m_SelectOnUp: {fileID: 1779701964}
     m_SelectOnDown: {fileID: 297610234}
-    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnLeft: {fileID: 1796244441}
     m_SelectOnRight: {fileID: 1518340757}
   m_Transition: 1
   m_Colors:
@@ -18888,7 +18886,7 @@ MonoBehaviour:
     m_Mode: 4
     m_SelectOnUp: {fileID: 26692967}
     m_SelectOnDown: {fileID: 2108910476}
-    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnLeft: {fileID: 458825715}
     m_SelectOnRight: {fileID: 478452075}
   m_Transition: 1
   m_Colors:
@@ -23558,7 +23556,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Attack info will be shown in here
+  m_Text: 
 --- !u!222 &959554275
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -23601,7 +23599,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 26692967}
     m_SelectOnDown: {fileID: 458825715}
     m_SelectOnLeft: {fileID: 817693614}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnRight: {fileID: 2108910476}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -33216,7 +33214,7 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 40
+    m_MaxSize: 30
     m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -38767,7 +38765,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 2137950963}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 1009620466}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnRight: {fileID: 648648290}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -40105,80 +40103,6 @@ MonoBehaviour:
   ImgHealthBar: {fileID: 2146912052}
   TxtHealth: {fileID: 1256915062}
   c: {fileID: 1968026200}
---- !u!1 &2032352534
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 2032352535}
-  - component: {fileID: 2032352537}
-  - component: {fileID: 2032352536}
-  m_Layer: 5
-  m_Name: TextBox5
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &2032352535
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2032352534}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 130806109}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2032352536
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2032352534}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
-    m_FontStyle: 0
-    m_BestFit: 1
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 1
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: 
---- !u!222 &2032352537
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2032352534}
 --- !u!1 &2035408687
 GameObject:
   m_ObjectHideFlags: 0
@@ -40330,7 +40254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7352941, g: 0.61523086, b: 0.11353808, a: 1}
+  m_Color: {r: 0.7352941, g: 0.5637752, b: 0.11353808, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -41107,7 +41031,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 1779701964}
     m_SelectOnDown: {fileID: 1796244441}
     m_SelectOnLeft: {fileID: 1130049587}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnRight: {fileID: 297610234}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
