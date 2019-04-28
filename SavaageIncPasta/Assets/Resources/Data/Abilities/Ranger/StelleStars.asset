@@ -13,8 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sprite: {fileID: 0}
   _abilityName: Stelle Stars
-  _abilityDescription: You quickly fire 3 shots into the enemy ranks though the shots
-    hit with half of the normal damage.
+  _abilityDescription: Quickly fire 3 weak shots into the enemy ranks.
   _manaCost: 0
   _level: 1
   _class: 1

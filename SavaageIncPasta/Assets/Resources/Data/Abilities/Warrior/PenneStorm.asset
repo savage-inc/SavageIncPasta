@@ -13,12 +13,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sprite: {fileID: 0}
   _abilityName: Penne Storm
-  _abilityDescription: You go into an all out attack by spining up into a storm of
-    activity to attack in a beserk continuing to attack the enemy team until the storm
+  _abilityDescription: Spin up a storm of Penne, attacking in a beserk until the storm
     blows out.
   _manaCost: 0
   _level: 1
   _class: 0
   _target: 1
-  _path: 2
+  _tree: 1
   _id: 6

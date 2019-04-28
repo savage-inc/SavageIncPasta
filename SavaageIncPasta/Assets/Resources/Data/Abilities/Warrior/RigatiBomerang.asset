@@ -13,11 +13,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sprite: {fileID: 0}
   _abilityName: Rigati Bomerang
-  _abilityDescription: You attack in a small vortex taking a boomerang like path attacking
-    an enemy on your way out and on your way back in.
+  _abilityDescription: Charge in a boomerang-like path attacking one enemy on your
+    way out and on your way back in.
   _manaCost: 0
   _level: 4
   _class: 0
   _target: 1
-  _path: 1
+  _tree: 1
   _id: 4

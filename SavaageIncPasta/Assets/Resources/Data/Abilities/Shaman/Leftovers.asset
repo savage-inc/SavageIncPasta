@@ -13,10 +13,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sprite: {fileID: 0}
   _abilityName: Leftovers
-  _abilityDescription: You throw some leftovers at an ally to heal them for your intelligence.
+  _abilityDescription: Throw some leftovers to heal an ally.
   _manaCost: 0
   _level: 1
   _class: 3
   _target: 1
-  _path: 1
+  _tree: 1
   _id: 1

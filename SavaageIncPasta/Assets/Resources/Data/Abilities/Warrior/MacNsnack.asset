@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sprite: {fileID: 0}
   _abilityName: Mac N Snack
-  _abilityDescription: You have a quick snack during battle and recovers 5 health.
+  _abilityDescription: Have a quick snack during battle and recover 5 health.
   _manaCost: 0
   _level: 1
   _class: 0

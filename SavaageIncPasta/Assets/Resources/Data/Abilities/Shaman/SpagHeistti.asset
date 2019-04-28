@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Name: SpagHeistti
   m_EditorClassIdentifier: 
   _sprite: {fileID: 0}
-  _abilityName: Spag Heistti
-  _abilityDescription: Sttack all enemies and heal all allies for an average of the
-    damage dealt.
+  _abilityName: Spagheistti
+  _abilityDescription: Attack all enemies while healing all allies for an average
+    of the damage dealt.
   _manaCost: 0
   _level: 1
   _class: 3

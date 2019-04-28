@@ -13,11 +13,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sprite: {fileID: 0}
   _abilityName: Farfalle Shot
-  _abilityDescription: You shoot 2 arrows at 2 targets at the same range with less
-    power inflicting half the regular damage.
+  _abilityDescription: Shoot 2 arrows at 2 targets inflicting half the regular damage.
   _manaCost: 0
   _level: 2
   _class: 0
   _target: 1
-  _path: 1
+  _tree: 1
   _id: 2

@@ -13,8 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sprite: {fileID: 0}
   _abilityName: Macaroni Flurry
-  _abilityDescription: You make a massive attack by firing 6 arrows/knives into the
-    enemy line  for the ragular amount of damage.
+  _abilityDescription: Make a massive attack by firing 6 arrows into the enemy line.
   _manaCost: 0
   _level: 1
   _class: 1

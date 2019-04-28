@@ -13,7 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sprite: {fileID: 0}
   _abilityName: Spaghetti Whip
-  _abilityDescription: Hits the whole enemy team and deals extra damage to them.
+  _abilityDescription: Use spaghetti as a whip to deal extra damage to the whole enemy
+    team.
   _manaCost: 0
   _level: 5
   _class: 2
