@@ -20,34 +20,48 @@ public class Character
     public int Intelligence;
     public int Charisma;
     public MagicType Magic;
+    public int Comfort;
+    public int MaxComfort;
+
+
     public bool Player = true;
     public bool Alive = true;
     public CharacterEquipment Equipment;
     public int BaseAttack = 5;
     public int BaseArmour = 0;
     public int CurrCol = 1;
+    public int MaxMana;
+    public int CurrentMana;
+    public List<int> Abilities = new List<int>() { 1,2,3,4,5,6,7 };
 
+    public int GoldDrop = 5;
     public int Experience = 0;
-    public int Comfort;
 
     public Character()
     {
-        Equipment = new CharacterEquipment();
+        Equipment = new CharacterEquipment
+        {
+            Character = this
+        };
         CurrentHealth = MaxHealth;
+        CurrentMana = MaxMana;
     }
 
     public void ChangeHealth(int health)
     {
-        CurrentHealth += health;
-
-        if (CurrentHealth <= 0)
+        CurrentHealth = Mathf.Clamp(CurrentHealth + health, 0, MaxHealth);
+        if(CurrentHealth <= 0)
         {
-            CurrentHealth = 0;
             Alive = false;
         }
-        else if (CurrentHealth > MaxHealth)
+        else
         {
-            CurrentHealth = MaxHealth;
+            Alive = true;
         }
+    }
+
+    public void ChangeMana(int mana)
+    {
+        CurrentMana = Mathf.Clamp(CurrentMana + mana, 0, MaxMana);
     }
 }

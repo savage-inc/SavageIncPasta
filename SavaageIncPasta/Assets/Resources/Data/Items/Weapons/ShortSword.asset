@@ -20,13 +20,4 @@ MonoBehaviour:
   _stackSize: 1
   _weaponType: 0
   _weaponSubType: 0
-  statType: 1
-  _baseDamage: 6
-  _varianceDamage: 2
-  _minDamage: 4
-  _maxDamage: 8
-  _missFire: 0
-  _isMelee: 1
-  _isMainHand: 1
-  _magicalType: 0
-  _magicalModifier: 0
+  _statType: 0

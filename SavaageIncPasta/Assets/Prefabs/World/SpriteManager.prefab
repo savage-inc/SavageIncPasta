@@ -77,4 +77,4 @@ MonoBehaviour:
   - Name: Shaman3
     Sprite: {fileID: 21300022, guid: a37a11299a350fb45bffa48632e6192a, type: 3}
   - Name: Wolf
-    Sprite: {fileID: 21300028, guid: c96e7898f7a6a0e43ab10f244c229a5f, type: 3}
+    Sprite: {fileID: 21300000, guid: 8e064d317969ad846b00aa553c1e7979, type: 3}

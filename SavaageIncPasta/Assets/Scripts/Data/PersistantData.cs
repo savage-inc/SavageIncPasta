@@ -14,18 +14,27 @@ public class PersistantData
     }
 
     [System.Serializable]
+    private struct ItemData
+    {
+        public List<BaseItemData> ItemDatabase;
+
+        public ItemData(List<BaseItemData> itemDatabase = null) : this()
+        {
+            ItemDatabase = new List<BaseItemData>();
+        }
+    }
+    [System.Serializable]
     private struct PartyData
     {
         public Inventory PartyInventory;
         public int Gold;
         //character data
         public List<Character> PartyCharacterData;
-        public List<BaseItemData> ItemDatabase;
+        public List<Character> ClanCharacterData;
 
         public PartyData(List<Character> partyCharacterData = null) : this()
         {
             PartyCharacterData = new List<Character>();
-            ItemDatabase = new List<BaseItemData>();
         }
     }
 
@@ -149,21 +158,35 @@ public class PersistantData
         }
     }
 
-    public static void SavePartyData(PartyInventory partyInventory, PlayerManager playerManager)
+    public static void SavePartyData(PartyInventory partyInventory, PlayerManager playerManager, ClanManager clanManager)
     {
+        if (partyInventory == null || playerManager == null)
+        {
+            return;
+        }
         PartyData partyData = new PartyData();
         partyData.PartyInventory = partyInventory.Inventory;
         partyData.Gold = partyInventory.Gold;
 
         //Party characets
         partyData.PartyCharacterData = playerManager.Characters;
-        partyData.ItemDatabase = ItemDatabase.Instance.ToList();
+
+        if (clanManager != null)
+        {
+            partyData.ClanCharacterData = clanManager.SpareCharacterPool;
+        }
+        else
+        {
+            partyData.ClanCharacterData = GetSavedClanData();
+        }
 
         SaveBytesToFile(Application.persistentDataPath + "/save/","partyData.data", SerializeToBytes(partyData));
     }
 
-    public static void LoadPartyData(PartyInventory partyInventory, PlayerManager playerManager)
+    private static List<Character> GetSavedClanData()
     {
+        List<Character> clan = new List<Character>();
+
         var data = ReadBytesFromFile(Application.persistentDataPath + "/save/", "partyData.data");
         if (data != null)
         {
@@ -171,12 +194,71 @@ public class PersistantData
 
             if (partyData.PartyInventory != null && partyData.Gold > 0)
             {
+                clan = partyData.ClanCharacterData;
+                foreach (var character in clan)
+                {
+                    character.Equipment.Character = character;
+                }
+            }
+        }
+
+        return clan;
+    }
+
+    public static void LoadPartyData(PartyInventory partyInventory, PlayerManager playerManager, ClanManager clanManager)
+    {
+        var data = ReadBytesFromFile(Application.persistentDataPath + "/save/", "partyData.data");
+        if (data != null)
+        {
+            PartyData partyData = DeserializeToType<PartyData>(data);
+
+            if (partyInventory != null && partyData.PartyInventory != null && partyData.Gold > 0)
+            {
                 partyInventory.Inventory = partyData.PartyInventory;
                 partyInventory.Gold = partyData.Gold;
-
-                playerManager.Characters = partyData.PartyCharacterData;
-                ItemDatabase.Instance.FromList(partyData.ItemDatabase);
             }
+
+            if (playerManager != null)
+            {
+                playerManager.Characters = partyData.PartyCharacterData;
+                //set character in the characters equipment
+                foreach (var character in playerManager.Characters)
+                {
+                    character.Equipment.Character = character;
+                }
+            }
+
+            if (clanManager != null)
+            {
+                clanManager.SpareCharacterPool = partyData.ClanCharacterData;
+
+                foreach (var character in clanManager.SpareCharacterPool)
+                {
+                    character.Equipment.Character = character;
+                }
+            }
+        }
+    }
+
+    public static void SaveItemDatabase()
+    {
+        ItemData itemData = new ItemData();
+        itemData.ItemDatabase = ItemDatabase.Instance.ToList();
+
+        SaveBytesToFile(Application.persistentDataPath + "/save/", "itemData.data", SerializeToBytes(itemData));
+    }
+
+    public static void LoadItemDatabase()
+    {
+        var data = ReadBytesFromFile(Application.persistentDataPath + "/save/", "itemData.data");
+        if (data != null)
+        {
+            ItemData itemData = DeserializeToType<ItemData>(data);
+            ItemDatabase.Instance.FromList(itemData.ItemDatabase);
+        }
+        else
+        {
+            ItemDatabase.Instance.CreateItems();
         }
     }
 
@@ -195,6 +277,14 @@ public class PersistantData
         var formatter = new BinaryFormatter();
         stream.Seek(0, SeekOrigin.Begin);
         return (T) formatter.Deserialize(stream);
+    }
+
+    public static T DeserializeToType<T>(TextAsset asset)
+    {
+        var stream = new MemoryStream(asset.bytes);
+        var formatter = new BinaryFormatter();
+        stream.Seek(0, SeekOrigin.Begin);
+        return (T)formatter.Deserialize(stream);
     }
 
     public static Byte[] SerializeToBytes<T>(T data)

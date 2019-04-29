@@ -10,6 +10,7 @@ public class WorldManager : MonoBehaviour
 
     private PartyInventory _partyInventory;
     private PlayerManager _playerManager;
+    private ClanManager _clanManager;
 
     private GameObject _playerObject;
 
@@ -23,6 +24,7 @@ public class WorldManager : MonoBehaviour
         _partyInventory = FindObjectOfType<PartyInventory>();
 
         _playerManager = FindObjectOfType<PlayerManager>();
+        _clanManager = FindObjectOfType<ClanManager>();
     }
 
     void Start()
@@ -49,16 +51,20 @@ public class WorldManager : MonoBehaviour
 
     public void SaveWorld()
     {
+        if(ItemDatabase.Instance.HasItems())
+            PersistantData.SaveItemDatabase();
         PersistantData.SaveSceneData(SceneManager.GetActiveScene().name, _playerObject.transform.position,FindObjectsOfType<Shop>());
-        PersistantData.SavePartyData(_partyInventory, _playerManager);
+        PersistantData.SavePartyData(_partyInventory, _playerManager,_clanManager);
     }
 
     public void LoadWorld()
     {
-
+        //load item database
+        if (!ItemDatabase.Instance.HasItems())
+            PersistantData.LoadItemDatabase();
         //Attempt to load Scene
         PersistantData.LoadSceneData(SceneManager.GetActiveScene().name, _playerObject.transform, FindObjectsOfType<Shop>());
         //load party
-        PersistantData.LoadPartyData(_partyInventory,_playerManager);
+        PersistantData.LoadPartyData(_partyInventory, _playerManager, _clanManager);
     }
 }

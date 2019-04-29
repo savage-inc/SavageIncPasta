@@ -12,7 +12,7 @@ public class PartyInventoryUI : MonoBehaviour
     public Text ItemCountText;
 
     private Inventory _inventory;
-    private CharacterEquipment _characterInventory;
+    private CharacterInventoryUI _characterInventoryUI;
 
     // Use this for initialization
     void Awake ()
@@ -20,7 +20,7 @@ public class PartyInventoryUI : MonoBehaviour
         var partyInventory = FindObjectOfType<PartyInventory>();
         _inventory = partyInventory.Inventory;
 
-        _characterInventory = FindObjectOfType<PlayerManager>().Characters[0].Equipment;
+        _characterInventoryUI = FindObjectOfType<CharacterInventoryUI>();
     }
 
     void OnDisable()
@@ -71,10 +71,10 @@ public class PartyInventoryUI : MonoBehaviour
                 itemPanel.GetComponent<Button>().onClick.AddListener(() => itemButton.ConsumeItem());
                 break;
             case ItemType.eARMOUR:
-                itemPanel.GetComponent<Button>().onClick.AddListener(() => itemButton.EquipItem(_characterInventory));
+                itemPanel.GetComponent<Button>().onClick.AddListener(() => itemButton.EquipItem(_characterInventoryUI.GetCharacterEquipment()));
                 break;
             case ItemType.eWEAPON:
-                itemPanel.GetComponent<Button>().onClick.AddListener(() => itemButton.EquipItem(_characterInventory));
+                itemPanel.GetComponent<Button>().onClick.AddListener(() => itemButton.EquipItem(_characterInventoryUI.GetCharacterEquipment()));
                 break;
         }
 

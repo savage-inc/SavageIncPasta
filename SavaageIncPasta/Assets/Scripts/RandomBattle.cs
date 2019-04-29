@@ -20,13 +20,14 @@ public class RandomBattle : MonoBehaviour
 {
     public int MinStepsBeforeBattle;
     public int MaxStepsBeforeBattle;
+    public bool DebugMode = false;
     private readonly System.Random _randNumGenerator = new System.Random();
     private int _battleTriggerCounter;
     private int _stepCounter = 0;
     private bool _isColliding = false;
     private Rigidbody2D _rb;
     private Vector2 _oldPos;
-    private readonly float _range = 2.5f;
+    private readonly float _range = 1.0f;
     private int _totalWeights = 0;
 
     [SerializeField] public List<ListOfEnemies> ListOfEnemyTeams = new List<ListOfEnemies>();
@@ -51,7 +52,7 @@ public class RandomBattle : MonoBehaviour
     void Update()
     {
         //If player takes a step in the battle area then increase step counter
-        if ((_oldPos.sqrMagnitude <= _rb.position.sqrMagnitude - _range || _oldPos.sqrMagnitude >= _rb.position.sqrMagnitude + _range) && _isColliding)
+        if ((_oldPos.magnitude <= _rb.position.magnitude - _range || _oldPos.magnitude >= _rb.position.magnitude + _range) && _isColliding)
         {
             _oldPos = _rb.position;
             _stepCounter++;
@@ -61,6 +62,12 @@ public class RandomBattle : MonoBehaviour
         {
             _battleTriggerCounter = _randNumGenerator.Next(MinStepsBeforeBattle, MaxStepsBeforeBattle + 1);
             _stepCounter = 0;
+
+            if (!FindObjectOfType<PlayerManager>().IsAlive() && !DebugMode)
+            {
+                Debug.LogWarning("Party is dead, can't go into battle");
+                return;
+            }
 
             //Randomise number between 0 and total weights
             //See which enemy the randomised number points to by adding their weights
@@ -81,6 +88,10 @@ public class RandomBattle : MonoBehaviour
                     break;
                 }
             }
+
+            //save player data
+            PersistantData.SavePartyData(FindObjectOfType<PartyInventory>(), FindObjectOfType<PlayerManager>(), FindObjectOfType<ClanManager>());
+
             SceneManager.LoadScene("Battle", LoadSceneMode.Single);
         }
     }

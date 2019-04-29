@@ -1,16 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class ClanManager : MonoBehaviour
 {
     public List<Character> SpareCharacterPool;
-    List<Character> _party;
+    public bool GenerateRandomClanMembers;
 
 
     private void Awake()
     {
-        _party = FindObjectOfType<PlayerManager>().Characters;
+        SpareCharacterPool = new List<Character>();
+        if (GenerateRandomClanMembers)
+        {
+            for (int i = 0; i < 20; i++)
+            {
+                var character = GenerateRandomCharacter.GenerateCharacter();
+                SpareCharacterPool.Add(character);
+            }
+        }
     }
     public void AddCharacter(Character c)
     {
@@ -39,6 +48,5 @@ public class ClanManager : MonoBehaviour
         FindObjectOfType<PlayerManager>().AddCharacter(ClanMember);
         RemoveCharacter(ClanMember);
     }
-
 
 }

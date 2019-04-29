@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿#if (UNITY_EDITOR) 
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -81,6 +83,16 @@ public class EnemyCreator : EditorWindow
         _enemy.Magic = (MagicType)EditorGUILayout.EnumPopup(_enemy.Magic);
         EditorGUILayout.EndHorizontal();
 
+        EditorGUILayout.BeginHorizontal();
+        GUILayout.Label("Enemy Base Damage");
+        _enemy.BaseAttack = EditorGUILayout.IntField(_enemy.BaseAttack);
+        EditorGUILayout.EndHorizontal();
+
+        EditorGUILayout.BeginHorizontal();
+        GUILayout.Label("Enemy Base Armour");
+        _enemy.BaseArmour = EditorGUILayout.IntField(_enemy.BaseArmour);
+        EditorGUILayout.EndHorizontal();
+
         EditorGUILayout.EndVertical();
 
         if (GUILayout.Button("Save to File"))
@@ -97,23 +109,24 @@ public class EnemyCreator : EditorWindow
         _enemy.CurrentHealth = _enemy.MaxHealth;
 
         //create GUID if it doesnt already have one
-        if (_enemy.ID == null)
+        if (_enemy.ID == System.Guid.Empty)
         {
             _enemy.ID = System.Guid.NewGuid();
         }
 
         //serlize 
         var data = PersistantData.SerializeToBytes(_enemy);
-        PersistantData.SaveBytesToFile(Application.dataPath + "/Resources/Data/Enemies/", _enemy.Name, data);
+        PersistantData.SaveBytesToFile(Application.dataPath + "/Resources/Data/Enemies/", _enemy.Name + ".bytes", data);
     }
 
     void LoadEnemy(string name)
     {
         string path = Application.dataPath + "/Resources/Data/Enemies/";
-        if(System.IO.File.Exists(path + name))
+        if(System.IO.File.Exists(path + name + ".bytes"))
         {
-            var data = PersistantData.ReadBytesFromFile(path, name);
+            var data = PersistantData.ReadBytesFromFile(path, name+".bytes");
             _enemy = PersistantData.DeserializeToType<Character>(data);
         }
     }
 }
+#endif

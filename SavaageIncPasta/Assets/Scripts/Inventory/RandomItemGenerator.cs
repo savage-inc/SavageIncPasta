@@ -139,7 +139,7 @@ public class RandomItemGenerator
         //random magic 30 change the item has magic
         if (Random.value <= .3f)
         {
-            weapon.MagicalType = (MagicType) Random.Range(1, 4);
+            weapon.MagicalType = (MagicType)Random.Range(1, 4);
             weapon.MagicalModifier = Random.Range(2, 5);
         }
         else
@@ -166,7 +166,7 @@ public class RandomItemGenerator
 
 
         //decide what type of armour to generate
-        armourItem.ArmourSlotType = (ArmourItemData.SlotType) Random.Range(0, 3);
+        armourItem.ArmourSlotType = (ArmourItemData.SlotType)Random.Range(0, 3);
         armourItem.ArmourType = (ArmourItemData.Type)Random.Range(0, 3);
 
 
