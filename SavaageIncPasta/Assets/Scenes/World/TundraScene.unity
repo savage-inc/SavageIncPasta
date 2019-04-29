@@ -951,7 +951,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneName: WorldScene
-  PositionInNewScene: {x: 0, y: 0}
+  PositionInNewScene: {x: -38, y: -81}
 --- !u!58 &1693219477
 CircleCollider2D:
   m_ObjectHideFlags: 0

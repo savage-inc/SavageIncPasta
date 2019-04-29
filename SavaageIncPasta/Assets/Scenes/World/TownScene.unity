@@ -4020,6 +4020,15 @@ Tilemap:
       m_ObjectToInstantiate: {fileID: 0}
       m_TileFlags: 1
       m_ColliderType: 1
+  - first: {x: -53, y: 7, z: 0}
+    second:
+      m_TileIndex: 23
+      m_TileSpriteIndex: 23
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_ObjectToInstantiate: {fileID: 0}
+      m_TileFlags: 1
+      m_ColliderType: 1
   - first: {x: -17, y: 7, z: 0}
     second:
       m_TileIndex: 22
@@ -9360,7 +9369,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 8fd5997ee6b06194e8fc7d364040d428, type: 2}
   - m_RefCount: 5
     m_Data: {fileID: 11400000, guid: e32a13c75141fb446a544be007a8f684, type: 2}
-  - m_RefCount: 4
+  - m_RefCount: 5
     m_Data: {fileID: 11400000, guid: be57d2578193b2243b8e96bd4e42a638, type: 2}
   - m_RefCount: 48
     m_Data: {fileID: 11400000, guid: b59476b9e8fc5d94bb53d92ea8f8751f, type: 2}
@@ -9425,7 +9434,7 @@ Tilemap:
     m_Data: {fileID: 21301822, guid: 9d91e17fa6254c24582f8178b72d9230, type: 3}
   - m_RefCount: 5
     m_Data: {fileID: 21301602, guid: 9d91e17fa6254c24582f8178b72d9230, type: 3}
-  - m_RefCount: 4
+  - m_RefCount: 5
     m_Data: {fileID: 21301600, guid: 9d91e17fa6254c24582f8178b72d9230, type: 3}
   - m_RefCount: 48
     m_Data: {fileID: 21300562, guid: 9d91e17fa6254c24582f8178b72d9230, type: 3}
@@ -9444,7 +9453,7 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: 21300028, guid: c96e7898f7a6a0e43ab10f244c229a5f, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 1012
+  - m_RefCount: 1013
     m_Data:
       e00: 1
       e01: 0
@@ -9463,7 +9472,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 1012
+  - m_RefCount: 1013
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -9517,7 +9526,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneName: WorldScene
-  PositionInNewScene: {x: 9.5, y: 0}
+  PositionInNewScene: {x: -30, y: -9}
 --- !u!58 &234473611
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -10420,7 +10429,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneName: WorldScene
-  PositionInNewScene: {x: 9.5, y: 0}
+  PositionInNewScene: {x: -53, y: 2}
 --- !u!58 &522459776
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -10478,7 +10487,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneName: WorldScene
-  PositionInNewScene: {x: 9.5, y: 0}
+  PositionInNewScene: {x: -16, y: 5}
 --- !u!58 &822523662
 CircleCollider2D:
   m_ObjectHideFlags: 0
