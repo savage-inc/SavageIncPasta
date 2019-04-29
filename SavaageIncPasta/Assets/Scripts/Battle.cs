@@ -50,7 +50,7 @@ public class Battle : MonoBehaviour
     private int _deadPlayers = 0;
     private bool _selectingCharacter = false;
     private bool _skipFrame = false; //skip frame when selecting character to clear input
-    private int _tempSelectedEnemy;
+    private int _tempSelectedEnemy = 0;
     private bool _debugMode = false;
     private bool _runningAnimation = false;
     private int _selectedAbility = -1;
@@ -67,11 +67,7 @@ public class Battle : MonoBehaviour
         PersistantData.LoadItemDatabase();
         //load party inventory from file
         PersistantData.LoadPartyData(FindObjectOfType<PartyInventory>(), FindObjectOfType<PlayerManager>(), null);
-    }
 
-    // Use this for initialization
-    void Start()
-    {
         if (!_playerManager.IsAlive())
         {
             Debug.LogWarning("Saved party is dead generating a new party (THIS SHOULD NEVER HAPPEN WITHIN THE WORLD)");
@@ -86,8 +82,11 @@ public class Battle : MonoBehaviour
             //load party
             _partyList = _playerManager.Characters;
         }
+    }
 
-
+    // Use this for initialization
+    void Start()
+    {
 
         for (int i = 0; i < Players.Count; i++)
         {
@@ -149,8 +148,6 @@ public class Battle : MonoBehaviour
                 }
             }
         }
-
-        _tempSelectedEnemy = _partyList.Count;
 
         DecideTurnOrder();
         PlaceInColumns();
@@ -1066,7 +1063,7 @@ public class Battle : MonoBehaviour
             magic = weapon.MagicalModifier;
         }
 
-        chanceToHit = (((50.0f + attacker.ClassModifier * 10.0f - defender.BaseArmour * 2.0f + magic) / 100.0f) - attacker.ChanceToHitModifier) * hitModifier;
+        chanceToHit = (((30.0f + attacker.ClassModifier * 10.0f - defender.BaseArmour * 2.0f + magic) / 100.0f) - attacker.ChanceToHitModifier) * hitModifier;
         if (attacker.CurrentAction == ActionChoice.eSecondary)
         {
             chanceToHit *= 0.75f;
@@ -1348,7 +1345,7 @@ public class Battle : MonoBehaviour
     {
         List<BattleCharacter> enemies = new List<BattleCharacter>();
 
-        if (player.Character.Class == ClassType.eWARRIOR && AbilityManager.Instance.GetAbility(ClassType.eWARRIOR,_selectedAbility).AbilityName != "Reckless Charge")
+        if (player.Character.Class == ClassType.eWARRIOR && _selectedAbility != 2)
         {
             int colToAttack = 1;
             bool enemyAvailable = false;
@@ -1457,7 +1454,7 @@ public class Battle : MonoBehaviour
         }
         FindObjectOfType<EventSystem>().enabled = true;
 
-        _battleCharacterList[GetIndexOfCharacter(enemies[_tempSelectedEnemy])].GetComponent<SpriteRenderer>().color = Color.red;
+        _battleCharacterList[GetIndexOfCharacter(enemies[Mathf.Clamp(_tempSelectedEnemy, 0, enemies.Count - 1)])].GetComponent<SpriteRenderer>().color = Color.red;
     }
 
     public BattleCharacter GetCurrentPlayer()
