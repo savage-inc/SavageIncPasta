@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/World/WorldScene.unity
+- path: Assets/Scenes/World/VolcanoScene.unity
   isLoaded: 1
   isActive: 1
