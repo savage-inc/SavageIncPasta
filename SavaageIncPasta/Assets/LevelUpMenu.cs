@@ -11,7 +11,7 @@ public class LevelUpMenu : MonoBehaviour
     private Button[] _buttons = new Button[2];
     private BasicLevelling _levellingManager;
     private Character _levelledUpCharacter;
-    private int _numOptionsForLevel = 0;
+    private int _numOptionsForLevel = 2;
 
     public void LevelledUp()
     {
@@ -64,7 +64,8 @@ public class LevelUpMenu : MonoBehaviour
     {
         if (!_choiceMenu.activeInHierarchy)
         {
-            _buttons[0].GetComponentInChildren<Text>().text = "hello";
+            _buttons[0].GetComponentInChildren<Text>().text = DisplayOptionAText();
+            _buttons[1].GetComponentInChildren<Text>().text = DisplayOptionBText();
             _choiceMenu.SetActive(true);
             Time.timeScale = 0.0f;
             FindObjectOfType<EventSystem>().SetSelectedGameObject(GameObject.Find("Option A"));
@@ -87,7 +88,7 @@ public class LevelUpMenu : MonoBehaviour
                     case ClassType.eWIZARD:
                         return "Meatball";
                     case ClassType.eSHAMAN:
-                        return "Healing Word";
+                        return "Guiding Bolt + Healing Word";
                 }
                 break;
             case 3:
@@ -98,9 +99,9 @@ public class LevelUpMenu : MonoBehaviour
                     case ClassType.eRANGER:
                         return "Agility +1";
                     case ClassType.eWIZARD:
-                        return "Meatball";
+                        return "Intelligence +1";
                     case ClassType.eSHAMAN:
-                        return "Healing Word";
+                        return "Intelligence +1";
                 }
                 break;
             case 4:
@@ -111,9 +112,9 @@ public class LevelUpMenu : MonoBehaviour
                     case ClassType.eRANGER:
                         return "Rapid Strike and Agility +1";
                     case ClassType.eWIZARD:
-                        return "Meatball";
+                        return "Teleport + Ravioli Bomb";
                     case ClassType.eSHAMAN:
-                        return "Healing Word";
+                        return "Death Ward";
                 }
                 break;
             case 5:
@@ -124,14 +125,16 @@ public class LevelUpMenu : MonoBehaviour
                     case ClassType.eRANGER:
                         return "Agility +1 and Split Shot";
                     case ClassType.eWIZARD:
-                        return "Meatball";
+                        return "Intelligence +1 and Spaghetti Whip";
                     case ClassType.eSHAMAN:
-                        return "Healing Word";
+                        return "Shroud of Regeneration";
                 }
                 break;
             default:
-                break;
+                return null;
         }
+
+        return null;
     }
 
     private string DisplayOptionBText()
@@ -150,9 +153,9 @@ public class LevelUpMenu : MonoBehaviour
                         case ClassType.eRANGER:
                             return "Dagger Dagger Dagger";
                         case ClassType.eWIZARD:
-                            return "Meatball";
+                            return "Slow";
                         case ClassType.eSHAMAN:
-                            return "Healing Word";
+                            return "Guiding Bolt + Enhance Defences";
                     }
                     break;
                 case 3:
@@ -163,9 +166,9 @@ public class LevelUpMenu : MonoBehaviour
                         case ClassType.eRANGER:
                             return "Agility +1";
                         case ClassType.eWIZARD:
-                            return "Meatball";
+                            return "Intelligence +1";
                         case ClassType.eSHAMAN:
-                            return "Healing Word";
+                            return "Intelligence +1";
                     }
                     break;
                 case 4:
@@ -176,9 +179,9 @@ public class LevelUpMenu : MonoBehaviour
                         case ClassType.eRANGER:
                             return "Sneak Attack";
                         case ClassType.eWIZARD:
-                            return "Meatball";
+                            return "Teleport + Flour Attack";
                         case ClassType.eSHAMAN:
-                            return "Healing Word";
+                            return "Resistance Rebuke";
                     }
                     break;
                 case 5:
@@ -187,16 +190,18 @@ public class LevelUpMenu : MonoBehaviour
                         case ClassType.eWARRIOR:
                             return "Penne Storm and Strength +1";
                         case ClassType.eRANGER:
-                            return "Keen Eye";
+                            return "Agility +1 and Split Shot";
                         case ClassType.eWIZARD:
-                            return "Meatball";
+                            return "Intelligence +1 and Spaghetti Whip";
                         case ClassType.eSHAMAN:
-                            return "Healing Word";
+                            return "Shroud of Regeneration";
                     }
                     break;
                 default:
-                    break;
+                    return null;
             }
         }
+
+        return null;
     }
 }

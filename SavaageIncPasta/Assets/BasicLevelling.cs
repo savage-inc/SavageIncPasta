@@ -32,11 +32,11 @@ public class BasicLevelling : MonoBehaviour
 
     public void CheckLevels()
     {
-        _characters[2].Experience += 20;
+        //_characters[2].Experience += 20;
 
         foreach (Character character in _characters)
         {
-            //character.Experience += 20;
+            character.Experience += 20;
             //int xpNeededForNextLevel = 11 * (character.Level * character.Level) + 30;
             int xpNeededForNextLevel = 19;
 
