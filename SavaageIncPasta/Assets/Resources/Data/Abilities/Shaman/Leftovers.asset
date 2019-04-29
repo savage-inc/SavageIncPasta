@@ -20,3 +20,4 @@ MonoBehaviour:
   _target: 1
   _tree: 1
   _id: 1
+  _projectile: {fileID: 0}

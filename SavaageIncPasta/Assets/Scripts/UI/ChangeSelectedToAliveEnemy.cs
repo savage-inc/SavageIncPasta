@@ -13,11 +13,13 @@ public class ChangeSelectedToAliveEnemy : MonoBehaviour {
         _battle = FindObjectOfType<Battle>();
     }
 
-    public void ChangeSelected(int abilityID)
+    public void ChangeSelected()
     {
         if (_battle != null)
         {
-            if (abilityID == 0)
+            var abilityButton = GetComponent<AbilltyButton>();
+
+            if (abilityButton == null)
             {
                 _eventSystem.SetSelectedGameObject(_battle.GetFirstAliveEnemy().gameObject);
             }
@@ -25,7 +27,7 @@ public class ChangeSelectedToAliveEnemy : MonoBehaviour {
             {
                 //get current selectedcharacter
                 var player = _battle.GetCurrentPlayer();
-                var ability = AbilityManager.Instance.GetAbility(player.Character.Class, abilityID);
+                var ability = abilityButton.Ability;
 
                 if (ability.RequiresTarget)
                 {

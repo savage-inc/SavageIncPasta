@@ -21,9 +21,6 @@ public class ManaBar : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        ImgManaBar.transform.position = new Vector2(c.transform.position.x, c.transform.position.y + .5f);
-        TxtMana.transform.position = new Vector2(c.transform.position.x, c.transform.position.y + .5f);
-
         _percentage = (float)c.Character.CurrentMana / (float)c.Character.MaxMana;
         ImgManaBar.fillAmount = _percentage;
         TxtMana.text = c.Character.CurrentMana.ToString() + "/" + c.Character.MaxMana.ToString();
