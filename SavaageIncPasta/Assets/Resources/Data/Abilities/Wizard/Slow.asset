@@ -15,7 +15,7 @@ MonoBehaviour:
   _abilityName: Slow
   _abilityDescription: Slows an enemy down, making them only able to use one action
     on their next turn.
-  _manaCost: 0
+  _manaCost: 3
   _level: 2
   _class: 2
   _target: 1

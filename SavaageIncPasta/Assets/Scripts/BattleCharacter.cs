@@ -35,6 +35,10 @@ public class BattleCharacter : MonoBehaviour {
         
     private void Awake()
     {
+
+    }
+    // Use this for initialization
+    void Start () {
         switch (Character.Class)
         {
             case ClassType.eWARRIOR:
@@ -52,9 +56,6 @@ public class BattleCharacter : MonoBehaviour {
                 break;
         }
 
-    }
-    // Use this for initialization
-    void Start () {
         GetComponent<SpriteRenderer>().sprite = FindObjectOfType<SpriteManager>().GetSprite(Character.SpritePreviewName);
     }
 
@@ -75,6 +76,16 @@ public class BattleCharacter : MonoBehaviour {
         yield return StartCoroutine(MoveTo(start, 5.0f));
     }
 
+    public IEnumerator FireProjectile(GameObject projectile, Vector2 target, float speed)
+    {
+        //instantiate projectile if it has one
+        if(projectile != null)
+        {
+            GameObject gameProjectile = Instantiate(projectile, new Vector3(transform.position.x,transform.position.y,0),Quaternion.identity);
+            yield return StartCoroutine(MoveTo(gameProjectile.transform, target, speed));
+            Destroy(gameProjectile);
+        }
+    }
 
 
     IEnumerator MoveTo(Vector2 target, float speed)
@@ -89,6 +100,22 @@ public class BattleCharacter : MonoBehaviour {
             t += Time.deltaTime;
             transform.position = Vector2.Lerp(start, end, t * speed);
             distance = Vector2.Distance(transform.position, end);
+            yield return null;
+        }
+    }
+
+    IEnumerator MoveTo(Transform gameobject ,Vector2 target, float speed)
+    {
+        float t = 0.0f;
+        Vector2 start = gameobject.position;
+        Vector2 end = target;
+
+        float distance = Vector3.Distance(start, end);
+        while (distance >= 0.05f)
+        {
+            t += Time.deltaTime;
+            gameobject.position = Vector2.Lerp(start, end, t * speed);
+            distance = Vector2.Distance(gameobject.position, end);
             yield return null;
         }
     }

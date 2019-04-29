@@ -41,6 +41,8 @@ public class Battle : MonoBehaviour
     public List<GameObject> EnemyHealthBars = new List<GameObject>();
     public List<GameObject> PlayerParticles = new List<GameObject>();
     public List<GameObject> EnemyParticles = new List<GameObject>();
+    public GameObject ArrowPrefab;
+    public GameObject SpellPrefab;
 
     public GameObject FirstSelected;
 
@@ -48,9 +50,10 @@ public class Battle : MonoBehaviour
     private int _deadPlayers = 0;
     private bool _selectingCharacter = false;
     private bool _skipFrame = false; //skip frame when selecting character to clear input
-    private int _tempSelectedEnemy;
+    private int _tempSelectedEnemy = 0;
     private bool _debugMode = false;
     private bool _runningAnimation = false;
+    private int _selectedAbility = -1;
 
     private EventSystem _eventSystem;
     private PlayerManager _playerManager;
@@ -64,11 +67,7 @@ public class Battle : MonoBehaviour
         PersistantData.LoadItemDatabase();
         //load party inventory from file
         PersistantData.LoadPartyData(FindObjectOfType<PartyInventory>(), FindObjectOfType<PlayerManager>(), null);
-    }
 
-    // Use this for initialization
-    void Start()
-    {
         if (!_playerManager.IsAlive())
         {
             Debug.LogWarning("Saved party is dead generating a new party (THIS SHOULD NEVER HAPPEN WITHIN THE WORLD)");
@@ -83,8 +82,11 @@ public class Battle : MonoBehaviour
             //load party
             _partyList = _playerManager.Characters;
         }
+    }
 
-
+    // Use this for initialization
+    void Start()
+    {
 
         for (int i = 0; i < Players.Count; i++)
         {
@@ -147,11 +149,10 @@ public class Battle : MonoBehaviour
             }
         }
 
-        _tempSelectedEnemy = _partyList.Count;
-
         DecideTurnOrder();
         PlaceInColumns();
 
+        IncreasePartyMana(100);
     }
 
     //Save the game on destroy (Scene change)
@@ -183,6 +184,7 @@ public class Battle : MonoBehaviour
         {
             DecideTurnOrder();
             _currentCharacterIndex = 0;
+            IncreasePartyMana(5);
         }
 
         //Set selected player to magenta
@@ -190,6 +192,12 @@ public class Battle : MonoBehaviour
 
         //select enemy
         SelectEnemyState();
+        if (_skipFrame)
+        {
+            _skipFrame = false;
+            return;
+        }
+        SetAbilityButtons();
 
         while (!_battleCharacterList[_characterTurnOrder[_currentCharacterIndex]].Character.Alive)
         {
@@ -799,15 +807,34 @@ public class Battle : MonoBehaviour
             {
                 DealDamage(attacker.Intelligence);
 
-                do
+                //get alive enemies
+                var aliveEnemies = GetAliveEnemies();
+                if(aliveEnemies.Count > 1)
                 {
-                    _targettedCharacterIndex = Random.Range(0, _battleCharacterList.Count);
-                } while (_battleCharacterList[_targettedCharacterIndex].Character.Player);
+                    int firstEnemyIndex = _targettedCharacterIndex;
 
-                if (hitChance())
-                {
-                    DealDamage(attacker.Intelligence);
+                    foreach (var aliveEnemy in aliveEnemies)
+                    {
+                        if(aliveEnemy != _battleCharacterList[firstEnemyIndex])
+                        {
+                            _targettedCharacterIndex = GetIndexOfCharacter(aliveEnemy);
+                            DealDamage(attacker.Intelligence);
+                            break;
+                        }
+                    }
                 }
+
+                //if (_deadEnemies <= _enemyList.Count - 1)
+                //{
+                //    int firstEnemyIndex = _targettedCharacterIndex;
+                //    do
+                //    {
+                //        _targettedCharacterIndex = Random.Range(0, _battleCharacterList.Count);
+                //    } while (_targettedCharacterIndex == firstEnemyIndex || !_battleCharacterList[_targettedCharacterIndex].Character.Alive && _battleCharacterList[_targettedCharacterIndex].Character.Player);
+
+
+                //    DealDamage(attacker.Intelligence);
+                //}
             }
             attacker.ChangeMana(-3);
             EndTurn();
@@ -1036,7 +1063,7 @@ public class Battle : MonoBehaviour
             magic = weapon.MagicalModifier;
         }
 
-        chanceToHit = (((50.0f + attacker.ClassModifier * 10.0f - defender.BaseArmour * 2.0f + magic) / 100.0f) - attacker.ChanceToHitModifier) * hitModifier;
+        chanceToHit = (((30.0f + attacker.ClassModifier * 10.0f - defender.BaseArmour * 2.0f + magic) / 100.0f) - attacker.ChanceToHitModifier) * hitModifier;
         if (attacker.CurrentAction == ActionChoice.eSecondary)
         {
             chanceToHit *= 0.75f;
@@ -1066,18 +1093,63 @@ public class Battle : MonoBehaviour
         int targetIndex = _targettedCharacterIndex;
         int currentCharacter = _characterTurnOrder[_currentCharacterIndex];
 
-        //play animation
-        Vector2 target = _battleCharacterList[targetIndex].transform.position;
-        Vector2 start = _battleCharacterList[currentCharacter].transform.position;
-        _runningAnimation = true;
-        yield return _battleCharacterList[currentCharacter].MoveToAnimation(target,1.0f);
+        //get ability used if any
+        AbilityData ability = null;
+        if(_selectedAbility >= 0)
+        {
+            ability = AbilityManager.Instance.GetAbility(_battleCharacterList[currentCharacter].Character.Class, _selectedAbility);
+        }
 
-        _battleCharacterList[targetIndex].DamageTaken += damage;
-        _battleCharacterList[targetIndex].Character.ChangeHealth(-damage);
+        //play animations
+        //ability animations
+        if (ability != null && ability.Projectile != null)
+        {
+            _runningAnimation = true;
+            //fire projectile animation
+            Vector2 target = _battleCharacterList[targetIndex].transform.position;
 
-        //return back to start pos
-        yield return _battleCharacterList[currentCharacter].MoveToAnimation(start,1.0f);
-        _runningAnimation = false;
+            yield return StartCoroutine(_battleCharacterList[currentCharacter].FireProjectile(ability.Projectile, target, 1.0f));
+            _battleCharacterList[targetIndex].DamageTaken += damage;
+            _battleCharacterList[targetIndex].Character.ChangeHealth(-damage);
+            _runningAnimation = false;
+        }
+        else if(_battleCharacterList[currentCharacter].Character.Class == ClassType.eRANGER)
+        {
+            _runningAnimation = true;
+            //fire projectile animation
+            Vector2 target = _battleCharacterList[targetIndex].transform.position;
+
+            yield return StartCoroutine(_battleCharacterList[currentCharacter].FireProjectile(ArrowPrefab, target, 1.0f));
+            _battleCharacterList[targetIndex].DamageTaken += damage;
+            _battleCharacterList[targetIndex].Character.ChangeHealth(-damage);
+            _runningAnimation = false;
+        }
+        else if (_battleCharacterList[currentCharacter].Character.Class == ClassType.eWIZARD)
+        {
+            _runningAnimation = true;
+            //fire projectile animation
+            Vector2 target = _battleCharacterList[targetIndex].transform.position;
+
+            yield return StartCoroutine(_battleCharacterList[currentCharacter].FireProjectile(SpellPrefab, target, 1.0f));
+            _battleCharacterList[targetIndex].DamageTaken += damage;
+            _battleCharacterList[targetIndex].Character.ChangeHealth(-damage);
+            _runningAnimation = false;
+        }
+        else
+        {
+            //mellee animation
+            Vector2 target = _battleCharacterList[targetIndex].transform.position;
+            Vector2 start = _battleCharacterList[currentCharacter].transform.position;
+            _runningAnimation = true;
+            yield return _battleCharacterList[currentCharacter].MoveToAnimation(target, 1.0f);
+
+            _battleCharacterList[targetIndex].DamageTaken += damage;
+            _battleCharacterList[targetIndex].Character.ChangeHealth(-damage);
+
+            //return back to start pos
+            yield return _battleCharacterList[currentCharacter].MoveToAnimation(start, 1.0f);
+            _runningAnimation = false;
+        }
 
         if (!_battleCharacterList[targetIndex].Character.Alive)
         {
@@ -1128,6 +1200,7 @@ public class Battle : MonoBehaviour
     void Move(BattleCharacter mover)
     {
         _eventSystem.SetSelectedGameObject(null, null);
+
         //move left
         if (Input.GetAxis("Horizontal") > 0.0f)
         {
@@ -1204,6 +1277,7 @@ public class Battle : MonoBehaviour
 
     public void SetTurnOption(int turnOption)
     {
+        _selectedAbility = -1;
         _skipFrame = true;
         _optionChosen = (TurnOption)turnOption;
 
@@ -1216,31 +1290,33 @@ public class Battle : MonoBehaviour
             else
             {
                 //option must be an ability, we need to check if the ability selected requires a targer
+                BattleCharacter currentCharacter = _battleCharacterList[_characterTurnOrder[_currentCharacterIndex]];
                 int abilityID = 1;
                 switch (_optionChosen)
                 {
                     case TurnOption.eAbility1:
-                        abilityID = 1;
+                        abilityID = currentCharacter.Character.Abilities[0];
                         break;
                     case TurnOption.eAbility2:
-                        abilityID = 2;
+                        abilityID = currentCharacter.Character.Abilities[1]; ;
                         break;
                     case TurnOption.eAbility3:
-                        abilityID = 3;
+                        abilityID = currentCharacter.Character.Abilities[2]; ;
                         break;
                     case TurnOption.eAbility4:
-                        abilityID = 4;
+                        abilityID = currentCharacter.Character.Abilities[3]; ;
                         break;
                     case TurnOption.eAbility5:
-                        abilityID = 5;
+                        abilityID = currentCharacter.Character.Abilities[4]; ;
                         break;
                     case TurnOption.eAbility6:
-                        abilityID = 6;
+                        abilityID = currentCharacter.Character.Abilities[5]; ;
                         break;
                     case TurnOption.eAbility7:
-                        abilityID = 7;
+                        abilityID = currentCharacter.Character.Abilities[6]; ;
                         break;
                 }
+                _selectedAbility = abilityID;
                 //If the current players selected ability requires a target then enter select character state
                 if (AbilityManager.Instance.GetAbility(GetCurrentPlayer().Character.Class, abilityID).RequiresTarget)
                 {
@@ -1269,11 +1345,11 @@ public class Battle : MonoBehaviour
     {
         List<BattleCharacter> enemies = new List<BattleCharacter>();
 
-        if (player.Character.Class == ClassType.eWARRIOR)
+        if (player.Character.Class == ClassType.eWARRIOR && _selectedAbility != 2)
         {
             int colToAttack = 1;
-            bool enemyAvalible = false;
-            while (!enemyAvalible && colToAttack <= 3)
+            bool enemyAvailable = false;
+            while (!enemyAvailable && colToAttack <= 3)
             {
                 for (int i = 0; i < _battleCharacterList.Count; i++)
                 {
@@ -1281,11 +1357,12 @@ public class Battle : MonoBehaviour
                     {
                         if (!_battleCharacterList[i].Character.Player)
                         {
-                            enemyAvalible = true;
+                            enemyAvailable = true;
+                            enemies.Add(_battleCharacterList[i]);
                         }
                     }
                 }
-                if (!enemyAvalible)
+                if (!enemyAvailable)
                 {
                     colToAttack++;
                 }
@@ -1334,7 +1411,7 @@ public class Battle : MonoBehaviour
         }
 
 
-        var enemies = GetSelectableEnemiesFromPlayer(_battleCharacterList[_currentCharacterIndex]);
+        var enemies = GetSelectableEnemiesFromPlayer(_battleCharacterList[_characterTurnOrder[_currentCharacterIndex]]);
 
         for (int i = _partyList.Count; i < _battleCharacterList.Count; i++)
         {
@@ -1344,7 +1421,8 @@ public class Battle : MonoBehaviour
 
         if (Input.GetButtonDown("A"))
         {
-            SetTargettedCharacter(_tempSelectedEnemy);
+            _skipFrame = true;
+            SetTargettedCharacter(GetIndexOfCharacter(enemies[_tempSelectedEnemy]));
         }
 
         //move up
@@ -1352,7 +1430,7 @@ public class Battle : MonoBehaviour
         {
             if (_axisInUse == false)
             {
-                _tempSelectedEnemy = Mathf.Clamp(_tempSelectedEnemy + 1, 0, _battleCharacterList.Count - 1);
+                _tempSelectedEnemy = Mathf.Clamp(_tempSelectedEnemy + 1, 0, enemies.Count - 1);
                 _axisInUse = true;
             }
         }
@@ -1366,7 +1444,7 @@ public class Battle : MonoBehaviour
         {
             if (_axisInUse == false)
             {
-                _tempSelectedEnemy = Mathf.Clamp(_tempSelectedEnemy - 1, 0, _battleCharacterList.Count - 1);
+                _tempSelectedEnemy = Mathf.Clamp(_tempSelectedEnemy - 1, 0, enemies.Count - 1);
                 _axisInUse = true;
             }
         }
@@ -1376,7 +1454,7 @@ public class Battle : MonoBehaviour
         }
         FindObjectOfType<EventSystem>().enabled = true;
 
-        _battleCharacterList[_tempSelectedEnemy].GetComponent<SpriteRenderer>().color = Color.red;
+        _battleCharacterList[GetIndexOfCharacter(enemies[Mathf.Clamp(_tempSelectedEnemy, 0, enemies.Count - 1)])].GetComponent<SpriteRenderer>().color = Color.red;
     }
 
     public BattleCharacter GetCurrentPlayer()
@@ -1396,10 +1474,57 @@ public class Battle : MonoBehaviour
         return false;
     }
 
+    int GetIndexOfCharacter(BattleCharacter character)
+    {
+        for (int i = 0; i < _battleCharacterList.Count; i++)
+        {
+            if(_battleCharacterList[i] == character)
+            {
+                return i;
+            }
+        }
+        return 0;
+    }
+    List<BattleCharacter> GetAliveEnemies()
+    {
+        List<BattleCharacter> enemies = new List<BattleCharacter>();
+        foreach (var enemy in Enemies)
+        {
+            if (enemy != null && enemy.Character.Alive)
+            {
+                enemies.Add(enemy);
+            }
+        }
+        return enemies;
+    }
+
     IEnumerator skipFrame()
     {
         yield return new WaitForSeconds(1);
     }
+        
+    void IncreasePartyMana(int amount)
+    {
+        foreach (var player in Players)
+        {
+            if(player != null && player.Character.Alive)
+            {
+                player.Character.ChangeMana(amount);
+            }
+        }
+    }
 
+    void SetAbilityButtons()
+    {
+        var player = _battleCharacterList[_characterTurnOrder[_currentCharacterIndex]];
+        if (player != null && player.Character.Player)
+        {
+            //get abiliies
+            for (int j = 0; j < player.Character.Abilities.Count; j++)
+            {
+                abilityButtons[j].GetComponent<AbilltyButton>().Ability = AbilityManager.Instance.GetAbility(player.Character.Class, player.Character.Abilities[j]);
+            }
+        }
+    }
 }
 

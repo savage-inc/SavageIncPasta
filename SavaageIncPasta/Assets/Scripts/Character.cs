@@ -32,7 +32,7 @@ public class Character
     public int CurrCol = 1;
     public int MaxMana;
     public int CurrentMana;
-    public List<int> Abilities = new List<int>() { 1 };
+    public List<int> Abilities = new List<int>() { 1,2,3,4,5,6,7 };
 
     public int GoldDrop = 5;
     public int Experience = 0;
@@ -49,30 +49,19 @@ public class Character
 
     public void ChangeHealth(int health)
     {
-        CurrentHealth += health;
-
-        if (CurrentHealth <= 0)
+        CurrentHealth = Mathf.Clamp(CurrentHealth + health, 0, MaxHealth);
+        if(CurrentHealth <= 0)
         {
-            CurrentHealth = 0;
             Alive = false;
         }
-        else if (CurrentHealth > MaxHealth)
+        else
         {
-            CurrentHealth = MaxHealth;
+            Alive = true;
         }
     }
 
     public void ChangeMana(int mana)
     {
-        CurrentMana += mana;
-
-        if (CurrentMana <= 0)
-        {
-            CurrentHealth = 0;
-        }
-        else if (CurrentMana > MaxMana)
-        {
-            CurrentMana = MaxMana;
-        }
+        CurrentMana = Mathf.Clamp(CurrentMana + mana, 0, MaxMana);
     }
 }

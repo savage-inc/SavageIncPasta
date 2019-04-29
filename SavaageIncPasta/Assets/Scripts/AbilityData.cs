@@ -24,6 +24,8 @@ public class AbilityData : ScriptableObject
     private int _tree = 1;
     [SerializeField]
     private int _id = 1;
+    [SerializeField]
+    private GameObject _projectile;
 
     public Sprite Sprite
     {
@@ -94,6 +96,14 @@ public class AbilityData : ScriptableObject
         get
         {
             return _id;
+        }
+    }
+
+    public GameObject Projectile
+    {
+        get
+        {
+            return _projectile;
         }
     }
 }

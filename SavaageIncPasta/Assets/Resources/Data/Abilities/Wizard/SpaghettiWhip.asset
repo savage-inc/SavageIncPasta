@@ -15,9 +15,11 @@ MonoBehaviour:
   _abilityName: Spaghetti Whip
   _abilityDescription: Use spaghetti as a whip to deal extra damage to the whole enemy
     team.
-  _manaCost: 0
+  _manaCost: 11
   _level: 5
   _class: 2
   _target: 0
   _tree: 1
   _id: 7
+  _projectile: {fileID: 1219463085248596, guid: 10e4233b3313afc4798f9439a38575c2,
+    type: 2}

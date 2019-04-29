@@ -14,9 +14,10 @@ MonoBehaviour:
   _sprite: {fileID: 0}
   _abilityName: Leftovers
   _abilityDescription: Throw some leftovers to heal an ally.
-  _manaCost: 0
+  _manaCost: 1
   _level: 1
   _class: 3
   _target: 1
   _tree: 1
   _id: 1
+  _projectile: {fileID: 0}

@@ -14,9 +14,9 @@ MonoBehaviour:
   _sprite: {fileID: 0}
   _abilityName: Spice Up
   _abilityDescription: Buff a single ally to give increased damage to next attack.
-  _manaCost: 0
-  _level: 1
+  _manaCost: 3
+  _level: 2
   _class: 3
   _target: 1
-  _path: 1
+  _tree: 1
   _id: 3

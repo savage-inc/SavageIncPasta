@@ -50,7 +50,7 @@ public class EnemyTeamCreator : EditorWindow
     {
         string path = Application.dataPath + "/Resources/Data/Enemies";
         var data = PersistantData.SerializeToBytes(_teamList);
-        PersistantData.SaveBytesToFile(Application.dataPath + "/Resources/Data/Enemies/", "Teams", data);
+        PersistantData.SaveBytesToFile(Application.dataPath + "/Resources/Data/Enemies/", "Teams.bytes", data);
     }
 }
 #endif
