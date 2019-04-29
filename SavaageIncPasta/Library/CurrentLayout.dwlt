@@ -20,7 +20,11 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 6}
+<<<<<<< HEAD
   m_MinSize: {x: 950, y: 392}
+=======
+  m_MinSize: {x: 950, y: 542}
+>>>>>>> Combat
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -42,8 +46,13 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 1067
+<<<<<<< HEAD
   m_MinSize: {x: 679, y: 342}
   m_MaxSize: {x: 12004, y: 8042}
+=======
+  m_MinSize: {x: 683, y: 492}
+  m_MaxSize: {x: 14004, y: 14042}
+>>>>>>> Combat
   vertical: 0
   controlID: 9
 --- !u!114 &3
@@ -89,8 +98,8 @@ MonoBehaviour:
     y: 0
     width: 379
     height: 645
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -114,14 +123,14 @@ MonoBehaviour:
     y: 645
     width: 1531
     height: 422
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 18}
+  m_MinSize: {x: 232, y: 271}
+  m_MaxSize: {x: 10002, y: 10021}
+  m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
   - {fileID: 18}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -206,8 +215,13 @@ MonoBehaviour:
     y: 0
     width: 1531
     height: 1067
+<<<<<<< HEAD
   m_MinSize: {x: 404, y: 342}
   m_MaxSize: {x: 8004, y: 8042}
+=======
+  m_MinSize: {x: 406, y: 492}
+  m_MaxSize: {x: 10002, y: 14042}
+>>>>>>> Combat
   vertical: 1
   controlID: 10
 --- !u!114 &10
@@ -230,8 +244,8 @@ MonoBehaviour:
     y: 0
     width: 1531
     height: 645
-  m_MinSize: {x: 404, y: 221}
-  m_MaxSize: {x: 8004, y: 4021}
+  m_MinSize: {x: 406, y: 221}
+  m_MaxSize: {x: 8006, y: 4021}
   vertical: 0
   controlID: 11
 --- !u!114 &11
@@ -327,19 +341,26 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Scripts
+    - Assets/Scenes
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\t7042361\Source\SavageIncPasta\SavaageIncPasta
   m_IsLocked: 0
   m_FolderTreeState:
+<<<<<<< HEAD
     scrollPos: {x: 0, y: 320}
     m_SelectedIDs: 54330000
     m_LastClickedID: 13140
     m_ExpandedIDs: 000000006e30000072300000e23000001a31000070320000ee320000543300008033000092330000d03300006e3c00008c3c0000da3c0000f43c00005e3d0000e43d0000343e000000ca9a3bffffff7f
+=======
+    scrollPos: {x: 0, y: 112}
+    m_SelectedIDs: c2360000
+    m_LastClickedID: 14018
+    m_ExpandedIDs: 00000000102a0000142a00007e2a0000ba2a0000a02c0000aa2c00000a2d0000462d0000482d0000822d00004a36000068360000c2360000de360000463700002038000000ca9a3bffffff7f
+>>>>>>> Combat
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -367,7 +388,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< HEAD
     m_ExpandedIDs: 000000006e30000072300000e23000001a31000070320000ee320000543300008033000092330000d03300006e3c00008c3c0000da3c0000f43c00005e3d0000e43d0000343e0000
+=======
+    m_ExpandedIDs: 00000000102a0000142a00007e2a0000ba2a0000a02c0000aa2c00000a2d0000462d0000482d0000822d00004a36000068360000c2360000de3600004637000020380000
+>>>>>>> Combat
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -392,8 +417,13 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
+<<<<<<< HEAD
     m_SelectedInstanceIDs: 0cad0000
     m_LastClickedInstanceID: 44300
+=======
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
+>>>>>>> Combat
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
@@ -485,9 +515,15 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
     m_SelectedIDs: 
     m_LastClickedID: 0
     m_ExpandedIDs: 5a7dfeffa49bfeff60a9feff6aa9feff6e24ffffe231ffff563affff905bffff90f8ffff00000000984500002e7c0000a08c00000a900000a8a60000
+=======
+    m_SelectedIDs: 98370000
+    m_LastClickedID: 0
+    m_ExpandedIDs: 24b8ffff46d3ffff86d8ffff7efbffff00000000d655000032560000
+>>>>>>> Combat
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -543,9 +579,15 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
+<<<<<<< HEAD
     m_Target: {x: 11.478827, y: 29.980413, z: -1.34375}
     speed: 2
     m_Value: {x: 11.478827, y: 29.980413, z: -1.34375}
+=======
+    m_Target: {x: 483.16348, y: 285.00427, z: -1.625}
+    speed: 2
+    m_Value: {x: 483.16348, y: 285.00427, z: -1.625}
+>>>>>>> Combat
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
