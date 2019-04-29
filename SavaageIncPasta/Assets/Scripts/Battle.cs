@@ -90,7 +90,7 @@ public class Battle : MonoBehaviour
 
         for (int i = 0; i < Players.Count; i++)
         {
-            if (Players[i].Character != null)
+            if (Players[i].Character != null && i < _partyList.Count && _partyList[i] != null)
             {
                 Players[i].Character = _partyList[i];
                 _battleCharacterList.Add(Players[i]);
