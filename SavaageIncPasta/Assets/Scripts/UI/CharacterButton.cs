@@ -16,6 +16,7 @@ public class CharacterButton : MonoBehaviour
     public GameObject ColumnConroller;
 
     private ClanManager _clanManager;
+    private PlayerManager _playerManager;
     private EventSystem _eventSystem;
 
     private void OnDisable()
@@ -34,10 +35,18 @@ public class CharacterButton : MonoBehaviour
     private void Awake()
     {
         var playerManager = FindObjectOfType<PlayerManager>();
-        Character = playerManager.Characters[CharacterIndex];
-        //set sprite
-        transform.GetChild(0).GetComponent<Image>().sprite = FindObjectOfType<SpriteManager>().GetSprite(Character.SpritePreviewName);
 
+        if (CharacterIndex < playerManager.Characters.Count)
+        {
+            Character = playerManager.Characters[CharacterIndex];
+            //set sprite
+            transform.GetChild(0).GetComponent<Image>().sprite = FindObjectOfType<SpriteManager>().GetSprite(Character.SpritePreviewName);
+            transform.GetChild(0).GetComponent<Image>().enabled = true;
+        }
+        else
+        {
+            transform.GetChild(0).GetComponent<Image>().enabled = false;
+        }
         _clanManager = FindObjectOfType<ClanManager>();
         _eventSystem = FindObjectOfType<EventSystem>();
 
@@ -45,7 +54,10 @@ public class CharacterButton : MonoBehaviour
 
     private void Update()
     {
-        Character = FindObjectOfType<PlayerManager>().Characters[CharacterIndex];
+        if (_playerManager != null && CharacterIndex < _playerManager.Characters.Count)
+        {
+            Character = FindObjectOfType<PlayerManager>().Characters[CharacterIndex];
+        }
     }
 
     public void ShowButtons()

@@ -104,15 +104,18 @@ public class PersistantData
         sceneData.ShopData = new List<ShopData>();
         foreach (var shop in shops)
         {
-            ShopData shopData;
-            shopData.ID = shop.gameObject.GetComponent<GameObjectGUID>().GameObjectID;
-            shopData.Items = new Dictionary<string, int>();
-            foreach (var item in shop.Inventory.GetItems())
+            if (shop.Inventory != null)
             {
-                shopData.Items.Add(item.Item.DatabaseName,item.Amount);
+                ShopData shopData;
+                shopData.ID = shop.gameObject.GetComponent<GameObjectGUID>().GameObjectID;
+                shopData.Items = new Dictionary<string, int>();
+                foreach (var item in shop.Inventory.GetItems())
+                {
+                    shopData.Items.Add(item.Item.DatabaseName, item.Amount);
+                }
+                //Add shop to scenedata
+                sceneData.ShopData.Add(shopData);
             }
-            //Add shop to scenedata
-            sceneData.ShopData.Add(shopData);
         }
 
 

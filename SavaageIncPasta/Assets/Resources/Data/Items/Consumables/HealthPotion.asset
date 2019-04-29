@@ -17,6 +17,6 @@ MonoBehaviour:
   _baseMoneyValue: 2
   _previewSprite: {fileID: 21300000, guid: 035c4b0b7d7532b4a8f742690aa47d39, type: 3}
   _rarity: 0
-  _stackSize: 99
+  _stackSize: 2147483647
   _consumableType: 0
   _effectAmount: 25

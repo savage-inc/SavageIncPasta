@@ -18,6 +18,7 @@ public class Shop : MonoBehaviour
     public float PriceModfier = 1.0f;
     //How long should the shop restock since last visit (In minutes)
     public float RestockTime = 1.0f;
+    public bool InfinateStock = false;
 
     public bool RandomWeapons = false;
     public bool RandomArmour = false;
@@ -36,11 +37,11 @@ public class Shop : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other)
     {
-        if (Input.GetButtonDown("X"))
+        if (Input.GetButtonDown("A"))
         {
             if (!ShopUI.gameObject.activeInHierarchy)
             {
-                ShowShop();
+                StartCoroutine(showShop());
             }
             else
             {
@@ -52,6 +53,13 @@ public class Shop : MonoBehaviour
     void OnTriggerExit2D(Collider2D other)
     {
         CloseShop();
+    }
+
+
+    IEnumerator showShop()
+    {
+        yield return new WaitForEndOfFrame();
+        ShowShop();
     }
 
     public void ShowShop()
@@ -94,7 +102,10 @@ public class Shop : MonoBehaviour
             _partyInventory.Gold -= actualPrice;
             _partyInventory.Inventory.AddItem(item);
 
-            Inventory.RemoveItem(item.Name);
+            if (!InfinateStock)
+            {
+                Inventory.RemoveItem(item.Name);
+            }
         }
     }
 

@@ -1588,6 +1588,48 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1001 &503225214
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4438322326799456, guid: 00c967df75bbc2042a1466031307e0b0, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4438322326799456, guid: 00c967df75bbc2042a1466031307e0b0, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4438322326799456, guid: 00c967df75bbc2042a1466031307e0b0, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4438322326799456, guid: 00c967df75bbc2042a1466031307e0b0, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4438322326799456, guid: 00c967df75bbc2042a1466031307e0b0, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4438322326799456, guid: 00c967df75bbc2042a1466031307e0b0, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4438322326799456, guid: 00c967df75bbc2042a1466031307e0b0, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4438322326799456, guid: 00c967df75bbc2042a1466031307e0b0, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 00c967df75bbc2042a1466031307e0b0, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &508507133
 GameObject:
   m_ObjectHideFlags: 0
@@ -1650,10 +1692,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1031466533
+  m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a37a11299a350fb45bffa48632e6192a, type: 3}
+  m_Sprite: {fileID: 21300024, guid: a37a11299a350fb45bffa48632e6192a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2615,6 +2657,7 @@ GameObject:
   m_Component:
   - component: {fileID: 661655621}
   - component: {fileID: 661655620}
+  - component: {fileID: 661655622}
   m_Layer: 0
   m_Name: World
   m_TagString: Untagged
@@ -2635,7 +2678,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerPrefab: {fileID: 1061795788737848, guid: 5f4410508c4b49343bce5557a5ffd540,
     type: 2}
-  SpawnPos: {x: -0.5, y: -8}
+  SpawnPos: {x: -0.5, y: -3}
 --- !u!4 &661655621
 Transform:
   m_ObjectHideFlags: 0
@@ -2652,6 +2695,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &661655622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 661655619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a4e120dc564fe741bd63ea9235917d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Track: 0
 --- !u!1001 &700901445
 Prefab:
   m_ObjectHideFlags: 0
@@ -5287,7 +5342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneName: TownScene
-  PositionInNewScene: {x: 0, y: 0}
+  PositionInNewScene: {x: -49.5, y: 3.5}
 --- !u!58 &1999565883
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -43,7 +43,6 @@ public class PlayerController : MonoBehaviour
         {
             _animator.Play("Idle");
         }
-        print(_moveVelocity);
 
     }
 

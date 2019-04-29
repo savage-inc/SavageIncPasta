@@ -342,6 +342,7 @@
     <Compile Include="Assets\Scripts\Movement\TeleportGO.cs" />
     <Compile Include="Assets\Scripts\PlayerManager.cs" />
     <Compile Include="Assets\Scripts\RandomBattle.cs" />
+    <Compile Include="Assets\Scripts\Sound\PlayBackgroundMusic.cs" />
     <Compile Include="Assets\Scripts\Sound\PlaySound.cs" />
     <Compile Include="Assets\Scripts\Sound\SoundManager.cs" />
     <Compile Include="Assets\Scripts\SpriteManager.cs" />
