@@ -78,3 +78,49 @@ MonoBehaviour:
     Sprite: {fileID: 21300022, guid: a37a11299a350fb45bffa48632e6192a, type: 3}
   - Name: Wolf
     Sprite: {fileID: 21300000, guid: 8e064d317969ad846b00aa553c1e7979, type: 3}
+  - Name: Bandit
+    Sprite: {fileID: 21300000, guid: c09cacec6ac4c3a4a935b86fdacf7323, type: 3}
+  - Name: BanditArcher
+    Sprite: {fileID: 21300000, guid: 5e29085e60c7dc34892d1627f9ff975a, type: 3}
+  - Name: BanditBrute
+    Sprite: {fileID: 21300000, guid: 22c8394ec1572774b973c3fd7845fc7e, type: 3}
+  - Name: BanditCaptain
+    Sprite: {fileID: 21300000, guid: db4c18494fbdbbe478ea6426fd07d66e, type: 3}
+  - Name: BanditGunslinger
+    Sprite: {fileID: 21300000, guid: bda8993cbbbfb4946b2bb978694cbe28, type: 3}
+  - Name: Dragon
+    Sprite: {fileID: 21300000, guid: ae0e3f41529628745aeba403d3e4ae3e, type: 3}
+  - Name: Goristro
+    Sprite: {fileID: 21300000, guid: 675870446597d854b9f7b9a5d6d38cf9, type: 3}
+  - Name: Hydra
+    Sprite: {fileID: 21300000, guid: f5466d1ffff53d24ba2743abeaeca6cc, type: 3}
+  - Name: HellHound
+    Sprite: {fileID: 21300000, guid: 1f0c1e619a8cfae41a1e74e2d3574bcd, type: 3}
+  - Name: Imp
+    Sprite: {fileID: 21300000, guid: 7831483cfe4017940ab433be35f3696d, type: 3}
+  - Name: ImpArcher
+    Sprite: {fileID: 21300000, guid: 4c358c44fb2158342b51bea58c219088, type: 3}
+  - Name: Kracken
+    Sprite: {fileID: 21300000, guid: 1ba3fda670fccc940bec8b2223a56e52, type: 3}
+  - Name: Lich
+    Sprite: {fileID: 21300000, guid: 044a5d20653bc4844adf5633fdfb5540, type: 3}
+  - Name: Magmin
+    Sprite: {fileID: 21300000, guid: edbe733b455435b48922770d7abedcec, type: 3}
+  - Name: Merrow
+    Sprite: {fileID: 21300000, guid: 8fae29663fc015e4e90abcb2836b940f, type: 3}
+  - Name: MerrowArcher
+    Sprite: {fileID: 21300000, guid: eac993989b9598d46a9b9a253257898a, type: 3}
+  - Name: MerrowShaman
+    Sprite: {fileID: 21300000, guid: ef9c5d96f8d53dd4a89846b46fcee36e, type: 3}
+  - Name: Necromancer
+    Sprite: {fileID: 21300000, guid: 0cc0b9aaed9b8074795f24b677c9c398, type: 3}
+  - Name: Skeleton
+    Sprite: {fileID: 21300000, guid: e7799eeb5fb48054cb898c7cc63a5cff, type: 3}
+  - Name: SkeletonArcher
+    Sprite: {fileID: 21300000, guid: 3c9b9e4bc84675a4b98bd5e3580e4b32, type: 3}
+  - Name: Slaad
+    Sprite: {fileID: 21300000, guid: 5ad3c50998bc8704f8301f4970abf158, type: 3}
+  - Name: Zombie
+    Sprite: {fileID: 21300000, guid: 423e3bafda184a84ebe3d5720286f8a1, type: 3}
+  - Name: ZombieGiant
+    Sprite: {fileID: 21300000, guid: c867fe08efbb9624992f288ac193b4a0, type: 3}
