@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Scenes/World/BarracksScene.unity
+=======
+- path: Assets/Scenes/World/TownScene.unity
+>>>>>>> Design
   isLoaded: 1
   isActive: 1

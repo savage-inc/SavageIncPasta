@@ -985,9 +985,9 @@ TextureImporter:
     21301960: terrain_atlas_980
     21301962: terrain_atlas_981
     21301964: terrain_atlas_982
-    21301966: terrain_atlas_983
-    21301968: terrain_atlas_984
-    21301970: terrain_atlas_985
+    21301966: RedPath3
+    21301968: RedPath2
+    21301970: RedPath1
     21301972: terrain_atlas_986
     21301974: terrain_atlas_987
     21301976: terrain_atlas_988
@@ -14853,7 +14853,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: terrain_atlas_983
+      name: RedPath3
       rect:
         serializedVersion: 2
         x: 96
@@ -14867,7 +14867,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: terrain_atlas_984
+      name: RedPath2
       rect:
         serializedVersion: 2
         x: 128
@@ -14881,7 +14881,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: terrain_atlas_985
+      name: RedPath1
       rect:
         serializedVersion: 2
         x: 160

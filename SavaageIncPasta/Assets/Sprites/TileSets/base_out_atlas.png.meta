@@ -282,15 +282,15 @@ TextureImporter:
     21300554: base_out_atlas_277
     21300556: base_out_atlas_278
     21300558: base_out_atlas_279
-    21300560: base_out_atlas_280
-    21300562: base_out_atlas_281
-    21300564: base_out_atlas_282
-    21300566: base_out_atlas_283
-    21300568: base_out_atlas_284
+    21300560: InnerWallTL
+    21300562: InnerWallTC
+    21300564: InnerWallTR
+    21300566: Door
+    21300568: Steps
     21300570: base_out_atlas_285
-    21300572: base_out_atlas_286
+    21300572: Chimny
     21300574: base_out_atlas_287
-    21300576: base_out_atlas_288
+    21300576: Window
     21300578: base_out_atlas_289
     21300580: base_out_atlas_290
     21300582: base_out_atlas_291
@@ -314,9 +314,9 @@ TextureImporter:
     21300618: base_out_atlas_309
     21300620: base_out_atlas_310
     21300622: base_out_atlas_311
-    21300624: base_out_atlas_312
-    21300626: base_out_atlas_313
-    21300628: base_out_atlas_314
+    21300624: InnerWallCL
+    21300626: InnerWallCC
+    21300628: InnerWallCR
     21300630: base_out_atlas_315
     21300632: base_out_atlas_316
     21300634: base_out_atlas_317
@@ -343,9 +343,9 @@ TextureImporter:
     21300676: base_out_atlas_338
     21300678: base_out_atlas_339
     21300680: base_out_atlas_340
-    21300682: base_out_atlas_341
-    21300684: base_out_atlas_342
-    21300686: base_out_atlas_343
+    21300682: InnerWallBL
+    21300684: InnerWallBC
+    21300686: InnerWallBR
     21300688: base_out_atlas_344
     21300690: base_out_atlas_345
     21300692: base_out_atlas_346
@@ -724,9 +724,9 @@ TextureImporter:
     21301438: base_out_atlas_719
     21301440: base_out_atlas_720
     21301442: base_out_atlas_721
-    21301444: base_out_atlas_722
+    21301444: InnerWallT
     21301446: base_out_atlas_723
-    21301448: base_out_atlas_724
+    21301448: InnerWallC
     21301450: base_out_atlas_725
     21301452: base_out_atlas_726
     21301454: base_out_atlas_727
@@ -750,7 +750,7 @@ TextureImporter:
     21301490: base_out_atlas_745
     21301492: base_out_atlas_746
     21301494: base_out_atlas_747
-    21301496: base_out_atlas_748
+    21301496: InnerWall4
     21301498: base_out_atlas_749
     21301500: base_out_atlas_750
     21301502: base_out_atlas_751
@@ -758,7 +758,7 @@ TextureImporter:
     21301506: base_out_atlas_753
     21301508: base_out_atlas_754
     21301510: base_out_atlas_755
-    21301512: base_out_atlas_756
+    21301512: InnerWallB
     21301514: base_out_atlas_757
     21301516: base_out_atlas_758
     21301518: base_out_atlas_759
@@ -788,8 +788,8 @@ TextureImporter:
     21301566: base_out_atlas_783
     21301568: base_out_atlas_784
     21301570: base_out_atlas_785
-    21301572: base_out_atlas_786
-    21301574: base_out_atlas_787
+    21301572: Innerwall1
+    21301574: Innerwall3
     21301576: base_out_atlas_788
     21301578: base_out_atlas_789
     21301580: base_out_atlas_790
@@ -815,7 +815,7 @@ TextureImporter:
     21301620: base_out_atlas_810
     21301622: base_out_atlas_811
     21301624: base_out_atlas_812
-    21301626: base_out_atlas_813
+    21301626: Doorway
     21301628: base_out_atlas_814
     21301630: base_out_atlas_815
     21301632: base_out_atlas_816
@@ -897,7 +897,7 @@ TextureImporter:
     21301784: base_out_atlas_892
     21301786: base_out_atlas_893
     21301788: base_out_atlas_894
-    21301790: base_out_atlas_895
+    21301790: innerWall
     21301792: base_out_atlas_896
     21301794: base_out_atlas_897
     21301796: base_out_atlas_898
@@ -942,6 +942,7 @@ TextureImporter:
     21301874: SwampLakeCC
     21301876: LakeSwampCT
     21301878: LakeSwampCB
+    21301880: InnerWall2
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -4897,7 +4898,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_280
+      name: InnerWallTL
       rect:
         serializedVersion: 2
         x: 0
@@ -4911,7 +4912,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_281
+      name: InnerWallTC
       rect:
         serializedVersion: 2
         x: 32
@@ -4925,7 +4926,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_282
+      name: InnerWallTR
       rect:
         serializedVersion: 2
         x: 64
@@ -4939,13 +4940,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_283
+      name: Door
       rect:
         serializedVersion: 2
         x: 96
-        y: 704
+        y: 688
         width: 32
-        height: 32
+        height: 48
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4953,13 +4954,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_284
+      name: Steps
       rect:
         serializedVersion: 2
         x: 128
-        y: 704
+        y: 696
         width: 32
-        height: 32
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4981,13 +4982,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_286
+      name: Chimny
       rect:
         serializedVersion: 2
         x: 192
-        y: 704
+        y: 680
         width: 32
-        height: 32
+        height: 45
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5009,13 +5010,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_288
+      name: Window
       rect:
         serializedVersion: 2
         x: 256
-        y: 704
+        y: 682
         width: 32
-        height: 32
+        height: 44
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5345,7 +5346,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_312
+      name: InnerWallCL
       rect:
         serializedVersion: 2
         x: 0
@@ -5359,7 +5360,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_313
+      name: InnerWallCC
       rect:
         serializedVersion: 2
         x: 32
@@ -5373,7 +5374,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_314
+      name: InnerWallCR
       rect:
         serializedVersion: 2
         x: 64
@@ -5751,7 +5752,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_341
+      name: InnerWallBL
       rect:
         serializedVersion: 2
         x: 0
@@ -5765,7 +5766,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_342
+      name: InnerWallBC
       rect:
         serializedVersion: 2
         x: 32
@@ -5779,7 +5780,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_343
+      name: InnerWallBR
       rect:
         serializedVersion: 2
         x: 64
@@ -10427,34 +10428,6 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_715
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 224
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: base_out_atlas_716
-      rect:
-        serializedVersion: 2
-        x: 416
-        y: 224
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
       name: base_out_atlas_718
       rect:
         serializedVersion: 2
@@ -10469,7 +10442,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_722
+      name: InnerWallT
       rect:
         serializedVersion: 2
         x: 608
@@ -10497,7 +10470,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_724
+      name: InnerWallC
       rect:
         serializedVersion: 2
         x: 704
@@ -10763,35 +10736,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_746
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 192
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: base_out_atlas_747
-      rect:
-        serializedVersion: 2
-        x: 416
-        y: 192
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: base_out_atlas_748
+      name: InnerWall4
       rect:
         serializedVersion: 2
         x: 448
@@ -10861,7 +10806,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_756
+      name: InnerWallB
       rect:
         serializedVersion: 2
         x: 704
@@ -11127,34 +11072,6 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_778
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 160
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: base_out_atlas_779
-      rect:
-        serializedVersion: 2
-        x: 416
-        y: 160
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
       name: base_out_atlas_780
       rect:
         serializedVersion: 2
@@ -11183,7 +11100,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_785
+      name: Innerwall1
       rect:
         serializedVersion: 2
         x: 640
@@ -11197,21 +11114,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_786
-      rect:
-        serializedVersion: 2
-        x: 672
-        y: 160
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: base_out_atlas_787
+      name: Innerwall3
       rect:
         serializedVersion: 2
         x: 704
@@ -11482,22 +11385,8 @@ TextureImporter:
         serializedVersion: 2
         x: 384
         y: 128
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: base_out_atlas_807
-      rect:
-        serializedVersion: 2
-        x: 416
-        y: 128
-        width: 32
-        height: 32
+        width: 64
+        height: 128
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -11519,41 +11408,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_812
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 128
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: base_out_atlas_813
+      name: Doorway
       rect:
         serializedVersion: 2
         x: 672
-        y: 128
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: base_out_atlas_814
-      rect:
-        serializedVersion: 2
-        x: 704
-        y: 128
-        width: 32
-        height: 32
+        y: 32
+        width: 64
+        height: 128
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -11883,48 +11744,6 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_842
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 96
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: base_out_atlas_843
-      rect:
-        serializedVersion: 2
-        x: 672
-        y: 96
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: base_out_atlas_844
-      rect:
-        serializedVersion: 2
-        x: 704
-        y: 96
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
       name: base_out_atlas_845
       rect:
         serializedVersion: 2
@@ -12181,48 +12000,6 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 480
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: base_out_atlas_868
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: base_out_atlas_869
-      rect:
-        serializedVersion: 2
-        x: 672
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: base_out_atlas_870
-      rect:
-        serializedVersion: 2
-        x: 704
         y: 64
         width: 32
         height: 32
@@ -12513,41 +12290,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: base_out_atlas_895
+      name: innerWall
       rect:
         serializedVersion: 2
         x: 640
         y: 32
         width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: base_out_atlas_896
-      rect:
-        serializedVersion: 2
-        x: 672
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: base_out_atlas_897
-      rect:
-        serializedVersion: 2
-        x: 704
-        y: 32
-        width: 32
-        height: 32
+        height: 128
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -13106,6 +12855,20 @@ TextureImporter:
         serializedVersion: 2
         x: 416
         y: 864
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: InnerWall2
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 160
         width: 32
         height: 32
       alignment: 0
