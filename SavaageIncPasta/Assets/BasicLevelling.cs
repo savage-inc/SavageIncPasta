@@ -51,7 +51,7 @@ public class BasicLevelling : MonoBehaviour
 
     private void Update()
     {
-        if (_levelledUpCharacters.Count > 0 && (Input.GetKeyDown(KeyCode.Joystick1Button7) || Input.GetKeyDown(KeyCode.Escape)))
+        if (_levelledUpCharacters.Count > 0 && (Input.GetKeyDown(KeyCode.Joystick1Button6)))
         {
             GameObject.Find("UICanvas").GetComponent<LevelUpMenu>().LevelledUp();
         }
