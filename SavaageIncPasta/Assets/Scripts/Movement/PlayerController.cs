@@ -7,22 +7,49 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D _rb;
     private Vector2 _moveVelocity;
+    private Animator _animator;
 
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
         _rb.freezeRotation = true;
         _rb.gravityScale = 0.0f;
+        _animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
+        _moveVelocity = Vector2.zero;
         Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         _moveVelocity = moveInput.normalized * Speed;
+
+        if(_moveVelocity.x > 2.0 )
+        {
+            _animator.Play("WalkRight");
+        }
+        else if(_moveVelocity.x < -3.5f)
+        {
+            _animator.Play("WalkLeft");
+        }
+        else if (_moveVelocity.y > 3.5f)
+        {
+            _animator.Play("WalkUp");
+        }
+        else if(_moveVelocity.y < 0.0f)
+        {
+            _animator.Play("WalkDown");
+        }
+        else
+        {
+            _animator.Play("Idle");
+        }
+        print(_moveVelocity);
+
     }
 
     private void FixedUpdate()
     {
         _rb.MovePosition(_rb.position + _moveVelocity * Time.fixedDeltaTime);
+
     }
 }
