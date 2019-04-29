@@ -34546,11 +34546,16 @@ Prefab:
     - target: {fileID: 114946705959729174, guid: 3accce280096e46449bf3b9689d7cae9,
         type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1708115133612878, guid: 3accce280096e46449bf3b9689d7cae9, type: 2}
       propertyPath: m_Name
       value: TallGrass (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114946705959729174, guid: 3accce280096e46449bf3b9689d7cae9,
+        type: 2}
+      propertyPath: ListOfEnemyTeams.Array.data[0].NameOfTeam
+      value: DragonBoss
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3accce280096e46449bf3b9689d7cae9, type: 2}
@@ -34609,6 +34614,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1236212221}
     m_Modifications:
+    - target: {fileID: 114946705959729174, guid: 3accce280096e46449bf3b9689d7cae9,
+        type: 2}
+      propertyPath: ListOfEnemyTeams.Array.size
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 4386100436487558, guid: 3accce280096e46449bf3b9689d7cae9, type: 2}
       propertyPath: m_LocalPosition.x
       value: -2.9
@@ -34688,17 +34698,127 @@ Prefab:
     - target: {fileID: 114946705959729174, guid: 3accce280096e46449bf3b9689d7cae9,
         type: 2}
       propertyPath: MinStepsBeforeBattle
-      value: 20
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 114946705959729174, guid: 3accce280096e46449bf3b9689d7cae9,
         type: 2}
       propertyPath: MaxStepsBeforeBattle
-      value: 35
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 114946705959729174, guid: 3accce280096e46449bf3b9689d7cae9,
         type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114946705959729174, guid: 3accce280096e46449bf3b9689d7cae9,
+        type: 2}
+      propertyPath: ListOfEnemyTeams.Array.data[0].NameOfTeam
+      value: VolcanoPack1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114946705959729174, guid: 3accce280096e46449bf3b9689d7cae9,
+        type: 2}
+      propertyPath: ListOfEnemyTeams.Array.data[1].NameOfTeam
+      value: VolcanoPack2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114946705959729174, guid: 3accce280096e46449bf3b9689d7cae9,
+        type: 2}
+      propertyPath: ListOfEnemyTeams.Array.data[2].NameOfTeam
+      value: VolcanoPack3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114946705959729174, guid: 3accce280096e46449bf3b9689d7cae9,
+        type: 2}
+      propertyPath: ListOfEnemyTeams.Array.data[3].NameOfTeam
+      value: VolcanoPack4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114946705959729174, guid: 3accce280096e46449bf3b9689d7cae9,
+        type: 2}
+      propertyPath: ListOfEnemyTeams.Array.data[4].NameOfTeam
+      value: VolcanoPack5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114946705959729174, guid: 3accce280096e46449bf3b9689d7cae9,
+        type: 2}
+      propertyPath: ListOfEnemyTeams.Array.data[5].NameOfTeam
+      value: VolcanoPack6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114946705959729174, guid: 3accce280096e46449bf3b9689d7cae9,
+        type: 2}
+      propertyPath: ListOfEnemyTeams.Array.data[6].NameOfTeam
+      value: VolcanoPack7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114946705959729174, guid: 3accce280096e46449bf3b9689d7cae9,
+        type: 2}
+      propertyPath: ListOfEnemyTeams.Array.data[7].NameOfTeam
+      value: VolcanoPack8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114946705959729174, guid: 3accce280096e46449bf3b9689d7cae9,
+        type: 2}
+      propertyPath: ListOfEnemyTeams.Array.data[8].NameOfTeam
+      value: WolfPack2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114946705959729174, guid: 3accce280096e46449bf3b9689d7cae9,
+        type: 2}
+      propertyPath: ListOfEnemyTeams.Array.data[9].NameOfTeam
+      value: BanditPack3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114946705959729174, guid: 3accce280096e46449bf3b9689d7cae9,
+        type: 2}
+      propertyPath: ListOfEnemyTeams.Array.data[0].Weight
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114946705959729174, guid: 3accce280096e46449bf3b9689d7cae9,
+        type: 2}
+      propertyPath: ListOfEnemyTeams.Array.data[1].Weight
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114946705959729174, guid: 3accce280096e46449bf3b9689d7cae9,
+        type: 2}
+      propertyPath: ListOfEnemyTeams.Array.data[2].Weight
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114946705959729174, guid: 3accce280096e46449bf3b9689d7cae9,
+        type: 2}
+      propertyPath: ListOfEnemyTeams.Array.data[3].Weight
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114946705959729174, guid: 3accce280096e46449bf3b9689d7cae9,
+        type: 2}
+      propertyPath: ListOfEnemyTeams.Array.data[4].Weight
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114946705959729174, guid: 3accce280096e46449bf3b9689d7cae9,
+        type: 2}
+      propertyPath: ListOfEnemyTeams.Array.data[5].Weight
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114946705959729174, guid: 3accce280096e46449bf3b9689d7cae9,
+        type: 2}
+      propertyPath: ListOfEnemyTeams.Array.data[6].Weight
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114946705959729174, guid: 3accce280096e46449bf3b9689d7cae9,
+        type: 2}
+      propertyPath: ListOfEnemyTeams.Array.data[7].Weight
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114946705959729174, guid: 3accce280096e46449bf3b9689d7cae9,
+        type: 2}
+      propertyPath: ListOfEnemyTeams.Array.data[8].Weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114946705959729174, guid: 3accce280096e46449bf3b9689d7cae9,
+        type: 2}
+      propertyPath: ListOfEnemyTeams.Array.data[9].Weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114946705959729174, guid: 3accce280096e46449bf3b9689d7cae9,
+        type: 2}
+      propertyPath: ListOfEnemyTeams.Array.data[10].NameOfTeam
+      value: TomatoBanditBoss
+      objectReference: {fileID: 0}
+    - target: {fileID: 114946705959729174, guid: 3accce280096e46449bf3b9689d7cae9,
+        type: 2}
+      propertyPath: ListOfEnemyTeams.Array.data[10].Weight
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3accce280096e46449bf3b9689d7cae9, type: 2}
