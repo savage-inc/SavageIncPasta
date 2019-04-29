@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Name: PastaSurprise
   m_EditorClassIdentifier: 
   _sprite: {fileID: 0}
-  _abilityName: PastaSurprise
+  _abilityName: Pasta Surprise
   _abilityDescription: Throw a surprise pasta dish at 2 allies to heal for a random
     amount.
-  _manaCost: 0
-  _level: 1
+  _manaCost: 8
+  _level: 4
   _class: 3
   _target: 0
   _tree: 1

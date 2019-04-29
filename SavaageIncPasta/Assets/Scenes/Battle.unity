@@ -5499,15 +5499,15 @@ MonoBehaviour:
   - {fileID: 894637039}
   - {fileID: 1424902519}
   PlayerHealthBars:
+  - {fileID: 2112099985}
   - {fileID: 1041399774}
   - {fileID: 1699645165}
   - {fileID: 741982599}
-  - {fileID: 2112099985}
   EnemyHealthBars:
+  - {fileID: 2031896608}
   - {fileID: 107574867}
   - {fileID: 55807074}
   - {fileID: 26391020}
-  - {fileID: 2031896608}
   PlayerParticles:
   - {fileID: 9717577}
   - {fileID: 451894810}

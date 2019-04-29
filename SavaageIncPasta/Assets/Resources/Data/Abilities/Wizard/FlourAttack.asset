@@ -15,9 +15,9 @@ MonoBehaviour:
   _abilityName: Flour Attack
   _abilityDescription: Fling flour at the enemy team which makes it harder for the
     enemy to hit on the next turn.
-  _manaCost: 0
+  _manaCost: 8
   _level: 4
   _class: 2
   _target: 1
-  _path: 3
+  _tree: 1
   _id: 5

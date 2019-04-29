@@ -32,7 +32,7 @@ public class Character
     public int CurrCol = 1;
     public int MaxMana;
     public int CurrentMana;
-    public List<int> Abilities = new List<int>() { 1 };
+    public List<int> Abilities = new List<int>() { 1,2 };
 
     public int GoldDrop = 5;
     public int Experience = 0;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AbilltyButton : MonoBehaviour {
 
-    public int AbilityID = 1;
+    public AbilityData Ability;
     private Battle _battle;
     private BattleInfoUI _info;
 
@@ -16,12 +16,7 @@ public class AbilltyButton : MonoBehaviour {
     
     public void DisplayAbility()
     {
-        //get current selectedcharacter
-        var player = _battle.GetCurrentPlayer();
-        //get ability 
-        var ability = AbilityManager.Instance.GetAbility(player.Character.Class, AbilityID);
-
-        _info.Ability = ability;
+        _info.Ability = Ability;
     }
 
     public void CloseAbility()

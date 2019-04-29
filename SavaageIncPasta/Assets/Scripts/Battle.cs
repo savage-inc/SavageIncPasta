@@ -190,6 +190,7 @@ public class Battle : MonoBehaviour
 
         //select enemy
         SelectEnemyState();
+        SetAbilityButtons();
 
         while (!_battleCharacterList[_characterTurnOrder[_currentCharacterIndex]].Character.Alive)
         {
@@ -1216,29 +1217,30 @@ public class Battle : MonoBehaviour
             else
             {
                 //option must be an ability, we need to check if the ability selected requires a targer
+                BattleCharacter currentCharacter = _battleCharacterList[_characterTurnOrder[_currentCharacterIndex]];
                 int abilityID = 1;
                 switch (_optionChosen)
                 {
                     case TurnOption.eAbility1:
-                        abilityID = 1;
+                        abilityID = currentCharacter.Character.Abilities[0];
                         break;
                     case TurnOption.eAbility2:
-                        abilityID = 2;
+                        abilityID = currentCharacter.Character.Abilities[1]; ;
                         break;
                     case TurnOption.eAbility3:
-                        abilityID = 3;
+                        abilityID = currentCharacter.Character.Abilities[2]; ;
                         break;
                     case TurnOption.eAbility4:
-                        abilityID = 4;
+                        abilityID = currentCharacter.Character.Abilities[3]; ;
                         break;
                     case TurnOption.eAbility5:
-                        abilityID = 5;
+                        abilityID = currentCharacter.Character.Abilities[4]; ;
                         break;
                     case TurnOption.eAbility6:
-                        abilityID = 6;
+                        abilityID = currentCharacter.Character.Abilities[5]; ;
                         break;
                     case TurnOption.eAbility7:
-                        abilityID = 7;
+                        abilityID = currentCharacter.Character.Abilities[6]; ;
                         break;
                 }
                 //If the current players selected ability requires a target then enter select character state
@@ -1400,6 +1402,18 @@ public class Battle : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
     }
-
+        
+    void SetAbilityButtons()
+    {
+        var player = _battleCharacterList[_characterTurnOrder[_currentCharacterIndex]];
+        if (player != null && player.Character.Player)
+        {
+            //get abiliies
+            for (int j = 0; j < player.Character.Abilities.Count; j++)
+            {
+                abilityButtons[j].GetComponent<AbilltyButton>().Ability = AbilityManager.Instance.GetAbility(player.Character.Class, player.Character.Abilities[j]);
+            }
+        }
+    }
 }
 

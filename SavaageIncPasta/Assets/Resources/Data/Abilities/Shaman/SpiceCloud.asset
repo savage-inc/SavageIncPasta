@@ -14,8 +14,8 @@ MonoBehaviour:
   _sprite: {fileID: 0}
   _abilityName: SpiceCloud
   _abilityDescription: Buff party for increased damage on next attack.
-  _manaCost: 0
-  _level: 1
+  _manaCost: 8
+  _level: 4
   _class: 3
   _target: 0
   _tree: 1

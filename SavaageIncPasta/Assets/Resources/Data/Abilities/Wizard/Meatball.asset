@@ -15,7 +15,7 @@ MonoBehaviour:
   _abilityName: Meatball
   _abilityDescription: Conjure a damage-dealing meatball which bounces to hit two
     enemies.
-  _manaCost: 0
+  _manaCost: 3
   _level: 2
   _class: 2
   _target: 1
