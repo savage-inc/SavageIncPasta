@@ -5566,13 +5566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b6a76375b9955747a274b82eef85057, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyGroups:
-  - TeamName: test
-    Enemies:
-    - Wolf
-    - Wolf
-    - Wolf
-    - Wolf
+  EnemyGroups: []
 --- !u!114 &281493665
 MonoBehaviour:
   m_ObjectHideFlags: 0

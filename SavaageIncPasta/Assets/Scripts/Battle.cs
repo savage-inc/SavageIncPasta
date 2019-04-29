@@ -98,9 +98,9 @@ public class Battle : MonoBehaviour
 
                 if (Players[i].Character.Magic != MagicType.eNONE)
                 {
-                    ParticleSystem pSystem = PlayerParticles[i].GetComponent<ParticleSystem>();                    
+                    ParticleSystem pSystem = PlayerParticles[i].GetComponent<ParticleSystem>();
                     PlayerParticles[i].SetActive(true);
-                    switch(Players[i].Character.Magic)
+                    switch (Players[i].Character.Magic)
                     {
                         case (MagicType.eCHEESE):
                             pSystem.startColor = Color.yellow;
@@ -120,7 +120,7 @@ public class Battle : MonoBehaviour
 
         for (int i = 0; i < _enemyList.Count; i++)
         {
-            if(Enemies[i].Character != null)
+            if (Enemies[i].Character != null)
             {
                 Enemies[i].Character = _enemyList[i];
                 _battleCharacterList.Add(Enemies[i]);
@@ -177,7 +177,10 @@ public class Battle : MonoBehaviour
         //clear selected player color
         for (int i = 0; i < 4; i++)
         {
-            _battleCharacterList[i].GetComponent<SpriteRenderer>().color = Color.white;
+            if (i < _battleCharacterList.Count)
+            {
+                _battleCharacterList[i].GetComponent<SpriteRenderer>().color = Color.white;
+            }
         }
 
         if (_currentCharacterIndex >= _battleCharacterList.Count)
@@ -809,13 +812,13 @@ public class Battle : MonoBehaviour
 
                 //get alive enemies
                 var aliveEnemies = GetAliveEnemies();
-                if(aliveEnemies.Count > 1)
+                if (aliveEnemies.Count > 1)
                 {
                     int firstEnemyIndex = _targettedCharacterIndex;
 
                     foreach (var aliveEnemy in aliveEnemies)
                     {
-                        if(aliveEnemy != _battleCharacterList[firstEnemyIndex])
+                        if (aliveEnemy != _battleCharacterList[firstEnemyIndex])
                         {
                             _targettedCharacterIndex = GetIndexOfCharacter(aliveEnemy);
                             DealDamage(attacker.Intelligence);
@@ -1095,7 +1098,7 @@ public class Battle : MonoBehaviour
 
         //get ability used if any
         AbilityData ability = null;
-        if(_selectedAbility >= 0)
+        if (_selectedAbility >= 0)
         {
             ability = AbilityManager.Instance.GetAbility(_battleCharacterList[currentCharacter].Character.Class, _selectedAbility);
         }
@@ -1113,7 +1116,7 @@ public class Battle : MonoBehaviour
             _battleCharacterList[targetIndex].Character.ChangeHealth(-damage);
             _runningAnimation = false;
         }
-        else if(_battleCharacterList[currentCharacter].Character.Class == ClassType.eRANGER)
+        else if (_battleCharacterList[currentCharacter].Character.Class == ClassType.eRANGER)
         {
             _runningAnimation = true;
             //fire projectile animation
@@ -1164,7 +1167,7 @@ public class Battle : MonoBehaviour
             }
         }
 
-        _targettingCharacterIndex = 4;
+        _targettingCharacterIndex = 0;
 
         while (!_battleCharacterList[_targettingCharacterIndex].Character.Alive)
         {
@@ -1478,7 +1481,7 @@ public class Battle : MonoBehaviour
     {
         for (int i = 0; i < _battleCharacterList.Count; i++)
         {
-            if(_battleCharacterList[i] == character)
+            if (_battleCharacterList[i] == character)
             {
                 return i;
             }
@@ -1502,12 +1505,12 @@ public class Battle : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
     }
-        
+
     void IncreasePartyMana(int amount)
     {
         foreach (var player in Players)
         {
-            if(player != null && player.Character.Alive)
+            if (player != null && player.Character.Alive)
             {
                 player.Character.ChangeMana(amount);
             }
