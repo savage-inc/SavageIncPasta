@@ -146,7 +146,6 @@ public class PersistantData
                 {
                     if (shop.gameObject.GetComponent<GameObjectGUID>().GameObjectID == shopData.ID) //Same shop
                     {
-                        shop.Inventory.Clear();
                         //add all items to the shop
                         foreach (var item in shopData.Items)
                         {
@@ -172,7 +171,22 @@ public class PersistantData
         partyData.Gold = partyInventory.Gold;
 
         //Party characets
-        partyData.PartyCharacterData = playerManager.Characters;
+        if (playerManager != null)
+        {
+            //check if players are dead, if so remove them
+            foreach (var character in playerManager.Characters)
+            {
+                if (!character.Alive)
+                {
+                    playerManager.RemoveCharacter(character);
+                }
+            }
+            partyData.PartyCharacterData = playerManager.Characters;
+        }
+        else
+        {
+            partyData.PartyCharacterData = GetSavedPlayerManager();
+        }
 
         if (clanManager != null)
         {
@@ -186,7 +200,26 @@ public class PersistantData
         SaveBytesToFile(Application.persistentDataPath + "/save/","partyData.data", SerializeToBytes(partyData));
     }
 
-    private static List<Character> GetSavedClanData()
+    public static List<Character> GetSavedPlayerManager()
+    {
+        List<Character> playerManager = new List<Character>();
+
+        var data = ReadBytesFromFile(Application.persistentDataPath + "/save/", "partyData.data");
+        if (data != null)
+        {
+            PartyData partyData = DeserializeToType<PartyData>(data);
+
+            playerManager = partyData.PartyCharacterData;
+            foreach (var character in playerManager)
+            {
+                character.Equipment.Character = character;
+            }
+        }
+
+        return playerManager;
+    }
+
+    public static List<Character> GetSavedClanData()
     {
         List<Character> clan = new List<Character>();
 
@@ -195,13 +228,10 @@ public class PersistantData
         {
             PartyData partyData = DeserializeToType<PartyData>(data);
 
-            if (partyData.PartyInventory != null && partyData.Gold > 0)
+            clan = partyData.ClanCharacterData;
+            foreach (var character in clan)
             {
-                clan = partyData.ClanCharacterData;
-                foreach (var character in clan)
-                {
-                    character.Equipment.Character = character;
-                }
+                character.Equipment.Character = character;
             }
         }
 

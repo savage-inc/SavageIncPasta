@@ -149497,7 +149497,7 @@ Prefab:
     - target: {fileID: 114946705959729174, guid: 3accce280096e46449bf3b9689d7cae9,
         type: 2}
       propertyPath: ListOfEnemyTeams.Array.data[0].NameOfTeam
-      value: Kracken
+      value: KrackenBoss
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3accce280096e46449bf3b9689d7cae9, type: 2}

@@ -66,7 +66,10 @@ public class BattleInventoryUI : MonoBehaviour
 
         if (Input.GetButtonDown("A"))
         {
-            UseConsumableOnCharacter(_battleCharacters[_selectedPlayer].Character, _selectedItemSlot);
+            if (_battleCharacters[_selectedPlayer].Character.Alive)
+            {
+                UseConsumableOnCharacter(_battleCharacters[_selectedPlayer].Character, _selectedItemSlot);
+            }
         }
 
         //move up
@@ -121,7 +124,7 @@ public class BattleInventoryUI : MonoBehaviour
     {
         foreach (var slot in _slots)
         {
-            if (slot.Item == null)
+            if (slot.Item.Item == null)
                 return slot;
         }
         return _slots[0];

@@ -43,6 +43,7 @@ public class BarracksControl : MonoBehaviour
     {
         if (FirstSelected != null)
         {
+            SetCharacterData();
             var eventSystem = FindObjectOfType<EventSystem>();
             eventSystem.SetSelectedGameObject(FirstSelected);
         }

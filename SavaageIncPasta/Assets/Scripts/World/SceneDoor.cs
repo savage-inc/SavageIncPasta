@@ -9,33 +9,36 @@ public class SceneDoor : MonoBehaviour
     public string SceneName;
     public Vector2 PositionInNewScene;
 
+    private PlayerManager _playerManager;
+
 	// Use this for initialization
-	void Start () {
-		
-	}
+	void Awake () {
+        _playerManager = FindObjectOfType<PlayerManager>();
+
+    }
 	
 	// Update is called once per frame
-	void Update () {
-		
-	}
 
     void OnTriggerStay2D(Collider2D other)
     {
         if (Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.E))
         {
-            var scene = SceneManager.GetSceneByName(SceneName);
-            if (!scene.IsValid())
+            if (_playerManager.Characters.Count > 0)
             {
-                //Save Data
-                var worldManager = FindObjectOfType<WorldManager>();
-                if (worldManager != null)
+                var scene = SceneManager.GetSceneByName(SceneName);
+                if (!scene.IsValid())
                 {
-                    worldManager.SaveWorld();
-                }
+                    //Save Data
+                    var worldManager = FindObjectOfType<WorldManager>();
+                    if (worldManager != null)
+                    {
+                        worldManager.SaveWorld();
+                    }
 
-                //Get the player
-                PersistantData.SetPlayerPositionInNextScene(PositionInNewScene);
-                SceneManager.LoadScene(SceneName);
+                    //Get the player
+                    PersistantData.SetPlayerPositionInNextScene(PositionInNewScene);
+                    SceneManager.LoadScene(SceneName);
+                }
             }
         }
     }

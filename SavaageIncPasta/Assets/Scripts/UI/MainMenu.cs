@@ -16,5 +16,10 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
+    public void ClearSaves()
+    {
+        PersistantData.ClearSaves();
+    }
+
 }
 

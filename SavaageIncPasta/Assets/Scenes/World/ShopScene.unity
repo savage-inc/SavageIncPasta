@@ -171,11 +171,11 @@ MonoBehaviour:
   ShopUI: {fileID: 363847589}
   ShopStartItems: []
   PriceModfier: 1
-  RestockTime: 1
+  RestockTime: 10
   InfinateStock: 0
   RandomWeapons: 1
   RandomArmour: 1
-  RandomItemCount: 10
+  RandomItemCount: 20
 --- !u!114 &83147320
 MonoBehaviour:
   m_ObjectHideFlags: 0

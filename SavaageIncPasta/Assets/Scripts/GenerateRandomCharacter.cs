@@ -6,10 +6,46 @@ public class GenerateRandomCharacter
 {
     public static Character GenerateCharacter()
     {
+        List<string> names = new List<string>()
+        {
+            "Joe",
+            "Jo",
+            "Joseph",
+            "Josef",
+            "Josephine",
+            "Josie",
+            "JoJo",
+            "JoeJoe",
+            "JoJoe",
+            "JoeJo",
+            "Jolene",
+            "Josy",
+            "Joel",
+            "Jolie",
+            "Joly",
+            "Jose",
+            "José",
+            "Joey",
+            "Joan",
+            "Jone",
+            "Juan",
+            "Joe'dan",
+            "Jody",
+            "Josiah",
+            "Josias",
+            "Joseba",
+            "Josephus",
+            "Joanne",
+            "Joanna",
+            "Jonas",
+            "Jones",
+            "Josephina"
+        };
+
         Character character = new Character();
 
         character.ID = System.Guid.NewGuid();
-        character.Name = "Character " + character.ID;
+        character.Name = names[Random.Range(0,names.Count-1)];
         character.Class = (ClassType)Random.Range(0, 4);
         character.Alive = true;
         switch (character.Class)

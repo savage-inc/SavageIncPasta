@@ -32,6 +32,7 @@ public class Shop : MonoBehaviour
     void Awake ()
     {
         _partyInventory = FindObjectOfType<PartyInventory>();
+        StockShop();
 
     }
 
