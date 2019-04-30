@@ -15,8 +15,9 @@ MonoBehaviour:
   _abilityName: Macaroni Flurry
   _abilityDescription: Make a massive attack by firing 6 arrows into the enemy line.
   _manaCost: 0
-  _level: 1
+  _level: 5
   _class: 1
   _target: 0
   _tree: 1
   _id: 6
+  _projectile: {fileID: 0}

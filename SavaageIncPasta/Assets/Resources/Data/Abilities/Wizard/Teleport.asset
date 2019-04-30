@@ -14,9 +14,10 @@ MonoBehaviour:
   _sprite: {fileID: 0}
   _abilityName: Teleport
   _abilityDescription: Move a targetted enemy to another range band.
-  _manaCost: 8
+  _manaCost: 3
   _level: 4
   _class: 2
   _target: 1
   _tree: 1
   _id: 4
+  _projectile: {fileID: 0}

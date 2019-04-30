@@ -35,7 +35,7 @@ public class BattleInfoUI : MonoBehaviour
         }
 	}
 
-    void Clear()
+    public void Clear()
     {
         TextBox1.text = "";
         TextBox2.text = "";
@@ -53,6 +53,7 @@ public class BattleInfoUI : MonoBehaviour
                 var consumable = (ConsumableItemData)Item.Item;
                 TextBox3.text = consumable.ConsumableType.ToString().Remove(0, 1);
                 TextBox4.text = "Effect = " + consumable.EffectAmount;
+                TextBox4.color = Color.black;
                 break;
             case ItemType.eARMOUR:
                 break;
@@ -66,7 +67,7 @@ public class BattleInfoUI : MonoBehaviour
     void DisplayAbilty(AbilityData ability)
     {
         TextBox1.text = ability.AbilityName;
-        TextBox2.text = "Level: " + ability.Level;
+        TextBox2.text = "Level: " + ability.Level + " - Mana: " + ability.ManaCost;
         TextBox3.text = ability.AbilityDescription;
     }
 }

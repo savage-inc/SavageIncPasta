@@ -15,7 +15,7 @@ MonoBehaviour:
   _abilityName: Spagheistti
   _abilityDescription: Attack all enemies while healing all allies for an average
     of the damage dealt.
-  _manaCost: 11
+  _manaCost: 10
   _level: 5
   _class: 3
   _target: 0
