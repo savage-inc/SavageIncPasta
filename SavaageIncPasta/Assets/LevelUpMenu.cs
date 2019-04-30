@@ -76,21 +76,10 @@ public class LevelUpMenu : MonoBehaviour
     {
         _levelledUpCharacter = gameObject.GetComponent<BasicLevelling>().GetLevelledUpCharacter();
 
-        switch(_levelledUpCharacter.Level)
+        switch (_levelledUpCharacter.Level)
         {
             case 2:
-                switch(_levelledUpCharacter.Class)
-                {
-                    case ClassType.eWARRIOR:
-                        return "Reckless Charge";
-                    case ClassType.eRANGER:
-                        return "Keen Eye";
-                    case ClassType.eWIZARD:
-                        return "Meatball";
-                    case ClassType.eSHAMAN:
-                        return "Guiding Bolt + Healing Word";
-                }
-                break;
+                return AbilityManager.Instance.GetAbility(_levelledUpCharacter.Class, 2 * _levelledUpCharacter.Level - 2).AbilityName;
             case 3:
                 switch (_levelledUpCharacter.Class)
                 {
@@ -105,18 +94,7 @@ public class LevelUpMenu : MonoBehaviour
                 }
                 break;
             case 4:
-                switch (_levelledUpCharacter.Class)
-                {
-                    case ClassType.eWARRIOR:
-                        return "Rigati Boomerang";
-                    case ClassType.eRANGER:
-                        return "Rapid Strike and Agility +1";
-                    case ClassType.eWIZARD:
-                        return "Teleport + Ravioli Bomb";
-                    case ClassType.eSHAMAN:
-                        return "Death Ward";
-                }
-                break;
+                return AbilityManager.Instance.GetAbility(_levelledUpCharacter.Class, 2 * _levelledUpCharacter.Level - 2).AbilityName;
             case 5:
                 switch (_levelledUpCharacter.Class)
                 {
@@ -139,6 +117,8 @@ public class LevelUpMenu : MonoBehaviour
 
     private string DisplayOptionBText()
     {
+        _levelledUpCharacter = gameObject.GetComponent<BasicLevelling>().GetLevelledUpCharacter();
+
         if (_numOptionsForLevel == 2)
         {
             _levelledUpCharacter = gameObject.GetComponent<BasicLevelling>().GetLevelledUpCharacter();
@@ -146,18 +126,7 @@ public class LevelUpMenu : MonoBehaviour
             switch (_levelledUpCharacter.Level)
             {
                 case 2:
-                    switch (_levelledUpCharacter.Class)
-                    {
-                        case ClassType.eWARRIOR:
-                            return "Conchiglie Shell";
-                        case ClassType.eRANGER:
-                            return "Dagger Dagger Dagger";
-                        case ClassType.eWIZARD:
-                            return "Slow";
-                        case ClassType.eSHAMAN:
-                            return "Guiding Bolt + Enhance Defences";
-                    }
-                    break;
+                    return AbilityManager.Instance.GetAbility(_levelledUpCharacter.Class, 2 * _levelledUpCharacter.Level - 1).AbilityName;
                 case 3:
                     switch (_levelledUpCharacter.Class)
                     {
@@ -172,18 +141,7 @@ public class LevelUpMenu : MonoBehaviour
                     }
                     break;
                 case 4:
-                    switch (_levelledUpCharacter.Class)
-                    {
-                        case ClassType.eWARRIOR:
-                            return "Spiked Bucatini";
-                        case ClassType.eRANGER:
-                            return "Sneak Attack";
-                        case ClassType.eWIZARD:
-                            return "Teleport + Flour Attack";
-                        case ClassType.eSHAMAN:
-                            return "Resistance Rebuke";
-                    }
-                    break;
+                    return AbilityManager.Instance.GetAbility(_levelledUpCharacter.Class, 2 * _levelledUpCharacter.Level - 1).AbilityName;
                 case 5:
                     switch (_levelledUpCharacter.Class)
                     {

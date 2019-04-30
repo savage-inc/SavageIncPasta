@@ -15,7 +15,7 @@ public class BasicLevelling : MonoBehaviour
     {
         _choiceMenu = GameObject.Find("Choice Menu");
         _levelledUpCharacters = new List<Character>();
-        _playerManager = FindObjectOfType<PlayerManager>();
+        _playerManager = GameObject.Find("World").GetComponent<PlayerManager>();
     }
 
     // Use this for initialization
@@ -36,6 +36,7 @@ public class BasicLevelling : MonoBehaviour
 
         foreach (Character character in _characters)
         {
+            character.Level = 3;
             character.Experience += 20;
             //int xpNeededForNextLevel = 11 * (character.Level * character.Level) + 30;
             int xpNeededForNextLevel = 19;

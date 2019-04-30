@@ -16,7 +16,7 @@ MonoBehaviour:
   _abilityDescription: Shoot 2 arrows at 2 targets inflicting half the regular damage.
   _manaCost: 0
   _level: 2
-  _class: 0
+  _class: 1
   _target: 1
   _tree: 1
   _id: 2
