@@ -1,0 +1,24 @@
+<NPCS>
+	<NPC type = "ShopKeeper">
+		<dialogue>Ho there adventurer! Would you like to peruse my fine wares?</dialogue>
+		<dialogue>Hi are you buying or selling</dialogue>
+	</NPC>
+	<NPC type = "Beggar">
+		<dialogue>This is a test!</dialogue>
+	</NPC>
+	<NPC>
+		<dialogue>This is a test!</dialogue>
+	</NPC>
+	<NPC>
+		<dialogue>This is a test!</dialogue>
+	</NPC>
+	<NPC>
+		<dialogue>This is a test!</dialogue>
+	</NPC>
+	<NPC>
+		<dialogue>This is a test!</dialogue>
+	</NPC>
+	<NPC>
+		<dialogue>This is a test!</dialogue>
+	</NPC>
+</NPCS>

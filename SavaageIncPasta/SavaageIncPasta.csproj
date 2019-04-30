@@ -271,6 +271,7 @@
     <Compile Include="Assets\3rdParty\TextMeshPro\Examples _ Extras\Scripts\VertexShakeB.cs" />
     <Compile Include="Assets\3rdParty\TextMeshPro\Examples _ Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\3rdParty\TextMeshPro\Examples _ Extras\Scripts\WarpTextExample.cs" />
+    <Compile Include="Assets\DialogueLoader.cs" />
     <Compile Include="Assets\Scripts\AI\AIController.cs" />
     <Compile Include="Assets\Scripts\AI\AStarPathfinding.cs" />
     <Compile Include="Assets\Scripts\AI\FindPathToTarget.cs" />
@@ -285,6 +286,8 @@
     <Compile Include="Assets\Scripts\Data\GameObjectGUID.cs" />
     <Compile Include="Assets\Scripts\Data\GameObjectGUIDEditor.cs" />
     <Compile Include="Assets\Scripts\Data\PersistantData.cs" />
+    <Compile Include="Assets\Scripts\Dialogue\DialogueManager.cs" />
+    <Compile Include="Assets\Scripts\Dialogue\NPCInteraction.cs" />
     <Compile Include="Assets\Scripts\DontDestroy.cs" />
     <Compile Include="Assets\Scripts\EnemyCreator.cs" />
     <Compile Include="Assets\Scripts\EnemyManager.cs" />
@@ -310,7 +313,6 @@
     <Compile Include="Assets\Scripts\Inventory\ShopItemButton.cs" />
     <Compile Include="Assets\Scripts\MagicTypes.cs" />
     <Compile Include="Assets\Scripts\Movement\PlayerController.cs" />
-    <Compile Include="Assets\Scripts\NPCInteraction.cs" />
     <Compile Include="Assets\Scripts\PlayerManager.cs" />
     <Compile Include="Assets\Scripts\RandomBattle.cs" />
     <Compile Include="Assets\Scripts\Sound\PlaySound.cs" />
@@ -353,6 +355,7 @@
     <None Include="Assets\3rdParty\TextMeshPro\Resources\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\3rdParty\TextMeshPro\Resources\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\3rdParty\TextMeshPro\Sprites\EmojiOne Attribution.txt" />
+    <None Include="Assets\Resources\DialogueLines.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
