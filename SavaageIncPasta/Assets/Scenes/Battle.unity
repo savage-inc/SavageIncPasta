@@ -269,24 +269,12 @@ GameObject:
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 5
   m_Component:
-<<<<<<< HEAD
-  - component: {fileID: 72626058}
-  - component: {fileID: 72626053}
-  - component: {fileID: 72626055}
-  - component: {fileID: 72626056}
-  - component: {fileID: 72626057}
-  - component: {fileID: 72626054}
-  m_Layer: 0
-  m_Name: Player1
-  m_TagString: Player
-=======
   - component: {fileID: 9717578}
   - component: {fileID: 9717580}
   - component: {fileID: 9717579}
   m_Layer: 9
   m_Name: Particle System
   m_TagString: Untagged
->>>>>>> Combat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3900,17 +3888,6 @@ GameObject:
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 5
   m_Component:
-<<<<<<< HEAD
-  - component: {fileID: 120704465}
-  - component: {fileID: 120704461}
-  - component: {fileID: 120704460}
-  - component: {fileID: 120704463}
-  - component: {fileID: 120704464}
-  - component: {fileID: 120704462}
-  m_Layer: 0
-  m_Name: Player3
-  m_TagString: Player
-=======
   - component: {fileID: 26692964}
   - component: {fileID: 26692969}
   - component: {fileID: 26692968}
@@ -3920,7 +3897,6 @@ GameObject:
   m_Layer: 5
   m_Name: InventoryButton
   m_TagString: Untagged
->>>>>>> Combat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5590,13 +5566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b6a76375b9955747a274b82eef85057, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyGroups:
-  - TeamName: Wolf
-    Enemies:
-    - Wolf
-    - Wolf
-    - Wolf
-    - Wolf
+  EnemyGroups: []
 --- !u!114 &281493665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5868,7 +5838,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1130049589}
+      - m_Target: {fileID: 297610236}
         m_MethodName: ChangeSelected
         m_Mode: 1
         m_Arguments:
@@ -22758,13 +22728,8 @@ GameObject:
   m_Component:
   - component: {fileID: 871655592}
   m_Layer: 0
-<<<<<<< HEAD
-  m_Name: Player4
-  m_TagString: Player
-=======
   m_Name: PlayerCol3
   m_TagString: Untagged
->>>>>>> Combat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23509,24 +23474,12 @@ GameObject:
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 5
   m_Component:
-<<<<<<< HEAD
-  - component: {fileID: 1505924765}
-  - component: {fileID: 1505924761}
-  - component: {fileID: 1505924760}
-  - component: {fileID: 1505924763}
-  - component: {fileID: 1505924764}
-  - component: {fileID: 1505924762}
-  m_Layer: 0
-  m_Name: Player2
-  m_TagString: Player
-=======
   - component: {fileID: 959554273}
   - component: {fileID: 959554275}
   - component: {fileID: 959554274}
   m_Layer: 5
   m_Name: AttackInfoText
   m_TagString: Untagged
->>>>>>> Combat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24060,12 +24013,12 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 10
+          m_IntArgument: 11
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1130049589}
+      - m_Target: {fileID: 1009620468}
         m_MethodName: ChangeSelected
         m_Mode: 1
         m_Arguments:
@@ -24685,12 +24638,12 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 9
+          m_IntArgument: 10
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1130049589}
+      - m_Target: {fileID: 1086351393}
         m_MethodName: ChangeSelected
         m_Mode: 1
         m_Arguments:
@@ -25429,12 +25382,12 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 8
+          m_IntArgument: 9
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1130049589}
+      - m_Target: {fileID: 1162990820}
         m_MethodName: ChangeSelected
         m_Mode: 1
         m_Arguments:
@@ -38776,12 +38729,12 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 11
+          m_IntArgument: 12
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1130049589}
+      - m_Target: {fileID: 1796244440}
         m_MethodName: ChangeSelected
         m_Mode: 1
         m_Arguments:
@@ -41041,7 +40994,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1130049589}
+      - m_Target: {fileID: 2137950965}
         m_MethodName: ChangeSelected
         m_Mode: 1
         m_Arguments:
