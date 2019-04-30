@@ -9,15 +9,13 @@ using System.IO;
 public class DialogueManager : MonoBehaviour {
     public static DialogueManager instance;
 
-
-    public string NPCName;
     public string Message;
-    public string i = "ShopKeeper";
+
+    public Text DialogueText;
+    public Button PositiveButton;
+    public Button NegativeButton;
 
     public TextAsset DialogueXML;
-
-
-
 
     private void Awake()
     {
@@ -25,6 +23,7 @@ public class DialogueManager : MonoBehaviour {
         if (instance == null)
         {
             instance = this;
+            //string data = DialogueXML.text;
 
         }
         else if (instance != this)
@@ -34,30 +33,26 @@ public class DialogueManager : MonoBehaviour {
         DontDestroyOnLoad(this.gameObject);
  
     }
-    private void Start()
-    {
-        string data = DialogueXML.text;
-        _parseXML(data);
-    }
-    private void _parseXML(string xmlData)
+    public void parseXML(string NPCType)
     {
         XmlDocument xmlDoc = new XmlDocument();
         xmlDoc.Load("Assets\\Resources\\DialogueLines.xml");
-        string xmlPath = "//NPCS/NPC";
-
-        XmlNodeList DialogueOptions = xmlDoc.SelectNodes("/NPCS/NPC[@type = 'ShopKeeper']");
-        Debug.Log("testing\n");
-        foreach (XmlNode node in DialogueOptions)
-        {
-            
-            XmlNode name = node.FirstChild;
-            XmlNode dialogue = name.NextSibling;
-            Debug.Log(name.InnerXml);
-            Debug.Log(dialogue.InnerXml);
-        }
 
 
+        XmlNode FindAmountOfDialogues = xmlDoc.SelectSingleNode("/NPCS/NPC[@type = '" + NPCType + "']");
+        int _amountOfNodes = (FindAmountOfDialogues.SelectNodes("descendant::*").Count); //finds the amount of dialogue options available to the specific NPC type
+
+        var RandomisedDialogue = Random.Range(0, _amountOfNodes);
+
+        XmlNode ChosenDialogue = (xmlDoc.SelectSingleNode("/NPCS/NPC[@type = '" + NPCType + "']").ChildNodes[RandomisedDialogue]); //selects the correct node based on the random value
+        Message = ChosenDialogue.InnerXml;
     }
+
+    public void Talk()
+    {
+        DialogueText.text = Message;
+    }
+  
 }
 
 
