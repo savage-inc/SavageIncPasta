@@ -10,6 +10,7 @@ public class LevelUpMenu : MonoBehaviour
     private bool _levelledUp = false, _choiceMade = false;
     private GameObject _choiceMenu;
     private Button[] _buttons = new Button[2];
+    public Text AbilityDescriptionA, AbilityDescriptionB;
     private BasicLevelling _levellingManager;
     private Character _levelledUpCharacter;
     private int _numOptionsForLevel = 2;
@@ -189,39 +190,50 @@ public class LevelUpMenu : MonoBehaviour
         switch (_levelledUpCharacter.Level)
         {
             case 2:
+                AbilityDescriptionA.text = AbilityManager.Instance.GetAbility(_levelledUpCharacter.Class, 2).AbilityDescription;
                 return AbilityManager.Instance.GetAbility(_levelledUpCharacter.Class, 2).AbilityName;
             case 3:
                 switch (_levelledUpCharacter.Class)
                 {
                     case ClassType.eWARRIOR:
+                        AbilityDescriptionA.text = "Strength +1 and Constitution +1";
                         return "Strength +1 and Constitution +1";
                     case ClassType.eRANGER:
+                        AbilityDescriptionA.text = "Dexterity +1";
                         return "Dexterity +1";
                     case ClassType.eWIZARD:
+                        AbilityDescriptionA.text = "Intelligence +1";
                         return "Intelligence +1";
                     case ClassType.eSHAMAN:
+                        AbilityDescriptionA.text = "Intelligence +1";
                         return "Intelligence +1";
                 }
                 break;
             case 4:
                 if (_levelledUpCharacter.Class == ClassType.eWIZARD)
                 {
+                    AbilityDescriptionA.text = AbilityManager.Instance.GetAbility(_levelledUpCharacter.Class, 6).AbilityDescription;
                     return AbilityManager.Instance.GetAbility(_levelledUpCharacter.Class, 6).AbilityName;
                 }
                 else
                 {
+                    AbilityDescriptionA.text = AbilityManager.Instance.GetAbility(_levelledUpCharacter.Class, 4).AbilityDescription;
                     return AbilityManager.Instance.GetAbility(_levelledUpCharacter.Class, 4).AbilityName;
                 }
             case 5:
                 switch (_levelledUpCharacter.Class)
                 {
                     case ClassType.eWARRIOR:
-                        return "Penne Storm and Strength +1";
+                        AbilityDescriptionA.text = AbilityManager.Instance.GetAbility(_levelledUpCharacter.Class, 6).AbilityDescription;
+                        return "Strength +1 and Penne Storm";
                     case ClassType.eRANGER:
+                        AbilityDescriptionA.text = AbilityManager.Instance.GetAbility(_levelledUpCharacter.Class, 6).AbilityDescription;
                         return "Dexterity +1 and Split Shot";
                     case ClassType.eWIZARD:
+                        AbilityDescriptionA.text = AbilityManager.Instance.GetAbility(_levelledUpCharacter.Class, 7).AbilityDescription;
                         return "Intelligence +1 and Spaghetti Whip";
                     case ClassType.eSHAMAN:
+                        AbilityDescriptionA.text = AbilityManager.Instance.GetAbility(_levelledUpCharacter.Class, 6).AbilityDescription;
                         return "Shroud of Regeneration";
                 }
                 break;
@@ -243,32 +255,42 @@ public class LevelUpMenu : MonoBehaviour
             switch (_levelledUpCharacter.Level)
             {
                 case 2:
+                    AbilityDescriptionB.text = AbilityManager.Instance.GetAbility(_levelledUpCharacter.Class, 3).AbilityDescription;
                     return AbilityManager.Instance.GetAbility(_levelledUpCharacter.Class, 3).AbilityName;
                 case 3:
                     switch (_levelledUpCharacter.Class)
                     {
                         case ClassType.eWARRIOR:
+                            AbilityDescriptionB.text = "Strength +1 and Constitution +1";
                             return "Strength +1 and Constitution +1";
                         case ClassType.eRANGER:
+                            AbilityDescriptionB.text = "Dexterity +1";
                             return "Dexterity +1";
                         case ClassType.eWIZARD:
+                            AbilityDescriptionB.text = "Intelligence +1";
                             return "Intelligence +1";
                         case ClassType.eSHAMAN:
+                            AbilityDescriptionB.text = "Intelligence +1";
                             return "Intelligence +1";
                     }
                     break;
                 case 4:
+                    AbilityDescriptionB.text = AbilityManager.Instance.GetAbility(_levelledUpCharacter.Class, 5).AbilityDescription;
                     return AbilityManager.Instance.GetAbility(_levelledUpCharacter.Class, 5).AbilityName;
                 case 5:
                     switch (_levelledUpCharacter.Class)
                     {
                         case ClassType.eWARRIOR:
-                            return "Penne Storm and Strength +1";
+                            AbilityDescriptionB.text = AbilityManager.Instance.GetAbility(_levelledUpCharacter.Class, 6).AbilityDescription;
+                            return "Strength +1 and Penne Storm";
                         case ClassType.eRANGER:
+                            AbilityDescriptionB.text = AbilityManager.Instance.GetAbility(_levelledUpCharacter.Class, 6).AbilityDescription;
                             return "Dexterity +1 and Split Shot";
                         case ClassType.eWIZARD:
+                            AbilityDescriptionB.text = AbilityManager.Instance.GetAbility(_levelledUpCharacter.Class, 7).AbilityDescription;
                             return "Intelligence +1 and Spaghetti Whip";
                         case ClassType.eSHAMAN:
+                            AbilityDescriptionB.text = AbilityManager.Instance.GetAbility(_levelledUpCharacter.Class, 6).AbilityDescription;
                             return "Shroud of Regeneration";
                     }
                     break;

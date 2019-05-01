@@ -19,6 +19,6 @@ MonoBehaviour:
   _class: 2
   _target: 1
   _tree: 1
-  _id: 4
+  _id: 6
   _projectile: {fileID: 1219463085248596, guid: 10e4233b3313afc4798f9439a38575c2,
     type: 2}
