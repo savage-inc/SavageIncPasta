@@ -50,7 +50,7 @@ public class Battle : MonoBehaviour
     private int _deadPlayers = 0;
     private bool _selectingCharacter = false;
     private bool _skipFrame = false; //skip frame when selecting character to clear input
-    private int _tempSelectedEnemy;
+    private int _tempSelectedEnemy = 0;
     private bool _debugMode = false;
     private bool _runningAnimation = false;
     private int _selectedAbility = -1;
@@ -67,11 +67,7 @@ public class Battle : MonoBehaviour
         PersistantData.LoadItemDatabase();
         //load party inventory from file
         PersistantData.LoadPartyData(FindObjectOfType<PartyInventory>(), FindObjectOfType<PlayerManager>(), null);
-    }
 
-    // Use this for initialization
-    void Start()
-    {
         if (!_playerManager.IsAlive())
         {
             Debug.LogWarning("Saved party is dead generating a new party (THIS SHOULD NEVER HAPPEN WITHIN THE WORLD)");
@@ -86,12 +82,15 @@ public class Battle : MonoBehaviour
             //load party
             _partyList = _playerManager.Characters;
         }
+    }
 
-
+    // Use this for initialization
+    void Start()
+    {
 
         for (int i = 0; i < Players.Count; i++)
         {
-            if (Players[i].Character != null)
+            if (Players[i].Character != null && i < _partyList.Count && _partyList[i] != null)
             {
                 Players[i].Character = _partyList[i];
                 _battleCharacterList.Add(Players[i]);
@@ -99,9 +98,9 @@ public class Battle : MonoBehaviour
 
                 if (Players[i].Character.Magic != MagicType.eNONE)
                 {
-                    ParticleSystem pSystem = PlayerParticles[i].GetComponent<ParticleSystem>();                    
+                    ParticleSystem pSystem = PlayerParticles[i].GetComponent<ParticleSystem>();
                     PlayerParticles[i].SetActive(true);
-                    switch(Players[i].Character.Magic)
+                    switch (Players[i].Character.Magic)
                     {
                         case (MagicType.eCHEESE):
                             pSystem.startColor = Color.yellow;
@@ -121,7 +120,7 @@ public class Battle : MonoBehaviour
 
         for (int i = 0; i < _enemyList.Count; i++)
         {
-            if(Enemies[i].Character != null)
+            if (Enemies[i].Character != null)
             {
                 Enemies[i].Character = _enemyList[i];
                 _battleCharacterList.Add(Enemies[i]);
@@ -149,9 +148,7 @@ public class Battle : MonoBehaviour
                 }
             }
         }
-
-        _tempSelectedEnemy = _partyList.Count;
-
+        _tempSelectedEnemy = Players.Count;
         DecideTurnOrder();
         PlaceInColumns();
 
@@ -180,14 +177,17 @@ public class Battle : MonoBehaviour
         //clear selected player color
         for (int i = 0; i < 4; i++)
         {
-            _battleCharacterList[i].GetComponent<SpriteRenderer>().color = Color.white;
+            if (i < _battleCharacterList.Count)
+            {
+                _battleCharacterList[i].GetComponent<SpriteRenderer>().color = Color.white;
+            }
         }
 
         if (_currentCharacterIndex >= _battleCharacterList.Count)
         {
-            DecideTurnOrder();
             _currentCharacterIndex = 0;
-            IncreasePartyMana(5);
+            //DecideTurnOrder();
+            //IncreasePartyMana(5);
         }
 
         //Set selected player to magenta
@@ -378,6 +378,17 @@ public class Battle : MonoBehaviour
         }
     }
 
+    public void RunAway()
+    {
+        Vector2 newPos = new Vector2(PlayerPrefs.GetFloat("SceneOriginX"), PlayerPrefs.GetFloat("SceneOriginY"));
+        PersistantData.SetPlayerPositionInNextScene(newPos);
+        //only save not in debug mode (Generated characters upon battle load instead of saved party)
+        if (!_debugMode)
+        {
+            FindObjectOfType<BattleInventoryUI>().Save();
+        }
+        SceneManager.LoadScene(PlayerPrefs.GetInt("SceneOrigin"), LoadSceneMode.Single);
+    }
 
 
     void DecideTurnOrder()
@@ -663,104 +674,139 @@ public class Battle : MonoBehaviour
                 SpiceCloud(attacker.Character);
                 break;
             case 6:
-                SpagHeistti(attacker.Character);
+                SpagHeistti(attacker);
                 break;
+        }
+    }
+
+    public bool HasEnoughMana(Character attacker, int mana)
+    {
+        if (mana <= attacker.CurrentMana)
+        {
+            return true;
+        }
+        else
+        {
+            _optionChosen = TurnOption.eNONE;
+            FindObjectOfType<BattleInfoUI>().TextBox4.text = "Not enough mana!";
+            FindObjectOfType<BattleInfoUI>().TextBox4.color = Color.red;
+
+            return false;
         }
     }
 
     void Leftovers(Character attacker)
     {
-        if (_targettedCharacterIndex > -1)
+        if (HasEnoughMana(attacker, 1))
         {
-            if (hitChance())
+            if (_targettedCharacterIndex > -1)
             {
-                _battleCharacterList[_targettedCharacterIndex].Character.ChangeHealth(attacker.Intelligence);
+                if (hitChance())
+                {
+                    _battleCharacterList[_targettedCharacterIndex].Character.ChangeHealth(attacker.Intelligence);
+                }
+                attacker.ChangeMana(-1);
+                EndTurn();
             }
-            attacker.ChangeMana(-1);
-            EndTurn();
         }
-
     }
     void SpagSteal(Character attacker)
     {
-        if (_targettedCharacterIndex > -1)
+        if (HasEnoughMana(attacker, 3))
         {
-            if (hitChance())
+            if (_targettedCharacterIndex > -1)
             {
-                int damage = CalculateDamage();
-                DealDamage(damage);
-                attacker.ChangeHealth(damage);
-            }
-            attacker.ChangeMana(-3);
-            EndTurn();
-        }
-    }
-    void SpiceUp(Character attacker)
-    {
-        if (_targettedCharacterIndex > -1)
-        {
-            _battleCharacterList[_targettedCharacterIndex].AttackBuffModifier += .5f;
-            attacker.ChangeMana(-3);
-            EndTurn();
-        }
-    }
-    void PastaSurprise(Character attacker)
-    {
-        for (int i = 0; i < 2; i++)
-        {
-            do
-            {
-                _targettedCharacterIndex = Random.Range(0, _battleCharacterList.Count);
-            } while (!_battleCharacterList[_targettedCharacterIndex].Character.Player || !_battleCharacterList[_targettedCharacterIndex].Character.Alive);
-
-            _battleCharacterList[_targettedCharacterIndex].Character.ChangeHealth(Random.Range(5, attacker.Intelligence * 2));
-        }
-        attacker.ChangeMana(-5);
-        EndTurn();
-    }
-    void SpiceCloud(Character attacker)
-    {
-        foreach (BattleCharacter character in _battleCharacterList)
-        {
-            if (character.Character.Player)
-            {
-                character.AttackBuffModifier += .5f;
-            }
-        }
-        attacker.ChangeMana(-5);
-        EndTurn();
-    }
-    void SpagHeistti(Character attacker)
-    {
-        int totalDamage = 0;
-        int noOfPlayers = 0;
-        for (int i = 0; i < _battleCharacterList.Count; i++)
-        {
-            if (!_battleCharacterList[_characterTurnOrder[i]].Character.Player && _battleCharacterList[_characterTurnOrder[i]].Character.Alive)
-            {
-                _targettedCharacterIndex = _characterTurnOrder[i];
                 if (hitChance())
                 {
                     int damage = CalculateDamage();
                     DealDamage(damage);
-                    totalDamage += damage;
+                    attacker.ChangeHealth(damage);
+                }
+                attacker.ChangeMana(-3);
+                EndTurn();
+            }
+        }
+    }
+    void SpiceUp(Character attacker)
+    {
+        if (HasEnoughMana(attacker, 3))
+        {
+            if (_targettedCharacterIndex > -1)
+            {
+                _battleCharacterList[_targettedCharacterIndex].AttackBuffModifier += .5f;
+                attacker.ChangeMana(-3);
+                EndTurn();
+            }
+        }
+    }
+    void PastaSurprise(Character attacker)
+    {
+        if (HasEnoughMana(attacker, 5))
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                do
+                {
+                    _targettedCharacterIndex = Random.Range(0, _battleCharacterList.Count);
+                } while (!_battleCharacterList[_targettedCharacterIndex].Character.Player || !_battleCharacterList[_targettedCharacterIndex].Character.Alive);
+
+                _battleCharacterList[_targettedCharacterIndex].Character.ChangeHealth(Random.Range(5, attacker.Intelligence * 2));
+            }
+            attacker.ChangeMana(-5);
+            EndTurn();
+        }
+    }
+    void SpiceCloud(Character attacker)
+    {
+        if (HasEnoughMana(attacker, 5))
+        {
+            foreach (BattleCharacter character in _battleCharacterList)
+            {
+                if (character.Character.Player)
+                {
+                    character.AttackBuffModifier += .5f;
                 }
             }
-            else
-            {
-                noOfPlayers++;
-            }
+            attacker.ChangeMana(-5);
+            EndTurn();
         }
-
-        for (int i = 0; i < _battleCharacterList.Count; i++)
+    }
+    void SpagHeistti(BattleCharacter attacker)
+    {
+        if (HasEnoughMana(attacker.Character, 10))
         {
-            if (_battleCharacterList[_characterTurnOrder[i]].Character.Player)
+            int totalDamage = 0;
+            int noOfPlayers = 0;
+            for (int i = 0; i < _battleCharacterList.Count; i++)
             {
-                _battleCharacterList[_characterTurnOrder[i]].Character.ChangeHealth(totalDamage / noOfPlayers);
+                if (!_battleCharacterList[_characterTurnOrder[i]].Character.Player && _battleCharacterList[_characterTurnOrder[i]].Character.Alive)
+                {
+                    _targettedCharacterIndex = _characterTurnOrder[i];
+                    if (hitChance())
+                    {
+                        int damage = CalculateDamage();
+                        DealDamage(damage);
+                        totalDamage += damage;
+                    }
+                }
+                else
+                {
+                    noOfPlayers++;
+                }
             }
+
+            for (int i = 0; i < _battleCharacterList.Count; i++)
+            {
+                if (_battleCharacterList[_characterTurnOrder[i]].Character.Player)
+                {
+                    _battleCharacterList[_characterTurnOrder[i]].Character.ChangeHealth(totalDamage / noOfPlayers);
+                }
+            }
+            attacker.Character.ChangeMana(-10);
+            attacker.PrimaryAction = true;
+            attacker.SecondaryAction = true;
+            EndTurn();
         }
-        attacker.ChangeMana(-10);
-        EndTurn();
     }
 
     void WizardAbility(int abilityNumber, BattleCharacter attacker)
@@ -792,130 +838,139 @@ public class Battle : MonoBehaviour
     }
     void ScaldingSauce(Character attacker)
     {
-        if (_targettedCharacterIndex > -1)
+        if (HasEnoughMana(attacker, 1))
         {
-            if (hitChance())
+            if (_targettedCharacterIndex > -1)
             {
-                DealDamage((int)(attacker.Intelligence + 1.5 * attacker.Level));
+                if (hitChance())
+                {
+                    DealDamage((int)(attacker.Intelligence + 1.5 * attacker.Level));
+                }
+                attacker.ChangeMana(-1);
+                EndTurn();
             }
-            attacker.ChangeMana(-1);
-            EndTurn();
         }
     }
     void Meatball(Character attacker)
     {
-        if (_targettedCharacterIndex > -1)
+        if (HasEnoughMana(attacker, 3))
         {
-            if (hitChance())
+            if (_targettedCharacterIndex > -1)
             {
-                DealDamage(attacker.Intelligence);
-
-                //get alive enemies
-                var aliveEnemies = GetAliveEnemies();
-                if(aliveEnemies.Count > 1)
+                if (hitChance())
                 {
-                    int firstEnemyIndex = _targettedCharacterIndex;
+                    DealDamage(attacker.Intelligence);
 
-                    foreach (var aliveEnemy in aliveEnemies)
+                    //get alive enemies
+                    var aliveEnemies = GetAliveEnemies();
+                    if (aliveEnemies.Count > 1)
                     {
-                        if(aliveEnemy != _battleCharacterList[firstEnemyIndex])
+                        int firstEnemyIndex = _targettedCharacterIndex;
+
+                        foreach (var aliveEnemy in aliveEnemies)
                         {
-                            _targettedCharacterIndex = GetIndexOfCharacter(aliveEnemy);
-                            DealDamage(attacker.Intelligence);
-                            break;
+                            if (aliveEnemy != _battleCharacterList[firstEnemyIndex])
+                            {
+                                _targettedCharacterIndex = GetIndexOfCharacter(aliveEnemy);
+                                DealDamage(attacker.Intelligence);
+                                break;
+                            }
                         }
                     }
                 }
-
-                //if (_deadEnemies <= _enemyList.Count - 1)
-                //{
-                //    int firstEnemyIndex = _targettedCharacterIndex;
-                //    do
-                //    {
-                //        _targettedCharacterIndex = Random.Range(0, _battleCharacterList.Count);
-                //    } while (_targettedCharacterIndex == firstEnemyIndex || !_battleCharacterList[_targettedCharacterIndex].Character.Alive && _battleCharacterList[_targettedCharacterIndex].Character.Player);
-
-
-                //    DealDamage(attacker.Intelligence);
-                //}
+                attacker.ChangeMana(-3);
+                EndTurn();
             }
-            attacker.ChangeMana(-3);
-            EndTurn();
         }
     }
     void Slow(Character attacker)
     {
-        if (_targettedCharacterIndex > -1)
+        if (HasEnoughMana(attacker, 3))
         {
-            if (hitChance())
+            if (_targettedCharacterIndex > -1)
             {
-                _battleCharacterList[_targettedCharacterIndex].SecondaryAction = true;
+                if (hitChance())
+                {
+                    _battleCharacterList[_targettedCharacterIndex].SecondaryAction = true;
+                }
+                attacker.ChangeMana(-3);
+                EndTurn();
             }
-            attacker.ChangeMana(-3);
-            EndTurn();
         }
     }
     void Teleport(Character attacker)
     {
-        if (_targettedCharacterIndex > -1)
+        if (HasEnoughMana(attacker, 3))
         {
-            Move(_battleCharacterList[_targettedCharacterIndex]);
-            attacker.ChangeMana(-3);
+            if (_targettedCharacterIndex > -1)
+            {
+                Move(_battleCharacterList[_targettedCharacterIndex]);
+                attacker.ChangeMana(-3);
+            }
         }
     }
     void FlourAttack(Character attacker)
     {
-        if (_targettedCharacterIndex > -1)
+        if (HasEnoughMana(attacker, 5))
         {
-            int col = _battleCharacterList[_targettedCharacterIndex].Character.CurrCol;
-            for (int i = 0; i < _battleCharacterList.Count; i++)
+            if (_targettedCharacterIndex > -1)
             {
-                if (_battleCharacterList[i].Character.Alive && !_battleCharacterList[i].Character.Player && _battleCharacterList[i].Character.CurrCol == col)
+                int col = _battleCharacterList[_targettedCharacterIndex].Character.CurrCol;
+                for (int i = 0; i < _battleCharacterList.Count; i++)
                 {
-                    if (hitChance())
+                    if (_battleCharacterList[i].Character.Alive && !_battleCharacterList[i].Character.Player && _battleCharacterList[i].Character.CurrCol == col)
                     {
-                        _battleCharacterList[i].ChanceToHitModifier -= 5 * attacker.Intelligence;
+                        if (hitChance())
+                        {
+                            _battleCharacterList[i].ChanceToHitModifier -= 5 * attacker.Intelligence;
+                        }
                     }
                 }
+                attacker.ChangeMana(-5);
+                EndTurn();
             }
-            attacker.ChangeMana(-5);
-            EndTurn();
         }
     }
     void RavioliBomb(Character attacker)
     {
-        if (_targettedCharacterIndex > -1)
+        if (HasEnoughMana(attacker, 5))
         {
-            int col = _battleCharacterList[_targettedCharacterIndex].Character.CurrCol;
-            for (int i = 0; i < _battleCharacterList.Count; i++)
+            if (_targettedCharacterIndex > -1)
             {
-                if (_battleCharacterList[i].Character.Alive && !_battleCharacterList[i].Character.Player && _battleCharacterList[i].Character.CurrCol == col)
+                int col = _battleCharacterList[_targettedCharacterIndex].Character.CurrCol;
+                for (int i = 0; i < _battleCharacterList.Count; i++)
                 {
-                    if (hitChance())
+                    if (_battleCharacterList[i].Character.Alive && !_battleCharacterList[i].Character.Player && _battleCharacterList[i].Character.CurrCol == col)
                     {
-                        _targettedCharacterIndex = i;
-                        DealDamage(attacker.Intelligence * Random.Range(1, 3));
+                        if (hitChance())
+                        {
+                            _targettedCharacterIndex = i;
+                            DealDamage(attacker.Intelligence * Random.Range(1, 3));
+                        }
                     }
                 }
+                attacker.ChangeMana(-5);
+                EndTurn();
             }
-            attacker.ChangeMana(-5);
-            EndTurn();
         }
     }
     void SpaghettiWhip(BattleCharacter attacker)
     {
-        for (int i = 0; i < _battleCharacterList.Count; i++)
+        if (HasEnoughMana(attacker.Character, 10))
         {
-            if (_battleCharacterList[i].Character.Alive && !_battleCharacterList[i].Character.Player)
+            for (int i = 0; i < _battleCharacterList.Count; i++)
             {
-                _targettedCharacterIndex = i;
-                DealDamage((int)(attacker.Character.Intelligence * (1.5 + attacker.Character.Level)));
+                if (_battleCharacterList[i].Character.Alive && !_battleCharacterList[i].Character.Player)
+                {
+                    _targettedCharacterIndex = i;
+                    DealDamage((int)(attacker.Character.Intelligence * (1.5 + attacker.Character.Level)));
+                }
             }
+            attacker.Character.ChangeMana(-10);
+            attacker.PrimaryAction = true;
+            attacker.SecondaryAction = true;
+            EndTurn();
         }
-        attacker.Character.ChangeMana(-10);
-        attacker.PrimaryAction = true;
-        attacker.SecondaryAction = true;
-        EndTurn();
     }
 
 
@@ -1000,41 +1055,76 @@ public class Battle : MonoBehaviour
         int damage = 0;
 
         var weapon = attacker.Character.Equipment.GetEquippedWeapon();
-        var chest = defender.Character.Equipment.GetEquippedArmour(ArmourItemData.SlotType.eCHEST); // change all refewrences to armour
-
+        var Armour = defender.Character.Equipment.GetArmourMagicType();
+            
         float magicEffect = 1.0f;
 
         if (weapon != null)
+        {            
+            if (weapon.MagicalType == MagicType.eCHEESE)
+            {
+                if (Armour == MagicType.ePESTO || defender.Character.Magic == MagicType.ePESTO)
+                {
+                    magicEffect = 2.0f;
+                }
+                else if (Armour == MagicType.eTOMATO || defender.Character.Magic == MagicType.eTOMATO)
+                {
+                    magicEffect = 0.5f;
+                }
+            }
+            else if (weapon.MagicalType == MagicType.ePESTO)            {
+                if (Armour == MagicType.eTOMATO || defender.Character.Magic == MagicType.eTOMATO)
+                {
+                    magicEffect = 2.0f;
+                }
+                else if (Armour == MagicType.eCHEESE || defender.Character.Magic == MagicType.eCHEESE)
+                {
+                    magicEffect = 0.5f;
+                }
+            }
+            else if (weapon.MagicalType == MagicType.eTOMATO)
+            {
+                if (Armour == MagicType.eCHEESE || defender.Character.Magic == MagicType.eCHEESE)
+                {
+                    magicEffect = 2.0f;
+                }
+                else if (Armour == MagicType.ePESTO || defender.Character.Magic == MagicType.ePESTO)
+                {
+                    magicEffect = 0.5f;
+                }
+            }
+        }
+        else
         {
-            if (weapon.MagicalType == MagicType.eCHEESE || attacker.Character.Magic == MagicType.eCHEESE)
+            if (attacker.Character.Magic == MagicType.eCHEESE)
             {
-                if (chest.MagicalType == MagicType.ePESTO || defender.Character.Magic == MagicType.ePESTO)
+                if (Armour == MagicType.ePESTO || defender.Character.Magic == MagicType.ePESTO)
                 {
                     magicEffect = 2.0f;
                 }
-                else if (chest.MagicalType == MagicType.eTOMATO || defender.Character.Magic == MagicType.eTOMATO)
+                else if (Armour == MagicType.eTOMATO || defender.Character.Magic == MagicType.eTOMATO)
                 {
                     magicEffect = 0.5f;
                 }
             }
-            else if (weapon.MagicalType == MagicType.ePESTO || attacker.Character.Magic == MagicType.ePESTO)
+            else if (attacker.Character.Magic == MagicType.ePESTO)
             {
-                if (chest.MagicalType == MagicType.eTOMATO || defender.Character.Magic == MagicType.eTOMATO)
+                if (Armour == MagicType.eTOMATO || defender.Character.Magic == MagicType.eTOMATO)
                 {
                     magicEffect = 2.0f;
                 }
-                else if (chest.MagicalType == MagicType.eCHEESE || defender.Character.Magic == MagicType.eCHEESE)
+                else if (Armour == MagicType.eCHEESE || defender.Character.Magic == MagicType.eCHEESE)
                 {
                     magicEffect = 0.5f;
                 }
             }
-            else if (weapon.MagicalType == MagicType.eTOMATO || attacker.Character.Magic == MagicType.eTOMATO)
+            else if (attacker.Character.Magic == MagicType.eTOMATO)
             {
-                if (chest.MagicalType == MagicType.eCHEESE || defender.Character.Magic == MagicType.eCHEESE)
+                if (Armour == MagicType.eCHEESE || defender.Character.Magic == MagicType.eCHEESE)
                 {
                     magicEffect = 2.0f;
                 }
-                else if (chest.MagicalType == MagicType.ePESTO || defender.Character.Magic == MagicType.ePESTO)
+                else if (Armour == MagicType.ePESTO || defender.Character.Magic == MagicType.ePESTO)
                 {
                     magicEffect = 0.5f;
                 }
@@ -1066,7 +1156,7 @@ public class Battle : MonoBehaviour
             magic = weapon.MagicalModifier;
         }
 
-        chanceToHit = (((50.0f + attacker.ClassModifier * 10.0f - defender.BaseArmour * 2.0f + magic) / 100.0f) - attacker.ChanceToHitModifier) * hitModifier;
+        chanceToHit = (((30.0f + attacker.ClassModifier * 10.0f - defender.BaseArmour * 2.0f + magic) / 100.0f) - attacker.ChanceToHitModifier) * hitModifier;
         if (attacker.CurrentAction == ActionChoice.eSecondary)
         {
             chanceToHit *= 0.75f;
@@ -1098,7 +1188,7 @@ public class Battle : MonoBehaviour
 
         //get ability used if any
         AbilityData ability = null;
-        if(_selectedAbility >= 0)
+        if (_selectedAbility >= 0)
         {
             ability = AbilityManager.Instance.GetAbility(_battleCharacterList[currentCharacter].Character.Class, _selectedAbility);
         }
@@ -1116,7 +1206,7 @@ public class Battle : MonoBehaviour
             _battleCharacterList[targetIndex].Character.ChangeHealth(-damage);
             _runningAnimation = false;
         }
-        else if(_battleCharacterList[currentCharacter].Character.Class == ClassType.eRANGER)
+        else if (_battleCharacterList[currentCharacter].Character.Class == ClassType.eRANGER)
         {
             _runningAnimation = true;
             //fire projectile animation
@@ -1167,7 +1257,7 @@ public class Battle : MonoBehaviour
             }
         }
 
-        _targettingCharacterIndex = 4;
+        _targettingCharacterIndex = 0;
 
         while (!_battleCharacterList[_targettingCharacterIndex].Character.Alive)
         {
@@ -1321,7 +1411,8 @@ public class Battle : MonoBehaviour
                 }
                 _selectedAbility = abilityID;
                 //If the current players selected ability requires a target then enter select character state
-                if (AbilityManager.Instance.GetAbility(GetCurrentPlayer().Character.Class, abilityID).RequiresTarget)
+                var ability = AbilityManager.Instance.GetAbility(GetCurrentPlayer().Character.Class, abilityID);
+                if (ability.RequiresTarget && HasEnoughMana(currentCharacter.Character, ability.ManaCost))
                 {
                     _selectingCharacter = true;
                 }
@@ -1348,7 +1439,7 @@ public class Battle : MonoBehaviour
     {
         List<BattleCharacter> enemies = new List<BattleCharacter>();
 
-        if (player.Character.Class == ClassType.eWARRIOR && AbilityManager.Instance.GetAbility(ClassType.eWARRIOR,_selectedAbility).AbilityName != "Reckless Charge")
+        if (player.Character.Class == ClassType.eWARRIOR && _selectedAbility != 2)
         {
             int colToAttack = 1;
             bool enemyAvailable = false;
@@ -1356,13 +1447,13 @@ public class Battle : MonoBehaviour
             {
                 for (int i = 0; i < _battleCharacterList.Count; i++)
                 {
-                    if ((_battleCharacterList[i].Character.CurrCol == colToAttack && _battleCharacterList[i].Character.Alive && !_battleCharacterList[i].Character.Player) || _battleCharacterList[i].Character.Player)
+                    if ((_battleCharacterList[i].Character.CurrCol == colToAttack && _battleCharacterList[i].Character.Alive && !_battleCharacterList[i].Character.Player || _battleCharacterList[i].Character.Player))
                     {
                         if (!_battleCharacterList[i].Character.Player)
                         {
                             enemyAvailable = true;
-                            enemies.Add(_battleCharacterList[i]);
                         }
+                        enemies.Add(_battleCharacterList[i]);
                     }
                 }
                 if (!enemyAvailable)
@@ -1376,7 +1467,7 @@ public class Battle : MonoBehaviour
             //player can attack all as it is not a warrior
             for (int i = 0; i < _battleCharacterList.Count; i++)
             {
-                if (_battleCharacterList[i].Character.Alive && !_battleCharacterList[i].Character.Player)
+                if (_battleCharacterList[i].Character.Alive)
                 {
                     enemies.Add(_battleCharacterList[i]);
                 }
@@ -1457,7 +1548,7 @@ public class Battle : MonoBehaviour
         }
         FindObjectOfType<EventSystem>().enabled = true;
 
-        _battleCharacterList[GetIndexOfCharacter(enemies[_tempSelectedEnemy])].GetComponent<SpriteRenderer>().color = Color.red;
+        _battleCharacterList[GetIndexOfCharacter(enemies[Mathf.Clamp(_tempSelectedEnemy, 0, enemies.Count - 1)])].GetComponent<SpriteRenderer>().color = Color.red;
     }
 
     public BattleCharacter GetCurrentPlayer()
@@ -1481,7 +1572,7 @@ public class Battle : MonoBehaviour
     {
         for (int i = 0; i < _battleCharacterList.Count; i++)
         {
-            if(_battleCharacterList[i] == character)
+            if (_battleCharacterList[i] == character)
             {
                 return i;
             }
@@ -1505,12 +1596,12 @@ public class Battle : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
     }
-        
+
     void IncreasePartyMana(int amount)
     {
         foreach (var player in Players)
         {
-            if(player != null && player.Character.Alive)
+            if (player != null && player.Character.Alive)
             {
                 player.Character.ChangeMana(amount);
             }

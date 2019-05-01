@@ -15,9 +15,10 @@ MonoBehaviour:
   _abilityName: Pasta Surprise
   _abilityDescription: Throw a surprise pasta dish at 2 allies to heal for a random
     amount.
-  _manaCost: 8
+  _manaCost: 5
   _level: 4
   _class: 3
   _target: 0
   _tree: 1
   _id: 4
+  _projectile: {fileID: 0}

@@ -35,6 +35,10 @@ public class BattleCharacter : MonoBehaviour {
         
     private void Awake()
     {
+
+    }
+    // Use this for initialization
+    void Start () {
         switch (Character.Class)
         {
             case ClassType.eWARRIOR:
@@ -52,9 +56,6 @@ public class BattleCharacter : MonoBehaviour {
                 break;
         }
 
-    }
-    // Use this for initialization
-    void Start () {
         GetComponent<SpriteRenderer>().sprite = FindObjectOfType<SpriteManager>().GetSprite(Character.SpritePreviewName);
     }
 

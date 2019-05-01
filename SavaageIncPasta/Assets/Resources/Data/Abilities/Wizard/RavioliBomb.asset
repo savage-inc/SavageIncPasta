@@ -14,7 +14,7 @@ MonoBehaviour:
   _sprite: {fileID: 0}
   _abilityName: Ravioli Bomb
   _abilityDescription: Conjure a Ravioli Bomb to hit all enemies in a range band.
-  _manaCost: 8
+  _manaCost: 5
   _level: 4
   _class: 2
   _target: 1

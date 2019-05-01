@@ -16,8 +16,9 @@ MonoBehaviour:
   _abilityDescription: Spin up a storm of Penne, attacking in a beserk until the storm
     blows out.
   _manaCost: 0
-  _level: 1
+  _level: 5
   _class: 0
   _target: 1
   _tree: 1
   _id: 6
+  _projectile: {fileID: 0}
