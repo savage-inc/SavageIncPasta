@@ -15,7 +15,7 @@ MonoBehaviour:
   _databaseName: ManaPotion
   _description: 
   _baseMoneyValue: 2
-  _previewSprite: {fileID: 0}
+  _previewSprite: {fileID: 21300000, guid: c2e58915c4092f74a970a66af253d1db, type: 3}
   _rarity: 0
   _stackSize: 2147483647
   _consumableType: 1

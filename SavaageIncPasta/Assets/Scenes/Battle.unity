@@ -5580,7 +5580,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InventorySize: 10
   _gold: 0
-  StartingItems: []
+  StartingItems:
+  - {fileID: 11400000, guid: b4b6b9b1e2b0b7c42a2008c1b7c7bfa8, type: 2}
+  - {fileID: 11400000, guid: 26e43c46c99deba4cb470c575cabccd8, type: 2}
 --- !u!1 &283420304
 GameObject:
   m_ObjectHideFlags: 0

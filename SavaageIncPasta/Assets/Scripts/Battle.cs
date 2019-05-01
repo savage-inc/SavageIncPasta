@@ -95,6 +95,7 @@ public class Battle : MonoBehaviour
                 Players[i].Character = _partyList[i];
                 _battleCharacterList.Add(Players[i]);
                 PlayerHealthBars[i].SetActive(true);
+                _battleCharacterList[i].LoadCharacter();
 
                 if (Players[i].Character.Magic != MagicType.eNONE)
                 {
@@ -125,6 +126,8 @@ public class Battle : MonoBehaviour
                 Enemies[i].Character = _enemyList[i];
                 _battleCharacterList.Add(Enemies[i]);
                 EnemyHealthBars[i].SetActive(true);
+                _battleCharacterList[i].LoadCharacter();
+
 
                 if (Enemies[i].Character.Magic != MagicType.eNONE)
                 {

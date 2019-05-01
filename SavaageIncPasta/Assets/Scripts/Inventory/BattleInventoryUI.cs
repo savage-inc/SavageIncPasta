@@ -35,6 +35,7 @@ public class BattleInventoryUI : MonoBehaviour
             var button = child.gameObject.GetComponent<InventoryItemButton>();
             button.GetComponent<Button>().onClick.AddListener(() => useItem(button));
             _slots.Add(button);
+            button.transform.GetChild(0).GetComponent<Text>().text = "";
 
         }
     }

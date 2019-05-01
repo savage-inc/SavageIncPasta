@@ -39,6 +39,12 @@ public class BattleCharacter : MonoBehaviour {
     }
     // Use this for initialization
     void Start () {
+        LoadCharacter();
+    }
+
+
+    public void LoadCharacter()
+    {
         switch (Character.Class)
         {
             case ClassType.eWARRIOR:
@@ -60,7 +66,9 @@ public class BattleCharacter : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update ()
+    {
+
 	}
 
 
