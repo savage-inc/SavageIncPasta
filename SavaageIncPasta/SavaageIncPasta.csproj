@@ -246,7 +246,6 @@
       <HintPath>Assets/3rdParty/TextMeshPro/Plugins/Editor DLL/TextMeshPro-2017.3-Runtime.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Analytics">
-<<<<<<< HEAD
       <HintPath>C:/Users/s6061420/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.13/UnityEngine.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Purchasing">
@@ -254,15 +253,6 @@
     </Reference>
     <Reference Include="UnityEngine.StandardEvents">
       <HintPath>C:/Users/s6061420/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
-=======
-      <HintPath>C:/Users/t7094911/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.13/UnityEngine.Analytics.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Purchasing">
-      <HintPath>C:/Users/t7094911/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.purchasing@0.0.19/UnityEngine.Purchasing.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.StandardEvents">
-      <HintPath>C:/Users/t7094911/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
->>>>>>> Combat
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -299,8 +289,6 @@
     <Compile Include="Assets\3rdParty\TextMeshPro\Examples _ Extras\Scripts\VertexShakeB.cs" />
     <Compile Include="Assets\3rdParty\TextMeshPro\Examples _ Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\3rdParty\TextMeshPro\Examples _ Extras\Scripts\WarpTextExample.cs" />
-    <Compile Include="Assets\BasicLevelling.cs" />
-    <Compile Include="Assets\LevelUpMenu.cs" />
     <Compile Include="Assets\Scripts\AbilityData.cs" />
     <Compile Include="Assets\Scripts\AbilityManager.cs" />
     <Compile Include="Assets\Scripts\AbilltyButton.cs" />
@@ -309,6 +297,7 @@
     <Compile Include="Assets\Scripts\AI\FindPathToTarget.cs" />
     <Compile Include="Assets\Scripts\AI\GridMap.cs" />
     <Compile Include="Assets\Scripts\AI\Node.cs" />
+    <Compile Include="Assets\Scripts\BasicLevelling.cs" />
     <Compile Include="Assets\Scripts\Battle.cs" />
     <Compile Include="Assets\Scripts\BattleCharacter.cs" />
     <Compile Include="Assets\Scripts\Character.cs" />
@@ -364,6 +353,7 @@
     <Compile Include="Assets\Scripts\UI\ClanButton.cs" />
     <Compile Include="Assets\Scripts\UI\ClanControl.cs" />
     <Compile Include="Assets\Scripts\UI\GridScalar.cs" />
+    <Compile Include="Assets\Scripts\UI\LevelUpMenu.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
     <Compile Include="Assets\Scripts\UI\MiniMapTreeobject.cs" />
     <Compile Include="Assets\Scripts\UI\SwapButton.cs" />

@@ -19,9 +19,5 @@ MonoBehaviour:
   _class: 2
   _target: 1
   _tree: 1
-<<<<<<< HEAD
   _id: 6
-=======
-  _id: 4
->>>>>>> Combat
   _projectile: {fileID: 0}
