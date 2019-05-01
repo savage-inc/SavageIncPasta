@@ -133,16 +133,6 @@ public class Shop : MonoBehaviour
         }
 
         //add random items
-        if (RandomArmour)
-        {
-            for (int i = 0; i < RandomItemCount; i++)
-            {
-                ShopItem shopItem;
-                shopItem.Item = ItemDatabase.Instance.Armour[Random.Range(0, ItemDatabase.Instance.Armour.Count)];
-                shopItem.Stock = 1;
-                Inventory.AddItem(shopItem.Item);
-            }
-        }
 
         if (RandomWeapons)
         {
@@ -150,6 +140,16 @@ public class Shop : MonoBehaviour
             {
                 ShopItem shopItem;
                 shopItem.Item = ItemDatabase.Instance.Weapons[Random.Range(0, ItemDatabase.Instance.Weapons.Count)];
+                shopItem.Stock = 1;
+                Inventory.AddItem(shopItem.Item);
+            }
+        }
+        if (RandomArmour)
+        {
+            for (int i = 0; i < RandomItemCount; i++)
+            {
+                ShopItem shopItem;
+                shopItem.Item = ItemDatabase.Instance.Armour[Random.Range(0, ItemDatabase.Instance.Armour.Count)];
                 shopItem.Stock = 1;
                 Inventory.AddItem(shopItem.Item);
             }

@@ -38,6 +38,8 @@ public class BattleInventoryUI : MonoBehaviour
             button.transform.GetChild(0).GetComponent<Text>().text = "";
 
         }
+
+
     }
 
 	// Use this for initialization
@@ -116,7 +118,7 @@ public class BattleInventoryUI : MonoBehaviour
                 var slot = getEmptySlot();
                 slot.Item = inventoryItem;
                 slot.Inventory = _partyInventory.Inventory;
-                slot.GetComponent<Image>().sprite = slot.Item.Item.PreviewSprite;
+                slot.GetComponent<Image>().sprite = inventoryItem.Item.PreviewSprite;
             }
         }
     }
@@ -125,7 +127,7 @@ public class BattleInventoryUI : MonoBehaviour
     {
         foreach (var slot in _slots)
         {
-            if (slot.Item.Item == null)
+            if (slot.Item == null || slot.Item.Item == null)
                 return slot;
         }
         return _slots[0];

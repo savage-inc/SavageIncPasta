@@ -66,6 +66,20 @@ public class ArmourItemData : BaseItemData
         _value = info.GetInt32("value");
         _magicalType = (MagicType)info.GetInt32("magicType");
 
+        switch (_armourSlotType)
+        {
+            case SlotType.eHEAD:
+                _previewSprite = Resources.Load<Sprite>("Sprites/Items/armour/helmet/" + info.GetString("spriteName"));
+                break;
+            case SlotType.eCHEST:
+                _previewSprite = Resources.Load<Sprite>("Sprites/Items/armour/chest/" + info.GetString("spriteName"));
+                break;
+            case SlotType.eLEGS:
+                _previewSprite = Resources.Load<Sprite>("Sprites/Items/armour/boots/" + info.GetString("spriteName"));
+                break;
+            default:
+                break;
+        }
     }
 
     public override void GetObjectData(SerializationInfo info, StreamingContext context)

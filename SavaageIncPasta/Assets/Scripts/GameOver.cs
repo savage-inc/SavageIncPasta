@@ -22,6 +22,7 @@ public class GameOver : MonoBehaviour {
         else
         {
             ButtonText.text = "Quit";
+            PersistantData.ClearSaves();
 
         }
     }

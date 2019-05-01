@@ -152,6 +152,36 @@ public class WeaponItemData : BaseItemData
         _isMainHand = info.GetBoolean("mainhand");
         _magicalType = (MagicType)info.GetInt32("magicalType");
         _magicalModifier = info.GetInt32("magicalModifer");
+
+        switch (_weaponSubType)
+        {
+            case SubType.eSHORTSWORD:
+                _previewSprite = Resources.Load<Sprite>("Sprites/Items/weapons/swords/" + info.GetString("spriteName"));
+                break;
+            case SubType.eLONGSWORD:
+                _previewSprite = Resources.Load<Sprite>("Sprites/Items/weapons/swords/" + info.GetString("spriteName"));
+                break;
+            case SubType.eWHIP:
+                _previewSprite = Resources.Load<Sprite>("Sprites/Items/weapons/spears/" + info.GetString("spriteName"));
+                break;
+            case SubType.eRAPIER:
+                _previewSprite = Resources.Load<Sprite>("Sprites/Items/weapons/swords/" + info.GetString("spriteName"));
+                break;
+            case SubType.eTHROWINGSTAR:
+                _previewSprite = Resources.Load<Sprite>("Sprites/Items/weapons/stars/" + info.GetString("spriteName"));
+                break;
+            case SubType.eBOW:
+                _previewSprite = Resources.Load<Sprite>("Sprites/Items/weapons/bow/" + info.GetString("spriteName"));
+                break;
+            case SubType.ePISTOL:
+                _previewSprite = Resources.Load<Sprite>("Sprites/Items/weapons/bow/" + info.GetString("spriteName"));
+                break;
+            case SubType.eRIFLE:
+                _previewSprite = Resources.Load<Sprite>("Sprites/Items/weapons/bow/" + info.GetString("spriteName"));
+                break;
+            default:
+                break;
+        }
     }
 
     public override void GetObjectData(SerializationInfo info, StreamingContext context)

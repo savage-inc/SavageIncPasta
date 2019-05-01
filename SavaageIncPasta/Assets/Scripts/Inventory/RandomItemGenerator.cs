@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 public class RandomItemGenerator
 {
-    public static WeaponItemData RandomWeapon()
+    public static WeaponItemData RandomWeapon(SpriteManager spriteManager)
     {
         WeaponItemData weapon = ScriptableObject.CreateInstance<WeaponItemData>();
         //create guid
@@ -155,10 +155,12 @@ public class RandomItemGenerator
 
         weapon.BaseMoneyValue = Random.Range(5, 30);
 
+        weapon.PreviewSprite = spriteManager.GetRandomWeaponIcon(weapon.WeaponSubType);
+
         return weapon;
     }
 
-    public static ArmourItemData RandomArmour()
+    public static ArmourItemData RandomArmour(SpriteManager spriteManager)
     {
         ArmourItemData armourItem = ScriptableObject.CreateInstance<ArmourItemData>();
 
@@ -302,6 +304,9 @@ public class RandomItemGenerator
         armourItem.Description = "TODO:: Add a random description";
 
         armourItem.BaseMoneyValue = Random.Range(5, 30);
+
+        armourItem.PreviewSprite = spriteManager.GetRandomArmourIcon(armourItem.ArmourSlotType);
+
 
         return armourItem;
     }

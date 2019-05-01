@@ -69,14 +69,14 @@ public class ItemDatabase : MonoBehaviour
     {
         for (int i = 0; i < 500; i++)
         {
-            var weapon = RandomItemGenerator.RandomWeapon();
+            var weapon = RandomItemGenerator.RandomWeapon(FindObjectOfType<SpriteManager>());
             _items.Add(weapon.DatabaseName, weapon);
             Weapons.Add(weapon);
         }
 
         for (int i = 0; i < 250; i++)
         {
-            var armour = RandomItemGenerator.RandomArmour();
+            var armour = RandomItemGenerator.RandomArmour(FindObjectOfType<SpriteManager>());
             _items.Add(armour.DatabaseName, armour);
             Armour.Add(armour);
         }
