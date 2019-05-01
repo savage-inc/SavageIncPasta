@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class LevelUpMenu : MonoBehaviour
 {
-    private bool _levelledUp = false;
+    private bool _levelledUp = false, _choiceMade = false;
     private GameObject _choiceMenu;
     private Button[] _buttons = new Button[2];
     private BasicLevelling _levellingManager;
@@ -16,6 +16,11 @@ public class LevelUpMenu : MonoBehaviour
     public void LevelledUp()
     {
         _levelledUp = true;
+    }
+
+    public void ChoiceMade()
+    {
+        _choiceMade = true;
     }
 
     private void Awake()
@@ -31,17 +36,19 @@ public class LevelUpMenu : MonoBehaviour
     void Start()
     {
         _choiceMenu.SetActive(false);
+
+        _buttons[0].onClick.AddListener(ChoiceMade);
+        _buttons[0].onClick.AddListener(ChoiceAPressed);
+        _buttons[0].onClick.AddListener(Resume);
+
+        _buttons[1].onClick.AddListener(ChoiceMade);
+        _buttons[1].onClick.AddListener(ChoiceBPressed);
+        _buttons[1].onClick.AddListener(Resume);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (_choiceMenu.activeInHierarchy)
-        {
-            _buttons[0].onClick.AddListener(Resume);
-            _buttons[1].onClick.AddListener(Resume);
-        }
-
         if (_levelledUp)
             Pause();
         else
@@ -72,6 +79,100 @@ public class LevelUpMenu : MonoBehaviour
         }
     }
 
+    private void PlayersChoiceAfterLevellingUp(char choice)
+    {
+        _levelledUpCharacter = gameObject.GetComponent<BasicLevelling>().GetLevelledUpCharacter();
+
+        switch (_levelledUpCharacter.Level)
+        {
+            case 2:
+                if (choice == 'a')
+                {
+                    _levelledUpCharacter.Abilities.Add(2);
+                }
+                else if (choice == 'b')
+                {
+                    _levelledUpCharacter.Abilities.Add(3);
+                }
+                break;
+            case 3:
+                switch (_levelledUpCharacter.Class)
+                {
+                    case ClassType.eWARRIOR:
+                        _levelledUpCharacter.Strength++;
+                        _levelledUpCharacter.Constitution++;
+                        break;
+                    case ClassType.eRANGER:
+                        _levelledUpCharacter.Dexterity++;
+                        break;
+                    case ClassType.eWIZARD:
+                        _levelledUpCharacter.Intelligence++;
+                        break;
+                    case ClassType.eSHAMAN:
+                        _levelledUpCharacter.Intelligence++;
+                        break;
+                }
+                break;
+            case 4:
+                if (choice == 'a')
+                {
+                    _levelledUpCharacter.Abilities.Add(4);
+                }
+                if (choice == 'b')
+                {
+                    _levelledUpCharacter.Abilities.Add(5);
+                }
+
+                if (_levelledUpCharacter.Class == ClassType.eWIZARD)
+                {
+                    _levelledUpCharacter.Abilities.Add(6);
+                }
+                break;
+            case 5:
+                switch (_levelledUpCharacter.Class)
+                {
+                    case ClassType.eWARRIOR:
+                        _levelledUpCharacter.Abilities.Add(6);
+                        _levelledUpCharacter.Strength++;
+                        break;
+                    case ClassType.eRANGER:
+                        _levelledUpCharacter.Abilities.Add(6);
+                        _levelledUpCharacter.Dexterity++;
+                        break;
+                    case ClassType.eWIZARD:
+                        _levelledUpCharacter.Abilities.Add(7);
+                        _levelledUpCharacter.Intelligence++;
+                        break;
+                    case ClassType.eSHAMAN:
+                        _levelledUpCharacter.Abilities.Add(6);
+                        break;
+                }
+                break;
+            default:
+                break;
+        }
+
+        PersistantData.SavePartyData(FindObjectOfType<PartyInventory>(), FindObjectOfType<PlayerManager>(), FindObjectOfType<ClanManager>());
+    }
+
+    private void ChoiceAPressed()
+    {
+        if (_choiceMade)
+        {
+            PlayersChoiceAfterLevellingUp('a');
+            _choiceMade = false;
+        }
+    }
+
+    private void ChoiceBPressed()
+    {
+        if (_choiceMade)
+        {
+            PlayersChoiceAfterLevellingUp('b');
+            _choiceMade = false;
+        }
+    }
+
     private string DisplayOptionAText()
     {
         _levelledUpCharacter = gameObject.GetComponent<BasicLevelling>().GetLevelledUpCharacter();
@@ -79,14 +180,14 @@ public class LevelUpMenu : MonoBehaviour
         switch (_levelledUpCharacter.Level)
         {
             case 2:
-                return AbilityManager.Instance.GetAbility(_levelledUpCharacter.Class, 2 * _levelledUpCharacter.Level - 2).AbilityName;
+                return AbilityManager.Instance.GetAbility(_levelledUpCharacter.Class, 2).AbilityName;
             case 3:
                 switch (_levelledUpCharacter.Class)
                 {
                     case ClassType.eWARRIOR:
                         return "Strength +1 and Constitution +1";
                     case ClassType.eRANGER:
-                        return "Agility +1";
+                        return "Dexterity +1";
                     case ClassType.eWIZARD:
                         return "Intelligence +1";
                     case ClassType.eSHAMAN:
@@ -94,14 +195,14 @@ public class LevelUpMenu : MonoBehaviour
                 }
                 break;
             case 4:
-                return AbilityManager.Instance.GetAbility(_levelledUpCharacter.Class, 2 * _levelledUpCharacter.Level - 2).AbilityName;
+                return AbilityManager.Instance.GetAbility(_levelledUpCharacter.Class, 4).AbilityName;
             case 5:
                 switch (_levelledUpCharacter.Class)
                 {
                     case ClassType.eWARRIOR:
                         return "Penne Storm and Strength +1";
                     case ClassType.eRANGER:
-                        return "Agility +1 and Split Shot";
+                        return "Dexterity +1 and Split Shot";
                     case ClassType.eWIZARD:
                         return "Intelligence +1 and Spaghetti Whip";
                     case ClassType.eSHAMAN:
@@ -126,14 +227,14 @@ public class LevelUpMenu : MonoBehaviour
             switch (_levelledUpCharacter.Level)
             {
                 case 2:
-                    return AbilityManager.Instance.GetAbility(_levelledUpCharacter.Class, 2 * _levelledUpCharacter.Level - 1).AbilityName;
+                    return AbilityManager.Instance.GetAbility(_levelledUpCharacter.Class, 3).AbilityName;
                 case 3:
                     switch (_levelledUpCharacter.Class)
                     {
                         case ClassType.eWARRIOR:
                             return "Strength +1 and Constitution +1";
                         case ClassType.eRANGER:
-                            return "Agility +1";
+                            return "Dexterity +1";
                         case ClassType.eWIZARD:
                             return "Intelligence +1";
                         case ClassType.eSHAMAN:
@@ -141,14 +242,14 @@ public class LevelUpMenu : MonoBehaviour
                     }
                     break;
                 case 4:
-                    return AbilityManager.Instance.GetAbility(_levelledUpCharacter.Class, 2 * _levelledUpCharacter.Level - 1).AbilityName;
+                    return AbilityManager.Instance.GetAbility(_levelledUpCharacter.Class, 5).AbilityName;
                 case 5:
                     switch (_levelledUpCharacter.Class)
                     {
                         case ClassType.eWARRIOR:
                             return "Penne Storm and Strength +1";
                         case ClassType.eRANGER:
-                            return "Agility +1 and Split Shot";
+                            return "Dexterity +1 and Split Shot";
                         case ClassType.eWIZARD:
                             return "Intelligence +1 and Spaghetti Whip";
                         case ClassType.eSHAMAN:

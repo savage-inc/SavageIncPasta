@@ -36,15 +36,17 @@ public class BasicLevelling : MonoBehaviour
 
         foreach (Character character in _characters)
         {
-            character.Level = 3;
             character.Experience += 20;
             //int xpNeededForNextLevel = 11 * (character.Level * character.Level) + 30;
             int xpNeededForNextLevel = 19;
 
             if (character.Experience >= xpNeededForNextLevel)
             {
-                character.Level++;
-
+                character.Level = 5;
+                character.MaxHealth = 11 * (character.Level * character.Level) + 30;
+                character.MaxMana = 11 * (character.Level * character.Level) + 30;
+                character.CurrentHealth = character.MaxHealth;
+                character.CurrentMana = character.MaxMana;
                 _levelledUpCharacters.Add(character);
             }
         }
