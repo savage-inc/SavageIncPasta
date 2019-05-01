@@ -904,8 +904,10 @@ public class Battle : MonoBehaviour
         {
             if (_targettedCharacterIndex > -1)
             {
-                Move(_battleCharacterList[_targettedCharacterIndex]);
-                attacker.ChangeMana(-3);
+                if (Move(_battleCharacterList[_targettedCharacterIndex]))
+                {
+                    attacker.ChangeMana(-3);
+                }
             }
         }
     }
@@ -1290,7 +1292,7 @@ public class Battle : MonoBehaviour
         }
     }
 
-    void Move(BattleCharacter mover)
+    bool Move(BattleCharacter mover)
     {
         _eventSystem.SetSelectedGameObject(null, null);
 
@@ -1326,9 +1328,11 @@ public class Battle : MonoBehaviour
         if (Input.GetButtonDown("A"))
         {
             EndTurn();
+            return true;
         }
 
         PlaceInColumns();
+        return false;
     }
 
     void EndTurn()
