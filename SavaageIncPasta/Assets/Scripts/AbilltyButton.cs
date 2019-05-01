@@ -22,5 +22,6 @@ public class AbilltyButton : MonoBehaviour {
     public void CloseAbility()
     {
         _info.Ability = null;
+        _info.Clear();
     }
 }

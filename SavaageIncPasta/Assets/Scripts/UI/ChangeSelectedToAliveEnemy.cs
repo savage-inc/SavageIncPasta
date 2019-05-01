@@ -29,7 +29,7 @@ public class ChangeSelectedToAliveEnemy : MonoBehaviour {
                 var player = _battle.GetCurrentPlayer();
                 var ability = abilityButton.Ability;
 
-                if (ability.RequiresTarget)
+                if (ability.RequiresTarget && _battle.HasEnoughMana(player.Character,ability.ManaCost))
                 {
                     _eventSystem.SetSelectedGameObject(_battle.GetFirstAliveEnemy().gameObject);
                 }
