@@ -32,8 +32,11 @@ public class Shop : MonoBehaviour
     void Awake ()
     {
         _partyInventory = FindObjectOfType<PartyInventory>();
-        StockShop();
+    }
 
+    public void CreateInventory()
+    {
+        Inventory = new Inventory(ShopStartItems.Count, true);
     }
 
     void OnTriggerStay2D(Collider2D other)
@@ -123,7 +126,7 @@ public class Shop : MonoBehaviour
 
     private void StockShop()
     {
-        Inventory = new Inventory(ShopStartItems.Count, true);
+        CreateInventory();
         foreach (var shopItem in ShopStartItems)
         {
             for (int i = 0; i < shopItem.Stock; i++)

@@ -146,6 +146,7 @@ public class PersistantData
                 {
                     if (shop.gameObject.GetComponent<GameObjectGUID>().GameObjectID == shopData.ID) //Same shop
                     {
+                        shop.CreateInventory();
                         //add all items to the shop
                         foreach (var item in shopData.Items)
                         {
