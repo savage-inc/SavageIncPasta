@@ -33,7 +33,7 @@ public class ManaBar : MonoBehaviour
         {
             _percentage = (float)Character.CurrentMana / (float)Character.MaxMana;
             ImgManaBar.fillAmount = _percentage;
-            TxtMana.text = Character.CurrentMana.ToString() + "/" + Character.CurrentMana.ToString();
+            TxtMana.text = Character.CurrentMana.ToString() + "/" + Character.MaxMana.ToString();
         }
     }
 }

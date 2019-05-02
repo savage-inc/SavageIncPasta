@@ -15,6 +15,7 @@ public class CharacterInventoryUI : MonoBehaviour
     public Button OffHandButton;
     public HealthBar HealthBar;
     public ManaBar ManaBar;
+    public ComfortBar ComfortBar;
 
     public Sprite DefaultPreviewSprite;
 
@@ -55,6 +56,7 @@ public class CharacterInventoryUI : MonoBehaviour
 
         HealthBar.Character = _playerManager.Characters[_currentCharacterIndex];
         ManaBar.Character = _playerManager.Characters[_currentCharacterIndex];
+        ComfortBar.Character = _playerManager.Characters[_currentCharacterIndex];
 
         SyncEquipment();
     }
@@ -239,6 +241,8 @@ public class CharacterInventoryUI : MonoBehaviour
 
         HealthBar.Character = currentCharacter;
         ManaBar.Character = currentCharacter;
+        ComfortBar.Character = currentCharacter;
+
 
         SyncEquipment();
     }

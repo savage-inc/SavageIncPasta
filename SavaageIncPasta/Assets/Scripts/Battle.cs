@@ -57,16 +57,17 @@ public class Battle : MonoBehaviour
 
     private EventSystem _eventSystem;
     private PlayerManager _playerManager;
-
+    private ClanManager _clanManager;
 
     private void Awake()
     {
         _eventSystem = FindObjectOfType<EventSystem>();
         _playerManager = FindObjectOfType<PlayerManager>();
+        _clanManager = FindObjectOfType<ClanManager>();
 
         PersistantData.LoadItemDatabase();
         //load party inventory from file
-        PersistantData.LoadPartyData(FindObjectOfType<PartyInventory>(), FindObjectOfType<PlayerManager>(), null);
+        PersistantData.LoadPartyData(FindObjectOfType<PartyInventory>(), _playerManager, _clanManager);
 
         if (!_playerManager.IsAlive())
         {
@@ -292,6 +293,13 @@ public class Battle : MonoBehaviour
                     player.Character.Experience += (int)experience;
 
                     player.Character.Comfort -= player.DamageTaken == 0 ? 1 : player.DamageTaken / 2;
+
+                    //check comfort
+                    if(player.Character.Comfort <= 0)
+                    {
+                        _playerManager.RemoveCharacter(player.Character);
+                        _clanManager.AddCharacter(player.Character);
+                    }
                 }
             }
             Vector2 newPos = new Vector2(PlayerPrefs.GetFloat("SceneOriginX"), PlayerPrefs.GetFloat("SceneOriginY"));

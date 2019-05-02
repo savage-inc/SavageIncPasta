@@ -36,7 +36,8 @@ public class DialogueManager : MonoBehaviour {
     public void parseXML(string NPCType)
     {
         XmlDocument xmlDoc = new XmlDocument();
-        xmlDoc.Load("Assets\\Resources\\DialogueLines.xml");
+        TextAsset textAsset = (TextAsset)Resources.Load("DialogueLines");
+        xmlDoc.LoadXml(textAsset.text);
 
 
         XmlNode FindAmountOfDialogues = xmlDoc.SelectSingleNode("/NPCS/NPC[@type = '" + NPCType + "']");

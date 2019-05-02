@@ -5539,6 +5539,7 @@ GameObject:
   - component: {fileID: 281493662}
   - component: {fileID: 281493663}
   - component: {fileID: 281493665}
+  - component: {fileID: 281493664}
   m_Layer: 0
   m_Name: Battle
   m_TagString: Untagged
@@ -5645,6 +5646,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyGroups: []
+--- !u!114 &281493664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 281493659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71b804658089daf4d8d08e4cc2275187, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpareCharacterPool: []
+  GenerateRandomClanMembers: 0
 --- !u!114 &281493665
 MonoBehaviour:
   m_ObjectHideFlags: 0

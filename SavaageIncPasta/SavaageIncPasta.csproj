@@ -306,6 +306,7 @@
     <Compile Include="Assets\Scripts\CharacterHealth.cs" />
     <Compile Include="Assets\Scripts\ClanManager.cs" />
     <Compile Include="Assets\Scripts\ClassTypes.cs" />
+    <Compile Include="Assets\Scripts\ComfortBar.cs" />
     <Compile Include="Assets\Scripts\Data\GameObjectGUID.cs" />
     <Compile Include="Assets\Scripts\Data\GameObjectGUIDEditor.cs" />
     <Compile Include="Assets\Scripts\Data\PersistantData.cs" />
