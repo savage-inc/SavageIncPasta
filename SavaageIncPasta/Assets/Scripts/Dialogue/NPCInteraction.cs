@@ -1,11 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class NPCInteraction : MonoBehaviour {
-
-
 
     public bool IsVendor;
 	public bool IsQuestGiver;
@@ -19,31 +18,39 @@ public class NPCInteraction : MonoBehaviour {
 	public Button PositiveButton;
 	public Button NegativeButton;
 
-
 	private UIManager _uiManager;
     private DialogueManager _diManager;
-
+    private EventSystem _eventSystem;
 
 	private void Awake()
 	{
 		_uiManager = FindObjectOfType<UIManager>();
         _diManager = FindObjectOfType<DialogueManager>();
         NPCName.text = Name;
-	}
 
+        _eventSystem = FindObjectOfType<EventSystem>();
 
-
+        NegativeButton.onClick.AddListener(_uiManager.Close);
+    }
+    
+    IEnumerator show()
+    {
+        yield return new WaitForEndOfFrame();
+        _uiManager.OpenDialogueBox();
+        _diManager.Talk();
+        _eventSystem.SetSelectedGameObject(null, null);
+        _eventSystem.SetSelectedGameObject(NegativeButton.gameObject);
+    }
 
     // Use this for initialization
     void OnTriggerStay2D(Collider2D other)
     {
-        if (Input.GetButtonDown("X") || Input.GetKeyDown(KeyCode.E))
+        if (Input.GetButtonDown("A") || Input.GetKeyDown(KeyCode.E))
         {
             if (!_uiManager.DialogueBox.gameObject.activeInHierarchy)
             {
 
-                _uiManager.OpenDialogueBox();
-                _diManager.Talk();
+                StartCoroutine(show());
             }
             else
             {
@@ -81,12 +88,17 @@ public class NPCInteraction : MonoBehaviour {
             PositiveButton.gameObject.SetActive(false);
         }
 	}
-	// Update is called once per frame
-	void Update () {
+
+    private void OnTriggerExit(Collider other)
+    {
+        PositiveButton.onClick.RemoveAllListeners();
+    }
+
+    // Update is called once per frame
+    void Update () {
 		if(Input.GetKeyDown(KeyCode.E))
 		{
 
 		}
-		NegativeButton.onClick.AddListener(_uiManager.Close);
 	}
 }
