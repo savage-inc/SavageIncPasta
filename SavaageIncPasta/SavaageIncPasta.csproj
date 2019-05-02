@@ -392,6 +392,8 @@
     <None Include="Assets\3rdParty\TextMeshPro\Resources\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\3rdParty\TextMeshPro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\Resources\Data\CharacterNames.txt" />
+    <None Include="Assets\Resources\Data\armourAdjectives.txt" />
+    <None Include="Assets\Resources\Data\weaponAdjectives.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

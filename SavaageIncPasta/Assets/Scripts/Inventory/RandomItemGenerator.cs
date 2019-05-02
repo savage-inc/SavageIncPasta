@@ -6,8 +6,32 @@ using Random = UnityEngine.Random;
 
 public class RandomItemGenerator
 {
+    public static List<string> WeaponAdjectives;
+    public static List<string> ArmourAdjectives;
+
+    public static void loadAdjvectives()
+    {
+        if(WeaponAdjectives == null)
+        {
+            WeaponAdjectives = new List<string>();
+            TextAsset weaponAdjectives = (TextAsset)Resources.Load("Data/weaponAdjectives");
+            WeaponAdjectives.AddRange(weaponAdjectives.text.Split('\n'));
+        }
+
+        if (ArmourAdjectives == null)
+        {
+            ArmourAdjectives = new List<string>();
+            TextAsset armourAdjectives = (TextAsset)Resources.Load("Data/armourAdjectives");
+            ArmourAdjectives.AddRange(armourAdjectives.text.Split('\n'));
+        }
+    }
+
     public static WeaponItemData RandomWeapon(SpriteManager spriteManager)
     {
+        loadAdjvectives();
+
+        string itemName = "";
+
         WeaponItemData weapon = ScriptableObject.CreateInstance<WeaponItemData>();
         //create guid
         weapon.DatabaseName = System.Guid.NewGuid().ToString();
@@ -59,6 +83,8 @@ public class RandomItemGenerator
                         weapon.MinDamage = Mathf.Max(3, Random.Range(weapon.BaseDamage - 4, weapon.BaseDamage - 1));
                         weapon.MaxDamage = Random.Range(weapon.BaseDamage + 1, weapon.MaxDamage + 3);
                         weapon.VarianceDamage = Random.Range(2, 4);
+
+                        itemName = "Penne";
                     }
                     else if (randonValue > .33f && randonValue <= .66f) // longsword
                     {
@@ -67,6 +93,8 @@ public class RandomItemGenerator
                         weapon.MinDamage = Mathf.Max(4, Random.Range(weapon.BaseDamage - 4, weapon.BaseDamage - 1));
                         weapon.MaxDamage = Random.Range(weapon.BaseDamage + 1, weapon.MaxDamage + 3);
                         weapon.VarianceDamage = Random.Range(3, 5);
+
+                        itemName = "Spaghetti";
                     }
                     else if (randonValue > .66f) // whip
                     {
@@ -75,6 +103,8 @@ public class RandomItemGenerator
                         weapon.MinDamage = Mathf.Max(1, Random.Range(weapon.BaseDamage - 4, weapon.BaseDamage - 1));
                         weapon.MaxDamage = Random.Range(weapon.BaseDamage + 1, weapon.MaxDamage + 3);
                         weapon.VarianceDamage = Random.Range(4, 7);
+
+                        itemName = "Linguine";
                     }
                 }
                 else if (weapon.StatType == WeaponItemData.StatTypes.eAGILTITY)
@@ -84,6 +114,8 @@ public class RandomItemGenerator
                     weapon.MinDamage = Mathf.Max(2, Random.Range(weapon.BaseDamage - 4, weapon.BaseDamage - 1));
                     weapon.MaxDamage = Random.Range(weapon.BaseDamage + 1, weapon.MaxDamage + 3);
                     weapon.VarianceDamage = Random.Range(1, 3);
+
+                    itemName = "Fedelini";
                 }
                 break;
             case WeaponItemData.Type.eRANGE:
@@ -98,6 +130,8 @@ public class RandomItemGenerator
                     weapon.MinDamage = Mathf.Max(2, Random.Range(weapon.BaseDamage - 4, weapon.BaseDamage - 1));
                     weapon.MaxDamage = Random.Range(weapon.BaseDamage + 1, weapon.MaxDamage + 3);
                     weapon.VarianceDamage = Random.Range(1, 3);
+
+                    itemName = "Conchiglie";
                 }
                 else // bow
                 {
@@ -106,6 +140,8 @@ public class RandomItemGenerator
                     weapon.MinDamage = Mathf.Max(2, Random.Range(weapon.BaseDamage - 4, weapon.BaseDamage - 1));
                     weapon.MaxDamage = Random.Range(weapon.BaseDamage + 1, weapon.MaxDamage + 3);
                     weapon.VarianceDamage = Random.Range(2, 4);
+
+                    itemName = "Bucatini";
                 }
                 break;
             case WeaponItemData.Type.eGUN:
@@ -121,6 +157,8 @@ public class RandomItemGenerator
                     weapon.MaxDamage = weapon.BaseDamage;
                     weapon.VarianceDamage = 0;
                     weapon.MissFire = 10.0f;
+
+                    itemName = "Fusilli Rifle";
                 }
                 else // pistol
                 {
@@ -130,6 +168,8 @@ public class RandomItemGenerator
                     weapon.MaxDamage = weapon.BaseDamage;
                     weapon.VarianceDamage = 0;
                     weapon.MissFire = 5.0f;
+
+                    itemName = "Fusilli Pistol";
                 }
                 break;
             default:
@@ -147,9 +187,6 @@ public class RandomItemGenerator
             weapon.MagicalType = MagicType.eNONE;
         }
 
-        //weapon.PreviewSprite =
-        //Random Name depending on the stats and weapon type
-        weapon.Name = "Random Weapon #" + Random.Range(0, 1000);
         //Random description
         weapon.Description = "TODO:: Add a random description";
 
@@ -157,11 +194,17 @@ public class RandomItemGenerator
 
         weapon.PreviewSprite = spriteManager.GetRandomWeaponIcon(weapon.WeaponSubType);
 
+        //select random name
+        weapon.Name = WeaponAdjectives[Random.Range(0, WeaponAdjectives.Count)] + " " + itemName;
+
+
         return weapon;
     }
 
     public static ArmourItemData RandomArmour(SpriteManager spriteManager)
     {
+        loadAdjvectives();
+        string itenName;
         ArmourItemData armourItem = ScriptableObject.CreateInstance<ArmourItemData>();
 
         armourItem.DatabaseName = System.Guid.NewGuid().ToString();
@@ -185,6 +228,7 @@ public class RandomItemGenerator
         switch (armourItem.ArmourSlotType)
         {
             case ArmourItemData.SlotType.eHEAD:
+                itenName = "Cicioneddos Helemt";
                 switch (armourItem.ArmourType)
                 {
                     case ArmourItemData.Type.eLIGHT: //light helmet
@@ -222,6 +266,7 @@ public class RandomItemGenerator
                 }
                 break;
             case ArmourItemData.SlotType.eCHEST:
+                itenName = "Lasagna Chest";
                 switch (armourItem.ArmourType)
                 {
                     case ArmourItemData.Type.eLIGHT: //light chest
@@ -259,6 +304,7 @@ public class RandomItemGenerator
                 }
                 break;
             case ArmourItemData.SlotType.eLEGS:
+                itenName = "Gnocchi Boots";
                 switch (armourItem.ArmourType)
                 {
                     case ArmourItemData.Type.eLIGHT: //light helmet
@@ -299,13 +345,15 @@ public class RandomItemGenerator
                 throw new ArgumentOutOfRangeException();
         }
 
-        armourItem.Name = "Random Weapon #" + Random.Range(0, 1000);
         //Random description
         armourItem.Description = "TODO:: Add a random description";
 
         armourItem.BaseMoneyValue = Random.Range(5, 30);
 
         armourItem.PreviewSprite = spriteManager.GetRandomArmourIcon(armourItem.ArmourSlotType);
+
+        //select random name
+        armourItem.Name = ArmourAdjectives[Random.Range(0, ArmourAdjectives.Count)] + " " + itenName;
 
 
         return armourItem;
