@@ -3880,7 +3880,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ImgHealthBar: {fileID: 1274381506}
   TxtHealth: {fileID: 1830575016}
-  c: {fileID: 1424902519}
+  BattleChracter: {fileID: 1424902519}
+  Character:
+    Name: 
+    SpritePreviewName: 
+    Class: 0
+    Level: 0
+    MaxHealth: 0
+    CurrentHealth: 0
+    Strength: 0
+    Constitution: 0
+    Dexterity: 0
+    Intelligence: 0
+    Charisma: 0
+    Magic: 0
+    Comfort: 0
+    MaxComfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    MaxMana: 0
+    CurrentMana: 0
+    Abilities: 01000000
+    GoldDrop: 5
+    Experience: 0
+  FollowCharacter: 1
 --- !u!1 &26692963
 GameObject:
   m_ObjectHideFlags: 0
@@ -4283,7 +4309,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ImgHealthBar: {fileID: 1469523658}
   TxtHealth: {fileID: 66895836}
-  c: {fileID: 894637039}
+  BattleChracter: {fileID: 894637039}
+  Character:
+    Name: 
+    SpritePreviewName: 
+    Class: 0
+    Level: 0
+    MaxHealth: 0
+    CurrentHealth: 0
+    Strength: 0
+    Constitution: 0
+    Dexterity: 0
+    Intelligence: 0
+    Charisma: 0
+    Magic: 0
+    Comfort: 0
+    MaxComfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    MaxMana: 0
+    CurrentMana: 0
+    Abilities: 01000000
+    GoldDrop: 5
+    Experience: 0
+  FollowCharacter: 1
 --- !u!1 &63112110
 GameObject:
   m_ObjectHideFlags: 0
@@ -4779,7 +4831,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ImgHealthBar: {fileID: 1075360031}
   TxtHealth: {fileID: 1016549096}
-  c: {fileID: 2085800798}
+  BattleChracter: {fileID: 2085800798}
+  Character:
+    Name: 
+    SpritePreviewName: 
+    Class: 0
+    Level: 0
+    MaxHealth: 0
+    CurrentHealth: 0
+    Strength: 0
+    Constitution: 0
+    Dexterity: 0
+    Intelligence: 0
+    Charisma: 0
+    Magic: 0
+    Comfort: 0
+    MaxComfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    MaxMana: 0
+    CurrentMana: 0
+    Abilities: 01000000
+    GoldDrop: 5
+    Experience: 0
+  FollowCharacter: 1
 --- !u!1 &130806108
 GameObject:
   m_ObjectHideFlags: 0
@@ -18521,7 +18599,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ImgHealthBar: {fileID: 750805678}
   TxtHealth: {fileID: 1948645274}
-  c: {fileID: 1959104322}
+  BattleChracter: {fileID: 1959104322}
+  Character:
+    Name: 
+    SpritePreviewName: 
+    Class: 0
+    Level: 0
+    MaxHealth: 0
+    CurrentHealth: 0
+    Strength: 0
+    Constitution: 0
+    Dexterity: 0
+    Intelligence: 0
+    Charisma: 0
+    Magic: 0
+    Comfort: 0
+    MaxComfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    MaxMana: 0
+    CurrentMana: 0
+    Abilities: 01000000
+    GoldDrop: 5
+    Experience: 0
+  FollowCharacter: 1
 --- !u!114 &741982602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18535,7 +18639,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ImgManaBar: {fileID: 993469769}
   TxtMana: {fileID: 1246918130}
-  c: {fileID: 1959104322}
+  BattleCharacter: {fileID: 1959104322}
+  Character:
+    Name: 
+    SpritePreviewName: 
+    Class: 0
+    Level: 0
+    MaxHealth: 0
+    CurrentHealth: 0
+    Strength: 0
+    Constitution: 0
+    Dexterity: 0
+    Intelligence: 0
+    Charisma: 0
+    Magic: 0
+    Comfort: 0
+    MaxComfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    MaxMana: 0
+    CurrentMana: 0
+    Abilities: 01000000
+    GoldDrop: 5
+    Experience: 0
+  FollowCharacter: 1
 --- !u!1 &750805676
 GameObject:
   m_ObjectHideFlags: 0
@@ -24359,7 +24489,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ImgHealthBar: {fileID: 1559661092}
   TxtHealth: {fileID: 1293812868}
-  c: {fileID: 1860578739}
+  BattleChracter: {fileID: 1860578739}
+  Character:
+    Name: 
+    SpritePreviewName: 
+    Class: 0
+    Level: 0
+    MaxHealth: 0
+    CurrentHealth: 0
+    Strength: 0
+    Constitution: 0
+    Dexterity: 0
+    Intelligence: 0
+    Charisma: 0
+    Magic: 0
+    Comfort: 0
+    MaxComfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    MaxMana: 0
+    CurrentMana: 0
+    Abilities: 01000000
+    GoldDrop: 5
+    Experience: 0
+  FollowCharacter: 1
 --- !u!114 &1041399777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24373,7 +24529,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ImgManaBar: {fileID: 1405678961}
   TxtMana: {fileID: 1317059581}
-  c: {fileID: 1860578739}
+  BattleCharacter: {fileID: 1860578739}
+  Character:
+    Name: 
+    SpritePreviewName: 
+    Class: 0
+    Level: 0
+    MaxHealth: 0
+    CurrentHealth: 0
+    Strength: 0
+    Constitution: 0
+    Dexterity: 0
+    Intelligence: 0
+    Charisma: 0
+    Magic: 0
+    Comfort: 0
+    MaxComfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    MaxMana: 0
+    CurrentMana: 0
+    Abilities: 01000000
+    GoldDrop: 5
+    Experience: 0
+  FollowCharacter: 1
 --- !u!1 &1049262861
 GameObject:
   m_ObjectHideFlags: 0
@@ -38268,7 +38450,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ImgHealthBar: {fileID: 453385341}
   TxtHealth: {fileID: 2035408689}
-  c: {fileID: 2061886537}
+  BattleChracter: {fileID: 2061886537}
+  Character:
+    Name: 
+    SpritePreviewName: 
+    Class: 0
+    Level: 0
+    MaxHealth: 0
+    CurrentHealth: 0
+    Strength: 0
+    Constitution: 0
+    Dexterity: 0
+    Intelligence: 0
+    Charisma: 0
+    Magic: 0
+    Comfort: 0
+    MaxComfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    MaxMana: 0
+    CurrentMana: 0
+    Abilities: 01000000
+    GoldDrop: 5
+    Experience: 0
+  FollowCharacter: 1
 --- !u!114 &1699645168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38282,7 +38490,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ImgManaBar: {fileID: 1435035906}
   TxtMana: {fileID: 63112112}
-  c: {fileID: 2061886537}
+  BattleCharacter: {fileID: 2061886537}
+  Character:
+    Name: 
+    SpritePreviewName: 
+    Class: 0
+    Level: 0
+    MaxHealth: 0
+    CurrentHealth: 0
+    Strength: 0
+    Constitution: 0
+    Dexterity: 0
+    Intelligence: 0
+    Charisma: 0
+    Magic: 0
+    Comfort: 0
+    MaxComfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    MaxMana: 0
+    CurrentMana: 0
+    Abilities: 01000000
+    GoldDrop: 5
+    Experience: 0
+  FollowCharacter: 1
 --- !u!1 &1705019193
 GameObject:
   m_ObjectHideFlags: 0
@@ -40261,7 +40495,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ImgHealthBar: {fileID: 2146912052}
   TxtHealth: {fileID: 1256915062}
-  c: {fileID: 1968026200}
+  BattleChracter: {fileID: 1968026200}
+  Character:
+    Name: 
+    SpritePreviewName: 
+    Class: 0
+    Level: 0
+    MaxHealth: 0
+    CurrentHealth: 0
+    Strength: 0
+    Constitution: 0
+    Dexterity: 0
+    Intelligence: 0
+    Charisma: 0
+    Magic: 0
+    Comfort: 0
+    MaxComfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    MaxMana: 0
+    CurrentMana: 0
+    Abilities: 01000000
+    GoldDrop: 5
+    Experience: 0
+  FollowCharacter: 1
 --- !u!1 &2035408687
 GameObject:
   m_ObjectHideFlags: 0
@@ -41140,7 +41400,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ImgHealthBar: {fileID: 2066357345}
   TxtHealth: {fileID: 344741861}
-  c: {fileID: 24584389}
+  BattleChracter: {fileID: 24584389}
+  Character:
+    Name: 
+    SpritePreviewName: 
+    Class: 0
+    Level: 0
+    MaxHealth: 0
+    CurrentHealth: 0
+    Strength: 0
+    Constitution: 0
+    Dexterity: 0
+    Intelligence: 0
+    Charisma: 0
+    Magic: 0
+    Comfort: 0
+    MaxComfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    MaxMana: 0
+    CurrentMana: 0
+    Abilities: 01000000
+    GoldDrop: 5
+    Experience: 0
+  FollowCharacter: 1
 --- !u!114 &2112099988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41154,7 +41440,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ImgManaBar: {fileID: 1888640801}
   TxtMana: {fileID: 2096868415}
-  c: {fileID: 24584389}
+  BattleCharacter: {fileID: 24584389}
+  Character:
+    Name: 
+    SpritePreviewName: 
+    Class: 0
+    Level: 0
+    MaxHealth: 0
+    CurrentHealth: 0
+    Strength: 0
+    Constitution: 0
+    Dexterity: 0
+    Intelligence: 0
+    Charisma: 0
+    Magic: 0
+    Comfort: 0
+    MaxComfort: 0
+    Player: 1
+    Alive: 1
+    BaseAttack: 5
+    BaseArmour: 0
+    CurrCol: 1
+    MaxMana: 0
+    CurrentMana: 0
+    Abilities: 01000000
+    GoldDrop: 5
+    Experience: 0
+  FollowCharacter: 1
 --- !u!1 &2137950962
 GameObject:
   m_ObjectHideFlags: 0

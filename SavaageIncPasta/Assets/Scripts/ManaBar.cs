@@ -8,7 +8,9 @@ public class ManaBar : MonoBehaviour
     public Image ImgManaBar;
     public Text TxtMana;
     private float _percentage;
-    public BattleCharacter c;
+    public BattleCharacter BattleCharacter;
+    public Character Character;
+    public bool FollowCharacter = true;
 
     // Use this for initialization
     void Start ()
@@ -21,8 +23,17 @@ public class ManaBar : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        _percentage = (float)c.Character.CurrentMana / (float)c.Character.MaxMana;
-        ImgManaBar.fillAmount = _percentage;
-        TxtMana.text = c.Character.CurrentMana.ToString() + "/" + c.Character.MaxMana.ToString();
+        if (BattleCharacter != null)
+        {
+            _percentage = (float)BattleCharacter.Character.CurrentMana / (float)BattleCharacter.Character.MaxMana;
+            ImgManaBar.fillAmount = _percentage;
+            TxtMana.text = BattleCharacter.Character.CurrentMana.ToString() + "/" + BattleCharacter.Character.MaxMana.ToString();
+        }
+        else if (Character != null)
+        {
+            _percentage = (float)Character.CurrentMana / (float)Character.MaxMana;
+            ImgManaBar.fillAmount = _percentage;
+            TxtMana.text = Character.CurrentMana.ToString() + "/" + Character.CurrentMana.ToString();
+        }
     }
 }

@@ -13,6 +13,8 @@ public class CharacterInventoryUI : MonoBehaviour
     public Button LegsButton;
     public Button MainHandButton;
     public Button OffHandButton;
+    public HealthBar HealthBar;
+    public ManaBar ManaBar;
 
     public Sprite DefaultPreviewSprite;
 
@@ -50,6 +52,9 @@ public class CharacterInventoryUI : MonoBehaviour
 
         _playerManager.Characters[_currentCharacterIndex].Equipment.OnItemAdd += AddUIItem;
         _playerManager.Characters[_currentCharacterIndex].Equipment.OnItemRemove += RemoveItemUI;
+
+        HealthBar.Character = _playerManager.Characters[_currentCharacterIndex];
+        ManaBar.Character = _playerManager.Characters[_currentCharacterIndex];
 
         SyncEquipment();
     }
@@ -231,6 +236,9 @@ public class CharacterInventoryUI : MonoBehaviour
         currentCharacter.Equipment.OnItemRemove += RemoveItemUI;
         CharacterName.text = currentCharacter.Name;
         CharacterPreview.sprite = FindObjectOfType<SpriteManager>().GetSprite(currentCharacter.SpritePreviewName);
+
+        HealthBar.Character = currentCharacter;
+        ManaBar.Character = currentCharacter;
 
         SyncEquipment();
     }

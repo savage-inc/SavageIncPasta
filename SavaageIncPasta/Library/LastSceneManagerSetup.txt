@@ -1,12 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
-<<<<<<< HEAD
 - path: Assets/Scenes/Battle.unity
-=======
-- path: Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
->>>>>>> Dialogue
-=======
-- path: Assets/Scenes/World/WorldSceneUI.unity
->>>>>>> LevellingSystem
   isLoaded: 1
   isActive: 1
