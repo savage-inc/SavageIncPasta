@@ -176,11 +176,29 @@ public class RandomItemGenerator
                 throw new ArgumentOutOfRangeException();
         }
 
+        string magicName = string.Empty;
         //random magic 30 change the item has magic
-        if (Random.value <= .3f)
+        if (Random.value <= .45f)
         {
             weapon.MagicalType = (MagicType)Random.Range(1, 4);
             weapon.MagicalModifier = Random.Range(2, 5);
+
+            switch (weapon.MagicalType)
+            {
+                case MagicType.eNONE:
+                    break;
+                case MagicType.eTOMATO:
+                    magicName = "Tomato";
+                    break;
+                case MagicType.eCHEESE:
+                    magicName = "Cheese";
+                    break;
+                case MagicType.ePESTO:
+                    magicName = "Pesto";
+                    break;
+                default:
+                    break;
+            }
         }
         else
         {
@@ -195,7 +213,14 @@ public class RandomItemGenerator
         weapon.PreviewSprite = spriteManager.GetRandomWeaponIcon(weapon.WeaponSubType);
 
         //select random name
-        weapon.Name = WeaponAdjectives[Random.Range(0, WeaponAdjectives.Count)] + " " + itemName;
+        if (magicName != string.Empty)
+        {
+            weapon.Name = WeaponAdjectives[Random.Range(0, WeaponAdjectives.Count)] + " " + magicName + " " + itemName;
+        }
+        else
+        {
+            weapon.Name = WeaponAdjectives[Random.Range(0, WeaponAdjectives.Count)] + " " + itemName;
+        }
 
 
         return weapon;
@@ -204,7 +229,7 @@ public class RandomItemGenerator
     public static ArmourItemData RandomArmour(SpriteManager spriteManager)
     {
         loadAdjvectives();
-        string itenName;
+        string itemName;
         ArmourItemData armourItem = ScriptableObject.CreateInstance<ArmourItemData>();
 
         armourItem.DatabaseName = System.Guid.NewGuid().ToString();
@@ -214,11 +239,28 @@ public class RandomItemGenerator
         armourItem.ArmourSlotType = (ArmourItemData.SlotType)Random.Range(0, 3);
         armourItem.ArmourType = (ArmourItemData.Type)Random.Range(0, 3);
 
+        string magicName = string.Empty;
 
         //random magic 30 change the item has magic
-        if (Random.value <= .3f)
+        if (Random.value <= .45f)
         {
             armourItem.MagicalType = (MagicType)Random.Range(1, 4);
+            switch (armourItem.MagicalType)
+            {
+                case MagicType.eNONE:
+                    break;
+                case MagicType.eTOMATO:
+                    magicName = "Tomato";
+                    break;
+                case MagicType.eCHEESE:
+                    magicName = "Cheese";
+                    break;
+                case MagicType.ePESTO:
+                    magicName = "Pesto";
+                    break;
+                default:
+                    break;
+            }
         }
         else
         {
@@ -228,7 +270,7 @@ public class RandomItemGenerator
         switch (armourItem.ArmourSlotType)
         {
             case ArmourItemData.SlotType.eHEAD:
-                itenName = "Cicioneddos Helemt";
+                itemName = "Cicioneddos Helemt";
                 switch (armourItem.ArmourType)
                 {
                     case ArmourItemData.Type.eLIGHT: //light helmet
@@ -266,7 +308,7 @@ public class RandomItemGenerator
                 }
                 break;
             case ArmourItemData.SlotType.eCHEST:
-                itenName = "Lasagna Chest";
+                itemName = "Lasagna Chest";
                 switch (armourItem.ArmourType)
                 {
                     case ArmourItemData.Type.eLIGHT: //light chest
@@ -304,7 +346,7 @@ public class RandomItemGenerator
                 }
                 break;
             case ArmourItemData.SlotType.eLEGS:
-                itenName = "Gnocchi Boots";
+                itemName = "Gnocchi Boots";
                 switch (armourItem.ArmourType)
                 {
                     case ArmourItemData.Type.eLIGHT: //light helmet
@@ -353,7 +395,14 @@ public class RandomItemGenerator
         armourItem.PreviewSprite = spriteManager.GetRandomArmourIcon(armourItem.ArmourSlotType);
 
         //select random name
-        armourItem.Name = ArmourAdjectives[Random.Range(0, ArmourAdjectives.Count)] + " " + itenName;
+        if (magicName != string.Empty)
+        {
+            armourItem.Name = ArmourAdjectives[Random.Range(0, ArmourAdjectives.Count)] + " " + magicName + " " + itemName;
+        }
+        else
+        {
+            armourItem.Name = ArmourAdjectives[Random.Range(0, ArmourAdjectives.Count)] + " " + itemName;
+        }
 
 
         return armourItem;

@@ -25,6 +25,7 @@ public class ItemTooltip : MonoBehaviour
         NameText.text = Item.Name;
         Description.text = Item.Description;
 
+        MagicType magicType = MagicType.eNONE;
         switch (Item.ItemType)
         {
             case ItemType.eCONSUMABLE:
@@ -34,6 +35,7 @@ public class ItemTooltip : MonoBehaviour
                 break;
             case ItemType.eARMOUR:
                 var armour = (ArmourItemData)Item;
+                magicType = armour.MagicalType;
                 Detail1.text = armour.ArmourType.ToString().Remove(0, 1) + " - " + armour.ArmourSlotType.ToString().Remove(0, 1);
                 Detail2.text = "Amount = " + armour.Value;
                 if (armour.MagicalType != MagicType.eNONE)
@@ -43,6 +45,7 @@ public class ItemTooltip : MonoBehaviour
                 break;
             case ItemType.eWEAPON:
                 var weapon = (WeaponItemData) Item;
+                magicType = weapon.MagicalType;
                 Detail1.text = weapon.WeaponType.ToString().Remove(0, 1) + " - " + weapon.WeaponSubType.ToString().Remove(0, 1);
                 Detail2.text = weapon.MinDamage + " - " + weapon.MaxDamage;
                 if (weapon.MagicalType != MagicType.eNONE)
@@ -53,26 +56,24 @@ public class ItemTooltip : MonoBehaviour
             default:
                 throw new ArgumentOutOfRangeException();
         }
-        //Set name colour
-        switch (Item.Rarity)
+
+        switch (magicType)
         {
-            case ItemRarity.eCOMMON:
-                NameText.color = Color.white;
+            case MagicType.eNONE:
+                NameText.color = Color.black;
                 break;
-            case ItemRarity.eUNCOMMON:
-                NameText.color = Color.green;
+            case MagicType.eTOMATO:
+                NameText.color = Color.red;
                 break;
-            case ItemRarity.eRARE:
-                NameText.color = Color.blue;
-                break;
-            case ItemRarity.eEPIC:
-                NameText.color = Color.magenta;
-                break;
-            case ItemRarity.eLEGENDARY:
+            case MagicType.eCHEESE:
                 NameText.color = Color.yellow;
                 break;
+            case MagicType.ePESTO:
+                NameText.color = Color.green;
+                break;
             default:
-                throw new ArgumentOutOfRangeException();
+                NameText.color = Color.black;
+                break;
         }
     }
 }
