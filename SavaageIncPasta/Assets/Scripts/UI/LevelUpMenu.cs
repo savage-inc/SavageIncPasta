@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 public class LevelUpMenu : MonoBehaviour
 {
     public GUIStyle FontStyle;
-    private bool _levelledUp = false, _choiceMade = false;
+    private bool _levelledUp = false;
     [SerializeField]
     private GameObject _choiceMenu;
     [SerializeField]
@@ -15,12 +15,6 @@ public class LevelUpMenu : MonoBehaviour
     public Text AbilityDescriptionA, AbilityDescriptionB;
     private BasicLevelling _levellingManager;
     private Character _levelledUpCharacter;
-    private int _numOptionsForLevel = 2;
-
-    public void ChoiceMade()
-    {
-        _choiceMade = true;
-    }
 
     private void Awake()
     {
@@ -32,11 +26,10 @@ public class LevelUpMenu : MonoBehaviour
     {
         _choiceMenu.SetActive(false);
 
-        _buttons[0].onClick.AddListener(ChoiceMade);
+        //Set the functions that will be called when the buttons are pressed
         _buttons[0].onClick.AddListener(ChoiceAPressed);
         _buttons[0].onClick.AddListener(Resume);
 
-        _buttons[1].onClick.AddListener(ChoiceMade);
         _buttons[1].onClick.AddListener(ChoiceBPressed);
         _buttons[1].onClick.AddListener(Resume);
     }
@@ -44,6 +37,7 @@ public class LevelUpMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Check if player has pressed back button when a character has levelled up
         if (_levellingManager.GetNumOfCharactersLevelledUp() > 0 && Input.GetKeyDown(KeyCode.Joystick1Button6))
         {
             _levelledUp = true;
@@ -67,6 +61,7 @@ public class LevelUpMenu : MonoBehaviour
             FindObjectOfType<EventSystem>().SetSelectedGameObject(GameObject.Find("Option A"));
         }
     }
+
     //Function to stop the game play so player can choose an ability when they level up
     private void Pause()
     {
@@ -80,6 +75,7 @@ public class LevelUpMenu : MonoBehaviour
         }
     }
 
+    //Add the correct ability to the character depending on which option they chose
     private void PlayersChoiceAfterLevellingUp(char choice)
     {
         _levelledUpCharacter = _levellingManager.GetLevelledUpCharacter();
@@ -166,22 +162,15 @@ public class LevelUpMenu : MonoBehaviour
 
     private void ChoiceAPressed()
     {
-        if (_choiceMade)
-        {
-            PlayersChoiceAfterLevellingUp('a');
-            _choiceMade = false;
-        }
+        PlayersChoiceAfterLevellingUp('a');
     }
 
     private void ChoiceBPressed()
     {
-        if (_choiceMade)
-        {
-            PlayersChoiceAfterLevellingUp('b');
-            _choiceMade = false;
-        }
+        PlayersChoiceAfterLevellingUp('b');
     }
 
+    //Output the name of the first ability that the player will choose
     private string DisplayOptionAText()
     {
         _levelledUpCharacter = _levellingManager.GetLevelledUpCharacter();
@@ -243,59 +232,56 @@ public class LevelUpMenu : MonoBehaviour
         return null;
     }
 
+    //Output the name of the second ability that the player will choose
+    //Outputs the first ability if there's only 1 option
     private string DisplayOptionBText()
     {
         _levelledUpCharacter = _levellingManager.GetLevelledUpCharacter();
 
-        if (_numOptionsForLevel == 2)
+        switch (_levelledUpCharacter.Level + 1)
         {
-            _levelledUpCharacter = _levellingManager.GetLevelledUpCharacter();
-
-            switch (_levelledUpCharacter.Level + 1)
-            {
-                case 2:
-                    AbilityDescriptionB.text = AbilityManager.Instance.GetAbility(_levelledUpCharacter.Class, 3).AbilityDescription;
-                    return AbilityManager.Instance.GetAbility(_levelledUpCharacter.Class, 3).AbilityName;
-                case 3:
-                    switch (_levelledUpCharacter.Class)
-                    {
-                        case ClassType.eWARRIOR:
-                            AbilityDescriptionB.text = "Strength +1 and Constitution +1";
-                            return "Strength +1 and Constitution +1";
-                        case ClassType.eRANGER:
-                            AbilityDescriptionB.text = "Dexterity +1";
-                            return "Dexterity +1";
-                        case ClassType.eWIZARD:
-                            AbilityDescriptionB.text = "Intelligence +1";
-                            return "Intelligence +1";
-                        case ClassType.eSHAMAN:
-                            AbilityDescriptionB.text = "Intelligence +1";
-                            return "Intelligence +1";
-                    }
-                    break;
-                case 4:
-                    AbilityDescriptionB.text = AbilityManager.Instance.GetAbility(_levelledUpCharacter.Class, 5).AbilityDescription;
-                    return AbilityManager.Instance.GetAbility(_levelledUpCharacter.Class, 5).AbilityName;
-                case 5:
-                    switch (_levelledUpCharacter.Class)
-                    {
-                        case ClassType.eWARRIOR:
-                            AbilityDescriptionB.text = AbilityManager.Instance.GetAbility(_levelledUpCharacter.Class, 6).AbilityDescription;
-                            return "Strength +1 and Penne Storm";
-                        case ClassType.eRANGER:
-                            AbilityDescriptionB.text = AbilityManager.Instance.GetAbility(_levelledUpCharacter.Class, 6).AbilityDescription;
-                            return "Dexterity +1 and Split Shot";
-                        case ClassType.eWIZARD:
-                            AbilityDescriptionB.text = AbilityManager.Instance.GetAbility(_levelledUpCharacter.Class, 7).AbilityDescription;
-                            return "Intelligence +1 and Spaghetti Whip";
-                        case ClassType.eSHAMAN:
-                            AbilityDescriptionB.text = AbilityManager.Instance.GetAbility(_levelledUpCharacter.Class, 6).AbilityDescription;
-                            return "Shroud of Regeneration";
-                    }
-                    break;
-                default:
-                    return null;
-            }
+            case 2:
+                AbilityDescriptionB.text = AbilityManager.Instance.GetAbility(_levelledUpCharacter.Class, 3).AbilityDescription;
+                return AbilityManager.Instance.GetAbility(_levelledUpCharacter.Class, 3).AbilityName;
+            case 3:
+                switch (_levelledUpCharacter.Class)
+                {
+                    case ClassType.eWARRIOR:
+                        AbilityDescriptionB.text = "Strength +1 and Constitution +1";
+                        return "Strength +1 and Constitution +1";
+                    case ClassType.eRANGER:
+                        AbilityDescriptionB.text = "Dexterity +1";
+                        return "Dexterity +1";
+                    case ClassType.eWIZARD:
+                        AbilityDescriptionB.text = "Intelligence +1";
+                        return "Intelligence +1";
+                    case ClassType.eSHAMAN:
+                        AbilityDescriptionB.text = "Intelligence +1";
+                        return "Intelligence +1";
+                }
+                break;
+            case 4:
+                AbilityDescriptionB.text = AbilityManager.Instance.GetAbility(_levelledUpCharacter.Class, 5).AbilityDescription;
+                return AbilityManager.Instance.GetAbility(_levelledUpCharacter.Class, 5).AbilityName;
+            case 5:
+                switch (_levelledUpCharacter.Class)
+                {
+                    case ClassType.eWARRIOR:
+                        AbilityDescriptionB.text = AbilityManager.Instance.GetAbility(_levelledUpCharacter.Class, 6).AbilityDescription;
+                        return "Strength +1 and Penne Storm";
+                    case ClassType.eRANGER:
+                        AbilityDescriptionB.text = AbilityManager.Instance.GetAbility(_levelledUpCharacter.Class, 6).AbilityDescription;
+                        return "Dexterity +1 and Split Shot";
+                    case ClassType.eWIZARD:
+                        AbilityDescriptionB.text = AbilityManager.Instance.GetAbility(_levelledUpCharacter.Class, 7).AbilityDescription;
+                        return "Intelligence +1 and Spaghetti Whip";
+                    case ClassType.eSHAMAN:
+                        AbilityDescriptionB.text = AbilityManager.Instance.GetAbility(_levelledUpCharacter.Class, 6).AbilityDescription;
+                        return "Shroud of Regeneration";
+                }
+                break;
+            default:
+                return null;
         }
 
         return null;
