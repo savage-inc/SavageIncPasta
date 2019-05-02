@@ -68,6 +68,7 @@ public class Shop : MonoBehaviour
 
     public void ShowShop()
     {
+        FindObjectOfType<UIManager>().Close();
         if(Inventory == null || Inventory.GetItems().Count == 0)
         {
             StockShop();

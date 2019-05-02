@@ -47,20 +47,18 @@ public class UIManager : MonoBehaviour
             ClanUI.SetActive(false);
         }
 
-<<<<<<< HEAD
         if (BarracksUI != null)
         {
             BarracksUI.SetActive(false);
         }
-        if(ShopUI != null)
-=======
+
 		if (DialogueBox != null)
 		{
 			DialogueBox.SetActive(false);
 		}
 
 		if (ShopUI != null)
->>>>>>> Dialogue
+
         {
             ShopUI.SetActive(false);
 
@@ -111,10 +109,10 @@ public class UIManager : MonoBehaviour
 
     public void OpenClanUI()
     {
+        Close();
         if (ClanUI != null)
         {
             ClanUI.SetActive(true);
-
 
             if (pauseMenuUI != null)
             {

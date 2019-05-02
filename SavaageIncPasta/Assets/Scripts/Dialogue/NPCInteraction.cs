@@ -9,6 +9,7 @@ public class NPCInteraction : MonoBehaviour {
     public bool IsVendor;
 	public bool IsQuestGiver;
 	public bool IsClanRecruiter;
+    public bool IsBarracksRecruiter;
     public bool isTownie;
     public bool isBeggar;
 
@@ -26,8 +27,6 @@ public class NPCInteraction : MonoBehaviour {
 	{
 		_uiManager = FindObjectOfType<UIManager>();
         _diManager = FindObjectOfType<DialogueManager>();
-        NPCName.text = Name;
-
         _eventSystem = FindObjectOfType<EventSystem>();
 
         NegativeButton.onClick.AddListener(_uiManager.Close);
@@ -36,6 +35,8 @@ public class NPCInteraction : MonoBehaviour {
     IEnumerator show()
     {
         yield return new WaitForEndOfFrame();
+        _uiManager.Close();
+        NPCName.text = Name;
         _uiManager.OpenDialogueBox();
         _diManager.Talk();
         _eventSystem.SetSelectedGameObject(null, null);
@@ -66,16 +67,27 @@ public class NPCInteraction : MonoBehaviour {
             IsVendor = false;
             isTownie = false;
             isBeggar = false;
+            IsBarracksRecruiter = false;
 			PositiveButton.gameObject.SetActive(true);
 			PositiveButton.onClick.AddListener(_uiManager.OpenClanUI);
 		}
-		else if(IsVendor)
+        else if (IsBarracksRecruiter)
+        {
+            _diManager.parseXML("ClanManager");
+            IsVendor = false;
+            isTownie = false;
+            isBeggar = false;
+            IsClanRecruiter = false;
+            PositiveButton.gameObject.SetActive(true);
+            PositiveButton.onClick.AddListener(_uiManager.OpenBarracksUI);
+        }
+        else if(IsVendor)
 		{
             _diManager.parseXML("ShopKeeper");
             isBeggar = false;
             isTownie = false;
-            //PositiveButton.gameObject.SetActive(true);
-            //PositiveButton.onClick.AddListener(_uiManager.OpenShopUI);
+            PositiveButton.gameObject.SetActive(true);
+            PositiveButton.onClick.AddListener(GetComponent<Shop>().ShowShop);
         }
 		else if(isTownie)
 		{

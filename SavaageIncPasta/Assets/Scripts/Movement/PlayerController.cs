@@ -23,7 +23,11 @@ public class PlayerController : MonoBehaviour
         Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         _moveVelocity = moveInput.normalized * Speed;
 
-        if(_moveVelocity.x > 2.0 )
+        if(Time.timeScale == 0.0f)
+        {
+            _animator.Play("Idle");
+        }
+        else if(_moveVelocity.x > 2.0 )
         {
             _animator.Play("WalkRight");
         }

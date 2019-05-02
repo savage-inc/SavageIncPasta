@@ -152,6 +152,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114491071983835162, guid: 5e330bfe6c0490d4abfddafaff44adf7,
+        type: 2}
+      propertyPath: DialogueText
+      value: 
+      objectReference: {fileID: 498781376}
+    - target: {fileID: 114491071983835162, guid: 5e330bfe6c0490d4abfddafaff44adf7,
+        type: 2}
+      propertyPath: PositiveButton
+      value: 
+      objectReference: {fileID: 498781375}
+    - target: {fileID: 114491071983835162, guid: 5e330bfe6c0490d4abfddafaff44adf7,
+        type: 2}
+      propertyPath: NegativeButton
+      value: 
+      objectReference: {fileID: 498781374}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5e330bfe6c0490d4abfddafaff44adf7, type: 2}
   m_IsPrefabParent: 0
@@ -34292,6 +34307,24 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224711663577485444, guid: cef6fad864c048746ae7c45085d3e862,
     type: 2}
   m_PrefabInternal: {fileID: 498781372}
+--- !u!114 &498781374 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114881216658526414, guid: cef6fad864c048746ae7c45085d3e862,
+    type: 2}
+  m_PrefabInternal: {fileID: 498781372}
+  m_Script: {fileID: 1392445389, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+--- !u!114 &498781375 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114092380500159696, guid: cef6fad864c048746ae7c45085d3e862,
+    type: 2}
+  m_PrefabInternal: {fileID: 498781372}
+  m_Script: {fileID: 1392445389, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+--- !u!114 &498781376 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114963577982122746, guid: cef6fad864c048746ae7c45085d3e862,
+    type: 2}
+  m_PrefabInternal: {fileID: 498781372}
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!4 &995666122 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4537981468322970, guid: 5e330bfe6c0490d4abfddafaff44adf7,
@@ -34344,6 +34377,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneName: WorldScene
+  DialogueText: Are you sure you want to head back to the forest?
   PositionInNewScene: {x: 8, y: 68}
 --- !u!58 &1049270883
 CircleCollider2D:
