@@ -1,0 +1,37 @@
+<NPCS>
+	<NPC type = "ShopKeeper">
+		<dialogue>"Ho there adventurer! Would you like to peruse my fine wares?"</dialogue>
+		<dialogue>"Hi, are you buying or selling"</dialogue>
+		<dialogue>"Come to see my wares?"</dialogue>
+		<dialogue>"You too can be the proud owner of a curved sword! Take a look at my wares traveller?"</dialogue>
+	</NPC>
+	<NPC type = "Beggar">
+		<dialogue>*cough* ...</dialogue>
+		<dialogue>"Spare some change" ...</dialogue>
+		<dialogue>...</dialogue>
+		<dialogue>*The beggar gives you a dirty look* You decide its best to leave</dialogue>
+		<dialogue>"*The beggar stares at you, you stare back. You are locked in a stare war for a whole minute before you finally realise this beggar is blind"</dialogue>
+	</NPC>
+	<NPC type = "Townie">
+		<dialogue>"G'day" ...</dialogue>
+		<dialogue>"I heard there is a cave somewhere to the north" ...</dialogue>
+		<dialogue>"Pasta is nice with a bit of saucy culinary magic" ...</dialogue>
+		<dialogue>"I just love pasta so much" ...</dialogue>
+		<dialogue>"I hate when strangers talk to me. Do I look like I want to talk to someone who runs too everyone in the town, just to see if they have something interesting to say. Its just weird so go away " ...</dialogue>
+		<dialogue>*cough* ...</dialogue>
+		<dialogue>*COUGH* ...</dialogue>
+		<dialogue>*You casually admire how smart this person looks, you stop when you catch yourself drooling* ...</dialogue>
+		<dialogue>"Hello lecturers" *You step back shocked that the game became self aware. But what game!? Everything becomes more and more clear, the scenery you've lived in your whole life suddenly turns into sprites. You are in the matrix* ...</dialogue>
+	</NPC>
+	<NPC type = "ClanManager">
+		<dialogue>"Hi there, care to take a look at the recruits?"</dialogue>
+		<dialogue>"A few of the local lads heard about your adventures and want to join. Care to give them a look?"</dialogue>
+		<dialogue>"You look weak. I think you need some new recruits. Good thing we have them here, want a look?"</dialogue>
+		<dialogue>"In this town we drink milk! Milk builds strength! Want to recruit some strength? Then look no further!"</dialogue>
+		<dialogue>"I manage the clans in this area. Want to see the new recruits?"</dialogue>
+		<dialogue>"If you're looking for recruits you've come to the right place"</dialogue>
+		
+		
+	</NPC>
+
+</NPCS>

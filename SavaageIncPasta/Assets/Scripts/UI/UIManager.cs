@@ -13,6 +13,9 @@ public class UIManager : MonoBehaviour
     public GameObject ClanUI;
     public GameObject BarracksUI;
     public GameObject FirstObject;
+	public GameObject DialogueBox;
+
+
     public static bool GameIsPaused = false;
 
     private EventSystem _eventSystem;
@@ -44,11 +47,20 @@ public class UIManager : MonoBehaviour
             ClanUI.SetActive(false);
         }
 
+<<<<<<< HEAD
         if (BarracksUI != null)
         {
             BarracksUI.SetActive(false);
         }
         if(ShopUI != null)
+=======
+		if (DialogueBox != null)
+		{
+			DialogueBox.SetActive(false);
+		}
+
+		if (ShopUI != null)
+>>>>>>> Dialogue
         {
             ShopUI.SetActive(false);
 
@@ -89,7 +101,11 @@ public class UIManager : MonoBehaviour
             {
                 ShopUI.SetActive(false);
             }
-            Time.timeScale = 0f;
+			if (DialogueBox != null)
+			{
+				DialogueBox.SetActive(false);
+			}
+			Time.timeScale = 0f;
         }
     }
 
@@ -139,11 +155,41 @@ public class UIManager : MonoBehaviour
             {
                 ShopUI.SetActive(false);
             }
-            Time.timeScale = 0f;
+			if (DialogueBox != null)
+			{
+				DialogueBox.SetActive(false);
+			}
+			Time.timeScale = 0f;
         }
     }
+	public void OpenDialogueBox()
+	{
+		if (DialogueBox != null)
+		{
+			DialogueBox.SetActive(true);
 
-    void Update()
+
+			if (pauseMenuUI != null)
+			{
+				pauseMenuUI.SetActive(false);
+			}
+			if (Inventory != null)
+			{
+				Inventory.SetActive(false);
+			}
+			if (ShopUI != null)
+			{
+				ShopUI.SetActive(false);
+			}
+			if (ClanUI != null)
+			{
+				ClanUI.SetActive(false);
+			}
+			Time.timeScale = 0f;
+		}
+	}
+
+	void Update()
     {
         if (Input.GetButtonDown("Y") || Input.GetKeyDown(KeyCode.I)) // X button
         {

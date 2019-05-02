@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Scenes/Battle.unity
+=======
+- path: Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
+>>>>>>> Dialogue
   isLoaded: 1
   isActive: 1

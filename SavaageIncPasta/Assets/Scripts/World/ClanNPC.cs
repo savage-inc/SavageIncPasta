@@ -10,7 +10,7 @@ public class ClanNPC : MonoBehaviour {
         _uiManager = FindObjectOfType<UIManager>();
     }
 
-    void OnTriggerStay2D(Collider2D other)
+    /*void OnTriggerStay2D(Collider2D other)
     {
         if (Input.GetButtonDown("A") || Input.GetKeyDown(KeyCode.E))
         {
@@ -23,7 +23,7 @@ public class ClanNPC : MonoBehaviour {
                 CloseClan();
             }
         }
-    }
+    }*/
 
     IEnumerator showClan()
     {

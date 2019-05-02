@@ -113,6 +113,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
 --- !u!224 &29570132 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224685476555263014, guid: cef6fad864c048746ae7c45085d3e862,
@@ -192,11 +193,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 90342558}
+=======
+--- !u!224 &50754043 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 224711663577485444, guid: cef6fad864c048746ae7c45085d3e862,
+    type: 2}
+  m_PrefabInternal: {fileID: 838816110}
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
 --- !u!4 &94641142 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4537981468322970, guid: 5e330bfe6c0490d4abfddafaff44adf7,
     type: 2}
   m_PrefabInternal: {fileID: 846853209}
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
 --- !u!224 &98986656 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224875489850399968, guid: cef6fad864c048746ae7c45085d3e862,
@@ -430,6 +439,20 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 838816110}
   m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+=======
+--- !u!114 &151257283 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114877739992434322, guid: cc4b267d60402c34f8769bed6109c12c,
+    type: 2}
+  m_PrefabInternal: {fileID: 1769364441}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &193528755 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114126626169995840, guid: cc4b267d60402c34f8769bed6109c12c,
+    type: 2}
+  m_PrefabInternal: {fileID: 1769364441}
+  m_Script: {fileID: 1392445389, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
 --- !u!1 &223300668
 GameObject:
   m_ObjectHideFlags: 0
@@ -2022,12 +2045,20 @@ Prefab:
     - target: {fileID: 224963784567214990, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_AnchoredPosition.x
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: 0.00001488626
+=======
+      value: -0.00002960345
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 224963784567214990, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: 0.000015580938
+=======
+      value: 0.000007379023
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 114559782300806124, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
@@ -2062,7 +2093,11 @@ Prefab:
     - target: {fileID: 224609431499966404, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: -53.138214
+=======
+      value: -48.18372
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 224609431499966404, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
@@ -2072,7 +2107,11 @@ Prefab:
     - target: {fileID: 224609431499966404, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_SizeDelta.y
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: 106.27643
+=======
+      value: 96.36744
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 224770992988007154, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
@@ -2087,7 +2126,11 @@ Prefab:
     - target: {fileID: 224770992988007154, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: -159.41464
+=======
+      value: -144.55116
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 224770992988007154, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
@@ -2097,7 +2140,11 @@ Prefab:
     - target: {fileID: 224770992988007154, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_SizeDelta.y
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: 106.27643
+=======
+      value: 96.36744
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 224099831590190942, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
@@ -2112,7 +2159,11 @@ Prefab:
     - target: {fileID: 224099831590190942, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: -265.69107
+=======
+      value: -240.9186
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 224099831590190942, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
@@ -2122,7 +2173,11 @@ Prefab:
     - target: {fileID: 224099831590190942, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_SizeDelta.y
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: 106.27643
+=======
+      value: 96.36744
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 224883033789863760, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
@@ -2137,7 +2192,11 @@ Prefab:
     - target: {fileID: 224883033789863760, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: -371.9675
+=======
+      value: -337.28604
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 224883033789863760, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
@@ -2147,7 +2206,11 @@ Prefab:
     - target: {fileID: 224883033789863760, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_SizeDelta.y
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: 106.27643
+=======
+      value: 96.36744
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 224880628708872522, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
@@ -2167,7 +2230,11 @@ Prefab:
     - target: {fileID: 224880628708872522, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: -23.716429
+=======
+      value: -19.714989
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 224880628708872522, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
@@ -2177,7 +2244,11 @@ Prefab:
     - target: {fileID: 224880628708872522, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_SizeDelta.y
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: 47.432858
+=======
+      value: 39.429977
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 224386928211726884, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
@@ -2197,7 +2268,11 @@ Prefab:
     - target: {fileID: 224386928211726884, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: -71.149284
+=======
+      value: -59.144966
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 224386928211726884, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
@@ -2207,7 +2282,11 @@ Prefab:
     - target: {fileID: 224386928211726884, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_SizeDelta.y
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: 47.432858
+=======
+      value: 39.429977
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 224222617131494474, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
@@ -2227,7 +2306,11 @@ Prefab:
     - target: {fileID: 224222617131494474, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: -118.582146
+=======
+      value: -98.57494
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 224222617131494474, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
@@ -2237,7 +2320,11 @@ Prefab:
     - target: {fileID: 224222617131494474, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_SizeDelta.y
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: 47.432858
+=======
+      value: 39.429977
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 224626592131797824, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
@@ -2257,7 +2344,11 @@ Prefab:
     - target: {fileID: 224626592131797824, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: -166.015
+=======
+      value: -138.00491
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 224626592131797824, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
@@ -2267,7 +2358,11 @@ Prefab:
     - target: {fileID: 224626592131797824, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_SizeDelta.y
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: 47.432858
+=======
+      value: 39.429977
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 224360267705735414, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
@@ -2287,7 +2382,11 @@ Prefab:
     - target: {fileID: 224360267705735414, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: -213.44786
+=======
+      value: -177.4349
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 224360267705735414, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
@@ -2297,7 +2396,11 @@ Prefab:
     - target: {fileID: 224360267705735414, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_SizeDelta.y
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: 47.432858
+=======
+      value: 39.429977
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 224856817293035580, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
@@ -2317,7 +2420,11 @@ Prefab:
     - target: {fileID: 224856817293035580, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: -260.8807
+=======
+      value: -216.86487
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 224856817293035580, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
@@ -2327,7 +2434,11 @@ Prefab:
     - target: {fileID: 224856817293035580, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_SizeDelta.y
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: 47.432858
+=======
+      value: 39.429977
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 224362822641217084, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
@@ -2347,7 +2458,11 @@ Prefab:
     - target: {fileID: 224362822641217084, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: -308.31357
+=======
+      value: -256.29486
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 224362822641217084, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
@@ -2357,7 +2472,11 @@ Prefab:
     - target: {fileID: 224362822641217084, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_SizeDelta.y
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: 47.432858
+=======
+      value: 39.429977
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 224628672557856192, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
@@ -2377,7 +2496,11 @@ Prefab:
     - target: {fileID: 224628672557856192, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: -355.74643
+=======
+      value: -295.72482
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 224628672557856192, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
@@ -2387,7 +2510,11 @@ Prefab:
     - target: {fileID: 224628672557856192, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_SizeDelta.y
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: 47.432858
+=======
+      value: 39.429977
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 224255120587942598, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
@@ -2407,7 +2534,11 @@ Prefab:
     - target: {fileID: 224255120587942598, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: -403.1793
+=======
+      value: -335.15482
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 224255120587942598, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
@@ -2417,7 +2548,11 @@ Prefab:
     - target: {fileID: 224255120587942598, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_SizeDelta.y
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: 47.432858
+=======
+      value: 39.429977
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 224581820967997504, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
@@ -2437,7 +2572,11 @@ Prefab:
     - target: {fileID: 224581820967997504, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: -23.716429
+=======
+      value: -19.714989
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 224581820967997504, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
@@ -2447,7 +2586,11 @@ Prefab:
     - target: {fileID: 224581820967997504, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_SizeDelta.y
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: 47.432858
+=======
+      value: 39.429977
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 224606072185870824, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
@@ -2467,7 +2610,11 @@ Prefab:
     - target: {fileID: 224606072185870824, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: -71.149284
+=======
+      value: -59.144966
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 224606072185870824, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
@@ -2477,7 +2624,11 @@ Prefab:
     - target: {fileID: 224606072185870824, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_SizeDelta.y
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: 47.432858
+=======
+      value: 39.429977
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 224748859233084368, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
@@ -2497,7 +2648,11 @@ Prefab:
     - target: {fileID: 224748859233084368, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: -118.582146
+=======
+      value: -98.57494
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 224748859233084368, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
@@ -2507,7 +2662,11 @@ Prefab:
     - target: {fileID: 224748859233084368, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_SizeDelta.y
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: 47.432858
+=======
+      value: 39.429977
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 224642806286276286, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
@@ -2527,7 +2686,11 @@ Prefab:
     - target: {fileID: 224642806286276286, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: -166.015
+=======
+      value: -138.00491
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 224642806286276286, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
@@ -2537,7 +2700,11 @@ Prefab:
     - target: {fileID: 224642806286276286, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_SizeDelta.y
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: 47.432858
+=======
+      value: 39.429977
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 224756905201311954, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
@@ -2557,7 +2724,11 @@ Prefab:
     - target: {fileID: 224756905201311954, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: -213.44786
+=======
+      value: -177.4349
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 224756905201311954, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
@@ -2567,7 +2738,11 @@ Prefab:
     - target: {fileID: 224756905201311954, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_SizeDelta.y
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: 47.432858
+=======
+      value: 39.429977
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 224908693377289404, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
@@ -2587,7 +2762,11 @@ Prefab:
     - target: {fileID: 224908693377289404, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: -260.8807
+=======
+      value: -216.86487
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 224908693377289404, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
@@ -2597,7 +2776,11 @@ Prefab:
     - target: {fileID: 224908693377289404, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_SizeDelta.y
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: 47.432858
+=======
+      value: 39.429977
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 224046963917828796, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
@@ -2617,7 +2800,11 @@ Prefab:
     - target: {fileID: 224046963917828796, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: -308.31357
+=======
+      value: -256.29486
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 224046963917828796, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
@@ -2627,7 +2814,11 @@ Prefab:
     - target: {fileID: 224046963917828796, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_SizeDelta.y
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: 47.432858
+=======
+      value: 39.429977
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 224714949103428724, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
@@ -2647,7 +2838,11 @@ Prefab:
     - target: {fileID: 224714949103428724, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: -355.74643
+=======
+      value: -295.72482
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 224714949103428724, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
@@ -2657,7 +2852,11 @@ Prefab:
     - target: {fileID: 224714949103428724, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_SizeDelta.y
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: 47.432858
+=======
+      value: 39.429977
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 224647224615113012, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
@@ -2677,7 +2876,11 @@ Prefab:
     - target: {fileID: 224647224615113012, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: -403.1793
+=======
+      value: -335.15482
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 224647224615113012, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
@@ -2687,7 +2890,11 @@ Prefab:
     - target: {fileID: 224647224615113012, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_SizeDelta.y
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: 47.432858
+=======
+      value: 39.429977
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 224694341391228176, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
@@ -2707,7 +2914,11 @@ Prefab:
     - target: {fileID: 224694341391228176, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: -213.44786
+=======
+      value: -177.43489
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 224694341391228176, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
@@ -2717,7 +2928,11 @@ Prefab:
     - target: {fileID: 224694341391228176, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_SizeDelta.y
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: 426.89572
+=======
+      value: 354.86978
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 224282987702962702, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
@@ -2737,7 +2952,11 @@ Prefab:
     - target: {fileID: 224282987702962702, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: -213.44786
+=======
+      value: -177.43489
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 224282987702962702, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
@@ -2747,7 +2966,11 @@ Prefab:
     - target: {fileID: 224282987702962702, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_SizeDelta.y
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: 426.89572
+=======
+      value: 354.86978
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 224963784567214990, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
@@ -2832,7 +3055,11 @@ Prefab:
     - target: {fileID: 224534115330714166, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: -228.74785
+=======
+      value: -192.73488
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 224534115330714166, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
@@ -2842,7 +3069,11 @@ Prefab:
     - target: {fileID: 224534115330714166, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_SizeDelta.y
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: 457.4957
+=======
+      value: 385.46976
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 224406575243237062, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
@@ -2862,7 +3093,11 @@ Prefab:
     - target: {fileID: 224406575243237062, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: -228.74785
+=======
+      value: -192.73488
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 224406575243237062, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
@@ -2872,7 +3107,11 @@ Prefab:
     - target: {fileID: 224406575243237062, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_SizeDelta.y
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: 457.4957
+=======
+      value: 385.46976
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 224273658586679432, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
@@ -2892,7 +3131,11 @@ Prefab:
     - target: {fileID: 224273658586679432, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: -228.74785
+=======
+      value: -192.73488
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 224273658586679432, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
@@ -2902,7 +3145,11 @@ Prefab:
     - target: {fileID: 224273658586679432, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_SizeDelta.y
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
       value: 457.4957
+=======
+      value: 385.46976
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       objectReference: {fileID: 0}
     - target: {fileID: 114690888157810528, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
@@ -2916,6 +3163,33 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1489312157865516, guid: cef6fad864c048746ae7c45085d3e862, type: 2}
       propertyPath: m_IsActive
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
+=======
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4905278463878730, guid: cef6fad864c048746ae7c45085d3e862, type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114725442092669054, guid: cef6fad864c048746ae7c45085d3e862,
+        type: 2}
+      propertyPath: DialogueBox
+      value: 
+      objectReference: {fileID: 1877748060}
+    m_RemovedComponents:
+    - {fileID: 114901719385283814, guid: cef6fad864c048746ae7c45085d3e862, type: 2}
+  m_ParentPrefab: {fileID: 100100000, guid: cef6fad864c048746ae7c45085d3e862, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &846853209
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 429860666}
+    m_Modifications:
+    - target: {fileID: 4537981468322970, guid: 5e330bfe6c0490d4abfddafaff44adf7, type: 2}
+      propertyPath: m_LocalPosition.x
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1959975989637278, guid: cef6fad864c048746ae7c45085d3e862, type: 2}
@@ -3010,6 +3284,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
     - target: {fileID: 114336119536613606, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_Sprite
@@ -5276,11 +5551,28 @@ GameObject:
   - component: {fileID: 913496290}
   m_Layer: 5
   m_Name: Compare
+=======
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 5e330bfe6c0490d4abfddafaff44adf7, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1 &878762157
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 878762158}
+  - component: {fileID: 878762159}
+  m_Layer: 0
+  m_Name: ' DialogueManager'
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
 --- !u!224 &913496289
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5347,10 +5639,27 @@ GameObject:
     type: 2}
   m_PrefabInternal: {fileID: 838816110}
 --- !u!114 &1010507739
+=======
+--- !u!4 &878762158
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 878762157}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5.322153, y: -1.6689603, z: 9.047474}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 94641142}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &878762159
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
   m_GameObject: {fileID: 1010507738}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -5376,6 +5685,25 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
+=======
+  m_GameObject: {fileID: 878762157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6c93b39f052a2a49a5043c3def238a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Message: 
+  DialogueText: {fileID: 1339355875}
+  PositiveButton: {fileID: 0}
+  NegativeButton: {fileID: 0}
+  DialogueXML: {fileID: 4900000, guid: c34fbedd13c2b2847b93ee257f61a247, type: 3}
+--- !u!114 &881045064 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114680706801773494, guid: cc4b267d60402c34f8769bed6109c12c,
+    type: 2}
+  m_PrefabInternal: {fileID: 1769364441}
+  m_Script: {fileID: 1392445389, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
 --- !u!1 &1068576369
 GameObject:
   m_ObjectHideFlags: 0
@@ -7056,6 +7384,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b42aa9d4a497fd246b0163d4c48151d5, type: 2}
   m_IsPrefabParent: 0
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
 --- !u!114 &1291579829 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114446704843825254, guid: cef6fad864c048746ae7c45085d3e862,
@@ -7189,6 +7518,14 @@ RectTransform:
   m_AnchoredPosition: {x: 15, y: -0.0000019073}
   m_SizeDelta: {x: 46.35, y: 51.43}
   m_Pivot: {x: 0.5, y: 0.5}
+=======
+--- !u!114 &1339355875 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114887295786123868, guid: cc4b267d60402c34f8769bed6109c12c,
+    type: 2}
+  m_PrefabInternal: {fileID: 1769364441}
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
 --- !u!1 &1364853959
 GameObject:
   m_ObjectHideFlags: 0
@@ -7293,7 +7630,7 @@ GameObject:
   - component: {fileID: 1377855552}
   - component: {fileID: 1377855551}
   - component: {fileID: 1377855550}
-  - component: {fileID: 1377855549}
+  - component: {fileID: 1377855553}
   m_Layer: 0
   m_Name: ClanNPC
   m_TagString: Untagged
@@ -7301,17 +7638,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1377855549
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1377855548}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65ba865d49316854793b0ea98ca0c5e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &1377855550
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7394,16 +7720,41 @@ Transform:
   m_Father: {fileID: 429860666}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
 --- !u!224 &1412994650 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224519492316105540, guid: cef6fad864c048746ae7c45085d3e862,
     type: 2}
   m_PrefabInternal: {fileID: 838816110}
 --- !u!1001 &1597256825
+=======
+--- !u!114 &1377855553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1377855548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a13373d1b8d0c1a4fa0cee4249a3e837, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsVendor: 1
+  IsQuestGiver: 0
+  IsClanRecruiter: 1
+  isTownie: 0
+  isBeggar: 0
+  Name: Byron Hawken
+  NPCName: {fileID: 151257283}
+  PositiveButton: {fileID: 193528755}
+  NegativeButton: {fileID: 881045064}
+--- !u!1001 &1769364441
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4438322326799456, guid: 00c967df75bbc2042a1466031307e0b0, type: 2}
@@ -7606,6 +7957,103 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 838816110}
   m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+=======
+    m_TransformParent: {fileID: 50754043}
+    m_Modifications:
+    - target: {fileID: 224906151102851392, guid: cc4b267d60402c34f8769bed6109c12c,
+        type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224906151102851392, guid: cc4b267d60402c34f8769bed6109c12c,
+        type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224906151102851392, guid: cc4b267d60402c34f8769bed6109c12c,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224906151102851392, guid: cc4b267d60402c34f8769bed6109c12c,
+        type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224906151102851392, guid: cc4b267d60402c34f8769bed6109c12c,
+        type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224906151102851392, guid: cc4b267d60402c34f8769bed6109c12c,
+        type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224906151102851392, guid: cc4b267d60402c34f8769bed6109c12c,
+        type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224906151102851392, guid: cc4b267d60402c34f8769bed6109c12c,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 224906151102851392, guid: cc4b267d60402c34f8769bed6109c12c,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -5.2249756
+      objectReference: {fileID: 0}
+    - target: {fileID: 224906151102851392, guid: cc4b267d60402c34f8769bed6109c12c,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 101.67999
+      objectReference: {fileID: 0}
+    - target: {fileID: 224906151102851392, guid: cc4b267d60402c34f8769bed6109c12c,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 1038.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 224906151102851392, guid: cc4b267d60402c34f8769bed6109c12c,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 205.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 224906151102851392, guid: cc4b267d60402c34f8769bed6109c12c,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224906151102851392, guid: cc4b267d60402c34f8769bed6109c12c,
+        type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224906151102851392, guid: cc4b267d60402c34f8769bed6109c12c,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224906151102851392, guid: cc4b267d60402c34f8769bed6109c12c,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224906151102851392, guid: cc4b267d60402c34f8769bed6109c12c,
+        type: 2}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224906151102851392, guid: cc4b267d60402c34f8769bed6109c12c,
+        type: 2}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: cc4b267d60402c34f8769bed6109c12c, type: 2}
+  m_IsPrefabParent: 0
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
 --- !u!1 &1845612595
 GameObject:
   m_ObjectHideFlags: 0
@@ -7648,6 +8096,7 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
+<<<<<<< HEAD:SavaageIncPasta/Assets/Scenes/World/ClanScene.unity
 --- !u!1 &1879139849
 GameObject:
   m_ObjectHideFlags: 0
@@ -7935,3 +8384,10 @@ RectTransform:
   m_AnchoredPosition: {x: 0.000005722, y: -8.2}
   m_SizeDelta: {x: 60.25, y: 28.86}
   m_Pivot: {x: 0.5, y: 0.5}
+=======
+--- !u!1 &1877748060 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1442902082423100, guid: cc4b267d60402c34f8769bed6109c12c,
+    type: 2}
+  m_PrefabInternal: {fileID: 1769364441}
+>>>>>>> Dialogue:SavaageIncPasta/Assets/Scenes/World/Dialogue/ClanSceneDialogue.unity
