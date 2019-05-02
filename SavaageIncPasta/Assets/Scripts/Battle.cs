@@ -278,14 +278,20 @@ public class Battle : MonoBehaviour
         else if (_deadEnemies >= _enemyList.Count)
         {
             float experience = 0;
+            int gold = 0;
             // Player wins
             foreach (Character enemy in _enemyList)
             {
                 FindObjectOfType<PartyInventory>().Gold += enemy.GoldDrop;
+                gold += enemy.GoldDrop;
                 experience += enemy.Experience;
 
             }
             experience /= _partyList.Count;
+            int playersLeft = 0;
+            PlayerPrefs.SetString("Player0", "");
+            PlayerPrefs.SetString("Player1", "");
+            PlayerPrefs.SetString("Player2", "");
             foreach (BattleCharacter player in _battleCharacterList)
             {
                 if (player.Character.Player)
@@ -295,21 +301,25 @@ public class Battle : MonoBehaviour
                     player.Character.Comfort -= player.DamageTaken == 0 ? 1 : player.DamageTaken / 2;
 
                     //check comfort
-                    if(player.Character.Comfort <= 0)
+                    if(player.Character.Comfort <= 0 && player.Character.Alive)
                     {
+                        PlayerPrefs.SetString("Player" + playersLeft, player.Character.Name);
                         _playerManager.RemoveCharacter(player.Character);
                         _clanManager.AddCharacter(player.Character);
+                        playersLeft++;
                     }
                 }
             }
-            Vector2 newPos = new Vector2(PlayerPrefs.GetFloat("SceneOriginX"), PlayerPrefs.GetFloat("SceneOriginY"));
-            PersistantData.SetPlayerPositionInNextScene(newPos);
             //only save not in debug mode (Generated characters upon battle load instead of saved party)
             if (!_debugMode)
             {
                 FindObjectOfType<BattleInventoryUI>().Save();
             }
-            SceneManager.LoadScene(PlayerPrefs.GetInt("SceneOrigin"), LoadSceneMode.Single);
+            PlayerPrefs.SetInt("Gold", gold);
+            PlayerPrefs.SetInt("Experience", (int)experience);
+            PlayerPrefs.Save();
+
+            SceneManager.LoadScene("WinBattle", LoadSceneMode.Single);
         }
     }
 
@@ -1068,6 +1078,8 @@ public class Battle : MonoBehaviour
         int damage = 0;
 
         var weapon = attacker.Character.Equipment.GetEquippedWeapon();
+        var weaponDamage = attacker.Character.Equipment.GetEquippedWeaponDamage();
+        var weaponVarDamage = attacker.Character.Equipment.GetEquippedWeaponVarDamage();
         var Armour = defender.Character.Equipment.GetArmourMagicType();
             
         float magicEffect = 1.0f;
@@ -1085,7 +1097,8 @@ public class Battle : MonoBehaviour
                     magicEffect = 0.5f;
                 }
             }
-            else if (weapon.MagicalType == MagicType.ePESTO)            {
+            else if (weapon.MagicalType == MagicType.ePESTO)
+            {
                 if (Armour == MagicType.eTOMATO || defender.Character.Magic == MagicType.eTOMATO)
                 {
                     magicEffect = 2.0f;
@@ -1152,7 +1165,7 @@ public class Battle : MonoBehaviour
         }
         else
         {
-            return damage = (int)((weapon.BaseDamage + Random.Range(-(int)weapon.VarianceDamage + attacker.ClassModifier / 2, (int)weapon.VarianceDamage + attacker.ClassModifier) * _battleCharacterList[_targettedCharacterIndex].Defending) * magicEffect);
+            return damage = (int)(((weaponDamage + Random.Range(-weaponVarDamage + attacker.ClassModifier / 2, weaponVarDamage + attacker.ClassModifier)) * _battleCharacterList[_targettedCharacterIndex].Defending) * magicEffect);
         }
     }
 

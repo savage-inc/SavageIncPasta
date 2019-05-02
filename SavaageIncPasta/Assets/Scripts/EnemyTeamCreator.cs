@@ -8,6 +8,8 @@ using UnityEngine;
 public class EnemyTeamCreator : EditorWindow
 {
     public List<EnemyList> _teamList;
+    Vector2 scrollPos;
+
     [MenuItem("Window/Enemy Team Manager")]
     public static void ShowWindow()
     {
@@ -30,10 +32,16 @@ public class EnemyTeamCreator : EditorWindow
 
         var serializedObject = new SerializedObject(this);
         var property = serializedObject.FindProperty("_teamList");
+
+        EditorGUILayout.BeginHorizontal();
+        scrollPos = EditorGUILayout.BeginScrollView(scrollPos, GUILayout.Width(1000), GUILayout.Height(1000));
+
         serializedObject.Update();
         EditorGUILayout.PropertyField(property, true);
         serializedObject.ApplyModifiedProperties();
 
+        EditorGUILayout.EndScrollView();
+        EditorGUILayout.EndHorizontal();
     }
 
     void load()

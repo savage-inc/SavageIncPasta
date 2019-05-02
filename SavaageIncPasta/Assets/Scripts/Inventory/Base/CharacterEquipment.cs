@@ -127,6 +127,34 @@ public class CharacterEquipment : Inventory
         return null;
     }
 
+    public int GetEquippedWeaponDamage()
+    {
+        int damage = 0;
+        foreach (var inventoryItem in _inventoryItems)
+        {
+            if (inventoryItem.Item.ItemType == ItemType.eWEAPON)
+            {
+                damage += (int)((WeaponItemData)inventoryItem.Item).BaseDamage;
+            }
+        }
+
+        return damage;
+    }
+
+    public int GetEquippedWeaponVarDamage()
+    {
+        int damage = 0;
+        foreach (var inventoryItem in _inventoryItems)
+        {
+            if (inventoryItem.Item.ItemType == ItemType.eWEAPON)
+            {
+                damage += (int)((WeaponItemData)inventoryItem.Item).VarianceDamage;
+            }
+        }
+
+        return damage;
+    }
+
     public ArmourItemData GetEquippedArmour(ArmourItemData.SlotType armourSlotType)
     {
         foreach (var inventoryItem in _inventoryItems)

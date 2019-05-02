@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Battle.unity
     guid: 4fed778d608d8384bba52d84f951a0f0
   - enabled: 1
+    path: Assets/Scenes/WinBattle.unity
+    guid: 9abf27931bd450249ba3bf6d51e50273
+  - enabled: 1
     path: Assets/Scenes/World/BarracksScene.unity
     guid: f8986cd05212d114eaed94474857aa08
   - enabled: 1

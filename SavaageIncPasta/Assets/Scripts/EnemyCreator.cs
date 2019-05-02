@@ -93,6 +93,16 @@ public class EnemyCreator : EditorWindow
         _enemy.BaseArmour = EditorGUILayout.IntField(_enemy.BaseArmour);
         EditorGUILayout.EndHorizontal();
 
+        EditorGUILayout.BeginHorizontal();
+        GUILayout.Label("Enemy Experiance");
+        _enemy.Experience = EditorGUILayout.IntField(_enemy.Experience);
+        EditorGUILayout.EndHorizontal();
+
+        EditorGUILayout.BeginHorizontal();
+        GUILayout.Label("Enemy Gold Reward");
+        _enemy.GoldDrop = EditorGUILayout.IntField(_enemy.GoldDrop);
+        EditorGUILayout.EndHorizontal();
+
         EditorGUILayout.EndVertical();
 
         if (GUILayout.Button("Save to File"))

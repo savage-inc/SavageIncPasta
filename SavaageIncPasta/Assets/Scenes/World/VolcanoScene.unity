@@ -34898,12 +34898,12 @@ Prefab:
     - target: {fileID: 114946705959729174, guid: 3accce280096e46449bf3b9689d7cae9,
         type: 2}
       propertyPath: MinStepsBeforeBattle
-      value: 40
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 114946705959729174, guid: 3accce280096e46449bf3b9689d7cae9,
         type: 2}
       propertyPath: MaxStepsBeforeBattle
-      value: 120
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 114946705959729174, guid: 3accce280096e46449bf3b9689d7cae9,
         type: 2}

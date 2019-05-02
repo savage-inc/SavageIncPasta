@@ -5195,6 +5195,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114092380500159696, guid: cef6fad864c048746ae7c45085d3e862,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 224711663577485444, guid: cef6fad864c048746ae7c45085d3e862,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -5408,6 +5413,31 @@ Prefab:
       propertyPath: m_SizeDelta.x
       value: 122
       objectReference: {fileID: 0}
+    - target: {fileID: 114092380500159696, guid: cef6fad864c048746ae7c45085d3e862,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114092380500159696, guid: cef6fad864c048746ae7c45085d3e862,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114092380500159696, guid: cef6fad864c048746ae7c45085d3e862,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2043481326}
+    - target: {fileID: 114092380500159696, guid: cef6fad864c048746ae7c45085d3e862,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TopUpParty
+      objectReference: {fileID: 0}
+    - target: {fileID: 114092380500159696, guid: cef6fad864c048746ae7c45085d3e862,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cef6fad864c048746ae7c45085d3e862, type: 2}
   m_IsPrefabParent: 0
@@ -5523,3 +5553,9 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.7
+--- !u!114 &2043481326 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114313382199000234, guid: 5e330bfe6c0490d4abfddafaff44adf7,
+    type: 2}
+  m_PrefabInternal: {fileID: 1150418751}
+  m_Script: {fileID: 11500000, guid: 71b804658089daf4d8d08e4cc2275187, type: 3}

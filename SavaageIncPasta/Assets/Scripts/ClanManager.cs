@@ -49,4 +49,12 @@ public class ClanManager : MonoBehaviour
         RemoveCharacter(ClanMember);
     }
 
+    public void TopUpParty()
+    {
+        while (FindObjectOfType<PlayerManager>().Characters.Count < 4 && SpareCharacterPool.Count > 1)
+        {
+            AddToParty(SpareCharacterPool[1]);            
+        }
+    }
+
 }
