@@ -84,7 +84,7 @@ public class LevelUpMenu : MonoBehaviour
     {
         _levelledUpCharacter = _levellingManager.GetLevelledUpCharacter();
 
-        switch (_levelledUpCharacter.Level)
+        switch (_levelledUpCharacter.Level + 1)
         {
             case 2:
                 if (choice == 'a')
@@ -160,6 +160,7 @@ public class LevelUpMenu : MonoBehaviour
                 break;
         }
 
+        _levelledUpCharacter.Level++;
         PersistantData.SavePartyData(FindObjectOfType<PartyInventory>(), FindObjectOfType<PlayerManager>(), FindObjectOfType<ClanManager>());
     }
 
@@ -185,7 +186,7 @@ public class LevelUpMenu : MonoBehaviour
     {
         _levelledUpCharacter = _levellingManager.GetLevelledUpCharacter();
 
-        switch (_levelledUpCharacter.Level)
+        switch (_levelledUpCharacter.Level + 1)
         {
             case 2:
                 AbilityDescriptionA.text = AbilityManager.Instance.GetAbility(_levelledUpCharacter.Class, 2).AbilityDescription;
@@ -250,7 +251,7 @@ public class LevelUpMenu : MonoBehaviour
         {
             _levelledUpCharacter = _levellingManager.GetLevelledUpCharacter();
 
-            switch (_levelledUpCharacter.Level)
+            switch (_levelledUpCharacter.Level + 1)
             {
                 case 2:
                     AbilityDescriptionB.text = AbilityManager.Instance.GetAbility(_levelledUpCharacter.Class, 3).AbilityDescription;
@@ -309,7 +310,7 @@ public class LevelUpMenu : MonoBehaviour
             if (_choiceMenu.activeInHierarchy)
             {
                 GUI.Box(new Rect(Screen.width / 2 - 100, 100, 250, 50), _levellingManager.GetLevelledUpCharacter().Name, FontStyle);
-                GUI.Box(new Rect(Screen.width / 2 - 100, 170, 250, 50), "Welcome to level " + _levellingManager.GetLevelledUpCharacter().Level, FontStyle);
+                GUI.Box(new Rect(Screen.width / 2 - 100, 170, 250, 50), "Welcome to level " + (_levellingManager.GetLevelledUpCharacter().Level + 1), FontStyle);
             }
         }
     }
