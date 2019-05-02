@@ -20,7 +20,11 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 6}
+<<<<<<< HEAD
   m_MinSize: {x: 950, y: 300}
+=======
+  m_MinSize: {x: 950, y: 392}
+>>>>>>> LevellingSystem
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -40,12 +44,21 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 30
+<<<<<<< HEAD
     width: 2560
     height: 1341
   m_MinSize: {x: 683, y: 492}
   m_MaxSize: {x: 14004, y: 14042}
   vertical: 0
   controlID: 615
+=======
+    width: 1920
+    height: 1067
+  m_MinSize: {x: 683, y: 342}
+  m_MaxSize: {x: 12008, y: 8042}
+  vertical: 0
+  controlID: 71
+>>>>>>> LevellingSystem
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -87,8 +100,13 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 505
     height: 811
+=======
+    width: 379
+    height: 645
+>>>>>>> LevellingSystem
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 15}
@@ -111,6 +129,7 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
     y: 811
     width: 2041
     height: 530
@@ -121,6 +140,18 @@ MonoBehaviour:
   - {fileID: 13}
   - {fileID: 18}
   m_Selected: 0
+=======
+    y: 645
+    width: 1531
+    height: 422
+  m_MinSize: {x: 102, y: 121}
+  m_MaxSize: {x: 4002, y: 4021}
+  m_ActualView: {fileID: 18}
+  m_Panes:
+  - {fileID: 13}
+  - {fileID: 18}
+  m_Selected: 1
+>>>>>>> LevellingSystem
   m_LastSelected: 0
 --- !u!114 &6
 MonoBehaviour:
@@ -204,12 +235,21 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 2041
     height: 1341
   m_MinSize: {x: 406, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
   controlID: 547
+=======
+    width: 1531
+    height: 1067
+  m_MinSize: {x: 406, y: 342}
+  m_MaxSize: {x: 8006, y: 8042}
+  vertical: 1
+  controlID: 72
+>>>>>>> LevellingSystem
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -254,13 +294,13 @@ MonoBehaviour:
     height: 811
   m_MinSize: {x: 204, y: 221}
   m_MaxSize: {x: 4004, y: 4021}
-  m_ActualView: {fileID: 16}
+  m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 16}
   - {fileID: 17}
   - {fileID: 12}
-  m_Selected: 0
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -324,6 +364,7 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
+<<<<<<< HEAD
     - Assets
   m_ViewMode: 1
   m_StartGridSize: 64
@@ -337,6 +378,21 @@ MonoBehaviour:
     m_SelectedIDs: b0230000
     m_LastClickedID: 9136
     m_ExpandedIDs: 00000000b023000000ca9a3bffffff7f
+=======
+    - Assets/Resources/Data/Abilities/Wizard
+  m_ViewMode: 1
+  m_StartGridSize: 64
+  m_LastFolders:
+  - Assets/Resources/Data/Abilities/Wizard
+  m_LastFoldersGridSize: -1
+  m_LastProjectPath: C:\Users\s6061420\Source\SavageIncPasta\SavaageIncPasta
+  m_IsLocked: 0
+  m_FolderTreeState:
+    scrollPos: {x: 0, y: 79}
+    m_SelectedIDs: 82290000
+    m_LastClickedID: 10626
+    m_ExpandedIDs: 00000000f828000066290000a2290000142b0000882b0000922b0000f22b00002e2c00006a2c000032350000b23500003636000010370000c4440000c644000000ca9a3bffffff7f
+>>>>>>> LevellingSystem
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -365,7 +421,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< HEAD
     m_ExpandedIDs: 00000000b023000000ca9a3bffffff7f
+=======
+    m_ExpandedIDs: 00000000f828000066290000a2290000142b0000882b0000922b0000f22b00002e2c00006a2c000032350000b23500003636000010370000c4440000c6440000
+>>>>>>> LevellingSystem
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -443,10 +503,18 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 2043
     y: 94
     width: 517
     height: 1320
+=======
+    x: 1533
+    y: 92
+    width: 387
+    height: 1046
+  m_PersistentViewDataDictionary: {fileID: 0}
+>>>>>>> LevellingSystem
   m_ScrollPosition: {x: 0, y: 0}
   m_InspectorMode: 0
   m_PreviewResizer:
@@ -484,21 +552,25 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< HEAD
     m_ExpandedIDs: 00000000
+=======
+    m_ExpandedIDs: a2defcfff063feff6cd8ffff9cfbffff00000000ca3e00002c3f0000323f0000d2060100
+>>>>>>> LevellingSystem
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: Option A
+      m_OriginalName: Option A
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: -10134
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 0
       m_ClientGUIView: {fileID: 0}
     m_CreateAssetUtility:
@@ -508,8 +580,13 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_SearchString: 
+<<<<<<< HEAD
     m_ColumnWidths: []
   m_ExpandedScenes: []
+=======
+  m_ExpandedScenes:
+  - WorldSceneUI
+>>>>>>> LevellingSystem
   m_CurrenRootInstanceID: 0
   m_Locked: 0
   m_CurrentSortingName: TransformSorting
@@ -540,6 +617,7 @@ MonoBehaviour:
     width: 1532
     height: 790
   m_SceneLighting: 1
+<<<<<<< HEAD
   lastFramingTime: 0
   m_2DMode: 0
   m_isRotationLocked: 0
@@ -548,6 +626,16 @@ MonoBehaviour:
     m_Target: {x: 0, y: 0, z: 0}
     speed: 2
     m_Value: {x: 0, y: 0, z: 0}
+=======
+  lastFramingTime: 995.796713781955
+  m_2DMode: 1
+  m_isRotationLocked: 0
+  m_AudioPlay: 0
+  m_Position:
+    m_Target: {x: 288.38712, y: 340.33835, z: -6.7342443}
+    speed: 2
+    m_Value: {x: 288.38712, y: 340.33835, z: -6.7342443}
+>>>>>>> LevellingSystem
   m_RenderMode: 0
   m_SceneViewState:
     showFog: 1
@@ -573,9 +661,15 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
   m_Size:
+<<<<<<< HEAD
     m_Target: 10
     speed: 2
     m_Value: 10
+=======
+    m_Target: 1014.79114
+    speed: 2
+    m_Value: 1014.79114
+>>>>>>> LevellingSystem
   m_Ortho:
     m_Target: 0
     speed: 2

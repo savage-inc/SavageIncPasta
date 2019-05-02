@@ -25,11 +25,11 @@ public class WorldManager : MonoBehaviour
 
         _playerManager = FindObjectOfType<PlayerManager>();
         _clanManager = FindObjectOfType<ClanManager>();
+        LoadWorld();
     }
 
     void Start()
     {
-        LoadWorld();
         //check wether the player has a custom location to be loaded in the new scene
         if (PersistantData.HasPositionInScene())
         {
