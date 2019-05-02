@@ -8,7 +8,9 @@ public class LevelUpMenu : MonoBehaviour
 {
     public GUIStyle FontStyle;
     private bool _levelledUp = false, _choiceMade = false;
+    [SerializeField]
     private GameObject _choiceMenu;
+    [SerializeField]
     private Button[] _buttons = new Button[2];
     public Text AbilityDescriptionA, AbilityDescriptionB;
     private BasicLevelling _levellingManager;
@@ -22,11 +24,7 @@ public class LevelUpMenu : MonoBehaviour
 
     private void Awake()
     {
-        _choiceMenu = GameObject.Find("Choice Menu");
         _levellingManager = FindObjectOfType<BasicLevelling>();
-
-        _buttons[0] = GameObject.Find("Option A").GetComponent<Button>();
-        _buttons[1] = GameObject.Find("Option B").GetComponent<Button>();
     }
 
     // Use this for initialization

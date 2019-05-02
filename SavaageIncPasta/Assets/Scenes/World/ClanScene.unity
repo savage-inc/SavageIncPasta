@@ -1228,9 +1228,19 @@ Prefab:
       propertyPath: m_AnchoredPosition.y
       value: 0.9000244
       objectReference: {fileID: 0}
+    - target: {fileID: 114725442092669054, guid: cef6fad864c048746ae7c45085d3e862,
+        type: 2}
+      propertyPath: ChoiceMenu
+      value: 
+      objectReference: {fileID: 838816111}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cef6fad864c048746ae7c45085d3e862, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &838816111 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1908879830622600, guid: cef6fad864c048746ae7c45085d3e862,
+    type: 2}
+  m_PrefabInternal: {fileID: 838816110}
 --- !u!1001 &846853209
 Prefab:
   m_ObjectHideFlags: 0

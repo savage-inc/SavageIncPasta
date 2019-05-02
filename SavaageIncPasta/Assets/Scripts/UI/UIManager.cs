@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
     public GameObject BarracksUI;
     public GameObject FirstObject;
 	public GameObject DialogueBox;
+    public GameObject ChoiceMenu;
 
 
     public static bool GameIsPaused = false;
@@ -61,14 +62,18 @@ public class UIManager : MonoBehaviour
 
         {
             ShopUI.SetActive(false);
+        }
 
+        if (ChoiceMenu != null)
+        {
+            ChoiceMenu.SetActive(false);
         }
         Time.timeScale = 1f;
     }
 
     public void OpenInventory()
     {
-        if (Inventory != null)
+        if (Inventory != null && !ChoiceMenu.activeInHierarchy)
         {
             Inventory.SetActive(true);
             //set first selected to first item
@@ -166,7 +171,6 @@ public class UIManager : MonoBehaviour
 		{
 			DialogueBox.SetActive(true);
 
-
 			if (pauseMenuUI != null)
 			{
 				pauseMenuUI.SetActive(false);
@@ -201,7 +205,7 @@ public class UIManager : MonoBehaviour
             }
         }
 
-        if (Input.GetButtonDown("B")) // X button
+        if (Input.GetButtonDown("B") && !ChoiceMenu.activeInHierarchy) // X button
         {
             Close();
         }
@@ -216,6 +220,36 @@ public class UIManager : MonoBehaviour
             {
                 Pause();
             }
+        }
+    }
+
+    public void ShowLevel()
+    {
+        if (ChoiceMenu != null)
+        {
+            ChoiceMenu.SetActive(true);
+
+            if (pauseMenuUI != null)
+            {
+                pauseMenuUI.SetActive(false);
+            }
+            if (Inventory != null)
+            {
+                Inventory.SetActive(false);
+            }
+            if (ShopUI != null)
+            {
+                ShopUI.SetActive(false);
+            }
+            if (ClanUI != null)
+            {
+                ClanUI.SetActive(false);
+            }
+            if (DialogueBox != null)
+            {
+                DialogueBox.SetActive(false);
+            }
+            Time.timeScale = 0f;
         }
     }
 

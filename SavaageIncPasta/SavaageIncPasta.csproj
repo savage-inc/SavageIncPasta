@@ -246,7 +246,6 @@
       <HintPath>Assets/3rdParty/TextMeshPro/Plugins/Editor DLL/TextMeshPro-2017.3-Runtime.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Analytics">
-<<<<<<< HEAD
       <HintPath>C:/Users/t7042361/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.13/UnityEngine.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Purchasing">
@@ -254,15 +253,6 @@
     </Reference>
     <Reference Include="UnityEngine.StandardEvents">
       <HintPath>C:/Users/t7042361/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
-=======
-      <HintPath>C:/Users/s6061420/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.13/UnityEngine.Analytics.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Purchasing">
-      <HintPath>C:/Users/s6061420/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.purchasing@0.0.19/UnityEngine.Purchasing.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.StandardEvents">
-      <HintPath>C:/Users/s6061420/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
->>>>>>> LevellingSystem
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -307,12 +297,9 @@
     <Compile Include="Assets\Scripts\AI\FindPathToTarget.cs" />
     <Compile Include="Assets\Scripts\AI\GridMap.cs" />
     <Compile Include="Assets\Scripts\AI\Node.cs" />
-<<<<<<< HEAD
     <Compile Include="Assets\Scripts\Barracks.cs" />
     <Compile Include="Assets\Scripts\BarracksManager.cs" />
-=======
     <Compile Include="Assets\Scripts\BasicLevelling.cs" />
->>>>>>> LevellingSystem
     <Compile Include="Assets\Scripts\Battle.cs" />
     <Compile Include="Assets\Scripts\BattleCharacter.cs" />
     <Compile Include="Assets\Scripts\Character.cs" />

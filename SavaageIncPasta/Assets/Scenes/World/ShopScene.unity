@@ -3046,6 +3046,11 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114725442092669054, guid: cef6fad864c048746ae7c45085d3e862,
+        type: 2}
+      propertyPath: ChoiceMenu
+      value: 
+      objectReference: {fileID: 1566588424}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cef6fad864c048746ae7c45085d3e862, type: 2}
   m_IsPrefabParent: 0
@@ -3073,6 +3078,11 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1566588419}
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!1 &1566588424 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1908879830622600, guid: cef6fad864c048746ae7c45085d3e862,
+    type: 2}
+  m_PrefabInternal: {fileID: 1566588419}
 --- !u!1 &1749016910
 GameObject:
   m_ObjectHideFlags: 0
