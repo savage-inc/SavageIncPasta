@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class MiniMapTreeobject : MonoBehaviour {
     private static SpriteRenderer spriteRender;
     static int VertexCount = Mathf.Clamp(3, 3, 10);
@@ -9,7 +10,7 @@ public class MiniMapTreeobject : MonoBehaviour {
     private void Awake()
     {
         spriteRender = gameObject.GetComponent<SpriteRenderer>();
-        Sprite sprite = new Sprite();
+        Sprite sprite;
         Texture2D texture = new Texture2D(100, 100);
         sprite = Sprite.Create(texture, new Rect(0, 0, 100, 100),new Vector2(50,50));
         spriteRender.sprite = sprite;
@@ -17,7 +18,7 @@ public class MiniMapTreeobject : MonoBehaviour {
         {
             sprite.vertices[i] = vertices[i];
             print(sprite.vertices[i]);
-
+            
         }
     }
     // Use this for initialization
